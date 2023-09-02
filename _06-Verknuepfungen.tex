@@ -1,0 +1,802 @@
+
+
+\setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
+    Der Begriff der Verknüpfung verallgemeinert die aus der Schule bekannten Rechenoperationen. In diesem Vortrag werden grundlegende Eigenschaften von Verknüpfungen untersucht und ein paar Konsequenzen daraus abgeleitet.
+\vspace{24pt}}
+
+
+\chapter{Verknüpfungen}
+
+
+\section{Allgemeines}
+
+
+\begin{de} \index{Verknüpfung}
+    Sei $X$ eine beliebige Menge. Eine (zweistellige) \textbf{Verknüpfung auf $X$} ist eine Abbildung $X\times X \to X$, d.h. eine Abbildung, die jedem Elementepaar von $X$ wiederum ein Element von $X$ zuordnet. Eine zweistellige Verknüpfung wird in der Regel mit einem „Verknüpfungszeichen“ notiert. Das heißt: ist der Name der Abbildung etwa „$*$“, so schreibt man
+        \[ x*y \qquad\text{anstelle von}\qquad *(x,y) \]
+    für den Funktionswert des Paares $(x,y)$ unter der Abbildung $*$.
+\end{de}
+
+
+\begin{bem}[* Verallgemeinerungen]
+    Eine zweistellige Verknüpfung auf $X$ ist also eine Art „Automat“, der je zwei Elemente von $X$ entgegennimmt und als Antwort ein drittes Element ausgibt.
+    
+    Prinzipiell lassen sich auch dreistellige und höherstellige Verknüpfungen definieren. Auch können Verknüpfungen zwischen verschiedenen Mengen existieren. In diesem Vortrag sollen mit „Verknüpfungen“ aber stets (innere) zweistellige Verknüpfungen gemeint sein, wie sie soeben definiert wurden.
+\end{bem}
+
+
+\begin{bsp}[Grundrechenarten]
+    Es gilt:
+    \begin{enumerate}
+        \item Auf $\R$ ist durch die Addition $(x,y)\mapsto x+y$ eine zweistellige Verknüpfung gegeben. Da die Summe zweier rationaler Zahlen ebenfalls rational ist, liefert „$+$“ auch eine Verknüpfung auf der Menge $\Q$. Ebenso ist auch auf $\N$ und $\Z$ durch die Addition „$+$“ jeweils eine Verknüpfung gegeben.
+        \item Auf den Mengen $\Z,\Q,\R,\C$ ist durch die Subtraktion $(x,y)\mapsto x-y$ jeweils eine zweistellige Verknüpfung gegeben. Allerdings ergibt der Ausdruck
+        \[ \text{„$\N \times \N \to \N \ ,\ (x,y) \mapsto x-y$“} \]
+        \emph{keinen} Sinn, da etwa $2-3$ gar kein Element von $\N$ ist. Auf $\N$ ist die Subtraktion also \textbf{keine} zweistellige Verknüpfung. Zwar lassen sich für gewisse Zahlenpaare durchaus Differenzen in $\N$ bilden (z.B. $3-2$); dass $-$ eine Verknüpfung auf $\N$ wäre, scheitert aber daran, dass eben nicht \emph{jedes} Paar natürlicher Zahlen eine Differenz in $\N$ besitzt.
+        \item Auf den Mengen $\N,\Z,\Q,\R,\C$ ist durch die Multiplikation $(x,y)\mapsto x\cdot y$ jeweils eine zweistellige Verknüpfung gegeben.
+        \item Auf den Mengen $\Q\setminus \{0\},\R\setminus \{0\},\C\setminus \{0\}$ ist durch die Division $(x,y)\mapsto x:y$ jeweils eine zweistellige Verknüpfung gegeben. Beachte, dass die Null ausgelassen werden muss, weil bspw. nicht „$1:0$“ gebildet werden kann. Zwar könnte man $1:0=\infty$ setzen, aber $\infty$ wäre kein Element von $\Q,\R$ bzw. $\C$, sodass dadurch nachwievor keine Verknüpfung auf $\Q,\R$ bzw. $\C$ zustandekäme.
+    \end{enumerate}
+\end{bsp}
+
+
+\begin{bsp}[Verketten von Abbildungen]
+    Sei $M$ eine beliebige Menge. Dann ist auf der Menge $\Abb(M,M)$ der Selbstabbildungen von $M$ eine Verknüpfung gegeben durch die Verkettung\footnote{siehe \cref{def:verkettung}} von Abbildungen:
+        \[ \Abb(M,M)\times \Abb(M,M)\to \Abb(M,M) \ ,\ (f,g)\mapsto f\circ g \]
+\end{bsp}
+
+
+\begin{bem}[*]
+    Beachte, dass in diesem Beispiel von Selbstabbildungen (also Abbildungen, deren Definitions- und Wertebereich übereinstimmen) die Rede ist. Sind allgemein $A,B,C$ drei Mengen, so hat man zwar eine Abbildung
+        \[ \Abb(B,C) \times \Abb(A,B) \to \Abb(A,C) \ ,\ (f,g) \mapsto f\circ g \]
+    sofern $A,B,C$ drei verschiedene Mengen sind, ist dies aber \textbf{keine} zweistellige Verknüpfung -- denn auf welcher Menge sollte diese Verknüpfung „leben“, wenn ja $\Abb(B,C)$ und $\Abb(A,B)$ zwei verschiedene Mengen sind?
+    
+    Nichtsdestotrotz besitzt auch das allgemeine Verketten von Abbildungen die interessante, häufig auftretende Struktur einer sogenannten \href{https://ncatlab.org/nlab/show/category}{Kategorie}. Mehr darüber wirst du spätestens in fortgeschrittenen Algebra-Vorlesungen erfahren.
+\end{bem}
+
+
+\begin{bsp}[Operationen mit Mengen]
+    Sei $M$ eine beliebige Menge. Auf der Potenzmenge $\calP(M)$ haben wir beispielsweise folgende Verknüpfungen:
+    \begin{align*}
+        \cap : \calP(M)\times \calP(M) \to \calP(M) \ & ,\ (A,B)\mapsto A\cap B \\
+        \cup : \calP(M)\times \calP(M) \to \calP(M) \ &,\ (A,B)\mapsto A\cup B \\
+        \setminus : \calP(M)\times \calP(M) \to \calP(M) \ &,\ (A,B)\mapsto A\setminus B
+    \end{align*}
+    Denn der Durchschnitt / die Vereinigung / die Differenzmenge zweier Teilmengen von $M$ ist ebenfalls eine Teilmenge von $M$.
+\end{bsp}
+
+
+\begin{bsp}[* Kleineres und Größeres zweier Elemente] \label{bsp:minmaxverknuepfung}
+    Auf $\R$ gibt es die beiden Verknüpfungen
+    \begin{align*}
+        \min : \R\times \R\to \R\ &,\ (x,y)\mapsto \min\{x,y\} \\
+        \max : \R\times \R\to \R\ &,\ (x,y)\mapsto \max\{x,y\}
+    \end{align*}
+    die ein Zahlenpaar jeweils auf die kleinere bzw. die größere der beiden Zahlen abbildet. Eine Verallgemeinerung sowohl dieses Beispiels als auch des Beispiels mit $\cap$ und $\cup$ stellen sogenannte \href{https://de.wikipedia.org/wiki/Verband_(Mathematik)}{Verbände} dar.
+\end{bsp}
+
+
+\begin{bem}
+    Alle bisher beschriebenen Verknüpfungen besaßen ein spezifisches eigenes Verknüpfungssymbol und waren relativ übersichtlich aufzuschreiben. Allgemeine Verknüpfungen auf einer Menge $X$ dürfen aber beliebig kompliziert sein. Es muss sich ja lediglich um \emph{irgendeine} Abbildung $X\times X\to X$ handeln, die beliebig chaotisch sein darf und keinem Muster gehorchen muss. Neben Addition und Multiplikation gibt es auf $\N$ unendlich viele weitere Verknüpfungen, von denen die meisten wohl niemals von mathematischem Interesse sein werden.
+\end{bem}
+
+
+\begin{nota}[Verknüpfungssymbole]
+    In diesem Text werden wir, wenn wir über eine „allgemeine zweistellige Verknüpfung“ schreiben, die Verknüpfung mit einem „$*$“ notieren. Die vorigen Beispiele zeigen, dass konkrete Verknüpfungen auch mit ganz anderen Zeichen wie etwa $+,-,\cdot,:,\cap,\cup$ usw. notiert werden. Andere Bücher und Vorlesungen verwenden auch andere Symbole wie etwa „$\odot$“ oder „$\circ$“, um über „die allgemeine Verknüpfung“ zu reden.
+\end{nota}
+
+
+
+
+
+\section{Assoziativ- und Kommutativgesetz}
+
+
+\begin{de} \index{assoziative Verknüpfung} \index{kommutative Verknüpfung}
+    Seien $X$ eine Menge und $*$ eine Verknüpfung auf $X$. Die Verknüpfung $*$ heißt
+    \begin{itemize}
+        \item \textbf{assoziativ}, falls für alle $x,y,z\in X$ das sogenannte \emph{Assoziativgesetz} gilt:
+            \[ x*(y*z) = (x*y)*z \]
+        \item \textbf{kommutativ}, falls für alle $x,y\in X$ das sogenannte \emph{Kommutativgesetz} gilt:
+            \[ x*y = y*x \]
+    \end{itemize}
+\end{de}
+
+
+\begin{bsp}
+    Es gilt:
+    \begin{enumerate}
+        \item Auf $\N,\Z,\Q,\R,\C$ sind die Addition $+$ und die Multiplikation $\cdot$ sowohl assoziativ als auch kommutativ. Denn für alle natürlichen/ganzen/rationalen/reellen/komplexen Zahlen $x,y,z$ gilt bekanntlich
+        \begin{align*}
+            x+(y+z)& = (x+y)+z  \\
+            x+y & = y+x \\
+            x\cdot (y\cdot z) & = (x\cdot y)\cdot z  \\
+            x\cdot y & = y\cdot x
+        \end{align*}
+        \item Die Subtraktion auf $\Z,\Q,\R,\C$ ist weder assoziativ noch kommutativ. Beispielsweise ist
+        \begin{align*}
+            3-(2-1) &\neq  (3-2)-1  \\
+            3-2 &\neq 2-3
+        \end{align*}
+        \item Die Division auf $\Q\setminus \{0\},\R\setminus \{0\},\C\setminus \{0\}$ ist weder assoziativ noch kommutativ. Beispielsweise ist
+        \begin{align*}
+            2:(3:2) = 4:3 &\neq 1:3 = (2:3):2 \\
+            2 : 3 & \neq 3:2
+        \end{align*}
+        \item Für jede Menge $M$ ist das Verketten von Abbildungen eine assoziative Verknüpfung auf $\Abb(M,M)$. Dies wurde in \cref{abbassoziativ} bewiesen. Im Allgemeinen (nämlich sobald $M$ mindestens zwei verschiedene Elemente enthält) ist sie aber nicht kommutativ, vgl. \cref{bsp:verkettung}.
+        \item Ist $M$ eine beliebige Menge, so sind die beiden Verknüpfungen $\cap$ und $\cup$ auf $\calP(M)$ sowohl assoziativ als auch kommutativ, siehe \cref{aufg:capcupgesetze} Die Operation $\setminus$ ist aber, sofern $M$ nichtleer ist, weder assoziativ noch kommutativ.
+    \end{enumerate}
+\end{bsp}
+
+
+\begin{bsp}[* Rechnen mit Rundungsfehlern] \label{bsp:fehlerrech}
+    So gut wie alle Verknüpfungen in den ersten Semestern Mathematikstudium sind assoziativ. Ein für die Informatik wichtiges Beispiel für eine nicht-assoziative Verknüpfung ist die „fehlerbehaftete Multiplikation“. Da ein Computer eine Zahl nicht mit beliebig vielen Nachkommastellen speichern kann, muss er nach solchen Rechenschritten, die die Anzahl der Nachkommastellen übers Maximum erhöhen würde, die letzte verfügbare Nachkommastelle runden. Für ein vereinfachtes Beispiel betrachte die Menge
+        \[ \frac{1}{10}\Z := \left\{ x\in \Q \mid \exists n\in \Z:\ x=\frac{n}{10} \right\} \]
+    all derjenigen rationalen Zahlen, die höchstens eine Nachkommastelle im Dezimalsystem besitzen (Computer würden im Binärsystem rechnen und erheblich mehr Nachkommastellen einbeziehen). Auf dieser Menge ist folgendermaßen eine zweistellige Verknüpfung „$*$“ gegeben:
+    \begin{quote}
+        Für $a,b\in \frac{1}{10}\Z$ bilde zuerst das gewöhnliche Produkt rationaler Zahlen $a\cdot b \in \Q$. Runde dieses Produkt nun auf die erste Nachkommastelle. Diese gerundete Zahl sei $a*b$.
+    \end{quote}
+    Für diese Verknüpfung gilt beispielsweise:
+    \begin{align*}
+        1{,}5* 0{,}5 = 0{,}8 \qquad 0{,}1* 0{,}1 = 0 \qquad 2*3 = 6 \qquad 1{,}5 * (-0{,}3)= -0{,}5 
+    \end{align*}
+    Diese „ungenaue Multiplikation“ ist zwar kommutativ, aber nicht assoziativ, da beispielsweise:
+    \begin{align*}
+        (0{,}1 * 0{,}1) * 10 & = 0*10 = 0 \\
+        0{,}1*(0{,}1*10) & = 0{,}1*1 = 0{,}1
+    \end{align*}
+\end{bsp}
+
+
+\begin{bem}[Die eigentliche Bedeutung der Assoziativität] \label{klammerfrei}
+    Sei $X$ eine Menge mit einer assoziativen Verknüpfung $*$. Der Grund dafür, dass das Assoziativgesetz so eine wichtige Rolle spielt, ist, dass bei einer assoziativen Verknüpfung keine Klammern gesetzt werden müssen. Das Assoziativgesetz selbst
+    \begin{align*}
+        (x*y)*z = x*(y*z) && x,y,z\in X
+    \end{align*}
+    besagt schonmal, dass bei solchen Termen, die nur drei Elemente involvieren, jede Art von Klammernplatzierung auf dasselbe Ergebnis hinausläuft. Daher schreibt man einfach
+        \[ x*y*z \]
+    Mit fortgeschrittenen Techniken lässt sich beweisen, dass bei assoziativen Verknüpfungen sogar in Termen mit beliebig vielen Elementen jede Art von Klammerung auf dasselbe Ergebnis hinausläuft. Beispielsweise gilt für $a,b,c,d,e\in X$:
+    \begin{align*}
+        (a*(b*c))*(d*e) & =((a*b)*c)*(d*e) && (\text{Assoziativität für $a$, $b$ und $c$})\\
+        & = (((a*b)*c)*d)*e && (\text{Assoziativität für $(a*b)*c$, $d$ und $e$})  \\
+        & = ((a*b)*(c*d))*e && (\text{Assoziativität für $a*b$, $c$ und $d$})\\
+        &=\ \text{usw.}
+    \end{align*}
+    Daher können bei assoziativen Verknüpfungen ganz allgemein überall die Klammern weglassen werden; in diesem Fall schriebe man schlicht
+        \[ a*b*c*d*e \]
+    Aus der Schule bist du es ja auch gewohnt, einfach
+        \[ 1+3+2+4 \qquad\text{anstelle von}\qquad (1+3)+(2+4)\ \text{oder}\ (1+(3+2))+4 \]
+    zu schreiben und daran ändert sich auch an der Uni nichts. Sind beispielsweise $A,B,C,D$ vier Mengen, so schreibt man schlicht
+        \[ A\cup B\cup C \cup D \]
+    für deren Vereinigung, was unproblematisch ist, da $\cup$ eine assoziative Verknüpfung ist. Sind $\begin{tikzcd}[cramped] A\ar[r, "f"] & B\ar[r, "g"] & C \ar[r, "h"] & D \end{tikzcd}$ drei Abbildungen, so schreibt man
+        \[ h\circ g\circ f \]
+    für deren Verkettung, wobei auch hier wegen der Assoziativität keine Klammern gesetzt werden müssen.\footnote{vgl. \cref{abbklammerfrei}}
+\end{bem}
+
+
+
+
+ 
+\section{Monoide}
+
+
+\begin{de}[Neutrales Element] \label{def:neutrales} \index{neutrales Element}
+    Seien $X$ eine Menge und $*$ eine zweistellige Verknüpfung auf $X$. Ein Element $e\in X$ heißt \textbf{neutrales Element}, falls für jedes $x\in X$ die folgenden beiden Gleichungen gelten:
+    \begin{align*}
+        e*x & = x && (\text{Linksneutralität}) \\
+        x*e & = x && (\text{Rechtsneutralität})
+    \end{align*}
+\end{de}
+
+
+\begin{bsp} \label{bsp:neutrales}
+    Mit einer beliebigen Menge $M$ gilt:
+    \begin{enumerate}
+        \item Die Addition auf $\R$ hat die Zahl Null als neutrales Element. Denn für jede reelle Zahl $x\in \R$ gilt ja
+            \[ 0+x=x \qquad\text{und}\qquad x+0=x \]
+        Ebenso ist die Null auch neutrales Element zur Addition auf $\N,\Z,\Q$ und $\C$.
+        \item Die Multiplikation auf $\R$ hat die Zahl Eins als neutrales Element. Denn für jede reelle Zahl $x\in \R$ ist
+            \[ 1\cdot x = x\cdot 1= x \]
+        Ebenso ist die Eins auch neutrales Element zur Multiplikation auf $\N,\Z,\Q$ und $\C$.
+        \item Das Verketten von Abbildungen aus $\Abb(M,M)$ hat die Identität $\id_M$ als neutrales Element. Denn in \cref{idneutral} wurde bewiesen, dass für jede Abbildung $M\xrightarrow{f} M$ gilt:
+            \[ f\circ \id_M = f \qquad\text{und}\qquad \id_M \circ f = f \]
+        \item Bezüglich der Verknüpfung $\cap$ hat $\calP(M)$ das neutrale Element $M$. Denn es gilt:
+        \begin{align*}
+            M\cap A & = A\cap M = A && \text{für jede Teilmenge}\ A\subseteq M
+        \end{align*}
+        \item Bezüglich der Verknüpfung $\cup$ hat $\calP(M)$ das neutrale Element $\emptyset$. Denn es gilt:
+        \begin{align*}
+            \emptyset\cup A & = A\cup \emptyset = A && \text{für jede Teilmenge}\ A\subseteq M
+        \end{align*}
+        \item Die fehlerbehaftete Multiplikation aus \cref{bsp:fehlerrech} hat die $1$ als neutrales Element. Denn wenn ich eine rationale Zahl, die höchstens eine Nachkommastelle besitzt, mit $1$ multipliziere, ändert sich nichts, sodass auch das nachfolgende Runden nichts am Zahlenwert ändert.
+        \item Hinsichtlich der Subtraktion auf $\Z,\Q,\R$ bzw. $\C$ gibt es \emph{kein} neutrales Element. Denn wäre $e$ ein solches Element, so gälte
+            \[ 0-4 = (e-0)-4 = e-4 = 4 \]
+        was nicht sein kann.
+        \item Hinsichtlich der Division auf $\Q\setminus \{0\},\R\setminus \{0\},\C\setminus \{0\}$ gibt es ebenfalls kein neutrales Element.
+    \end{enumerate}
+\end{bsp}
+
+
+\begin{bem}[Beweisarbeit einsparen im kommutativen Fall]
+    Seien $X$ eine Menge mit einer Verknüpfung $*$ und $e\in X$ ein Element, von dem du vermutest, dass es ein neutrales Element ist. Sofern $*$ eine \emph{kommutative Verknüpfung} ist, brauchst du, um zu beweisen, dass $e$ ein neutrales Element ist, von den beiden Gleichungen
+        \[ e*x=x \qquad\text{und}\qquad x*e=x \qquad\qquad x\in X \]
+    nur eine zu beweisen. Die andere folgt dann direkt aus dem Kommutativgesetz.
+\end{bem}
+
+
+\begin{satz}[Eindeutigkeit neutraler Elemente] \label{neutreind}
+    Seien $X$ eine Menge und $*$ eine Verknüpfung auf $X$. Sofern $X$ diesbezüglich ein neutrales Element enthält, ist dieses eindeutig bestimmt.
+\end{satz}
+ 
+
+\begin{bew}
+    Es seien $e,d\in X$ zwei neutrale Elemente bezüglich der Verknüpfung $*$. Dann gilt:
+    \begin{align*}
+        d & = d*e && (\text{weil $e$ neutrales Element}) \\
+        & = e && (\text{weil $d$ neutrales Element}) && \qed
+    \end{align*}
+\end{bew}
+
+
+\begin{bem}[\textbf{Das} neutrale Element]
+    Der Eindeutigkeitssatz berechtigt uns, beim Vorhandensein eines neutralen Elements statt von „einem neutralen Element“ von \emph{dem} neutralen Element zu reden.
+    
+    An diesem Satz wird vielleicht deutlich, wie vorteilhaft die axiomatische Arbeit mit abstrakten Verknüpfungen sein kann. Denn er garantiert uns auf einen Schlag, dass die neutralen Elemente aus allen Beispielen in \cref{bsp:neutrales} auch jeweils die einzigen neutralen Elemente sind, ohne dass wir dies in jedem Fall einzeln beweisen müssten.
+\end{bem}
+
+
+\begin{de}[Monoid] \index{Monoid}
+    Ein \textbf{Monoid} ist ein Paar $(M,*)$ bestehend aus einer Menge $M$ und einer Verknüpfung $*$ auf $M$, für das gilt:
+    \begin{enumerate}[(M1), labelindent=1.5em, leftmargin=*]
+        \item $*$ ist eine assoziative Verknüpfung.
+        \item $M$ enthält ein neutrales Element (bezüglich der Verknüpfung $*$).
+    \end{enumerate}
+    In diesem Fall ist das neutrale Element nach \cref{neutreind} automatisch eindeutig bestimmt.
+    
+    Ist überdies die Verknüpfung $*$ auch noch kommutativ, so heißt $(M,*)$ ein \textbf{kommutatives Monoid}.
+\end{de}
+
+
+\begin{bsp} Es gilt:
+    \begin{enumerate}
+        \item $(\N_0,+),(\Z,+),(\Q,+),(\R,+),(\C,+)$ sind jeweils kommutative Monoide. Denn die Addition ist assoziativ und kommutativ und die Zahl $0$ ist ihr neutrales Element.
+        \item $(\N,\cdot),(\Z,\cdot),(\Q,\cdot),(\R,\cdot),(\C,\cdot)$ sind jeweils kommutative Monoide. Denn die Multiplikation ist assoziativ und kommutativ und die Zahl $1$ ist ihr neutrales Element.
+        \item Die Subtraktion und die Division liefern keine Monoide, weil sie nicht assoziativ sind. Und ein neutrales Element besitzen sie ja auch nicht.
+        \item Ist $M$ eine beliebige Menge, so ist $(\Abb(M,M),\circ)$ ein Monoid mit neutralem Element $\id_M$. Sofern $M$ mindestens zwei verschiedene Elemente enthält, ist es aber nicht kommutativ.
+        \item Ist $M$ eine beliebige Menge, so sind $(\calP(M),\cup)$ und $(\calP(M),\cap)$ zwei kommutative Monoide mit den jeweiligen neutralen Elementen $\emptyset$ und $M$.
+        \item Die „fehlerbehaftete Multiplikation“ aus \cref{bsp:fehlerrech} besitzt zwar ein neutrales Element -- sie liefert aber kein Monoid, weil sie nicht assoziativ ist.
+        \item Die Addition „$+$“ ist zwar eine assoziative Verknüpfung auf der Menge $\N_{\ge 1}$, aber $(\N_{\ge 1},+)$ ist kein Monoid, da es kein neutrales Element enthält.
+    \end{enumerate}
+\end{bsp}
+
+
+\begin{bem}[Trägermenge]
+    Beachte, dass ein Monoid immer ein Paar $(M,*)$ ist, in das sowohl die „Trägermenge“ $M$ als auch die Verknüpfung $*$ hineinkodiert ist. Ein und dieselbe Menge kann durchaus als Trägermenge für verschiedene Monoide herhalten. Beispielsweise sind $(\N_0,+)$ und $(\N_0,\cdot)$ zwei verschiedene Monoide, die dennoch dieselbe Trägermenge $\N_0$ besitzen.
+    
+    Andererseits gibt es Mengen mit „kanonischen“ Verknüpfungen, wie z.B. $\Abb(X,X)$ (wobei $X$ irgendeine Menge ist). Sprechen Mathematiker von „dem Monoid $\Abb(X,X)$“, so meinen sie damit grundsätzlich das Monoid $(\Abb(X,X),\circ)$, also $\Abb(X,X)$ mit der Verkettung von Abbildungen als Verknüpfung. Solche Konventionen wirst du mit der Zeit durch Erfahrung und Gewohnheit verinnerlichen.
+    
+    Ist im Kontext klar oder gleichgültig, von welcher Verknüpfung die Rede ist, so spricht man abkürzend meist nur von „dem Monoid $M$“.
+\end{bem}
+
+
+\begin{bem}[Die eigentliche Bedeutung des Kommutativgesetzes]
+    Es sei $(M,*)$ ein kommutatives Monoid. Weil dann $*$ assoziativ ist, brauchen wir nach \cref{klammerfrei} keine Klammern setzen. Sind beispielsweise $a,b,c,d\in M$, so können wir einfach
+        \[ a*b*c*d \]
+    schreiben. Das Kommutativgesetz
+    \begin{align*}
+        x*y&=y*x && \text{für alle}\ x,y\in M
+    \end{align*}
+    sagt nun aus, dass es bei der Verknüpfung \emph{zweier} Elemente nicht auf die Reihenfolge ankommt. Es lässt sich zeigen, dass es damit sogar bei der Verknüpfung beliebig vieler Elemente nicht auf die Reihenfolge ankommt. Beispielsweise gilt
+    \begin{align*}
+        a*b*c*d & = a*c*b*d && (\text{Kommutativgesetz für $b$ und $c$}) \\
+        & = c*a*b*d && (\text{Kommutativgesetz für $a$ und $c$}) \\
+        & = b*d*c*a && (\text{Kommutativgesetz für $c*a$ und $b*d$}) \\
+        & \text{usw.}
+    \end{align*}
+    Bei kommutativen Monoiden brauchst du also weder aufs Klammernsetzen, noch auf die Reihenfolge, in der du die Elemente verknüpfst, achten.
+\end{bem}
+
+
+\begin{de}[Inverse Elemente] \label{def:inverse} \index{inverses Element} \index{Einheit (bei einer Verknüpfung)}
+    Sei $X$ eine Menge mit einer zweistelligen Verknüpfung $*$, die ein (nach \cref{neutreind} automatisch eindeutig bestimmtes) neutrales Element $e$ besitzt. Ein Element $b\in M$ heißt \textbf{invers} zu $a$, falls es die folgenden beiden „Inversengleichungen“ erfüllt:
+    \begin{align*}
+        a*b & = e && (\text{„$b$ ist rechtsinvers zu $a$“}) \\
+        b*a & = e && (\text{„$b$ ist linksinvers zu $a$“})
+    \end{align*}
+    Das Element $a$ heißt \textbf{invertierbar} (oder auch: \emph{Einheit}\footnote{Die Analogie zum Einheitenbegriff aus der Physik (z.B. „Meter“ und „Kilogramm“) besteht darin, dass in einem Monoid in einem gewissen Sinn jedes Element ein „Vielfaches“ jeder Einheit ist, so wie jede Länge als Vielfache der Einheit „Meter“ angegeben werden kann.}), falls es ein zu $a$ inverses Element in $X$ gibt.
+\end{de}
+
+
+\begin{bem}[Keine Inversen ohne Neutrales]
+    Beachte, dass es nur bei Vorhandensein eines neutralen Elements überhaupt Sinn ergibt, von inversen Elementen zu sprechen. 
+\end{bem}
+
+
+\begin{bsp} \label{bsp:inverse}
+    Es gilt:
+    \begin{enumerate}
+        \item In den Monoiden $(\Z,+),(\Q,+),(\R,+),(\C,+)$ ist jedes Element invertierbar. Denn für jede ganze/rationale/reelle/komplexe Zahl $x$ gilt
+        \begin{align*}
+            x + (-x) & = 0 \\
+            (-x) + x & = 0
+        \end{align*}
+        sodass $-x$ invers zu $x$ ist.
+        \item Das einzige invertierbare Element im Monoid $(\N_0,+)$ ist die $0$, da $0+0=0$. Für jede andere Zahl $n\in \N_{\ge 1}$ kann es kein $m\in \N_0$ mit $n+m=0$ geben.
+        \item In den Monoiden $(\Q,\cdot),(\R,\cdot),(\C,\cdot)$ ist jedes Element $\neq 0$ invertierbar. Denn für jede rationale/reelle/komplexe Zahl $x\neq 0$ gilt
+        \begin{align*}
+            x \cdot \frac{1}{x} & = 1 \\
+            \frac{1}{x}\cdot x & = 1
+        \end{align*}
+        sodass $\frac{1}{x}$ invers zu $x$ ist. Die Null ist dagegen nicht invertierbar. Denn für jede beliebige Zahl $x$ ist $0\cdot x = 0\neq 1$, sodass $x$ nicht invers zur $0$ sein kann.
+    \end{enumerate}
+\end{bsp}
+
+    
+\begin{bem}[Beweisarbeit einsparen im kommutativen Fall]
+    Sei $X$ eine Menge mit einer Verknüpfung $*$, die ein neutrales Element $e\in X$ besitzt. Außerdem seien $a,b\in X$ und du vermutest, dass $b$ invers zu $a$ ist. Sofern $*$ eine \emph{kommutative} Verknüpfung ist, brauchst du, um zu beweisen, dass $b$ invers zu $a$ ist, von den beiden Gleichungen
+        \[ a*b=e\qquad\text{und}\qquad b*a=e \]
+    nur eine zu beweisen. Die andere folgt dann aus dem Kommutativgesetz.
+\end{bem}
+
+
+\begin{bsp}[*]
+    Das folgende Beispiel zeigt, dass im Allgemeinen nicht aus der Gültigkeit einer der beiden Inversengleichungen schon auf die andere geschlossen werden kann.
+    
+    Betrachte das Monoid $\Abb(\N_0,\N_0)$ und darin die beiden Abbildungen
+    \begin{align*}
+        f : \N_0 \to \N_0 \ &,\ n \mapsto n+1 \\
+        g: \N_0 \to \N_0 \ &,\ n\mapsto \begin{cases}
+            0 & n=0 \\
+            n-1 & n\ge 1
+        \end{cases}
+    \end{align*}
+    Dann gilt zwar $g\circ f=\id_{\N_0}$. Allerdings ist $f\circ g\neq \id_{\N_0}$, sodass $g$ nicht invers zu $f$ ist. Tatsächlich kann $f$ gar keine Inverse besitzen, da $f$ wegen $0\notin \im(f)$ nicht surjektiv, also erst recht nicht bijektiv, ist.
+\end{bsp}
+
+
+\begin{satz}[Eindeutig inverser Elemente] \label{inveind}
+    Seien $(M,*)$ ein Monoid und $a\in M$ ein invertierbares Element. Dann ist das inverse Element von $a$ eindeutig bestimmt.\footnote{vgl. \cref{umkehreind}}
+\end{satz}
+ 
+ 
+\begin{bew}
+    Es seien $e\in M$ das neutrale Element von $M$ und $b,c\in M$ zwei beliebige Inverse zu $a$. Dann gilt:
+    \begin{align*}
+        b & = b*e && (\text{da $e$ neutral ist}) \\
+        & = b* a*c && (\text{da $c$ invers zu $a$ ist}) \\
+        & = e*c && (\text{da $b$ invers zu $a$ ist}) \\
+        & = c && (\text{da $e$ neutral ist}) &\qed
+    \end{align*}
+\end{bew}
+
+
+\begin{nota}[\textbf{Das} inverse Element]
+    Seien $(M,*)$ ein Monoid und $a\in M$ ein invertierbares Element. Da dann $a$ auch nur genau ein Inverses besitzt, ergibt es Sinn, anstelle von „einem Inversen zu $a$“ von \emph{dem} Inversen von $a$ zu sprechen. Im Folgenden werde ich das Inverse eines invertierbaren Monoidelements $a$ mit „$a^\inv$“ notieren:
+    \begin{align*}
+         a^\inv := (\text{Das Inverse von $a$}) && (\text{sofern $a$ invertierbar ist})
+    \end{align*}
+    Diese Schreibweise ist allerdings unüblich, stattdessen wird meist die Notation „$a^{-1}$“ verwendet, siehe \cref{def:potenz}.
+\end{nota}
+
+
+\begin{bem}[*]
+    Beachte, dass ich im Beweis von \cref{inveind} implizit Gebrauch vom Assoziativgesetz gemacht habe (erkennst du, wo?). Bei einer nicht-assoziativen Verknüpfung wie z.B. der fehlerbehafteten Multiplikation aus \cref{bsp:fehlerrech}, die sowohl kommutativ ist als auch ein neutrales Element besitzt, brauchen Inverse nicht eindeutig sein. Beispielsweise gilt dort
+    \begin{align*}
+        0{,}4 * 2{,}5 & = 1 \\
+        0{,}4 * 2{,}6 & = 1
+    \end{align*}
+    sodass das Element $0{,}4$ mindestens zwei verschiedene Inverse besitzt, nämlich $2{,}5$ und $2{,}6$.
+\end{bem}
+
+
+\begin{satz}[Rechenregeln für inverse Elemente] \label{regelnfuerinv} \index{Involution}
+    Sei $(M,*)$ ein Monoid mit neutralem Element $e\in M$. Dann gilt:
+    \begin{enumerate}
+        \item Das neutrale Element ist invertierbar und es gilt $e^\inv = e$.\footnote{Elemente, die invers zu sich selbst sind, heißen \textbf{selbstinvers} oder auch \textbf{Involutionen}.}
+        \item(Inverses vom Inversen) Ist $a\in M$ ein invertierbares Element, so ist auch $a^\inv$ invertierbar und es ist
+            \[(a^\inv)^\inv = a \]
+        \item(Regel von Hemd und Jacke) Sind $a,b\in M$ zwei invertierbare Element, so ist auch $a*b$ invertierbar und es gilt:
+            \[ (a*b)^\inv = b^\inv * a^\inv \]
+    \end{enumerate}
+\end{satz}
+
+
+\begin{bew}
+    \begin{enumerate}
+        \item Da $e$ ein neutrales Element ist, gilt $e*e=e$. Diese Gleichung entspricht beiden Inversengleichungen aus \cref{def:inverse} zugleich.
+        \item Da $a^\inv$ invers zu $a$ ist, gelten die beiden Gleichungen
+            \[ a*a^\inv = e \qquad\text{und}\qquad a^\inv * a=e \]
+        Die erste dieser Gleichungen besagt, dass $a$ linksinvers zu $a^\inv$ ist und die zweite Gleichung besagt, dass $a$ rechtsinvers zu $a^\inv$ ist. Insgesamt ist also $a$ invers zu $a^\inv$.
+        \item Es gilt
+        \begin{align*}
+            \begin{split}
+                a*b* b^\inv *a^\inv  & =  a*e*a^\inv \\
+                & = a*a^\inv \\
+                & = e
+            \end{split} & \text{sowie}\qquad \begin{split}
+                b^\inv *a^\inv * a*b  & =  b^\inv * e* b \\
+                & = b^\inv * b \\
+                & = e
+            \end{split}
+        \end{align*}
+        Insgesamt erfüllt $b^\inv *a^\inv$ somit beide Inversengleichungen. \qed
+    \end{enumerate}
+\end{bew}
+
+
+\begin{bem} \index{Regel von Hemd und Jacke}
+    Die letzte Aussage heißt „Regel von Hemd und Jacke“ aufgrund folgender Analogie: Habe ich mir erst ein Hemd und daraufhin eine Jacke angezogen und möchte ich mich nun wieder entkleiden, so muss ich zuerst die Jacke und dann das Hemd ausziehen. -- Beim Invertieren dreht sich die Reihenfolge um.
+\end{bem}
+
+
+
+
+
+\section{Mehr Notation}
+
+
+\begin{nota}[additive und multiplikative Notation]
+    Zur Notation von Verknüpfungen gibt es zwei häufig vorkommende Schemata:
+    \begin{itemize}
+        \item Eine \textbf{additiv geschriebene Verknüpfung} ist eine Verknüpfung, die mit dem Zeichen „$+$“ notiert wird. Im Ausdruck
+            \[ a + b\]
+        heißen $a,b$ die \textbf{Summanden} und $a+b$ die \textbf{Summe}.
+        
+        In der Algebra herrscht die Konvention vor, \emph{ausschließlich kommutative Verknüpfungen additiv zu schreiben}. Wenn du eine Verknüpfung mit $+$ notierst, werden deine Leser davon ausgehen, dass die Verknüpfung kommutativ sein soll. Daher solltest du nichtkommutative Verknüpungen möglichst nie additiv notieren.
+        \item Eine \textbf{multiplikativ geschriebene Verknüpfung} ist eine Verknüpfung, die mit dem Malpunkt „$\cdot$“ notiert wird. Im Ausdruck
+            \[ a\cdot b \]
+        heißen $a,b$ die \textbf{Faktoren} und $a\cdot b$ das \textbf{Produkt}. Oftmals wird in diesem Fall auch gar kein Verknüpfungssymbol aufgeschrieben: man schreibt dann „$ab$“ anstelle von „$a\cdot b$“, so wie du es aus der Schule von der Multiplikation zweier Zahlvariablen kennst.
+    \end{itemize}
+    „Additiv geschrieben“ und „multiplikativ geschrieben“ sind keine mathematischen Eigenschaften einer Verknüpfung, sondern nur Fälle von Notation. Prinzipiell könntest du jede Verknüpfung additiv oder multiplikativ schreiben.
+\end{nota}
+
+
+\begin{bsp}
+    Additiv geschriebene Verknüpfungen, die dir im ersten Semester begegnen werden, sind neben der Addition von Zahlen die Addition von Polynomen, Vektoren, Matrizen, Folgen und reellwertigen Funktionen.
+    
+    Multiplikativ geschriebene Verknüpfungen im ersten Semester sind neben der Multiplikation von Zahlen die Multiplikation von Polynomen, Matrizen, Folgen und reellwertigen Funktionen.
+\end{bsp}
+
+
+\begin{nota}[Null- und Einselement] \index{Nullelement} \index{Einselement}
+    Sei $X$ eine beliebige Menge. Ist $+$ eine additiv geschriebene Verknüpfung auf $X$, die ein neutrales Element enthält, so wird dieses in der Regel mit „$0$“ notiert und das \textbf{Nullelement} von $X$ genannt. Per Definition gilt
+    \begin{align*}
+        0 + x = x \qquad\text{und}\qquad x+0= x && \text{für alle}\ x\in X
+    \end{align*}
+    Ist dagegen „$\cdot$“ eine multiplikativ geschriebene Verknüpfung auf $X$, die ein neutrales Element enthält, so wird dieses oft mit „$1$“ notiert und das \textbf{Einselement} von $X$ genannt. Per Definition gilt
+    \begin{align*}
+        1 \cdot x = x \qquad\text{und}\qquad x\cdot 1= x && \text{für alle}\ x\in X
+    \end{align*}
+    Um zu betonen, dass es sich um das Null- bzw. Einselement von $X$ und nicht etwa um die natürliche Zahl Null bzw. Eins handelt, schreibt man auch
+    \[ 0_X \qquad\text{bzw.}\qquad 1_X \]
+    Beachte, dass Null- und Einselemente im Allgemeinen nichts mit den herkömmlichen Zahlen Null und Eins zu tun haben müssen! Wir bedienen uns lediglich derselben Notation.
+\end{nota}
+
+
+\begin{nota}[Differenzen] \label{differenz}
+    Seien $(M,+)$ ein additiv geschriebenes kommutatives Monoid und $a\in M$ ein invertierbares Element. Das Inverse von $a$ wird dann notiert durch
+    \begin{align*}
+        -a & := a^\inv && (\text{bei einer additiv geschriebenen Verknüpfung})
+    \end{align*}
+    Für ein weiteres Element $b\in M$ schreibt man
+        \[ b-a \qquad\text{anstelle von}\qquad b + (-a) \]
+    und spricht von der \textbf{Differenz} von $b$ und $a$. Die Inversengleichungen nehmen mit dieser Notation die folgende Gestalt an:
+        \[ a-a = 0 \qquad\text{und}\qquad -a+a = 0 \]
+    wobei die zweite Gleichung redundant ist, weil $+$ als kommutativ vorausgesetzt wurde.
+    
+    Bei Termen mit Summen und Differenzen mehrerer Elemente $a_1,\dots , a_n\in M$ lässt man die Klammern in der Regel weg unter der stillschweigenden Voraussetzung, die Terme als „linksassoziativ“ zu interpretieren:
+        \[ a_1 \pm a_2\pm a_3\pm\ldots\pm a_n := (((a_1\pm a_2)\pm a_3) \pm \ldots ) \pm a_n\]
+    Beispielsweise ist der Term $8-3-1$ zu lesen als $(8-3)-1$ und nicht etwa als $8-(3-1)$.
+\end{nota}
+
+
+\begin{bem}
+    Während in der Schule vielleicht Addition und Subtraktion noch als gleichberechtigte „Grundrechenarten“ nebeneinander stehen, wird in der Uni-Mathematik die Addition als „primäre“ Verknüpfung verstanden, während die Subtraktion als daraus abgeleitete Verknüpfung aufgefasst wird. Ebenso verhält es sich mit Multiplikation und Division.
+\end{bem}
+
+
+\begin{de}[* Potenzen] \label{def:potenz} \index{Potenz}
+    Seien $M$ eine Menge mit einer assoziativen Verknüpfung $*$ und $a\in M$ irgendein Element. Für ein $n\in \N_{\ge 1}$ heißt das Element, das durch $n$-faches Verknüpfen von $a$ mit sich selbst entsteht
+    \[ a^n := \underbrace{a * \ldots * a}_{n\text{-mal}} \]
+    die \textbf{$n$-te Potenz von $a$}. Dabei heißen $a$ die \textbf{Basis} und $n$ der \textbf{Exponent}. Manchmal wird auch das Verknüpfungszeichen mit in den Exponenten geschrieben:
+            \[ a^{*n} := \underbrace{a * \ldots * a}_{n\text{-mal}} \]
+    Sofern $M$ auch ein neutrales Element enthält, setzt man die nullte Potenz auf ebendieses:\footnote{Damit ist vom algebraischem Standpunkt auch die Frage nach dem Wert von „\href{https://en.wikipedia.org/wiki/Zero_to_the_power_of_zero}{Null hoch Null}“ beantwortet. In $\C,\R,\Q,\Z,\N_0$ gilt nach der allgemeinen Definition, dass $0^0=1$, da die Eins das neutrale Element zur Multiplikation ist.}
+        \[ a^0 := e \]
+    Ist überdies auch noch $a$ ein invertierbares Element, so lassen sich auch negative Potenzen definieren. Für $n\in \Z$ ist dann die $n$-te Potenz von $a$ definiert durch:
+    \begin{align*}
+        a^n := \begin{cases}
+            \underbrace{a* \ldots * a}_{n\text{-mal}} & n \ge 1 \\
+            e & n= 0 \\
+            \underbrace{a^\inv * \ldots * a^\inv}_{(-n)\text{-mal}} & n \le -1
+        \end{cases}
+    \end{align*}
+    Insbesondere ist $a^{-1}=a^\inv$ das Inverse von $a$. In der Literatur werden inverse Elemente in Monoiden daher standardmäßig mit „$a^{-1}$“ notiert.
+\end{de}
+
+    
+\begin{nota}[Notation im additiven Fall]
+    In additiv geschriebenen Fall wird jedoch eine andere Notation verwendet. Sei $+$ eine additiv geschriebene, assoziative Verknüpfung auf der Menge $M$. Für $a\in M$ und $n\in \N_{\ge 0}$ wird dann die $n$-te Potenz von $a$ notiert durch
+        \[ n \cdot a := \underbrace{a + \ldots + a}_{n\text{-mal}} \]
+    Man spricht auch vom \textbf{$n$-fachen von $a$}. Sofern $M$ ein Nullelement enthält, ist
+        \[ 0\cdot a := 0_M \]
+    Ist überdies auch noch $a$ invertierbar, so sind auch die negativen Vielfachen definiert: für $n\in \Z$ ist
+    \begin{align*}
+        n \cdot a := \begin{cases}
+            \underbrace{a+ \ldots + a}_{n\text{-mal}} & n \ge 1 \\
+            0_M & n= 0 \\
+            \underbrace{(-a) + \ldots +  (-a)}_{(-n)\text{-mal}} & n \le -1
+        \end{cases}
+    \end{align*}
+    Bei all diesen Dingen handelt es sich um das Gleiche wie in \cref{def:potenz}, nur anders notiert.
+\end{nota}
+
+
+\begin{satz}[* Potenzgesetze] \label{potenzgesetze}
+    Seien $M$ eine Menge mit einer assoziativen Verknüpfung $*$ und $a,b\in M$ mit $a*b=b*a$. Für $n,m\in \N_{\ge 1}$ gelten die folgenden Potenzgesetze:
+    \begin{align*}
+        a^1 & = a \\
+        a^{n+m} & = a^n* a^m \\
+        (a^m)^n & = a^{n\cdot m} \\
+        (a*b)^n &= a^n*b^n
+    \end{align*}
+    Sofern $M$ ein neutrales Element enthält, gelten diese Gleichungen allgemeiner für $n,m\in \N_0$ und sofern überdies $a,b$ invertierbar sind, auch für $n,m\in \Z$.\footnote{Es lässt sich zeigen, dass die Definition negativer Potenzen die einzig mögliche Definition ist, mit der die Potenzgesetze allgemein auch für ganzzahlige Exponenten gültig sind.}
+\end{satz}
+
+
+\noindent Beachte, dass für die letzte Gleichung wichtig ist, dass $a*b=b*a$ gilt. Nur so können beispielsweise ohne Weiteres die Umformungen
+    \[ (a*b)^2 = (a*b)*(a*b) = a*(b*a)*b \overset{!}{=} a*(a*b)*b = (a*a)*(b*b) = a^2*b^2 \] 
+durchgeführt werden.
+
+    
+\begin{bew}
+    Die Potenzgesetze können rigoros mit einem sogenannten \href{https://de.wikipedia.org/wiki/Vollst\%C3\%A4ndige_Induktion}{Induktionsbeweis} bewiesen werden. Da diese Beweistechnik in diesem Skript nicht behandelt wird, könntest du noch abwarten, bis sie in den ersten beiden Semesterwochen durchgenommen wurde und daraufhin nochmal hierher zurückkehren. \qed
+\end{bew}
+
+
+\begin{bem}[*]
+    Sei $M$ ein Monoid. In \cref{potenzgesetze} habe ich die Potenzgesetze multiplikativ notiert. Hier ist eine Gegenüberstellung der Regeln aus \cref{regelnfuerinv} und \cref{potenzgesetze} in multiplikativer und in additiver Schreibweise:
+    \[\begin{tabular}{ccl}
+        Multiplikative Notation & Additive Notation & $a,b\in M$,\ $n,m\in \N_0$\\
+        \midrule
+        $1^{-1} = 1$ & $-0=0$ & \\
+        $(a^{-1})^{-1} = a$ & $-(-a)=a$ & (sofern $a$ invertierbar ist) \\
+        $(a\cdot b)^{-1} = b^{-1}\cdot a^{-1}$ & $-(a+b) = -a - b$ & (sofern $a,b$ invertierbar sind) \\
+        $a^0 = 1$ & $0\cdot a = 0$ & \\
+        $a^1 = a$ & $1\cdot a=a$ &\\
+        $a^{n+m} = a^n\cdot a^m$ & $(n+m)\cdot a = n\cdot a + m\cdot a$ & \\
+        $(a^m)^n = a^{n\cdot m}$ & $n\cdot (m\cdot a) = (n\cdot m)\cdot a$ & \\
+        $(a\cdot b)^n =a^n\cdot b^n$ & $n\cdot (a+b) = n\cdot a+n\cdot b$ & (sofern $a\cdot b=b\cdot a$ ist)
+    \end{tabular}\]
+    wobei ich im additiven Fall voraussetze, dass $+$ kommutativ ist. In beiden Spalten der Tabelle stehen jeweils dieselben Regeln, nur anders notiert.
+\end{bem}
+
+
+\begin{nota}[* Bruchschreibweise] \index{Zähler} \index{Nenner}
+    Sei $M$ ein multiplikativ geschriebenes \emph{kommutatives} Monoid. Für $a\in M$ und ein invertierbares Element $u\in M$ gibt es die Schreibweise
+        \[ \frac{a}{u} := a\cdot u^{-1} = u^{-1} \cdot a\]
+    Hierbei heißen $a$ der \textbf{Zähler}, $u$ der \textbf{Nenner}. Für diese Notation ist es essenziell, dass $M$ kommutativ ist. Denn andernfalls könnten die beiden Elemente $au^{-1}$ und $u^{-1}a$ durchaus verschieden sein und die Notation erklärte nicht, welches der beiden gemeint ist.
+    
+    Ebenso dürfen a priori nur invertierbare Elemente in die Nenner geschrieben werden; beispielsweise gibt es in $\Q$ keine Zahl der Gestalt „$\frac{4}{0}$“.
+\end{nota}
+
+
+\begin{bem}[* Rechenregeln für Brüche]
+    Mit Brüchen in kommutativen Monoiden lässt sich rechnen, wie du es aus der Schule gewohnt bist. Wenn du möchtest, versuche einmal dir klarzumachen, dass für alle $n\in \N_0$, $a,b\in M$ und alle invertierbaren Elemente $u,v,w\in M$ die folgenden Rechenregeln gelten:
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+    \frac{a}{u}\cdot \frac{b}{v} & = \frac{ab}{uv} & \frac{a}{u}=\frac{b}{v}\ & \Leftrightarrow\ av=bu & a\cdot \frac{b}{u} & = \frac{ab}{u} = \frac{a}{u}\cdot b \\[0.5em]
+    \frac{a}{1} & = a & \frac{1}{u} & = u^{-1} & \frac{u}{u} & = 1 \\[0.5em]
+    \frac{au}{vu} & = \frac{a}{v} & \left(\frac{a}{u}\right)^n & = \frac{a^n}{u^n} & \left(\frac{u}{v}\right)^{-1} & = \frac{v}{u} \\[0.5em]
+    \frac{\frac{a}{u}}{v} & = \frac{a}{uv} & \frac{a}{\frac{u}{v}} & = \frac{a\cdot v}{u} & \frac{\frac{a}{u}}{\frac{v}{w}} & = \frac{aw}{uv}
+    \end{align*}
+    \endgroup
+    Die gleichen Rechenregeln, nur anders notiert, gelten auch für die Differenzen aus \cref{differenz}. Zum Beispiel nähme die Regel „$\frac{a}{u}\cdot \frac{b}{v}=\frac{ab}{uv}$“ dort die Gestalt „$(a-u)+(b-v) = (a+b)-(u+v)$“ an.
+\end{bem}
+
+
+\begin{nota}[Mehrfach-Produkte] \label{mehrfachprodukt}
+    Sei $M$ eine Menge mit einer assoziativen Verknüpfung $*$. Für $m,n\in \N$ mit $m\le n$ und $a_m,\dots , a_n\in X$ schreibt man
+        \[ \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{k=m}^n a_k := a_m * \ldots * a_n \]
+    für die Verknüpfung der $a_m,\dots , a_n$ in aufsteigender Reihenfolge, d.h. man bedient sich einer vergrößerten Version des Verknüpfungszeichens. Beachte, dass auf der rechten Seite keine Klammern gesetzt werden müssen, weil $*$ assoziativ ist. Es heißen
+    \begin{itemize}
+        \item $k$ die \textbf{Laufvariable}.\footnote{Es handelt sich um eine \emph{gebundene Variable} im Sinne von \cref{gebundenevariable}.}
+        \item $m$ der \textbf{Startwert} der Laufvariable.
+        \item $n$ der \textbf{Endwert} der Laufvariable.
+    \end{itemize}
+    Ein Beispiel dafür sind Durchschnitt und Vereinigung von Mengen aus \cref{alternativmehrfachcapcup}. Die Laufvariable kann auch allgemeinere Werte durchlaufen, wie etwa ganze Zahlen oder die Elemente einer beliebigen totalgeordneten Menge.
+    
+    Für additiv und multiplikativ geschriebene Verknüpfungen gibt es bestimmte Konventionen.
+    \begin{itemize}
+        \item Bei einer additiv geschriebenen Verknüpfung bedient man sich eines großen Sigma $\Sigma$ (abkürzend für „Summe“):
+            \[ \sum_{k=m}^n a_k := a_m + \ldots + a_n \]
+        \item Bei einer multiplikativ geschriebenen Verknüpfung bedient man sich eines großen Pi $\Pi$ (abkürzend für „Produkt“):
+            \[ \prod_{k=m}^n a_k := a_m \cdot \ldots \cdot a_n \]
+    \end{itemize}
+    Falls $M$ ein neutrales Element $e$ zur Verknüpfung $*$ enthält, sind Mehrfach-Produkte auch für den Fall $m>n$, also falls es gar keine Indizes zwischen Start- und Endwert der Laufvariable gibt, erklärt. In diesem Fall ist
+    \begin{align*}
+        \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{k=m}^n a_k & := e && (\text{falls $m>n$})
+    \end{align*}
+    das neutrale Element. Bei additiv oder multiplikativ geschriebenen Verknüpfungen gilt dementsprechend
+    \begin{align*}
+        \sum_{k=m}^n a_k = 0 \qquad\text{bzw.}\qquad \prod_{k=m}^n a_k = 1 && (\text{falls $m>n$})
+    \end{align*}
+    Man spricht von der \textbf{leeren Summe} und vom \textbf{leeren Produkt}.
+    
+    Ist überdies $M$ ein \emph{kommutatives} Monoid, so können Mehrfach-Produkte über beliebige endliche Teilmengen gebildet werden: Ist $E\subseteq M$ eine Teilmenge, die nur endlich viele Elemente enthält, so bezeichnet
+        \[ \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{a\in E} a \qquad\text{bzw. im additiven Fall:}\quad \sum_{a\in E} a \qquad\text{bzw. im multiplikativen Fall:}\quad \prod_{a\in E} a\]
+    die Verknüpfung der Elemente aus $E$ in einer beliebigen (irrelevanten, da $*$ kommutativ ist) Reihenfolge.
+\end{nota}
+
+
+\begin{bsp} \quad
+    \begin{enumerate}
+        \item(Binomischer Lehrsatz)\footnote{\href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{Francesco Binomi (1369-1420)}} Für $x,y,n\in \N$ gilt:
+            \[ (x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k\cdot y^{n-k} \]
+        wobei der \emph{Binomialkoeefizient} $\binom{n}{k}$ die Anzahl aller Möglichkeiten, aus $n$-vielen Gegenständen ohne Berücksichtigung der Reihenfolge genau $k$-viele auszuwählen, bezeichnet. Im Spezialfall $n=2$ ergibt dies die aus der Schule bekannte binomische Formel $(x+y)^2=x^2+2xy+y^2$.
+        \item (Wallissches Produkt)\footnote{\href{https://de.wikipedia.org/wiki/John_Wallis}{John Wallis (1616-1703)}} Lässt man im Produkt
+            \[ \prod_{k=1}^n \frac{4k^2}{4k^2-1} = \frac{2}{1} \cdot \frac{2}{3} \cdot \frac{4}{3} \cdot \frac{4}{5} \cdot \frac{6}{5} \cdot \frac{6}{7} \cdot \frac{8}{7} \cdot \frac{8}{9} \cdot \ldots \cdot \frac{2n}{2n-1} \cdot \frac{2n}{2n+1}\]
+        die Obergrenze $n$ immer weiter ansteigen, nähert sich das Produkt der Zahl $\pi/2$ an.
+    \end{enumerate}
+\end{bsp}
+
+
+
+
+
+\section{Gruppen}
+
+
+\begin{de}[Gruppe] \index{Gruppe} \index{abelsche Gruppe}
+    Eine \textbf{Gruppe} ist ein Monoid, in dem jedes Element invertierbar ist. Konkret handelt es sich bei einer Gruppe also um ein Paar $(G,*)$ bestehend aus einer Menge $G$ und einer Verknüpfung $*$ auf $G$, für das die sogenannten \emph{Gruppenaxiome} gelten:
+    \begin{enumerate}[(G1), labelindent=1.5em, leftmargin=*]
+        \item Die Verknüpfung $*$ ist assoziativ.
+        \item $G$ enthält ein neutrales Element.
+        \item Jedes Element von $G$ ist invertierbar.
+    \end{enumerate}
+    Ist überdies die Verknüpfung auch noch kommutativ, so spricht man von einer \textbf{abelschen Gruppe}\footnote{\href{https://de.wikipedia.org/wiki/Niels_Henrik_Abel}{Niels Henrik Abel (1802-1829)}} oder von einer \emph{kommutativen Gruppe}.
+\end{de}
+
+
+\begin{bsp}
+    Es gilt:
+    \begin{enumerate}
+        \item $(\Z,+),(\Q,+),(\R,+),(\C,+)$ sind jeweils abelsche Gruppen. Denn die Addition ist assoziativ, kommutativ, besitzt die $0$ als neutrales Element und für jede ganze bzw. rationale bzw. reelle bzw. komplexe Zahl $x$ ist $-x$ ebenfalls eine ganze bzw. rationale bzw. reelle bzw. komplexe Zahl und invers zu $x$.
+        \item Das Monoid $(\N_0,+)$ ist keine Gruppe, da beispielsweise das Element $5\in \N_0$ nicht invertierbar ist.
+        \item Sofern $X$ eine mindestens zweielementige Menge ist, ist das Monoid $\Abb(X,X)$ keine Gruppe.
+        \begin{bew}[(*)]
+            Seien $a\in X$ irgendein Element und $f:X\to X$ die konstante Abbildung, die alles auf $a$ abbildet. Weil $X$ mindestens zwei Elemente enthält, ist $f$ nicht injektiv und nach \cref{bijektiviso} somit auch nicht invertierbar in $\Abb(X,X)$. Also ist $\Abb(X,X)$ keine Gruppe. \qed
+        \end{bew}
+    \end{enumerate}
+\end{bsp}
+
+
+\noindent Viele interessante Verknüpfungen liefern lediglich Monoide aber keine Gruppen. Allerdings kann aus jedem Monoid eine (mehr oder weniger große) Gruppe extrahiert werden, indem man sich einfach auf die invertierbaren Elemente einschränkt:
+
+
+\begin{de}[Einheitengruppe eines Monoids] \index{Einheitengruppe}
+    Sei $(M,*)$ ein Monoid. Die Teilmenge
+        \[ M^\times := \{a\in M\mid a\ \text{ist invertierbar} \} \]
+    heißt die \textbf{Einheitengruppe} von $M$.
+\end{de}
+
+
+\begin{satz} \label{einheitengruppe}
+    Sei $(M,*)$ ein Monoid. Dann kann die Verknüpfung von $M$ auf $M^\times$ eingeschränkt werden. Auf diese Weise wird $M^\times$ zu einer Gruppe. Ist $M$ ein kommutatives Monoid, so ist $M^\times$ eine abelsche Gruppe.
+\end{satz}
+
+
+\begin{bew}
+    (Einschränkbarkeit) Nach der Regel von Hemd und Jacke aus \cref{regelnfuerinv}c) ist für alle $a,b\in M^\times$ auch $a*b\in M^\times$. Somit liefert $*$ durch Einschränkung eine zweistellige Verknüpfung auf der Menge $M^\times$. \\[0.5em]
+    (Assoziativität): Da $*$ eine assoziative Verknüpfung ist, gilt
+    \begin{align*}
+        x*(y*z) & = (x*y)*z && \text{für alle}\ x,y,z\in M
+    \end{align*}
+    Damit gilt diese Gleichung auch erst recht für alle Elemente von $M^\times$. Somit ist $*$ auch auf $M^\times$ eine assoziative Verknüpfung. \\[0.5em]
+    (Neutrales Element): Sei $e\in M$ das neutrale Element von $M$. Nach \cref{regelnfuerinv}a) ist $e\in M^\times$. Wegen
+    \begin{align*}
+        e*x& =x*e=x && \text{für alle}\ x\in M
+    \end{align*}
+    gilt dies erst recht auch für alle $x\in M^\times$. Somit ist $e$ ein neutrales Element in $M^\times$. \\[0.5em]
+    (Inverse): Sei $a\in M^\times$. Nach \cref{regelnfuerinv}b) ist auch $a^{-1}$ invertierbar, also $a^{-1}\in M^\times$. Wegen
+    \begin{align*}
+        a*a^{-1}=a^{-1}*a=e
+    \end{align*}
+    und weil $e$ das neutrale Element in $M^\times$ ist, ist dann $a^{-1}$ auch in $M^\times$ invers zu $a$. \\[0.5em]
+    (Kommutativität) Es gelte nun außerdem, dass $M$ ein kommutatives Monoid ist. Dann gilt
+    \begin{align*}
+        x*y & = y*x && \text{für alle}\ x,y\in M
+    \end{align*}
+    Also gilt diese Gleichung erst recht auch für alle Elemente von $M^\times$, sodass $M^\times$ in diesem Fall eine abelsche Gruppe ist. \qed
+\end{bew}
+
+
+\begin{bsp} \index{Symmetrische Gruppe} \index{Permutation}
+    Es gilt:
+    \begin{enumerate}
+        \item Die Einheitengruppe des Monoids $(\N_0,+)$ ist $\{0\}$. Daher ist $(\{0\},+)$ eine Gruppe, die nur ein einziges Element enthält. Solche Gruppen heißen auch \emph{triviale Gruppen}.\footnote{vgl. \cref{aufg:verknuepfungen}}
+        \item Die Einheitengruppe des Monoids $(\Z,\cdot)$ ist $\{1,-1\}$. Also ist $(\{1,-1\},\cdot)$ eine Gruppe, die aus genau zwei Elementen besteht.
+        \item Nach \cref{bsp:inverse} ist die Einheitengruppe des Monoids $(\R,\cdot)$ genau $\R\setminus \{0\}$. Somit ist $(\R\setminus \{0\},\cdot)$ eine Gruppe.
+        \item Sei $X$ eine beliebige Menge. Die Einheitengruppe des Monoids $\Abb(X,X)$, deren Elemente also genau die invertierbaren Selbstabbildungen von $X$ sind, heißt die \textbf{symmetrische Gruppe} von $X$. Ihre Elemente heißen \textbf{Permutationen} von $X$. Notation:
+            \[ S(X) := \{f\in \Abb(X,X)\mid f\ \text{ist invertierbar} \} \]
+        Nach \cref{bijektiviso} besteht $S(X)$ genau aus den bijektiven Selbstabbildungen von $X$.
+    \end{enumerate}
+    Beachte, dass wir bei keinem dieser Beispiele noch einmal beweisen müssen, dass eine Gruppe vorliegt. Alle Beweisarbeit wurde bereits im abstrakten \cref{einheitengruppe} verrichtet.
+\end{bsp}
+
+
+\begin{bem}[Endliche Permutationsgruppen]
+    Für eine Zahl $n\in \N_0$ schreibt man
+        \[ S_n := S(\{1,\dots , n\}) \]
+    für die Permutationsgruppe der Menge $\{1,\dots , n\}$. Diese Gruppen sind von großer Bedeutung in der Gruppentheorie, da sie nach dem \href{https://de.wikipedia.org/wiki/Satz_von_Cayley}{Satz von Cayley}\footnote{\href{https://de.wikipedia.org/wiki/Arthur_Cayley}{Arthur Cayley (1821-1895)}} in einem gewissen Sinne „universell“ sind unter allen Gruppen, die nur endlich viele Elemente besitzen. Die $S_n$-Gruppen werden dir bereits in der LA-Vorlesung wieder begegnen, dort spätestens im Kontext von \emph{Matrixdeterminanten}.
+\end{bem}
+
+
+\begin{vorschau}[* Grothendieck-Gruppe\footnote{\href{https://de.wikipedia.org/wiki/Alexander_Grothendieck}{Alexander Grothendieck (1928-2014)}}]
+    Neben dem Konzept „Einheitengruppe“ gibt es ein weiteres Rezept, um aus Monoiden Gruppen zu machen: die sogenannte \href{https://de.wikipedia.org/wiki/Grothendieck-Gruppe}{Grothendieck-Gruppe}.
+    
+    Während, um von einem Monoid zu seiner Einheitengruppe zu gelangen, die Trägermenge soweit verkleinert wird, bis nur noch die invertierbaren Elemente übrigbleiben, werden bei der Grothendieck-Gruppe „künstliche Inverse“ hinzugefügt. Beispielsweise kann die Gruppe $(\Z,+)$ dadurch konstruiert werden, dass man dem Monoid $(\N_0,+)$ für jedes $n\in \N_0$ eine „künstliche Inverse $-n$“ beilegt. Auch die Zahlbereichserweiterung $\Z \mapsto \Q$ geschieht durch die Hinzufügung künstlicher Inverser, diesmal bezüglich der Multiplikation. Solche Techniken, bei denen man für eine Struktur gewisse wünschenswerte Eigenschaften künstlich erzwingt, sind typisch für die abstrakte Algebra und tauchen dort beispielsweise bei den Konzepten „Quotientenkörper“, „Lokalisierung eines Rings“, „Tensoralgebra“ oder „Zerfällungskörper“ auf.
+\end{vorschau}
+
+
+
+
+
+\clearpage
+\section{Aufgabenvorschläge}
+
+
+\begin{aufg}[Eigenschaften von Verknüpfungen] \label{aufg:verknuepfungen}
+    Entscheidet für jede der folgenden Verknüpfungen, ob sie assoziativ ist, kommutativ ist, ob sie ein neutrales Element besitzt und ob sie ein Monoid oder gar eine Gruppe liefert.
+    \begin{enumerate}
+        \item Die auf der Menge $\N_0$ durch
+            \[ \N_0 \times \N_0 \to \N_0 \ ,\ (n,m) \mapsto n^m \]
+        gegebene Verknüpfung (wobei $n^0=1$ für alle $n\in \N_0$ sei, vgl. \cref{def:potenz}).
+        \item Auf der Menge $\N$ die Verknüpfung
+            \[ \N \times \N \to \N \ ,\ (n,m) \mapsto \max \{n,m\} \]
+        \item Auf einer beliebigen einelementigen Menge eine beliebige zweistellige Verknüpfung.
+        \item Auf der Gesamtheit aller Mengen $V:=\{A\mid A\ \text{ist eine Menge}\}$ die Verknüpfung
+            \[ V\times V\to V \ ,\ (A,B) \mapsto \{A,B\} \]
+    \end{enumerate}
+\end{aufg}
+
+
+\begin{aufg}[Einige Rechenregeln für Differenzen]
+    Seien $(M,+)$ ein additiv geschriebenes kommutatives Monoid, $a,b\in M$ zwei beliebige und $u,v\in M$ zwei invertierbare Elemente. Verifiziert die folgenden Regeln:
+    \begin{align*}
+        \text{a)} && a-(u+v) \quad&=\quad a-u-v \\
+        \text{b)} && a-(u-v) \quad&=\quad a-u+v \\
+        \text{c)} && -(u-v) \quad&=\quad v-u \\
+        \text{d)} && a-u=b-v \quad&\Leftrightarrow\quad a+v=b+u
+    \end{align*}
+\end{aufg}
+
+
+\begin{comment}
+\begin{aufg}[Kürzbarkeit]
+    Sei $(M,*)$ ein Monoid. Ein Element $a\in M$ heißt \textbf{kürzbar}, wenn „Multiplikation mit $a$“ eine Äquivalenzumformung ist, d.h. wenn für alle $x,y\in M$ die beiden Äquivalenzen
+    \begin{align*}
+        a*x& =a*y \quad \leftrightarrow\quad x=y\\
+        \text{und}\qquad x*a& =y*a \quad \leftrightarrow\quad x=y
+    \end{align*}
+    gelten.
+    \begin{enumerate}
+        \item Beweist, dass jedes invertierbare Element kürzbar ist.
+        \item Ist ein kürzbares Element auch immer invertierbar?
+    \end{enumerate}
+\end{aufg}
+\end{comment}
+
+
+\begin{aufg}[Rechenregeln für Mehrfach-Summen] \index{Indexshift} \index{Teleskopsumme}
+    Seien $(M,+)$ ein kommutatives Monoid, $n,m\in \N_{\ge 1}$ zwei natürliche Zahlen, $a_1,\dots , a_n \in M$ und $(a_{ij})\in M^{n\times m}$. Vollzieht die folgenden Gleichungen nach:
+    \begin{align*}
+        \text{a)} && \sum_{k=1}^n a_k & = \sum_{k=0}^{n-1} a_{k+1} && (\text{Indexshift}) \\
+        \text{b)} && \sum_{k=1}^{n-1} (a_{k+1} - a_k) & = a_n - a_1 && (\text{Teleskopsumme}) \\
+        \text{c)} && \sum_{i=1}^n \sum_{j=1}^m a_{ij} & = \sum_{j=1}^m \sum_{i=1}^n a_{ij} && (\text{Vertauschen von Doppelsummen})
+    \end{align*}
+\end{aufg}
+
+
+\begin{aufg}[Geometrische Reihe]
+    Seien $n\in \N$ und $q\in \R$. Beweist die folgende Gleichung:
+        \[ (1-q) \cdot \sum_{k=0}^n q^n = 1-q^{n+1} \]
+\end{aufg}
