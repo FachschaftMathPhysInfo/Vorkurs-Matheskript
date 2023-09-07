@@ -10,11 +10,11 @@ Der gesamte LaTeX-Code erstreckt sich über:
     6. Die einzelnen texfiles zu den Dokumentkapiteln von "_00.Einleitung.tex" bis "_08.Anhang.tex". Hier steht der eigentliche Inhalt des Vorkursskripts drin.
     7. Das BibLaTeX-file "Literaturverzeichnis.bib", in dem die Einträge des Literaturverzeichnisses definiert werden.
 
-***********************************************************************************
+*************************************************************************************
 
 Tipps zum guten TeXen:
 
-    (1) Seit sparsam mit dem Erstellen neuer Befehle und verwendet soweit es geht die gewöhnliche LaTeX-Syntax. So bleibt der Code auch für diejenigen, die nach euch dran arbeiten, gut verständlich. Solltet ihr rein kosmetische Änderungen vornehmen wollen, zieht in Betracht, die Standard-Syntax per renewcommand zu überschreiben. Dies sollte aber nur kosmetische, nicht semantische Änderungen betreffen.
+    (1) Seid sparsam mit dem Erstellen neuer Befehle und verwendet soweit es geht die gewöhnliche LaTeX-Syntax. So bleibt der Code auch für diejenigen, die nach euch dran arbeiten, gut verständlich. Solltet ihr rein kosmetische Änderungen vornehmen wollen, zieht in Betracht, die Standard-Syntax per renewcommand zu überschreiben. Dies sollte aber nur kosmetische, nicht semantische Änderungen betreffen.
     
     (2) Mathematische Kürzel und Operatoren werden definiert in der operators.tex, verschafft euch dort einmal einen Überblick über die bereits definierten Befehle. Nutzt diese Befehle soweit es geht, damit bei einer eventuellen globalen Änderung nur ein paar Zeilen in der operators.tex geändert werden müssen und nicht der ganze restliche Code durchforstet werden muss. Dies betrifft insbesondere die in der operators.tex definierten Kürzel für die \mathbb- und \mathcal-Alphabete und die Abkürzungen \N,\Z,\Q,\R,\C für die Zahlbereiche.
     
