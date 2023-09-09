@@ -29,7 +29,7 @@ Die folgende Abbildungsdefinition mag zu Beginn recht abstrakt und nichtssagend 
 
 
 \begin{axiom}[Gleichheit von Abbildungen] \label{abbgleich}
-    Seien $X,Y$ zwei Mengen. Zwei Abbildungen $f,g:X\to Y$ von $X$ nach $Y$ stimmen genau dann überein, wenn sie an jeder Stelle denselben Funktionswert haben. Als Formel:
+    Seien $X,Y$ zwei Mengen. Zwei Abbildungen $f,g$ von $X$ nach $Y$ stimmen genau dann überein, wenn sie an jeder Stelle denselben Funktionswert haben. Als Formel:
         \[ f=g \qquad\Leftrightarrow\qquad \forall x\in X:\ f(x)=g(x) \]
     Dementsprechend sind $f$ und $g$ genau dann voneinander verschieden, wenn es ein Element von $X$ gibt, an dem $f$ und $g$ verschiedene Funktionswerte annehmen.
     
@@ -44,7 +44,7 @@ Die folgende Abbildungsdefinition mag zu Beginn recht abstrakt und nichtssagend 
         f:X \to Y \qquad & \text{oder auch}\qquad X\xrightarrow{f} Y && (\text{lies: „$f$ von $X$ nach $Y$“})
     \end{align*}
     Definitionsbereich, Wertebereich und Graph einer Abbildung $f$ werden manchmal notiert durch
-        \[ \dom(f)\qquad, \qquad \codom(f) \qquad\text{und}\qquad \graph(f)\]
+        \[ \dom(f)\ , \qquad \codom(f) \qquad\text{und}\qquad \graph(f)\]
     Die Menge aller Abbildungen von $X$ nach $Y$ wird mit $\text{Abb}(X,Y)$ notiert:
         \[ \text{Abb}(X,Y) := \{ f \mid f\ \text{ist eine Abbildung von $X$ nach $Y$} \} \]
 \end{nota}
@@ -59,7 +59,7 @@ Die folgende Abbildungsdefinition mag zu Beginn recht abstrakt und nichtssagend 
     
     Jede solche Zuordnungsvorschrift definiert eine Abbildung $X\to Y$, deren Funktionswerte an Elementen $x\in X$ genau mit den Elementen $t(x)$ übereinstimmt. Möchte man diese Abbildung mit einer Variable bezeichnen, schreibt man:
     \begin{align*}
-        f : X\to Y \ & ,\ x\mapsto t(x) && (\text{lies: „$f$ von $X$ nach $Y$, $x$ geht auf $T(x)$“})
+        f : X\to Y \ & ,\ x\mapsto t(x) && (\text{lies: „$f$ von $X$ nach $Y$, $x$ geht auf $t(x)$“})
     \end{align*}
     Mit dieser Notation wird festgelegt, dass das Zeichen „$f$“ fortan diejenige Abbildung $X\to Y$ bezeichnen soll, die durch die Zuordnung $x\mapsto t(x)$ gegeben ist. Für jedes $x\in X$ gilt also $f(x)=t(x)$. Nach \cref{abbgleich} ist $f$ durch diese Eigenschaft eindeutig bestimmt.
 \end{nota}
@@ -95,7 +95,7 @@ Die folgende Abbildungsdefinition mag zu Beginn recht abstrakt und nichtssagend 
             \[ \Abb(-,-) : \Set \times \Set \to \Set \ ,\ (X,Y) \mapsto \Abb(X,Y) \]
         die jedem Mengenpaar $(X,Y)$ die Menge $\Abb(X,Y)$ aller Abbildungen $X\to Y$ zuordnet.
     \end{enumerate}
-    Aus der Schule bist du es vielleicht gewohnt, dass der Graph einer Funktion eine Art „Kurve“ ist. Beachte, dass unsere allgemeine Graphendefinition deutlich abstrakter ist und der Graph einer Abbildung in der Regel keine „geometrische“ Bedeutung besitzt.
+    Aus der Schule bist du es vielleicht gewohnt, dass der Graph einer Funktion eine Art „Kurve“ ist. Beachte, dass unsere allgemeine Graphendefinition deutlich abstrakter ist und der Graph einer Abbildung in der Regel keine „geometrische“ Bedeutung besitzt. Zumindest im Fall einer Abbildung $\R\to \R$ ist deren Graph zwar eine Teilmenge des $\R^2$, die im Allgemeinen aber alles Andere als „kurvig“ aussehen kann.
 \end{bsp}
 
 
@@ -143,7 +143,7 @@ Die folgende Abbildungsdefinition mag zu Beginn recht abstrakt und nichtssagend 
 
 
 \begin{bem}[Zuordnungsvorschriften vs. Abbildungen] \label{zuordvsabb}
-    Jede Zuordnungsvorschrift kann zur Definition eine Abbildung verwendet werden. Beachte, dass Zuordnungsvorschriften und Abbildungen nicht ganz dasselbe sind. Eine Zuordnungsvorschrift ist ein sprachliches Gebilde, eine konkrete Vorschrift, wie Gegenständen vom Typ $X$ Gegenstände vom Typ $Y$ zuzuordnen seien, wohingegen der Abbildungsbegriff eine mathematische Abstraktion darstellt (dies ist in \cref{def:abbildung} gemeint mit „Abstraktion einer Vorschrift“). Das Verhältnis ist ähnlich wie das zwischen Eigenschaften und Mengen, siehe \cref{mengenvseig}:
+    Jede Zuordnungsvorschrift kann zur Definition einer Abbildung verwendet werden. Beachte, dass Zuordnungsvorschriften und Abbildungen nicht ganz dasselbe sind. Eine Zuordnungsvorschrift ist ein sprachliches Gebilde, eine konkrete Vorschrift, wie Gegenständen vom Typ $X$ Gegenstände vom Typ $Y$ zuzuordnen seien, wohingegen der Abbildungsbegriff eine mathematische Abstraktion darstellt (dies ist in \cref{def:abbildung} gemeint mit „Abstraktion einer Vorschrift“). Das Verhältnis ist ähnlich wie das zwischen Eigenschaften und Mengen, siehe \cref{mengenvseig}:
     \begin{itemize}
         \item Dieselbe Abbildung kann durch verschiedene Zuordnungsvorschriften zustandekommen. Beispielsweise sind
         \begin{align*}
@@ -676,7 +676,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 
     Auf diese Weise ist es uns gelungen, $f$ „künstlich surjektiv“ zu machen. Ist uns daran gelegen, mit surjektiven Abbildungen zu arbeiten, so stellt das also kein Problem dar, da wir den Wertebereich einer Abbildung stets auf ihr Bild einschränken können.
 
-    Ebenso ist es möglich, die Abbildung $f$ „künstlich injektiv“ zu machen. Dabei besteht der Trick darin, zwischen solchen Elementen von $X$, die unter $f$ denselben Funktionswert haben, „nicht mehr zu unterscheiden“. Die Technik „ähnliche Elemente nicht mehr voneinander zu unterscheiden“ wird in der LA1 eine prominente Rolle im Umfeld des sogenannten \href{https://de.wikipedia.org/wiki/Homomorphiesatz}{Homomorphiesatzes} spielen und kann mithilfe von \emph{Äquivalenzrelationen}, die Relationen-Kapitel thematisiert werden, formalisiert werden siehe \cref{teilmengenvsfaktormengen}
+    Ebenso ist es möglich, die Abbildung $f$ „künstlich injektiv“ zu machen. Dabei besteht der Trick darin, zwischen solchen Elementen von $X$, die unter $f$ denselben Funktionswert haben, „nicht mehr zu unterscheiden“. Die Technik „ähnliche Elemente nicht mehr voneinander zu unterscheiden“ wird in der LA1 eine prominente Rolle im Umfeld des sogenannten \href{https://de.wikipedia.org/wiki/Homomorphiesatz}{Homomorphiesatzes} spielen und kann mithilfe von \emph{Äquivalenzrelationen}, die im Relationenkapitel thematisiert werden, formalisiert werden siehe \cref{teilmengenvsfaktormengen}
 \end{vorschau}
 
 
@@ -718,7 +718,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         sodass $g_k\circ f=\id_{\N_0}$ und $f\circ g_k\neq \id_{\N_0}$. Also ist zwar $f$ linksinvers zu $g_k$ (und dementsprechend $g_k$ rechtsinvers zu $f$), aber nicht rechtsinvers zu $g_k$.
         \[\begin{tikzcd}
             f\vcentcolon & 0 \ar[r, bend left]& 1 \ar[r, bend left]& 2 \ar[r, bend left]& 3 \ar[r, bend left, mapsto]& 4 \ar[r, bend left]& 5 \ar[r, bend left]& \dots \\
-            g_k\vcentcolon & 0 \ar[loop, out=145, in=215, looseness=5] & 1 \ar[l, bend right] & 2 \ar[l, bend right] & 3 \ar[l, bend right] & 4  \ar[l, bend right] & 5  \ar[l, bend right] &  \ar[l, bend right]  \dots
+            g_0\vcentcolon & 0 \ar[loop, out=145, in=215, looseness=5] & 1 \ar[l, bend right] & 2 \ar[l, bend right] & 3 \ar[l, bend right] & 4  \ar[l, bend right] & 5  \ar[l, bend right] &  \ar[l, bend right]  \dots
         \end{tikzcd}\]
         \item Die Abbildung
             \[ \Z\to \Z \ ,\ n\mapsto n+1 \]
@@ -780,7 +780,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{bem}
 
 
-\begin{satz}[Bijektiv $\Leftrightarrow$ invertierbar] \label{bijektiviso}
+\begin{satz} \label{bijektiviso}
     Seien $X,Y$ zwei Mengen und $X\xrightarrow{f} Y$ eine Abbildung. Dann sind äquivalent:
     \begin{enumerate}[(i)]
         \item $f$ ist invertierbar.

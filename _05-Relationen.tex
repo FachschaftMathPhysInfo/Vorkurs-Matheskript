@@ -11,7 +11,7 @@
 \section{Allgemeines}
 
 
-Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} eingeführt. In diesem Kapitel soll es um eine Abstraktion jenes logischen Relationsbegriff gehen.
+Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} eingeführt. In diesem Kapitel soll es um eine Abstraktion jenes logischen Relationsbegriffs gehen.
 
 
 \begin{de}[Relation -- abstrakte Definition] \label{def:relation} \index{Relation}
@@ -134,7 +134,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 \end{bsp}
 
 
-\begin{bem}[* Pullback von Relationen]
+\begin{bem}[* Pullback von Relationen] \label{pullbackrel}
     Seien $X,Y$ zwei Mengen, $X\xrightarrow{f} Y$ eine Abbildung und $R$ eine Relation auf $Y$. Dann ist durch
     \begin{align*}
         a\ f^*R\ b \qquad& :\Leftrightarrow\qquad f(a)\ R\ f(b) &&a,b\in X
@@ -146,7 +146,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 
 
 \begin{vorschau}[* mengentheoretische Relationsdefinition]
-    Die Relationsdefinition \cref{def:relation} ist, ähnlich wie die Mengendefinition \cref{def:menge} und die Abbildungsdefinition \cref{def:abbildung} nur informell. Wenn man denn mächte, lässt sie sich aber durch eine präzise mengentheoretische Definition ersetzen:
+    Die Relationsdefinition \cref{def:relation} ist, ähnlich wie die Mengendefinition \cref{def:menge} und die Abbildungsdefinition \cref{def:abbildung} nur informell. Wenn man denn möchte, lässt sie sich aber durch eine präzise mengentheoretische Definition ersetzen:
     
     Eine Relation auf einer Menge $X$ ist eine Teilmenge $R\subseteq X\times X$. Für Elemente $x,y\in X$ definiert man dann
     \begin{align*}
@@ -252,7 +252,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
     (Transitivität): Seien $R$ transitiv und $x,y,z\in X$ mit $xR^\op yR^\op z$. Also gilt $zRyRx$ und aus der Transitivität von $R$ ergibt sich $zRx$, also $xR^\op z$. Da $x,y,z\in X$ beliebig gewählt waren, ist damit gezeigt, dass auch $R^\op$ transitiv ist. \\[0.5em]
     (Symmetrie): Ist $R$ symmetrisch, so ist $R^\op=R$, sodass auch $R^\op$ symmetrisch ist. \\[0.5em]
     (Antisymmetrie): Seien $R$ antisymmetrisch und $x,y\in X$ mit $x R^\op y$ und $y R^\op x$. In Termen von $R$ heißt das $y Rx$ und $x Ry$, sodass sich $y=x$ aus der Antisymmetrie von $R$ ergibt. Also ist $x=y$, sodass auch $R^\op$ antisymmetrisch ist.
-    \item Bei den Definitionen von Reflexivität, Transitivität, Symmetrie und Antisymmetrie handelt es sich jeweils um Allaussagen über die Elemente von $X$. Wenn diese Aussagen für alle Elemente von $X$ gelten, so erst recht auch für alle Elemente der Teilmenge $U$.
+    \item Bei den Definitionen von Reflexivität, Transitivität, Symmetrie und Antisymmetrie handelt es sich jeweils um Allaussagen über die Elemente von $X$. Wenn diese Aussagen für alle Elemente von $X$ gelten, so erst recht auch für alle Elemente der Teilmenge $U$. \qed
     \end{enumerate}
 \end{bew}
 
@@ -302,7 +302,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
         x < y \qquad &:\Leftrightarrow\qquad x\le y\quad \text{und}\quad y \not \le x \\
         x > y \qquad &:\Leftrightarrow\qquad y < x
     \end{align*}
-    Es ist $\ge$ und $>$ per Definition genau die Umkehrrelationen von $\le$ und $<$ im Sinne von \cref{def:umkehrrel}.
+    Es sind $\ge$ und $>$ per Definition genau die Umkehrrelationen von $\le$ und $<$ im Sinne von \cref{def:umkehrrel}.
 \end{nota}
 
 
@@ -345,7 +345,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
         \begin{align*}
             A\le B \qquad &:\Leftrightarrow\qquad  \text{Es lässt sich beweisen, dass $A\to B$} && A,B\in \calA
         \end{align*}
-        eine Präordnung, d.h. reflexiv und transitiv. 
+        eine Präordnung, d.h. reflexiv und transitiv. Sie ist allerdings nicht antisymmetrisch und somit keine Ordnungsrelation.\footnote{Mittels Übergang zur sogenannten \emph{Lindenbaum-Algebra} kann sie allerdings künstlich antisymmetrisch gemacht werden, vgl. \cref{bsp:faktormenge}(4).}
         \begin{bew}
             (reflexiv): Die Reflexivität wurde in \cref{implikationref} bewiesen.
 
@@ -372,7 +372,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
     \begin{enumerate}
         \item Die geordnete Menge $\{1,2,3,4,5\}$ (mit der gewöhnlichen, von $\N$ induzierten Ordnung) kann visualisiert werden durch:
         \[\begin{tikzcd}
-            1 \ar[r, dash] & 4 \ar[r, dash] & 3 \ar[r, dash] & 4 \ar[r, dash] & 5
+            1 \ar[r, dash] & 2 \ar[r, dash] & 3 \ar[r, dash] & 4 \ar[r, dash] & 5
         \end{tikzcd}\]
         \item Die geordnete Menge $(\{\{1\},\{2\},\{1,2,3\},\{1,2,4\}\},\subseteq)$ sieht folgendermaßen aus:
         \[\begin{tikzcd}
@@ -459,8 +459,8 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 \begin{de} \label{def:kleinstes} \index{größtes Element} \index{Maximum} \index{kleinstes Element} \index{Minimum} \index{maximales Element} \index{minimales Element}
 Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
     \begin{itemize}
-        \item \textbf{Kleinstes Element} (oder auch: \textbf{Minimum}) von $X$, falls für jedes $x\in X$ gilt, dass $a\le x$. Mit anderen Worten: „Jedes Element ist größergleich $x$“.
-        \item \textbf{Größtes Element} (oder auch: \textbf{Maximum}) von $X$, falls für jedes $x\in X$ gilt, dass $a\le x$.
+        \item \textbf{kleinstes Element} (oder auch: \textbf{Minimum}) von $X$, falls für jedes $x\in X$ gilt, dass $a\le x$. Mit anderen Worten: „Jedes Element ist größergleich $x$“.
+        \item \textbf{größtes Element} (oder auch: \textbf{Maximum}) von $X$, falls für jedes $x\in X$ gilt, dass $a\le x$.
         \item \textbf{minimales Element} von $X$, falls es kein $x\in X$ gibt, für das $x<a$ gälte. Mit anderen Worten: „Es gibt kein strikt kleineres Element“.
         \item \textbf{maximales Element} von $X$, falls es kein $x\in X$ gibt, für das $a>x$ gälte.
     \end{itemize}
@@ -482,7 +482,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \begin{nota}
     Dies rechtfertigt es, von \emph{dem} Minimum bzw. \emph{dem} Maximum von $X$ zu sprechen. Notation:
     \begin{align*}
-        \min(T) \qquad\text{und}\qquad \max(T)
+        \min(X) \qquad\text{und}\qquad \max(X)
     \end{align*}
     Beachte allerdings, dass ein kleinstes oder größtes Element nicht unbedingt existieren braucht.
 \end{nota}
@@ -592,7 +592,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \begin{bsp}
     \begin{enumerate}
         \item Weil $\N$ in $\Z$ nicht nach oben beschränkt ist, also gar keine einzige obere Schranke besitzt, besitzt $\N$ auch kein Supremum in $\Z$.
-        \item Das offene Intervall $(0,1)\subseteq \R$ besitzt $0$ als Infimum und $1$ als Supremum. Allerdings sind $0,1\notin (0,1)$. Dieses Beispiel zeigt, dass das Infimum bzw. Supremum einer Teilmenge nicht unbedingt auch ein Element von ihr braucht. Wenn doch, handelt es sich um ein Minimum bzw. Maximum im Sinne von \cref{def:kleinstes}.
+        \item Das offene Intervall $(0,1)\subseteq \R$ besitzt $0$ als Infimum und $1$ als Supremum. Allerdings sind $0,1\notin (0,1)$. Dieses Beispiel zeigt, dass das Infimum bzw. Supremum einer Teilmenge nicht unbedingt auch ein Element von ihr sein braucht. Wenn doch, handelt es sich um ein Minimum bzw. Maximum im Sinne von \cref{def:kleinstes}.
         \item Es ist $T:=\{x\in \Q \mid x^2 < 2\}$ eine beschränkte Teilmenge von $\Q$, die weder ein Supremum noch ein Infimum in $\Q$ besitzt. In $\R$ besitzt sie dagegen welche, nämlich $\sqrt{2}$ und $-\sqrt{2}$.
         \item In der geordneten Menge $(\{\{1\},\{2\},\{1,2,3\},\{1,2,4\}\},\subseteq)$, vgl. das Diagramm in \cref{bsp:hasse}, besitzt die Teilmenge $T:=\{\{1\},\{2\}\}$ kein Supremum. Zwar besitzt sie genau zwei obere Schranken, nämlich $\{1,2,3\}$ und $\{1,2,4\}$, aber da keine der beiden kleiner als die andere ist, ist keine der beiden ein Supremum von $T$.
         \item In der geordneten Menge $(\{\{1\},\{2\},\{1,2\},\{1,2,3\},\{1,2,4\}\},\subseteq)$, vgl. das Diagramm in \cref{bsp:hasse}, besitzt die Teilmenge $T:=\{\{1\},\{2\}\}$ dagegen ein Supremum, nämlich $\{0,1\}$.
@@ -603,7 +603,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 
 \begin{bem}[Verallgemeinerbarkeit auf Präordnungen]
-    Eine Analyse ergibt, dass sich alle Definitionen und nahezu alle Sätze aus diesem Abschnitt über Ordnungsrelationen verallgemeinern lassen auf sogenannt \emph{prägeordnete Mengen}, d.h. Mengen mit einer reflexiven und transitiven (aber nicht unbedingt anstisymmetrischen) Relation. Die einzigen Aussagen, die im prägeordneten Fall nicht mehr gelten, sind die Eindeutigkeit kleinster und größter Elemente sowie die Eindeutigkeit von Infima und Suprema -- im Beweis für deren Eindeutigkeit ging essenziell die Antisymmetrie ein.
+    Eine Analyse ergibt, dass sich alle Definitionen und nahezu alle Sätze aus diesem Abschnitt über Ordnungsrelationen verallgemeinern lassen auf sogenannte \emph{prägeordnete Mengen}, d.h. Mengen mit einer reflexiven und transitiven (aber nicht unbedingt anstisymmetrischen) Relation. Die einzigen Aussagen, die im prägeordneten Fall nicht mehr gelten, sind die Eindeutigkeit kleinster und größter Elemente sowie die Eindeutigkeit von Infima und Suprema -- im Beweis für deren Eindeutigkeit ging essenziell die Antisymmetrie ein.
 \end{bem}
 
 
@@ -618,13 +618,13 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
         \[ 12\cdot 18 = 6\cdot 36 \]
     gleichbedeutend zu $216=216$, also einer Information, die eigentlich nicht der Rede wert ist.
     
-    Der springende Punkt ist hier das Vorliegen zweier verschiedener Abstraktionsebenen. Einerseits haben wir es beim Rechnen mit schlichten Zeichenketten wie „$12\cdot 18$“ oder „$6\cdot 36$“ zu tun. Auf einer abstrakteren Ebene interessieren wir uns aber eigentlich für die Zahlen, die durch die Zeichenketten \emph{repräsentiert} werden. So sind etwa „$216$“\footnote{Beachte, dass auch der Ausdruck „$216$“ noch eine Abkürzung ist für „$2\cdot 10^3 + 1\cdot 10^1 + 6 \cdot 10^0$“.} und „$12\cdot 18$“ zwei \emph{verschiedene} Zeichenketten, die dennoch \emph{dieselbe} Zahl bezeichnen. Es findet ein gedanklicher Abstraktionsprozess statt: zwei Objekte, die auf einer gewissen Ebene noch voneinander verschieden sind, fassen wir auf einer abstrakteren Ebene als identisch auf. Wir schwächen den Gleichheitsbegriff ab. Indem wir eine Gleichung „$12\cdot 18=6\cdot 36$“ als nicht-selbstverständliche Aussage hinstellen (wie hättest du darüber als Grundschüler gedacht?), machen wir auf diesen Abstraktionsprozess aufmerksam. 
+    Der springende Punkt ist hier das Vorliegen zweier verschiedener Abstraktionsebenen. Einerseits haben wir es beim Rechnen mit schlichten Zeichenketten wie „$12\cdot 18$“ oder „$6\cdot 36$“ zu tun. Auf einer abstrakteren Ebene interessieren wir uns aber eigentlich für die Zahlen, die durch die Zeichenketten \emph{repräsentiert} werden. So sind etwa „$216$“\footnote{Beachte, dass auch der Ausdruck „$216$“ noch eine Abkürzung ist für „$2\cdot 10^2 + 1\cdot 10^1 + 6 \cdot 10^0$“.} und „$12\cdot 18$“ zwei \emph{verschiedene} Zeichenketten, die dennoch \emph{dieselbe} Zahl bezeichnen. Es findet ein gedanklicher Abstraktionsprozess statt: zwei Objekte, die auf einer gewissen Ebene noch voneinander verschieden sind, fassen wir auf einer abstrakteren Ebene als identisch auf. Wir schwächen den Gleichheitsbegriff ab. Indem wir eine Gleichung „$12\cdot 18=6\cdot 36$“ als nicht-selbstverständliche Aussage hinstellen (wie hättest du darüber als Grundschüler gedacht?), machen wir auf diesen Abstraktionsprozess aufmerksam.
     
     Formalisiert werden kann dieser Prozess durch Äquivalenzrelationen. Es handelt sich dabei um alternative Gleichheitsbegriffe, die schwächer als die herkömmliche, strikte Gleichheit sind und dadurch eine „Gleihheit auf einer abstrakteren Ebene“ repräsentieren. Bisher wurden allgemeine Relationen mit dem Buchstaben $R$ und allgemeine Ordnungsrelationen mit dem Zeichen $\le$ notiert. Für allgemeine Äquivalenzrelationen nutze ich die Tilde $\sim$.
 \end{bem}
 
 
-\begin{de} \label{def:aequirel} \index{Äquivalenzrelation}
+\begin{de} \label{def:aequirel} \index{Aequivalenzrelation@Äquivalenzrelation}
     Sei $X$ eine Menge. Eine Relation $\sim$ auf $X$ heißt \textbf{Äquivalenzrelation}, wenn sie reflexiv, symmetrisch und transitiv ist. In Formeln:
     \begin{align*}
         & (\text{ÄR1}) & \forall x\in X:&&\quad & x\sim x && (\text{Reflexivität}) \\
@@ -672,7 +672,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
     \begin{align*}
         a \sim_f b \qquad&:\Leftrightarrow\qquad f(a)=f(b) && a,b\in X
     \end{align*}
-    definierte Relation eine Äquivalenzrelation auf $X$. Stellen wir uns $f$ als eine Abbildung vor, die den Elementen von $X$ gewisse „Merkmale“ zuordnet, so formalisiert die Relation $\sim_f$ das Teilen eines gemeinsamen Merkmals.
+    definierte Relation eine Äquivalenzrelation auf $X$.\footnote{Es handelt sich um den Pullback der Gleichheitsrelation entlang $f$, vgl. \cref{pullbackrel}} Stellen wir uns $f$ als eine Abbildung vor, die den Elementen von $X$ gewisse „Merkmale“ zuordnet, so formalisiert die Relation $\sim_f$ das Teilen eines gemeinsamen Merkmals.
 \end{bem}
 
 
@@ -698,7 +698,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \end{bsp}
 
 
-\begin{de}[Äquivalenzklasse] \label{def:aequiklasse} \index{Äquivalenzklasse} \index{Vertreter} \index{Repräsentant}
+\begin{de}[Äquivalenzklasse] \label{def:aequiklasse} \index{Aequivalenzklasse@Äquivalenzklasse} \index{Vertreter} \index{Repräsentant}
     Seien $X$ eine Menge, $\sim$ eine Äquivalenzrelation auf $X$ und $x\in X$ ein Element. Die Menge aller „zu $x$ äquivalenten“ Elemente
         \[ [x] := \{ y\in X \mid y\sim x \}\]
     heißt die \textbf{Äquivalenzklasse\footnote{Vielleicht ist dir bekannt, dass in der axiomatischen Mengenlehre zwischen „Mengen“ und „Klassen“ unterschieden wird. Die Terminologie „Äquivalenz\emph{klasse}“ hat damit allerdings nichts zu tun und ist schlicht historisch erwachsen.} von $x$}. Vor allem in der Algebra wird die Äquivalenzklasse auch mit einem Oberstrich notiert:
@@ -723,7 +723,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 \begin{bsp}[*] \quad
     \begin{enumerate}
-        \item Sei $F$ die Menge der Fußballspieler in der Bundesliga. Hinsichtlich der Äquivalenzrelation „spielt im selben Verein wie“ bildet die Menge aller Mannschaftskapitäne der Bundeligavereine ein Vertretersystem, da jede jede Fußballmannschaft genau einen Mannschaftskapitän hat. Weitere Vertretersysteme erhielte man beispielsweise, indem man aus jeder Mannschaft den ältesten Spieler oder den Stammtorwart auswählt.
+        \item Sei $F$ die Menge der Fußballspieler in der Bundesliga. Hinsichtlich der Äquivalenzrelation „spielt im selben Verein wie“ bildet die Menge aller Mannschaftskapitäne der Bundeligavereine ein Vertretersystem, da jede Fußballmannschaft genau einen Mannschaftskapitän hat. Weitere Vertretersysteme erhielte man beispielsweise, indem man aus jeder Mannschaft den ältesten Spieler oder den Stammtorwart auswählt.
         \item Nach \cref{merkmal} ist auf $\Z$ durch die Relation
         \begin{align*}
             n\sim m\qquad&:\Leftrightarrow\qquad \vert n\vert=\vert m\vert && n,m\in \Z
@@ -745,7 +745,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \subsection*{Die Faktormenge zu einer Äquivalenzrelation}
 
 
-Äquivalenzklassen sind vergröberte, alternative Gleichheitsbegriffe. In diesem Abschnitt wird die Methode vorgestellt, vormals „äquivalente“ Elemente nun künstlich \emph{gleich} zu machen.
+Äquivalenzrelationen sind vergröberte Gleichheitsbegriffe. In diesem Abschnitt wird die Methode vorgestellt, vormals „äquivalente“ Elemente nun künstlich \emph{gleich} zu machen.
 
 
 \begin{de}[Faktormenge zu einer Äquivalenzrelation] \label{def:faktormenge} \index{Faktormenge} \index{Quotientenmenge} \index{Projektion (auf eine Faktormenge)}
@@ -771,7 +771,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
     \begin{enumerate}
         \item Sei $F$ die Menge aller Fußballspieler in der Bundesliga. Die Elemente der Faktormenge $F/{\sim}$ hinsichtlich der Äquivalenzrelation „spielt im selben Verein wie“ sind genau die Vereinskader der einzelnen Bundesligisten. Die kanonische Projektion bildet jeden Spieler $f\in F$ auf die Menge seiner Mitspieler $\{g\in F\mid g\ \text{spielt im gleichen Verein wie $f$}\}$ ab.
         \item Sei $M$ die Menge aller Menschen mit genau einer Wohnung. Die Elemente der Faktormenge $M/{\sim}$ hinsichtlich der Äquivalenzrelation „wohnt zusammen mit” sind genau die Wohngemeinschaften, d.h. die Mengen von Leuten, die sich eine gemeinsame Wohnung teilen. Die kanonische Projektion bildet eine Person ab auf die Menge aller ihrer Mitbewohner (einschließlich ihrer selbst).
-        \item Sei $n\in \N$. Die Faktormenge von $\Z$ hinsichtlich Kongruenz modulo $n$ wird notiert durch
+        \item Sei $n\in \N_{\ge 1}$. Die Faktormenge von $\Z$ hinsichtlich Kongruenz modulo $n$ wird notiert durch
         \begin{align*}
             \Z/n\Z && (\text{lies: „$\Z$ modulo $n\Z$”})
         \end{align*}

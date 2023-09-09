@@ -285,7 +285,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 
-\begin{axiom}[Hin- und Rückrichtung] \label{hinruck} \index{Hinrichtung} \index{Rückrichtung} \index{Äquivalenzbeweis}
+\begin{axiom}[Hin- und Rückrichtung] \label{hinruck} \index{Hinrichtung} \index{Rückrichtung} \index{Aequivalenzbeweis@Äquivalenzbeweis}
     Aus dem Vorliegen der beiden Implikationen $A\to B$ und $B\to A$ kann auf die Äquivalenz $A\leftrightarrow B$ geschlossen werden.\footnote{vgl. \cref{teilmengeneig}c)}
     \[\begin{tabular}{r}
         $A\to B$ \\
@@ -554,7 +554,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
         & \to & \cos^2(x)& = 1-\sin^2(x) & (\text{beide Seiten quadrieren}) \\
         & \to & \cos^2(x) + \sin^2(x) &= 1
     \end{align*}
-    und letzteres ist eine wohlbekannte wahre Aussage (die manchmal als „Satz des Pythagoras“ bezeichnet wird). Jedoch ist
+    und letzteres ist eine wohlbekannte wahre Aussage (die manchmal als „Satz des Pythagoras“\footnote{\href{https://de.wikipedia.org/wiki/Pythagoras}{Pythagoras (6. Jhd. v. Chr.)}} bezeichnet wird). Jedoch ist
         \[ \cos(\pi) = -1 \neq 1 = \sqrt{1-0^2} = \sqrt{1-\sin^2(\pi)} \]
     sodass irgendetwas nicht stimmen kann. Kannst du ausmachen, wie und wo genau sich der Fehler eingeschlichen hat?
 \end{bem}
@@ -733,7 +733,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen
 
 
 \begin{bem}[*]
-    Drei natürliche Zahlen $a,b,c$, für die $a^2+b^2=c^2$ gilt, heißen ein \textbf{pythagoräisches Tripel}. Also wurde gerade bewiesen, dass $(2,3,5)$ das kleinste pythagoräische Tripel ist. Nach dem berühmten \href{https://de.wikipedia.org/wiki/Gro\%C3\%9Fer_Fermatscher_Satz}{Großen Satz von Fermat} besitzt die Gleichung $a^n+b^n=c^n$ für eine natürliche Zahl $n\ge 3$ keine positive ganzzahlige Lösung.
+    Drei natürliche Zahlen $a,b,c$, für die $a^2+b^2=c^2$ gilt, heißen ein \textbf{pythagoräisches Tripel}. Also wurde gerade bewiesen, dass $(2,3,5)$ das kleinste pythagoräische Tripel ist. Nach dem berühmten \href{https://de.wikipedia.org/wiki/Gro\%C3\%9Fer_Fermatscher_Satz}{Großen Satz von Fermat}\footnote{\href{https://de.wikipedia.org/wiki/Pierre_de_Fermat}{Pierre de Fermat (1607-1665)}} besitzt die Gleichung $a^n+b^n=c^n$ für eine natürliche Zahl $n\ge 3$ keine positive ganzzahlige Lösung.
 \end{bem}
 
 
@@ -846,7 +846,7 @@ In diesem Abschnitt sei $E(x)$ stets ein einstelliges Prädikat.
 \end{bem}
 
 
-\begin{bsp}[* Satz von Euklid] \label{euklid}
+\begin{bsp}[* Satz von Euklid\footnote{\href{https://de.wikipedia.org/wiki/Euklid}{Euklid (ca. 3. Jhd. v. Chr.)}}] \label{euklid}
     Für jede natürliche Zahl $n$ gibt es eine Primzahl, die größer als $n$ ist.
 \end{bsp}
 
@@ -940,13 +940,13 @@ Diese Und-Aussage kann gemäß \cref{undbeweise} als zwei separate Aussagen beha
 
 
 \begin{bew}
-    (Eindeutigkeit): Seien $a,b$ zwei reelle Zahlen, sodass für jede reelle Zahl $x$ gilt, dass $ax=a$ und $bx=b$. Nun ist
+    (Eindeutigkeit): Seien $a,b$ zwei reelle Zahlen derart, dass für jede reelle Zahl $x$ gilt, dass $ax=a$ und $bx=b$. Nun ist
     \begin{align*}
         a & = a\cdot b & (\text{wegen der besonderen Eigenschaft von $a$}) \\
-        & = x' \cdot x  \\
-        & = x' & (\text{wegen der besonderen Eigenschaft von $x'$})
+        & = b \cdot a  \\
+        & = b & (\text{wegen der besonderen Eigenschaft von $b$})
     \end{align*}
-    (Existenz): Da für jede reelle Zahl $y$ gilt, dass $0\cdot y=0$, erfüllt die Zahl $0$ die gewünschte Eigenschaft. \qed
+    (Existenz): Da für jede reelle Zahl $x$ gilt, dass $0\cdot x=0$, erfüllt die Zahl $0$ die gewünschte Eigenschaft. \qed
 \end{bew}
 
 
@@ -1215,7 +1215,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
             $A:=$ „Diese Aussage ist falsch.“
         \end{quote}
         Hier gilt tatsächlich $A\leftrightarrow \neg A$.
-        \item Eine weitere berühmte Situation, in der eine Aussage äquivalent zu ihrer Negation ist, ist das „Barbier-Paradoxon“, das wiederum ein Spezialfall der sogenannten \emph{Russellschen Antinomie} ist:
+        \item Eine weitere berühmte Situation, in der eine Aussage äquivalent zu ihrer Negation ist, ist das „Barbier-Paradoxon“, das wiederum ein Spezialfall der sogenannten \emph{Russellschen Antinomie}\footnote{\href{https://de.wikipedia.org/wiki/Bertrand_Russell}{Bertrand Russell 1872-1970}} ist:
         \begin{satz}
             In Sevilla lebt kein Mann, der genau denjenigen Männern Sevillas den Bart rasiert, die sich nicht selbst den Bart rasieren.
         \end{satz}
@@ -1237,7 +1237,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 \end{bew}
 
 
-\begin{satz}[* Russellsche\footnote{\href{https://de.wikipedia.org/wiki/Bertrand_Russell}{Bertrand Russell 1872-1970}} Antinomie] \label{russell} \index{Russellsche Antinomie}
+\begin{satz}[* Russellsche Antinomie] \label{russell} \index{Russellsche Antinomie}
     Sei $R$ ein zweistelliges Prädikat, dessen beide Variablen vom selben Typ sind. Dann gilt:
         \[ \nexists x\ \forall y:\ (R(x,y) \leftrightarrow \neg R(y,y))\]
     Mit anderen Worten: Es gibt kein Objekt $x$, sodass jedes Objekt $y$ genau dann in Relation zu $x$ stünde, wenn es nicht in Relation zu sich selbst stünde.
@@ -1324,7 +1324,7 @@ Die bisherigen Axiome bilden zusammen die sogenannte „intuitionistische“ ode
 \begin{axiom}[Satz vom ausgeschlossenen Dritten] \label{excludedmiddle} \index{tertium non datur} \index{Satz vom ausgeschlossenen Dritten}
     Es gilt:
         \[ A\lor \neg A \]
-    Dieses Prinzip heißt auch \textbf{tertium non datur}, was latein für „ein Drittes kommt nicht vor“ ist.
+    Dieses Prinzip heißt auch \textbf{tertium non datur}, was latein für „ein Drittes kommt nicht vor“ ist. Im Englischen spricht man vom ``principle of excluded middle''.
 \end{axiom}
 
 
@@ -1585,7 +1585,7 @@ Das Schreiben eines mathematischen Beweises gliedert sich grob in drei Phasen, d
 
 \begin{aufg}
     Gegeben seien die drei Vektoren des $\R^3$:
-        \[ v_1:= \begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix},\qquad  v_2:= \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix},\qquad v_3:= \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\]
+        \[ v_1:= \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix},\qquad  v_2:= \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix},\qquad v_3:= \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\]
     Man beweise, dass $(v_1,v_2,v_3)$ eine Basis des $\R^3$ ist.
 \end{aufg}
 
@@ -1641,12 +1641,12 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
     \end{itemize}
     Diese Phase endet, sobald ihr einen Ansatz gefunden und weiterentwickelt habt, der sich als erfolgreich herausstellt, d.h. von dem ihr euch sicher seid, dass er sich in einen wasserdichten Beweis formulieren lässt. \\[0.5em]
     Zu dem Beispiel mit der Basis im $\R^3$: Die Recherche hat ergeben, dass ich nur noch beweisen muss: Sind $a,b,c\in \R$ drei beliebige reelle Zahlen mit
-        \[ a\begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
+        \[ a\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
     so muss bereits $a=b=c=0$ gelten. Da es sich um eine Gleichung im $\R^3$ handelt, kann ich sie in ein System dreier Gleichungen zerlegen:
     \[\begin{array}{ccccccc}
         a &+& 2b &+& c &=& 0 \\
         a &+& b &+& c & =& 0 \\
-        2a &+& &+ &c & =& 0
+        2a && &+ &c & =& 0
     \end{array}\]
     Dieses lineare Gleichungssystem kann ich nun einerseits mit Schulwissen, andererseits mit dem in der LA-Vorlesung präsentierten „Gauß-Algorithmus“ lösen. \\[0.5em]
     Damit ist eine vielversprechende Beweisstrategie gefunden. Auf dem Schmierblatt vergewissere ich mich nun durch ein paar Umformungen, die für nicht-eingeweihte Leser keinen Sinn ergeben müssen, dass das Gleichunssystem tatsächlich auf $a=b=c=0$ führt:
@@ -1679,7 +1679,7 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
     \begin{bew}
         Aus der Vorlesung ist bekannt, dass, da der $\R^3$ ein dreidimensionaler Vektorraum ist, eine Familie dreier Vektoren im $\R^3$ genau dann eine Basis ist, wenn sie linear unabhängig ist. Demnach genügt es zu zeigen, dass $v_1,v_2,v_3$ linear unabhängig sind. \\[0.5em]
         Dazu seien $a,b,c\in \R$ drei beliebige reelle Zahlen mit
-            \[ a\begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
+            \[ a\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
         Man erhält ein lineares Gleichungssystem
         \[\begin{array}{rcccccccc}
             \text{I} &&    a &+& 2b &+& c &=& 0 \\
