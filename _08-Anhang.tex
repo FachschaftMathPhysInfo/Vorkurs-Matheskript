@@ -1,6 +1,6 @@
 
 
-\chapter{Formelsammlung Logik und Mengenlehre} \label{formelsammlung}
+\chapter{Formelsammlung Logik und Mengen} \label{formelsammlung}
 
 
 \section{Einige Aussagenlogische Tautologien}
@@ -40,10 +40,6 @@ Es gilt:
         A \to B & \quad\leftrightarrow\quad (A \land B) \leftrightarrow A \\
         A \to B & \quad\leftrightarrow\quad (A \lor B) \leftrightarrow B
     \end{split} \\[1em]
-    \begin{split}
-        (A\land B) \to C & \quad\leftrightarrow\quad (A\to C) \lor (B\to C) \\ %nur in klassischer Logik
-        A \to (B\lor C) & \quad\leftrightarrow\quad (A\to B) \lor (A\to C) %nur in klassischer Logik
-    \end{split} \\[1em]
     A & \quad\to\quad \top && (\text{Wahres folgt aus Beliebigem}) \\
     \bot & \quad\to\quad A && (\text{ex falso quodlibet}) \\[1em]
     \begin{split}
@@ -60,9 +56,12 @@ Es gilt:
     \end{split} && (\text{Regeln von De Morgan}) \\[1em]
     A\to B & \quad\leftrightarrow\quad  \neg A \lor B \\
     \neg (A\to B) & \quad\leftrightarrow\quad  A \land \neg B \\[1em]
+    \begin{split}
+        (A\land B) \to C & \quad\leftrightarrow\quad (A\to C) \lor (B\to C) \\ %nur in klassischer Logik
+        A \to (B\lor C) & \quad\leftrightarrow\quad (A\to B) \lor (A\to C) %nur in klassischer Logik
+    \end{split} \\[1em]
     (A\to B)\to A &\quad \to\quad A && (\text{Peirce’sche Regel}) \\
-    A\to B & \quad \lor\quad B\to C \\
-    A \to(A\land B) &\quad \lor\quad B\to (A\land B)
+    A\to B & \quad \lor\quad B\to C
 \end{align*}
 \endgroup
 
@@ -77,7 +76,7 @@ In den folgenden Formeln seien
     \item $E,F$ zwei Eigenschaften.
     \item $R$ eine zweistellige Relation.
 \end{itemize}
-Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es mindestens ein Objekt vom Typ der Variablen $x$ gibt. Es gilt:
+Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es mindestens ein Objekt vom Typ der Variablen $x$ gibt. Für die Russellsche Antinomie sei zusätzlich gefordert, dass beide Variablen von $R$ vom selben Typ seien. Es gilt:
 \begingroup
 \allowdisplaybreaks
 \begin{align*}
@@ -95,14 +94,13 @@ Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es min
     (\exists x : E(x)) \land A &  \quad\leftrightarrow\quad  \exists x : (E(x) \land A) \\
     (\forall x : E(x)) \lor A &  \quad\leftrightarrow\quad  \forall x :(E(x) \lor A) \\[1em] %nur in klassischer Logik
     \begin{split}
-        A \to( \exists x : E(x)) & \quad\leftrightarrow^*\quad \exists x : ( A\to E(x)) \\ %nur in klassischer Logik
-        (\forall x : E(x)) \to A & \quad\leftrightarrow^*\quad \exists x : (E(x) \to A) %nur in klassischer Logik
-    \end{split} \\[1em]
-    \begin{split}
         \nexists x: E(x) & \quad\leftrightarrow\quad \forall x: \neg E(x) \\
         \neg (\forall x: E(x)) & \quad\leftrightarrow\quad \exists x: \neg E(x) %nur in klassicher Logik
     \end{split} && (\text{Quantorennegationsregeln}) \\[1em]
-    \exists x\ \forall y :^* (E(x) & \to E(y)) && (``\text{\href{https://en.wikipedia.org/wiki/Drinker_paradox}{Drinker paradox}}") \\[1em] % nur in klassischer Logik
+    \begin{split}
+        A \to( \exists x : E(x)) & \quad\leftrightarrow^*\quad \exists x : ( A\to E(x)) \\ %nur in klassischer Logik
+        (\forall x : E(x)) \to A & \quad\leftrightarrow^*\quad \exists x : (E(x) \to A) %nur in klassischer Logik
+    \end{split} \\[1em]
     \nexists x \ \forall y : (R(x,y) & \leftrightarrow \neg R(y,y)) && (\text{Russellsche Antinomie})
 \end{align*}
 \endgroup
@@ -347,8 +345,8 @@ Dann gibt es natürliche Bijektionen:
     \Abb(X,Y) & \quad\cong\quad Y^X && (\text{Gleichwertigkeit von Abbildungen und Familien})
 \end{align*}
 \begin{align*}
-    \Abb(X,\prod X_i) & \quad\cong\quad \prod \Abb(X,X_i) && (\text{Universelle Eigenschaft des Produkts}) \\
-    \Abb(\bigsqcup X_i,X) & \quad\cong\quad \prod \Abb(X_i,X) && (\text{Universelle Eigenschaft des Koprodukts})
+    \Abb(X,\prod_{i\in I} X_i) & \quad\cong\quad \prod_{i\in I} \Abb(X,X_i) && (\text{Universelle Eigenschaft des Produkts}) \\
+    \Abb(\bigsqcup_{i\in I} X_i,X) & \quad\cong\quad \prod_{i\in I} \Abb(X_i,X) && (\text{Universelle Eigenschaft des Koprodukts})
 \end{align*}
 \begin{align*}
     \calP(X) & \quad\cong\quad \Abb(X,2) \quad\cong\quad 2^X \\
@@ -364,7 +362,7 @@ Dann gibt es natürliche Bijektionen:
         X \sqcup ( Y\sqcup Z) & \quad\cong\quad (X\sqcup Y)\sqcup Z \\
         X \sqcup Y & \quad\cong\quad Y\sqcup X
     \end{split} \\[1em]
-        0 \times X & \quad\cong\quad X && (\text{Absorbierende Null}) \\
+        0 \times X & \quad\cong\quad 0 && (\text{Absorbierende Null}) \\
         X \times (Y\sqcup Z) & \quad\cong\quad (X\times Y)\sqcup (X\times Z) && (\text{Distributivgesetz}) \\[1em]
     \begin{split}
         (X\times Y)^Z & \quad\cong\quad X^Z \times Y^Z \\
@@ -413,6 +411,8 @@ Dann gibt es natürliche Bijektionen:
     \item[Charakterisierung:] Äquivalente Beschreibung eines Objekts.
 
     \item[Echt:] wahlweise von der Bedeutung „strikt“ oder „nichttrivial“. Beispielsweise sind die \emph{echten Teiler} einer natürlichen Zahl $n$ alle Teiler von $n$ ausgenommen den „trivialen Teiler“ $n$ selbst. Die \emph{echten Teilmengen} einer Menge $M$ sind sind alle Teilmengen von $M$ mit Ausnahme der „trivialen Teilmenge“ $M$ (und eventuell $\emptyset$).
+
+    \item[Eindeutig bestimmt:] Ein mathematisches Objekt ist durch eine Eigenschaft eindeutig bestimmt, falls es kein anderes Objekt mit derselben Eigenschaft gibt. Beispielsweise ist der Mittelpunkt eines Kreises eindeutig bestimmt durch die Eigenschaft, dass er zu jedem Punkt auf dem Kreis denselben Abstand hat. Dagegen ist etwa die komplexe Quadratwurzel von $-1$ nicht eindeutig bestimmt, weil sowohl die komplexe Zahl $i$ als auch die Zahl $-i$ jeweils Quadratwurzeln von $-1$ sind.
     
     \item[Elementar:] Eine mathematische Aussage ist elementar, wenn ihr Beweis wenig Vorarbeit und Definitionen benötigt und auf wenige andere Sätze angewiesen ist . Andernfalls spricht man von einer \textbf{tiefen} Aussage. Werden im Laufe der Zeit neue Beweise gefunden, kann eine vormals tiefe Aussage elementar werden.
 
@@ -433,7 +433,7 @@ Dann gibt es natürliche Bijektionen:
     
     \item[Kanonisch:] Ein Objekt ist kanonisch, wenn es sich um ein Standard-Beispiel handelt, wenn es als Standard-Struktur eines anderen Objekts angesehen wird oder wenn es \emph{natürlich} (siehe unten) ist. Andernfalls heißt es \textbf{unkanonisch}. Beispielsweise besitzt der $\R^n$ eine kanonische Basis, die sogenannte Standardbasis, wohingegen der Folgenraum $\R^\N$ keine kanonische Basis besitzt, die Wahl einer Basis daher unkanonisch wäre. Noch ein Beispiel: die „kanonische“ Gruppenstruktur auf $\Z$ besteht aus der Addition $+$ -- schreiben Mathematiker von „der Gruppe $\Z$“, so ist damit so gut wie immer die Gruppe $(\Z,+)$ gemeint.
 
-    \item[Konstruktiv:] Ein Beweis oder eine Theorie sind „konstruktiv“, wenn jede ihrer Existenzaussagen durch ein Beispiel belegt werden kann. Andernfalls sind sie \textbf{nichtkonstruktiv}. Beispielsweise ist die Aussage „Jede surjektive Abbildung besitzt eine rechtsinverse“ nichtkonstruktiv.
+    \item[Konstruktiv:] Ein Beweis oder eine Theorie sind „konstruktiv“, wenn jede ihrer Existenzaussagen durch ein Beispiel belegt werden kann. Andernfalls sind sie \textbf{nichtkonstruktiv}. Beispielsweise ist die Aussage „Jede surjektive Abbildung besitzt eine Rechtsinverse“ nichtkonstruktiv.
     
     \item[Korollar:] Folgerung aus einem größeren mathematischen Satz.
 

@@ -82,7 +82,7 @@
         \begin{align*}
             -\infty \le  x \le \infty && (\text{für alle $x\in \bar \R$})
         \end{align*}
-    d.h. „$-\infty$“ sei per Definition kleiner als jede reelle Zahl, „$\infty$“ dagegen größer als jede reelle Zahl. Es lässt sich zeigen, dass $(\bar \R,\le)$ auf diese Weise zu einer totalgeordneten Menge wird. Beachte, dass $\pm \infty$ keine reellen Zahlen sind und dass sich mit den Elementen von $\bar\R$ auch nur eingeschränkt rechnen lässt.
+    d.h. „$-\infty$“ sei per Definition kleiner als jede reelle Zahl, „$\infty$“ dagegen größer als jede reelle Zahl. Es lässt sich zeigen, dass $(\bar \R,\le)$ auf diese Weise zu einer totalgeordneten Menge wird. Beachte, dass $\pm \infty$ keine reellen Zahlen sind und dass sich damit auch nur eingeschränkt rechnen lässt.
 \end{de}
 
 
@@ -148,7 +148,7 @@
 \begin{bem}[Abstand im euklidischen Raum]
     Die reellen Zahlen $\R$ werden meist in der „Gestalt“ einer Gerade, der sogenannten \emph{Zahlengerade}, visualisiert. Ebenso kann der $\R^2$ als Menge von Punkten in einer Ebene, der $\R^3$ als Menge von Punkten im Raum vorgestellt werden, wobei für ein Tripel $(x,y,z)\in \R^3$ die Zahlen $x,y,z\in \R$ als Koordinaten hinsichtlich eines fixierten Koordinatensystems verstanden werden.
     
-    Obwohl es sich bei reellen Zahlen und Vektoren eigentlich um algebraische Objekte handelt, die addiert und vervielfacht werden können, erlaubt es die geometrische Interpretation, sie als „Punkte in einem Raum“ aufzufassen. Zwischen je zwei Punkten auf einer Gerade, in der Ebene oder im Raum kann die Verbindungsgerade gezogen werden. Die Länge dieser Verbindungsgerade gibt den \emph{Abstand} der beiden Punkte voneinander an. Der Begriff des Abstands liefert einen von vielen Zugängen zu den Konzepten \emph{Stetigkeit} und \emph{Konvergenz}, der in diesem Kapitel beschritten wird.
+    Obwohl es sich bei reellen Zahlen und Vektoren eigentlich um algebraische Objekte handelt, die addiert und vervielfacht werden können, erlaubt es die geometrische Interpretation, sie als „Punkte in einem Raum“ aufzufassen. Zwischen je zwei Punkten auf einer Gerade, in der Ebene oder im Raum kann die Verbindungsstrecke gezogen werden. Die Länge dieser Verbindungsstrecke gibt den \emph{Abstand} der beiden Punkte voneinander an. Der Begriff des Abstands liefert einen von vielen Zugängen zu den Konzepten \emph{Stetigkeit} und \emph{Konvergenz}, der in diesem Kapitel beschritten wird.
     
     Auf der Geraden $\R$, der Ebene $\R^2$ und im Raum $\R^3$ ist der Abstandsbegriff sekundär, indem er als Länge eines Verbindungsvektors definiert wird. Eine direkte Axiomatisierung des Abstandsbegriffs, die auf keinerlei weitere Zusatzstruktur angewiesen ist, geht folgendermaßen:
 \end{bem}
@@ -204,7 +204,7 @@
 \begin{bsp}[Weitere Metriken] \quad
     \begin{enumerate}
         \item(Ebene und räumliche Abstände) In der Ebene $\R^2$, im Raum $\R^3$ und allgemein im Hyperraum $\R^n$ (für ein $n\in \N$) ist der Abstand zweier Punkte gleich der Länge ihrer Verbindungsstrecke. Dies wird in den Analysis-Vorlesungen genauer definiert werden.\footnote{Mehr darüber findest du in \cite{AE06} in Kapitel II.3.} Ich gehe davon aus, dass dir intuitiv klar ist, wie der Abstand zwischen zwei Punkten in der Ebene oder im Raum zu verstehen ist und werde es ab und zu in einem informellen Sinn nutzen, um mehrdimensionale Beispiele und Illustrationen beisteuern zu können.
-        \item(Topologische Datenanalyse) Manchmal können die „Punkte“ eines metrischen Raums auch als „Daten“ verstanden werden. Beispielsweise wäre ein metrischer Raum $X$ gegeben durch die Menge der Nutzer einer Dating-App, die bei ihrer Anmeldung verschiedene persönliche Vorlieben und Eigenschaften angegeben haben. Für zwei Nutzer $a,b\in X$ könnte dann der „Abstand“ $d(a,b)$ definiert sein als die Anzahl aller Kategorien, in denen $a$ und $b$ verschiedene Präferenzen angegeben haben. Nutzer mit vielen gemeinsamen Interessen wären sich bezüglich dieser Metrik also besonders „nahe“.
+        \item(Topologische Datenanalyse) Nicht immer müssen die „Punkte“ eines metrischen Raums eine geometrische Bedeutung besitzen. Beispielsweise wäre ein metrischer Raum $X$ gegeben durch die Menge der Nutzer einer Dating-App, die bei ihrer Anmeldung verschiedene persönliche Vorlieben und Eigenschaften angegeben haben. Für zwei Nutzer $a,b\in X$ könnte dann der „Abstand“ $d(a,b)$ definiert sein als die Anzahl aller Kategorien, in denen $a$ und $b$ verschiedene Präferenzen angegeben haben. Nutzer mit vielen gemeinsamen Interessen wären sich bezüglich dieser Metrik also besonders „nahe“.
     \end{enumerate}
 \end{bsp}
 
@@ -278,7 +278,7 @@
 \begin{bem}[Intuition]
     Die Ansicht, einen „Raum“ wie etwa den euklidischen dreidimensionalen Raum als eine „Punktmenge“ aufzufassen, ist vergleichsweise jung und trug wesentlich zur Entstehung des Mengenbegriffs von Cantor bei. Vormals waren der Raum oder die reelle Gerade eher als eine Art „Kontinuum“ verstanden, auf dem zwar einzelne Punkte ausgezeichnet werden können, das aber eine über die Ansammlung von Punkten hinausgehende Qualität der „Kontinuierlichkeit“ besitzt. Auch über die physikalische Realität des Punktbegriffs, eines ausdehnungslosen Orts im Raum oder in der Zeit, lässt sich streiten.\footnote{Mit einer Formalisierung von Nähe und Abweichung, die unabhängig vom Vorhandensein von Punkten ist, beschäftigt sich die \href{https://en.wikipedia.org/wiki/Pointless_topology}{punktfreie Topologie}, die bislang aber noch keinen Einzug in den mathematischen Mainstream gefunden hat.}
     
-    In Physik und Stochastik können meist nur Näherungsbereiche für einen Punkt angegeben werden. Beispielsweise ist die Wahrscheinlichkeit dafür, dass ein Dartspieler exakt die Mitte des Dartboards trifft, exakt $0{,}0\%$, da es sich bei der „Mitte des Boards“ um eine mathematische Idealisierung handelt. Dagegen kann für das Treffen des etwa 1cm breiten Bullseye durchaus eine positive Wahrscheinlichkeit angegeben werden, die bei einem professionellen Spieler wie zum Beispiel ``The Power'' durchaus im zweistelligen \%-Bereich liegt.
+    In Physik und Stochastik können meist nur Näherungsbereiche für einen Punkt angegeben werden. Beispielsweise ist die Wahrscheinlichkeit dafür, dass ein Dartspieler exakt die Mitte des Dartboards trifft, exakt $0{,}0\%$, da es sich bei der „Mitte des Boards“ um eine mathematische Idealisierung handelt. Dagegen kann für das Treffen des etwa 1cm breiten Bullseye durchaus eine positive Wahrscheinlichkeit angegeben werden, die bei einem professionellen Spieler wie zum Beispiel Phil ``The Power'' Taylor durchaus im zweistelligen \%-Bereich liegt.
     
     Beim Bullseye-Feld handelt es sich um eine „Umgebung“ des Board-Mittelpunkts. Per Definition beinhaltet eine Umgebung $U$ eines Punkts $a$ einen $\varepsilon$-Ball. Der Punkt hat also einen gewissen „Puffer“ um sich herum in $U$. Sofern wir den Punkt $a$ nur bis auf eine Genauigkeit in der Größe von $\varepsilon$ verorten können, kann dennoch garantiert werden, dass $U$ den Punkt $a$ enthält.
 \end{bem}
@@ -350,7 +350,7 @@
     Hier ist noch ein Beispiel für eine Folge, deren Einträge mal keine Zahlen sind:
     \begin{enumerate}[(9)]
         \item Die Folge $(\{1,\dots , n\})_{n\in \N_0}$, deren Einträge die „Anfangsstücke“ von $\N_{\ge 1}$ sind. Also
-            \[ \emptyset,\quad \{1\},\quad \{1,2\},\quad \{1,2,3\},\quad \{1,2,3,4\}\quad,\dots \]
+            \[ \emptyset\ ,\quad \{1\}\ ,\quad \{1,2\}\ ,\quad \{1,2,3\}\ ,\quad \{1,2,3,4\}\ , \quad \dots \]
         Dies ist keine Zahlenfolge, sondern eine Folge von Mengen. Sie besitzt die Eigenschaft, dass für jedes $n\in \N_0$ ihr $n$-ter Eintrag eine Menge ist, die genau $n$-viele Elemente enthält.
     \end{enumerate}
     Eine riesige Datenbank ganzzahliger Zahlenfolgen ist die \href{https://oeis.org/}{On-Line Encyclopedia of Integer Sequences}.
@@ -429,7 +429,7 @@ Es gilt:
             \[ 0,\quad -1,\quad -2,\quad -1,\quad 0,\quad 1,\quad 2,\quad 3,\quad 4, \quad 5,\dots \]
         ist nicht monoton. Sie könnte aber zu einer strikt wachsenden Folge gemacht werden, ließe man die ersten zwei Folgenglieder weg. Somit ist sie „wachsend für hinreichend große $n$“.
         \item Die alternierende Folge $((-1)^n)_{n\in \N}$ ist dagegen nicht einmal für hinreichend große $n$ wachsend, denn egal wie spät wir auch einsteigen, das Rauf und Runter hört nie auf.
-        \item Ist $\varepsilon \in \R_{>0}$ eine (unter Umständen winzig kleine) positive reelle Zahl, so sind die Einträge Folge $\left(\frac{1}{n}\right)_{n\in \N}$ dennoch für hinreichend große $n$ (um genau zu sein für $n> \frac{1}{\varepsilon}$) kleiner als $\varepsilon$. Mit anderen Worten: Die Brüche $\frac{1}{n}$ werden „für hinreichend große $n$ beliebig klein“.
+        \item Ist $\varepsilon \in \R_{>0}$ eine (unter Umständen winzig kleine) positive reelle Zahl, so sind die Einträge der Folge $\left(\frac{1}{n}\right)_{n\in \N}$ dennoch für hinreichend große $n$ (um genau zu sein für $n> \frac{1}{\varepsilon}$) kleiner als $\varepsilon$. Mit anderen Worten: Die Brüche $\frac{1}{n}$ werden „für hinreichend große $n$ beliebig klein“.
     \end{enumerate}
 \end{bsp}
 
@@ -454,7 +454,7 @@ Es gilt:
     \end{align*}
     definieren, aber das soll gerade keine Rolle spielen.
     
-    Du siehst, dass die Folgenglieder dem Koordinatenursprung immer näher kommen, dass sie „für hinreichend großes $n$ nahe kommen“. Genau das heißt Konvergenz.
+    Du siehst, dass die Folgenglieder dem Koordinatenursprung immer näher kommen, dass sie „für hinreichend große $n$ beliebig nahe kommen“. Genau das heißt Konvergenz.
 \end{bem}
 
 
@@ -499,7 +499,7 @@ Es gilt:
 
 \begin{figure}[ht]
     \includegraphics[width=14cm]{./_img/Konvergenzbsp.jpeg}
-    \centering \caption{Eine konvergente Folge von Punkten in der Ebene}
+    \centering \caption{Die Folge $\left(\frac{n}{n+1}\right)_{n\in \N}$ konvergiert gegen $1$.}
 \end{figure}
 
 
@@ -528,7 +528,7 @@ Es gilt:
 
 
 \begin{bew}
-    Es sei $\varepsilon \in \R_{>0}$ beliebig. Sei $N\in \N$ die irgendeine natürliche Zahl, die größer als $1/\varepsilon$ ist. Für alle $n\in \N_{\ge N}$ gilt dann:
+    Es sei $\varepsilon \in \R_{>0}$ beliebig. Sei $N\in \N$ irgendeine natürliche Zahl, die größer als $1/\varepsilon$ ist. Für alle $n\in \N_{\ge N}$ gilt dann:
     \begingroup
     \allowdisplaybreaks
     \begin{align*}

@@ -12,7 +12,7 @@
 
 
 \begin{nota}[Zeichen mit einer konkreten Bedeutung versehen] \label{zeichendefinieren}
-    Gelegentlich ist es bequem, ein konkretes, kompliziert definiertes Objekt mit einem Zeichen zu bezeichnen. Beispielsweise lässt sich mit Methoden der Analysis\footnote{Genauer gesagt: der \emph{Differenzialrechnung}, die in der Erstsemestervorlesung „Analysis 1“ oder bereits in der Schule vermittelt wird. Siehe auch \cref{bsp:exverwendung}.} zeigen, dass die Gleichung $x^5=x+1$ genau eine Lösung in den reellen Zahlen besitzt, wohingegen sich mit Methoden der Algebra zeigen lässt, dass sich diese Lösung nicht mit den Operationen $+$, $-$, $\cdot$, $:$, $\sqrt{}$ konstruieren lässt\footnote{Algebraiker sagen: \emph{die Gleichung $x^5=x+1$ ist nicht auflösbar}. Mit der Auflösbarkeit von Gleichungen beschäftigt sich die sogenannte \emph{Galoistheorie}, die in Heidelberg typischerweise in der Drittsemestervorlesung „Algebra 1“ vermittelt wird.}. Möchte man nun mit dieser Lösung arbeiten, so ist es umständlich, immer wieder „die eindeutige reelle Lösung der Gleichung $x^5=x+1$“ zu schreiben und es ist bequemer, einen Buchstaben zu verwenden. Dafür benutzen Mathematiker einen Imperativ:
+    Gelegentlich ist es bequem, ein konkretes, kompliziert definiertes Objekt mit einem Zeichen zu bezeichnen. Beispielsweise lässt sich mit Methoden der Analysis\footnote{Genauer gesagt: der \emph{Differenzialrechnung}, die in der Erstsemestervorlesung „Analysis 1“ oder bereits in der Schule vermittelt wird. Siehe auch \cref{bsp:exverwendung}.} zeigen, dass die Gleichung $x^5=x+1$ genau eine Lösung in den reellen Zahlen besitzt, wohingegen sich mit Methoden der Algebra zeigen lässt, dass sich diese Lösung nicht mit den Operationen $+$, $-$, $\cdot$, $:$, $\sqrt{}$ konstruieren lässt\footnote{Algebraiker sagen: \emph{die Gleichung $x^5=x+1$ ist nicht auflösbar}. Mit der Auflösbarkeit von Gleichungen beschäftigt sich die sogenannte \emph{Galoistheorie}, die in Heidelberg typischerweise in der Drittsemestervorlesung „Algebra 1“ vermittelt wird.}. Möchte man nun mit dieser Lösung arbeiten, so ist es umständlich, immer wieder „die eindeutige reelle Lösung der Gleichung $x^5=x+1$“ zu schreiben und es ist bequemer, einen Buchstaben zu verwenden. Dafür benutzen Mathematiker einen Konjunktiv\footnote{Um genau zu sein, einen \emph{Jussiv}, der im Deutschen mit dem Konjunktiv ausgedrückt wird.}:
     \begin{quote}
         „Sei $\xi$ die eindeutige reelle Lösung der Gleichung $x^5=x+1$.“  
     \end{quote}
@@ -105,7 +105,7 @@
 
 
 \begin{de}[* Variablensubstitution] \label{def:substitution}
-    Sei $t(x)$ ein Term in der Variablen $x$. Ist $y$ ein Objekt vom Typ der Variablen $x$ oder ein weiterer Term, dessen Typ mit demjenigen der Variable $x$ übereinstimmt, so $y$ für die Variable $x$ \textbf{eingesetzt} (oder auch: \textbf{substituiert}) werden. Der so entstandene Term wird meist notiert durch
+    Sei $t(x)$ ein Term in der Variablen $x$. Ist $y$ ein Objekt vom Typ der Variablen $x$ oder ein weiterer Term, dessen Typ mit demjenigen der Variable $x$ übereinstimmt, so kann $y$ für die Variable $x$ \textbf{eingesetzt} (oder auch: \textbf{substituiert}) werden. Der so entstandene Term wird meist notiert durch
     \begin{align*}
         t(y) && (\text{lies: „$t$ von $y$“})
     \end{align*}
@@ -296,7 +296,7 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 \end{bem}
 
 
-\begin{de}[Äquivalenz] \index{Äquivalenz (von Aussagen)}
+\begin{de}[Äquivalenz] \index{Aequivalenz (von Aussagen)@Äquivalenz (von Aussagen)}
     Zwei Aussagen $A$ und $B$ lassen sich zur \textbf{Äquivalenz}
     \begin{align*}
         A\leftrightarrow B  && (\text{lies: „$A$ ist äquivalent zu $B$“})
@@ -351,7 +351,7 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
     Es gibt noch weitere Junktoren wie etwa:
     \begin{itemize}
         \item Der Sheffer-Strich\footnote{\href{https://de.wikipedia.org/wiki/Henry_Maurice_Sheffer}{Henry Maurice Sheffer (1882-1964)}} „$A\mid B$“ (lies: „Nicht sowohl $A$ als auch $B$“). In der Informatik spricht man auch von der NAND-Verknüpfung.
-        \item Die Peirce-Funktion „$A\downarrow B$“ (lies: „Weder $A$ noch $B$“). In der Informatik spricht man auch von der NOR-Verknüpfung.
+        \item Die Peirce-Funktion\footnote{\href{https://de.wikipedia.org/wiki/Charles_Sanders_Peirce}{Charles Sanders Peirce (1839-1914)}} „$A\downarrow B$“ (lies: „Weder $A$ noch $B$“). In der Informatik spricht man auch von der NOR-Verknüpfung.
     \end{itemize}
     NAND und NOR besitzen die besondere Eigenschaft, dass sich in der Schaltalgebra jeder andere Junktor allein durch NAND's bzw. \href{https://de.wikipedia.org/wiki/NOR-Gatter#Logiksynthese}{allein durch NOR's} konstruieren lässt. In dieser Hinsicht sind sie für die technische Informatik von großer Bedeutung. Für die Mathematik sind sie dagegen nahezu irrelevant.
 \end{vorschau}
@@ -535,7 +535,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \begin{bem}[* freie Variablen vs. gebundene Variablen] \label{gebundenevariable} \index{freie Variable} \index{gebundene Variable}
     Im Ausdruck „$x$ ist eine negative Zahl“ kann für die Variable $x$ eine beliebige reelle Zahl eingesetzt werden. Ebenso z.B. in der Gleichung „$x(x+1)=2$“ (unter Umständen erhielte man falsche Aussagen). Um die Freiheit in der Belegung einer Variable zu betonen, spricht man auch von einer \textbf{freien Variable}. Dagegen ist der Buchstabe „$n$“ im Ausdruck „Für jede gerade natürliche Zahl $n$ ist auch $n^2$ eine gerade Zahl“ oder der Buchstabe „$x$“ in „$\exists x: x(x+1)=2$“ keine Variable mehr, da es keinen Sinn ergäbe, für sie ein konkretes Objekt einzusetzen, wie etwa
     \begin{align*}
-        \forall 5:\ 5(5+1) = 2 && (\text{dieser Ausdruck ist syntaktisch unzulässig})
+        \exists 5:\ 5(5+1) = 2 && (\text{dieser Ausdruck ist syntaktisch unzulässig})
     \end{align*}
     Man sagt, „die Variable wird durch den Quantor gebunden“ und nennt das Zeichen „$x$“ in „$\forall x: x(x+1)=2$“ eine \textbf{gebundene Variable}. Es handelt sich nicht mehr um eine Variable im Sinn von \cref{def:variable}, sondern nur noch um ein „Dummy-Zeichen“, das in der Umgangssprache sogar oftmals vermieden werden kann. So würde man den Ausdruck
         \[ \forall x:\ (x\ \text{ist ein Mensch})\to (x\ \text{ist sterblich}) \]
@@ -566,7 +566,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \begin{nota}[Schreibkonvention bei mehreren Quantoren]
     Verwende ich mehrere Quantoren unmittelbar hintereinander, schreibe ich den Doppelpunkt oft nur hinter den letzten Quantor:
     \begin{align*}
-        \exists y\ \forall x& :\ x < y && (\text{lies: „Es gibt ein $y$, sodass für alle $x$ gilt, dass $x<y$“}) \\
+        \exists y\ \forall x& :\ x < y && (\text{lies: „Es gibt ein $y$ derart, dass für alle $x$ gilt, dass $x<y$“}) \\
         \forall x\ \exists y& :\ x < y && (\text{lies: „Für jedes $x$ gibt es ein $y$, für das $x<y$ gilt“})  
     \end{align*}
     Einige Autoren lassen die Doppelpunkte hinter Quantoren auch ganz weg.
@@ -643,7 +643,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 
 
 \begin{vorschau}[Bivalenzprinzip] \label{bivalenz} \index{Bivalenzprinzip}
-    In der klassischen Aussagenlogik trägt die Menge der Wahrheitswerte in natürlicher Weise die Struktur einer sogenannten „\href{https://en.wikipedia.org/wiki/Boolean_algebra_(structure)}{Boolschen Algebra}“\footnote{\href{https://de.wikipedia.org/wiki/George_Boole}{George Boole (1815-1864)}} bzw. einer sogenannten „\href{https://ncatlab.org/nlab/show/Heyting+algebra}{Heyting-Algebren}“\footnote{\href{https://de.wikipedia.org/wiki/Arend_Heyting}{Arend Heyting (1898-1980)}}. Eine Interpretation einer Aussage ist die Zuweisung eines Wahrheitswerts nach gewissen Regeln. 
+    In der klassischen Aussagenlogik trägt die Menge der Wahrheitswerte in natürlicher Weise die Struktur einer sogenannten „\href{https://en.wikipedia.org/wiki/Boolean_algebra_(structure)}{Boolschen Algebra}“\footnote{\href{https://de.wikipedia.org/wiki/George_Boole}{George Boole (1815-1864)}} bzw. einer sogenannten „\href{https://ncatlab.org/nlab/show/Heyting+algebra}{Heyting-Algebra}“\footnote{\href{https://de.wikipedia.org/wiki/Arend_Heyting}{Arend Heyting (1898-1980)}}. Eine Interpretation einer Aussage ist die Zuweisung eines Wahrheitswerts nach gewissen Regeln.
     
     Da sich ein Bit stets genau in einem der beiden Zustände $1$ oder $0$ befindet, besteht „die Boolsche Algebra“ der Informatiker aus genau diesen beiden Wahrheitswerten, auch ``true'' und ``false'' genannt. Auch in diesem Vorkurs beschränken wir uns auf diejenige boolsche Algebra, die ausschließlich aus den beiden Wahrheitswerten „wahr“ und „falsch“ besteht. Diese Einschränkung heißt auch das \emph{Prinzip der Zweiwertigkeit} oder \textbf{Bivalenzprinzip}\footnote{Philosophen sprechen auch vom „Satz vom ausgeschlossenen Dritten“. Dieser besitzt in der mathematischen Logik aber eine andere Bedeutung als das Bivalenzprinzip, siehe \cref{excludedmiddle}}.
     
@@ -785,7 +785,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
     Seien $A,B$ zwei beliebige Aussagen. Dann gilt:
     \begin{enumerate}
         \item Genau dann ist $A$ unerfüllbar, wenn $\neg A$ eine Tautologie ist.
-        \item Genau dann ist $A\leftrightarrow B$ eine Tautologie, wenn die Interpretationen, unter denen $A$ wahr ist, genau dieselben sind, unter denen $B$ wahr ist.
+        \item Genau dann ist $A\leftrightarrow B$ eine Tautologie, wenn $A$ und $B$ unter jeder Interpretation denselben Wahrheitswert haben.
         \item Genau dann ist $A\to B$ eine Tautologie, wenn unter jeder Interpretation, unter der $A$ eine wahre Aussage ist, auch $B$ eine wahre Aussage ist. Diejenigen Interpretationen, unter denen $A$ falsch ist, spielen hierbei keine Rolle.
     \end{enumerate}
 \end{satz}
@@ -803,7 +803,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
         Unter einer festen Interpretation ist $\neg A$ genau dann wahr, wenn $A$ falsch ist. Dass $\neg A$ unter allen Interpretationen wahr ist, heißt dann genau, dass $A$ unter allen Interpretationen falsch ist.
         \item Aus der Wahrheitstafel der Äquivalenz
         \[\begin{tabular}{cc|c}
-            $A$ &  $B$ & $A \leftrightarrow A$ \\
+            $A$ &  $B$ & $A \leftrightarrow B$ \\
             \hline
             w&w&w\\
             w&f&f \\
@@ -813,7 +813,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
         liest man ab, dass $A\leftrightarrow B$ genau dann wahr ist, wenn $A$ und $B$ denselben Wahrheitswert haben. Also ist $A\leftrightarrow B$ genau dann eine Tautologie, wenn $A$ und $B$ unter jeder Interpretation denselben Wahrheitswert haben, was, da wir gemäß dem Bivalenzprinzip nur mit zwei Wahrheitswerten „w“ und „f“ arbeiten, gleichwertig dazu ist, dass $A$ und $B$ unter genau denselben Interpretationen wahr sind.
         \item Betrachte die Wahrheitstafel der Implikation:
         \[\begin{tabular}{cc|c}
-            $A$ &  $B$ & $A \to A$ \\
+            $A$ &  $B$ & $A \to B$ \\
             \hline
             w&w&w\\
             w&f&f \\

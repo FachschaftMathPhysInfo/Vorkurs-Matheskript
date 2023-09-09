@@ -227,7 +227,7 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 
 
 \begin{bem} \label{mengenstrukturlos}
-    Im letzten Beispiel sehen wir ganz deutlich, dass die Elemente einer Menge keiner Reihenfolge oder „Zählung“ unterliegen: Eine Menge trägt von sich aus bis auf ihre Elemente keine weitere Struktur; Fragen wie „Wie genau / Wie oft / An welcher Stelle ist $x$ in $M$ enthalten?“ kann sie also nicht beantworten, sondern nur „Ist $m$ in $M$ enthalten (oder nicht)?“.
+    Im letzten Beispiel sehen wir ganz deutlich, dass die Elemente einer Menge keiner Reihenfolge oder „Zählung“ unterliegen: Eine Menge trägt von sich aus bis auf ihre Elemente keine weitere Struktur; Fragen wie „Wie genau / Wie oft / An welcher Stelle ist $x$ in $M$ enthalten?“ kann sie also nicht beantworten, sondern nur „Ist $x$ in $M$ enthalten (oder nicht)?“.
     
     Möchte man den Elementen dennoch verschiedene „Plätze“ zuweisen, bietet sich der Begriff der „Familie“ an, der später in \cref{def:familie} eingeführt wird.
 \end{bem}
@@ -406,7 +406,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 
 
 \begin{axiom}[Gleichheit von Familien] \label{familiengleich}
-    Seien $I$ irgendeine Menge und $(a_i)_{i\in I}$ und $(b_i)_{i\in I}$ zwei durch $I$ indizierte Familien, so sind diese beiden Familien genau dann gleich, wenn sie an jedem Index denselben Eintrag besitzen. Als Formel:
+    Sind $I$ irgendeine Menge und $(a_i)_{i\in I}$ und $(b_i)_{i\in I}$ zwei durch $I$ indizierte Familien, so sind diese beiden Familien genau dann gleich, wenn sie an jedem Index denselben Eintrag besitzen. Als Formel:
     \begin{align*}
         (a_i)_{i\in I}=(b_i)_{i\in I} \qquad\leftrightarrow\qquad \forall i\in I:\ a_i=b_i
     \end{align*}
@@ -435,7 +435,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 	Dagegen hat sich die \emph{Menge} der im Raum sitzenden Leute durch den Sitzplatzwechsel nicht verändert, da immer noch dieselben Leute im Raum sitzen (nur eben an anderen Stellen). Bei $\{a_i\mid i\in I\}$ und $\{b_i \mid i\in I\}$ handelt es sich also um dieselbe Menge, während $(a_i)_{i\in I}$ und $(b_i)_{i\in I}$ zwei verschiedene Familien sind.
 	
         Hieran wird der Unterschied zwischen den Begriffen „Familie“ und „Menge“ deutlich. Zwei Mengen, in denen die gleichen Elemente vorkommen, sind nach \cref{mengengleich} schon gleich; für eine Gleichheit von Familien müssen dagegen die Elemente sich auch noch an denselben „Stellen“ befinden. Im Gegensatz zu Mengen haben Familien also eine gewisse durch die Indizierung gegebene Zusatzstruktur.\footnote{vgl. \cref{mengenstrukturlos}}
-	\item Bei Matrizen und den ``arrays'' aus aus der Informatik handelt es sich um Familien, siehe \cref{bsp:matrizen}.
+	\item Bei Matrizen und den ``arrays'' aus der Informatik handelt es sich um Familien, siehe \cref{bsp:matrizen}.
     \end{enumerate}
 \end{bsp}
 
@@ -444,13 +444,13 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
     Seien $I,M$ zwei beliebige Mengen und $(a_i)_{i\in I}$ eine durch $I$ indizierte Familie. Ist jedes der $a_i$'s ein Element von $M$, so nennt man die Familie $(a_i)_{i\in I}$ eine \textbf{(durch $I$ indizierte) Familie mit Einträgen aus $M$} oder auch eine \textbf{$M$-wertige Familie}.
     
     Die Menge aller Familien mit Indexmenge $I$ und Einträgen aus $M$ wird mit $M^I$ notiert:
-        \[ M^I := \{ (a_i)_{i\in I} \mid \forall i\in I:\ a_i \in I \} \]
+        \[ M^I := \{ (a_i)_{i\in I} \mid \forall i\in I:\ a_i \in M \} \]
     $M^I$ heißt auch die „$I$-te Potenz von $M$“, was aber nicht mit der Potenzmenge aus \cref{def:potenzmenge} verwechselt werden sollte.
 \end{de}
 
 
 \begin{bsp}[Folgen]
-    Familien, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist, heißen \textbf{Folgen} und sind ein zentrales Thema im sechsten Vortrag.\footnote{siehe \cref{def:folge}} Beispielsweise ist $\R^\N$ die Menge derjenigen Folgen, deren Einträge allesamt reelle Zahlen sind (man spricht von \emph{reellen Folgen}). Eine solche Folge ist beispielsweise die Folge $(a_n)_{n\in\N}$ mit $a_n:=\frac{1}{n}$
+    Familien, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist, heißen \textbf{Folgen} und sind ein zentrales Thema im siebten Kapitel.\footnote{siehe \cref{def:folge}} Beispielsweise ist $\R^\N$ die Menge derjenigen Folgen, deren Einträge allesamt reelle Zahlen sind (man spricht von \emph{reellen Folgen}). Eine solche Folge ist beispielsweise die Folge $(a_n)_{n\in\N}$ mit $a_n:=\frac{1}{n}$
     \[\begin{tabular}{c|cccc}
             $n$ & 1 & 2 & 3 & $\dots$ \\ \midrule
             $a_n$ & 1 & 1/2 & 1/3 & $\dots$
@@ -478,7 +478,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
     \[\begin{pmatrix}
         x \\ y \\ z 
     \end{pmatrix} \]
-    man spricht von „Vektoren“. Hier wird auch die Signifikanz des Tupelbegriffs deutlich: Beispielsweise sind $\begin{pmatrix} 2 \\ 0 \\ 3 \end{pmatrix}$ und $\begin{pmatrix} 2 \\ 3 \\ 0 \end{pmatrix}$ zwei verschiedene Vektoren, denn sie unterscheiden sich in ihrer zweiten und dritten Komponente. Dagegen sind die \emph{Mengen} $\{2,0,3\}$ und $\{0,3,2\}$ identisch\footnote{vgl. \cref{bsp:mengengleichbeweis}(b)}. Bei einer bloßen Menge gibt es keinen „zweiten Eintrag“ oder dergleichen.
+    man spricht von „Vektoren“. Hier wird auch die Signifikanz des Tupelbegriffs deutlich: Beispielsweise sind $\begin{pmatrix} 2 \\ 0 \\ 3 \end{pmatrix}$ und $\begin{pmatrix} 2 \\ 3 \\ 0 \end{pmatrix}$ zwei verschiedene Vektoren, denn sie unterscheiden sich in ihrer zweiten und dritten Komponente. Dagegen sind die \emph{Mengen} $\{2,0,3\}$ und $\{0,3,2\}$ identisch\footnote{vgl. \cref{bsp:mengengleichbeweis}}. Bei einer bloßen Menge gibt es keinen „zweiten Eintrag“ oder dergleichen.
 \end{bsp}
 
 
@@ -518,7 +518,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
             M \cup N & := \{x \mid x \in M\ \text{oder}\ x \in N\} && (\text{lies: „$M$ vereinigt $N$“})
         \end{align*}
         besteht aus denjenigen Objekten, die in mindestens einer der beiden Mengen $M,N$ enthalten sind.
-        \item Die \textbf{Differenzmenge} von $M$ und $N$:
+        \item Die \textbf{Differenzmenge} von $M$ und $N$
         \begin{align*}
             M \setminus N & := \{ x \mid x \in M \ \text{und}\ x \notin N \}  && (\text{lies: „$M$ ohne $N$“})
         \end{align*}
@@ -528,7 +528,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
         \begin{align*}
             N^c & := M\setminus N && (\text{sofern $N\subseteq M$})
         \end{align*}
-        und spricht vom \textbf{Komplement von $N$ (in $M$)}. Manche Autoren schreiben auch „$\calC_M(N)$“ für das Komplement von $N$ in $M$. Beachte, dass diese Schreibweise nur Sinn ergibt, wenn aus dem Kontext heraus klar ist, dass $N$ als Teilmenge von $M$ verstanden wird.
+        und spricht vom \textbf{(relativen) Komplement von $N$ (in $M$)}. Beachte, dass diese Schreibweise nur Sinn ergibt, wenn aus dem Kontext heraus klar ist, dass das Komplement in der Obermenge $M$ zu bilden ist. Manche Autoren schreiben auch „$\calC_M(N)$“ für das Komplement von $N$ in $M$.
 	\end{itemize}
     \begin{figure}[ht]
         \begin{minipage}{.48\textwidth}
@@ -666,17 +666,6 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
         \item Es ist
             \[ \{2,3,4\}\times \{ \clubsuit,\heartsuit\} = \{ (2,\clubsuit), (3,\clubsuit), (4,\clubsuit), (2,\heartsuit), (3,\heartsuit), (4,\heartsuit) \}\]
         \item Es ist $\R\times \R=\R^2$ und die Elemente von $\R\times \R$ können als Koordinaten von Punkten in der Ebene interpretiert werden. Die Idee, Punkte mithilfe von Koordinatensystemen und geometrische Figuren als Lösungsmengen von Gleichungen zu beschreiben, wird traditionell Descartes\footnote{\href{https://de.wikipedia.org/wiki/Rene_Descartes}{René Descartes (1596-1650)}} (latinisiert: Cartesius) zugeschrieben. Daher spricht man auch vom \emph{kartesischen} Produkt.
-        \item Die Elemente von $\N\times \N$ kannst du dir als „Gitterpunkte“ vorstellen.
-        \begin{figure}[ht]
-            \begin{tikzpicture}
-                \draw[style=help lines,step=1 cm] (-2.3,-2.3) grid (1.5,1.5);
-                \begin{scope}
-                \draw[->, thick] (-2.5,-2) -- (2,-2) node[right] {$\N$};
-                \draw[->, thick] (-2,-2.5) -- (-2,2) node[above] {$\N$};
-                \end{scope}
-            \end{tikzpicture}
-        \centering \caption{Visualisierung von $\N\times \N$}
-        \end{figure}
     \end{enumerate}
 \end{bsp}
 
@@ -775,7 +764,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 
     Aber auch nicht-disjunkte Mengen können aufeinander „addiert“ werden mithilfe des folgenden Tricks: Ist $(M_i)_{i\in I}$ eine beliebige (nicht notwendig paarweise disjunkte) Mengenfamilie, so sind die Mengen
     \begin{align*}
-        \{i\}\times M_i &= \{(i,x) \mid i\in I,\ x\in M_i\} && i\in I
+        \{i\}\times M_i &= \{(i,x) \mid x\in M_i\} && i\in I
     \end{align*}
     paarweise disjunkt. Die Elemente von $\{i\}\times M_i$ kannst du dir vorstellen als die gleichen Elemente wie von $M_i$, nun aber mit einem „Marker“ versehen, der ihre Zugehörigkeit zu $M_i$ kennzeichnet und sie von den Elementen von $\{j\}\times M_j$ für $j\in I\setminus \{i\}$ unterscheidet. Durch den Übergang von $M_i$ zu den $\{i\}\times M_i$ wurden die $M_i$'s „künstlich disjunkt gemacht”. 
 \end{bem}
