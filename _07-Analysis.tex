@@ -1,7 +1,7 @@
 
 
 \setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
-    In diesem Vortrag werden Grudbausteine der Analysis wie Ungleichungen, Abstand, Umgebungen und Folgenkonvergenz besprochen und mit Beispielen illustriert. Die Intuitionsbildung soll hier Vorrang vor Rigorosität haben.
+    In diesem Vortrag werden Grudbausteine der Analysis, wie Ungleichungen, Abstand, Umgebungen und Folgenkonvergenz, besprochen und mit Beispielen illustriert. Die Intuitionsbildung soll hier Vorrang vor Rigorosität haben.
 \vspace{24pt}}
 
 
@@ -14,7 +14,7 @@
 \begin{bem}[Buchtipp]
     In diesem Vortrag soll ein Überblick über einige wichtige Konzepte der Analysis gegeben werden. Am wichtigsten ist mir hier die Konstruktion von Bildern und intuitiven Erklärungen, weshalb vergleichsweise viele Aussagen nicht bewiesen, sondern nur mit einer Erklärung plausibilisiert werden.
     
-    Möchtest du es genau wissen, lege ich dir wärmstens das Analysis-Lehrbuch \cite{AE06} ans Herz, mit dem auch ich als Erstsemester den Analysis-Stoff gelernt habe und das selbst nach sechs Jahren Studium zu den besten Mathe-Lehrbüchern gehört, die ich gelesen habe. Über den Link im Literaturverzeichnis kannst du dir das Buch kostenlos aus dem Uni-Netz herunterladen. Wirf mal einen Blick hinein und schau, ob es dich anspricht!
+    Möchtest du es genau wissen, lege ich dir das Analysis-Lehrbuch \cite{AE06} ans Herz, mit dem auch ich als Erstsemester den Analysis-Stoff gelernt habe und das selbst nach sechs Jahren Studium zu den besten Mathe-Lehrbüchern gehört, die ich gelesen habe. Einige wenige Kritikpunkte sind für mich ihre eigenwillige Notation, die das Buch ungeeignet zum schnellen Nachschlagen macht, sowie die nachlassende Qualität der nachfolgenden Bände zu Ana2 und Ana3. Über den Link im Literaturverzeichnis kannst du dir das Buch kostenlos aus dem Uni-Netz herunterladen. Wirf mal einen Blick hinein und schau, ob es dich anspricht!
 \end{bem}
 
 
@@ -22,7 +22,7 @@
     Sowohl die rationalen Zahlen $\Q$ als auch die reellen Zahlen $\R$ bilden einen sogenannten „angeordneten Körper“. Die genaue Definition dieses Begriffs führte zu weit über diesen Vortrag hinaus. In etwa heißt es folgendermaßen:
     \begin{itemize}
         \item Mit reellen bzw. rationalen Zahlen lässt sich rechnen. Sie lassen sich addieren, subtrahieren, multiplizieren und, mit Ausnahme der Zahl $0$, auch dividieren. Dieser algebraische Aspekt wurde im Kapitel über Verknüpfungen vertieft.
-        \item $(\R,\le)$ und $(\Q,\le)$ sind jeweils totalgeordnete Menge, d.h. reelle bzw. rationale Zahlen können hinsichtlich ihrer „Größe“ miteinander verglichen werden. Dieser Aspekt wurde im Kapitel über Relationen vertieft.
+        \item $(\R,\le)$ und $(\Q,\le)$ sind totalgeordnete Mengen, d.h. reelle bzw. rationale Zahlen können hinsichtlich ihrer „Größe“ miteinander verglichen werden. Dieser Aspekt wurde im Kapitel über Relationen vertieft.
         \item Die Ordnungen auf $\R$ und $\Q$ sind mit den arithmetischen Operationen verwoben, d.h. beide Strukturen existieren nicht völlig getrennt voneinander, sondern hängen auf gewisse Weise miteinander zusammen. Diese „Verträglichkeit“ wird im folgenden Satz explizit gemacht:
     \end{itemize}
 \end{bem}
@@ -50,14 +50,14 @@
 \begin{bem} \label{ungleichungerklaerung}
     Einige dieser Regeln werden gelegentlich als „Anordnungsaxiome“ bezeichnet. Ich werde hier auf einen Beweis verzichten\footnote{Beweise findest du z.B. in \cite{AE06}, Satz I.8.9.}.
     \begin{itemize}
-        \item Die ersten beiden Regeln besagen, dass Addition und Subtraktion jeweils Äquivalenzumformungen für Ungleichungen darstellen. Man sagt auch, die Ordnungsrelation sei \emph{translationsinvariant}, weil sich Addition bzw. Subtraktion als „Verschiebung“ der Zahlengerade vorstellen lassen.
+        \item Die ersten beiden Regeln besagen, dass Addition und Subtraktion jeweils Äquivalenz\-umformungen für Ungleichungen darstellen. Man sagt auch, die Ordnungsrelation sei \emph{translationsinvariant}, weil sich Addition bzw. Subtraktion als „Verschiebung“ der Zahlengerade vorstellen lassen.
         \item Die nächsten beiden Regeln besagen, dass auch Multiplikation und Division jeweils Äquivalenzumformungen sind, sofern sie mit einer \emph{positiven} Zahl geschehen.
-        \item Bei Multiplikation und Division mit einer negativen Zahl handelt es sich „fast“ um Äquivalenzumformungen: bei solchen Umformungen muss die Ungleichung umgedreht werden. Ebenso verhält es sich beim Vorzeichenwechsel und beim Bilden von Kehrwerten positiver Zahlen.
+        \item Bei Multiplikation und Division mit einer negativen Zahl handelt es sich um „Anti-Äquivalenzumformungen“: bei solchen Umformungen muss die Ungleichung umgedreht werden. Ebenso verhält es sich beim Vorzeichenwechsel und beim Bilden von Kehrwerten positiver Zahlen.
     \end{itemize}
 \end{bem}
 
 
-\begin{bsp}
+\begin{bsp} \label{bsp:ungleichungumstellen}
     Seien $n\in \N$ und $\varepsilon \in \R_{>0}$. Gegeben sei die folgende Ungleichung
         \[ \varepsilon > \frac{1}{n+1} \]
     die wir gerne nach der Zahl $n$ „umstellen“ würden.
@@ -76,7 +76,7 @@
 
 
 \begin{de}[* Die erweiterte Zahlengerade] \index{Erweiterte Zahlengerade}
-    Gelegentlich ist es praktisch, die reellen Zahlen um zwei weitere Elemente „$-\infty$“ und „$\infty$“ zu erweitern. Das ist alles andere als mysteriös: wir fassen „$-\infty$“ und „$\infty$“ schlicht als „Symbole“ auf, als zwei weitere Elemente, die wir der Menge $\R$ künstlich hinzufügen. Die durch diese Hinzufügung entstehende Menge wird manchmal \textbf{erweiterte Zahlengerade} genannt und mit
+    Gelegentlich ist es praktisch, die reellen Zahlen um zwei weitere Elemente „$\infty$“ und „$-\infty$“ zu erweitern. Das ist alles andere als mysteriös: wir fassen „$\infty$“ und „$-\infty$“ schlicht als „Symbole“ auf, als zwei weitere Elemente, die wir der Menge $\R$ künstlich hinzufügen. Die durch diese Hinzufügung entstehende Menge wird manchmal \textbf{erweiterte Zahlengerade} genannt und mit
         \[ \bar\R := \R\cup \{-\infty,\infty\} \]
     notiert. Um den beiden neuen Elementen $\pm \infty$ ihren intendierten Platz hinsichtlich der Ordnung von $\R$ zuzuweisen, legen wir fest, dass
         \begin{align*}
@@ -146,7 +146,7 @@
 
 
 \begin{bem}[Abstand im euklidischen Raum]
-    Die reellen Zahlen $\R$ werden meist in der „Gestalt“ einer Gerade, der sogenannten \emph{Zahlengerade}, visualisiert. Ebenso kann der $\R^2$ als Menge von Punkten in einer Ebene, der $\R^3$ als Menge von Punkten im Raum vorgestellt werden, wobei für ein Tripel $(x,y,z)\in \R^3$ die Zahlen $x,y,z\in \R$ als Koordinaten hinsichtlich eines fixierten Koordinatensystems verstanden werden.
+    Die reellen Zahlen $\R$ werden meist in der „Gestalt“ einer Gerade, der sogenannten \emph{Zahlengerade}, visualisiert. Ebenso können der $\R^2$ als Menge von Punkten in einer Ebene und der $\R^3$ als Menge von Punkten im Raum vorgestellt werden, wobei für ein Tripel $(x,y,z)\in \R^3$ die Zahlen $x,y,z\in \R$ als Koordinaten hinsichtlich eines fixierten Koordinatensystems verstanden werden.
     
     Obwohl es sich bei reellen Zahlen und Vektoren eigentlich um algebraische Objekte handelt, die addiert und vervielfacht werden können, erlaubt es die geometrische Interpretation, sie als „Punkte in einem Raum“ aufzufassen. Zwischen je zwei Punkten auf einer Gerade, in der Ebene oder im Raum kann die Verbindungsstrecke gezogen werden. Die Länge dieser Verbindungsstrecke gibt den \emph{Abstand} der beiden Punkte voneinander an. Der Begriff des Abstands liefert einen von vielen Zugängen zu den Konzepten \emph{Stetigkeit} und \emph{Konvergenz}, der in diesem Kapitel beschritten wird.
     
@@ -155,7 +155,7 @@
 
 
 \begin{de}[* Abstandsfunktion] \label{def:abstand} \index{Abstandsfunktion} \index{Metrischer Raum} \index{Punkt (in einem metrischen Raum)} \index{Dreiecksungleichung (in metrischen Räumen)}
-    Sei $X$ eine beliebige Menge. Eine Funktion $d:X\times X\to \R_{\ge 0}$ heißt eine \textbf{Abstandsfunktion} oder auch \textbf{Metrik}, wenn für alle $x,y,z\in X$ gilt:
+    Sei $X$ eine beliebige Menge. Eine Funktion $d:X\times X\to \R_{\ge 0}$ heißt eine \textbf{Abstandsfunktion} oder auch \textbf{Metrik}, falls für alle $x,y,z\in X$ gilt:
     \begin{align*}
         d(x,z) \quad&\le\quad d(x,y)+d(y,z) && (\text{Dreiecksungleichung}) \\
         d(x,y) \quad&=\quad d(y,x) && (\text{Symmetrie}) \\
@@ -203,8 +203,8 @@
 
 \begin{bsp}[Weitere Metriken] \quad
     \begin{enumerate}
-        \item(Ebene und räumliche Abstände) In der Ebene $\R^2$, im Raum $\R^3$ und allgemein im Hyperraum $\R^n$ (für ein $n\in \N$) ist der Abstand zweier Punkte gleich der Länge ihrer Verbindungsstrecke. Dies wird in den Analysis-Vorlesungen genauer definiert werden.\footnote{Mehr darüber findest du in \cite{AE06} in Kapitel II.3.} Ich gehe davon aus, dass dir intuitiv klar ist, wie der Abstand zwischen zwei Punkten in der Ebene oder im Raum zu verstehen ist und werde es ab und zu in einem informellen Sinn nutzen, um mehrdimensionale Beispiele und Illustrationen beisteuern zu können.
-        \item(Topologische Datenanalyse) Nicht immer müssen die „Punkte“ eines metrischen Raums eine geometrische Bedeutung besitzen. Beispielsweise wäre ein metrischer Raum $X$ gegeben durch die Menge der Nutzer einer Dating-App, die bei ihrer Anmeldung verschiedene persönliche Vorlieben und Eigenschaften angegeben haben. Für zwei Nutzer $a,b\in X$ könnte dann der „Abstand“ $d(a,b)$ definiert sein als die Anzahl aller Kategorien, in denen $a$ und $b$ verschiedene Präferenzen angegeben haben. Nutzer mit vielen gemeinsamen Interessen wären sich bezüglich dieser Metrik also besonders „nahe“.
+        \item(ebene und räumliche Abstände) In der Ebene $\R^2$, im Raum $\R^3$ und allgemein im Hyperraum $\R^n$ (für ein $n\in \N$) ist der Abstand zweier Punkte gleich der Länge ihrer Verbindungsstrecke. Dies wird in den Analysis-Vorlesungen genauer definiert werden.\footnote{Mehr darüber findest du in \cite{AE06} in Kapitel II.3.} Ich gehe davon aus, dass dir intuitiv klar ist, wie der Abstand zwischen zwei Punkten in der Ebene oder im Raum zu verstehen ist, und werde es ab und zu in einem informellen Sinn nutzen, um mehrdimensionale Beispiele und Illustrationen beisteuern zu können.
+        \item(Topologische Datenanalyse) Nicht immer müssen die „Punkte“ eines metrischen Raums eine geometrische Bedeutung besitzen. Beispielsweise wäre ein metrischer Raum $X$ gegeben durch die Menge der Nutzer einer Dating-App, die bei ihrer Anmeldung verschiedene persönliche Vorlieben und Eigenschaften angegeben haben. Für zwei Nutzer $a,b\in X$ könnte dann der „Abstand“ $d(a,b)$ definiert sein als die Anzahl aller Kategorien, in denen $a$ und $b$ verschiedene Präferenzen angegeben haben. Nutzer mit vielen Gemeinsamkeiten wären sich bezüglich dieser Metrik also besonders „nahe“.
     \end{enumerate}
 \end{bsp}
 
@@ -276,9 +276,9 @@
 
 
 \begin{bem}[Intuition]
-    Die Ansicht, einen „Raum“ wie etwa den euklidischen dreidimensionalen Raum als eine „Punktmenge“ aufzufassen, ist vergleichsweise jung und trug wesentlich zur Entstehung des Mengenbegriffs von Cantor bei. Vormals waren der Raum oder die reelle Gerade eher als eine Art „Kontinuum“ verstanden, auf dem zwar einzelne Punkte ausgezeichnet werden können, das aber eine über die Ansammlung von Punkten hinausgehende Qualität der „Kontinuierlichkeit“ besitzt. Auch über die physikalische Realität des Punktbegriffs, eines ausdehnungslosen Orts im Raum oder in der Zeit, lässt sich streiten.\footnote{Mit einer Formalisierung von Nähe und Abweichung, die unabhängig vom Vorhandensein von Punkten ist, beschäftigt sich die \href{https://en.wikipedia.org/wiki/Pointless_topology}{punktfreie Topologie}, die bislang aber noch keinen Einzug in den mathematischen Mainstream gefunden hat.}
+    Die Ansicht, einen „Raum“, wie etwa den euklidischen dreidimensionalen Raum, als eine „Punktmenge“ aufzufassen, ist vergleichsweise jung und trug wesentlich zur Entstehung des Mengenbegriffs, der bei Cantor aus der Untersuchung von Nullstellen gewisser Funktionen $\R \to \R$ erwuchs, bei. Vormals waren der Raum oder die reelle Gerade eher als eine Art „Kontinuum“ verstanden, auf dem zwar einzelne Punkte ausgezeichnet werden können, das aber eine über die Ansammlung von Punkten hinausgehende Qualität der „Kontinuierlichkeit“ besitzt. Auch über die physikalische Realität des Punktbegriffs, eines ausdehnungslosen Orts im Raum oder in der Zeit, lässt sich streiten.\footnote{Mit einer Formalisierung der Konzepte „Nähe“ und „Abweichung“, die unabhängig vom Vorhandensein von Punkten ist, beschäftigt sich die \href{https://en.wikipedia.org/wiki/Pointless_topology}{punktfreie Topologie}, die bislang aber noch keinen Einzug in den mathematischen Mainstream gefunden hat.}
     
-    In Physik und Stochastik können meist nur Näherungsbereiche für einen Punkt angegeben werden. Beispielsweise ist die Wahrscheinlichkeit dafür, dass ein Dartspieler exakt die Mitte des Dartboards trifft, exakt $0{,}0\%$, da es sich bei der „Mitte des Boards“ um eine mathematische Idealisierung handelt. Dagegen kann für das Treffen des etwa 1cm breiten Bullseye durchaus eine positive Wahrscheinlichkeit angegeben werden, die bei einem professionellen Spieler wie zum Beispiel Phil ``The Power'' Taylor durchaus im zweistelligen \%-Bereich liegt.
+    In Physik und Stochastik können meist nur Näherungsbereiche für einen Punkt angegeben werden. Beispielsweise ist die Wahrscheinlichkeit dafür, dass ein Dartspieler exakt die Mitte des Dartboards trifft, exakt $0{,}0\%$, da es sich bei der „Mitte des Boards“ um eine mathematische Idealisierung handelt. Dagegen kann für das Treffen des etwa 1cm breiten Bullseye durchaus eine positive Wahrscheinlichkeit angegeben werden, die bei einem professionellen Spieler wie zum Beispiel Phil ``The Power'' Taylor weit im zweistelligen \%-Bereich liegt.
     
     Beim Bullseye-Feld handelt es sich um eine „Umgebung“ des Board-Mittelpunkts. Per Definition beinhaltet eine Umgebung $U$ eines Punkts $a$ einen $\varepsilon$-Ball. Der Punkt hat also einen gewissen „Puffer“ um sich herum in $U$. Sofern wir den Punkt $a$ nur bis auf eine Genauigkeit in der Größe von $\varepsilon$ verorten können, kann dennoch garantiert werden, dass $U$ den Punkt $a$ enthält.
 \end{bem}
@@ -290,13 +290,13 @@
 \section{Zahlenfolgen}
 
 
-\begin{bem}[Das Zeichen „$\N$“]
-    In diesem Abschnitt (und auch überall sonst im Skript) wird die Menge der natürlichen Zahlen, sofern die Null eingeschlossen ist, mit „$\N_0$“ bezeichnet, sofern die Null ausgeschlossen ist mit „$\N_{\ge 1}$“. In Situationen, in denen es keine Rolle spielt, ob die Null dabei ist oder nicht, schreibe ich einfach nur „$\N$“.
+\begin{bem}[Das Zeichen „$\N$“] \label{natzahlen}
+    In diesem Abschnitt (und auch überall sonst in diesem ganzen Skript) wird die Menge der natürlichen Zahlen, sofern die Null eingeschlossen ist, mit „$\N_0$“ bezeichnet und, sofern die Null ausgeschlossen ist, mit „$\N_{\ge 1}$“. In Situationen, in denen es keine Rolle spielt, ob die Null dabei ist oder nicht, schreibe ich einfach nur „$\N$“.
 \end{bem}
 
 
 \begin{de}[Folge] \label{def:folge} \index{Folge}
-    Eine \textbf{Folge} ist eine Familie von Objekten $(a_n)_{n\in \N}$, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist. Ist $n\in \Z$ eine beliebige ganze Zahl, so spricht man manchmmal auch bei Familien, deren Indexmenge $\Z_{\ge n}$ ist, von Folgen. In diesem Fall starten die Indizes nicht bei Eins oder Null, sondern bei $n$. Der Begriff der Folge ist also nicht klar umrissen, spricht man aber von „der beliebigen Folge $(a_n)$“ so ist damit gemeint, dass die Indexmenge gleich $\N$ (mit oder ohne Null) ist.
+    Eine \textbf{Folge} ist eine Familie von Objekten $(a_n)_{n\in \N}$, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist. Ist $n\in \Z$ eine beliebige ganze Zahl, so spricht man manchmmal auch bei Familien, deren Indexmenge $\Z_{\ge n}$ ist, von Folgen. In diesem Fall starten die Indizes nicht bei Eins oder Null, sondern bei $n$. Der Begriff der Folge ist also nicht präzise umrissen, spricht man aber von „der beliebigen Folge $(a_n)$“ so ist damit gemeint, dass die Indexmenge gleich $\N$ (mit oder ohne Null) ist.
     
     Sind $A$ eine Menge und $(a_n)_{n\in \N}$ eine Folge, deren Einträge allesamt in $A$ liegen, so spricht man von einer \emph{Folge von Elementen aus $A$} oder einer „$A$-wertigen Folge“. Nach \cref{def:mengenpotenz} bezeichnet
     \[ A^\N := \{ (a_n)_{n\in \N} \mid \forall n\in \N: a_n\in A \} \]
@@ -320,10 +320,10 @@
 \begin{bem}[Folge vs. Menge ihrer Einträge]
     Eine Folge $(a_n)_{n\in \N}$ ist nicht mit der Menge ihrer Einträge $\{a_n\mid n\in \N\}$ zu verwechseln.\footnote{vgl. \cref{mengeeinerfamilie}} Beispielsweise sind die beiden Zahlenfolgen
     \begin{align*}
-        0,\quad 1,\quad 1,\quad 1,\quad 1,\quad \dots \\
-        1,\quad 0,\quad 0,\quad 0,\quad 0,\quad \dots 
+        1,\quad 2,\quad 3,\quad 1,\quad 2,\quad 3,\quad 1,\quad 2,\quad \dots \\
+        1,\quad 3,\quad 2,\quad 1,\quad 3,\quad 2,\quad 1,\quad 3,\quad \dots
     \end{align*}
-    voneinander verschieden, während die Mengen ihrer Einträge (nämlich nur $0$ und $1$) übereinstimmen.
+    voneinander verschieden, während die Mengen ihrer Einträge (nämlich nur $1$, $2$ und $3$) übereinstimmen.
 \end{bem}
 
 
@@ -417,7 +417,7 @@ Es gilt:
 \begin{de}[``eventually''] \label{def:eventually} \index{eventually (Folgenverhalten)}
     Seien $(a_n)_{n\in \N}$ eine Folge und $E$ eine Eigenschaft. Ich sage, die Folge $(a_n)_{n\in \N}$
     \begin{itemize}
-        \item[] \textbf{besitzt die Eigenschaft $E$ für hinreichend großes $n$}\footnote{Im Englischen ist die Sprechweise ``the sequence \href{https://en.wikipedia.org/wiki/Eventually_(mathematics)}{eventually} satisfies $E$'' üblich. Leider besitzt sie kein etabliertes Pendant im Deutschen.},
+        \item[] \textbf{besitzt die Eigenschaft $E$ für hinreichend große $n$}\footnote{Im Englischen ist die Sprechweise ``the sequence \href{https://en.wikipedia.org/wiki/Eventually_(mathematics)}{eventually} satisfies $E$'' üblich. Leider besitzt sie kein etabliertes Pendant im Deutschen.},
     \end{itemize}
     falls es ein $N\in \N$ gibt derart, dass die Folge $a_N,a_{N+1},a_{N+2},\dots$ die Eigenschaft $E$ besitzt. Salopp gesagt: „Es gibt einen Zeitpunkt $N$ derart, dass diejenige Folge, bei der erst zum Zeitpunkt $N$ eingestiegen wird, die Eigenschaft $E$ besitzt.“
 \end{de}
@@ -428,7 +428,7 @@ Es gilt:
         \item Die Folge
             \[ 0,\quad -1,\quad -2,\quad -1,\quad 0,\quad 1,\quad 2,\quad 3,\quad 4, \quad 5,\dots \]
         ist nicht monoton. Sie könnte aber zu einer strikt wachsenden Folge gemacht werden, ließe man die ersten zwei Folgenglieder weg. Somit ist sie „wachsend für hinreichend große $n$“.
-        \item Die alternierende Folge $((-1)^n)_{n\in \N}$ ist dagegen nicht einmal für hinreichend große $n$ wachsend, denn egal wie spät wir auch einsteigen, das Rauf und Runter hört nie auf.
+        \item Die alternierende Folge $((-1)^n)_{n\in \N}$ ist dagegen nicht einmal für hinreichend große $n$ wachsend, denn egal wie spät wir auch einsteigen, immer wieder geht es von $-1$ zu $1$ herauf und von $1$ zu $-1$ herunter.
         \item Ist $\varepsilon \in \R_{>0}$ eine (unter Umständen winzig kleine) positive reelle Zahl, so sind die Einträge der Folge $\left(\frac{1}{n}\right)_{n\in \N}$ dennoch für hinreichend große $n$ (um genau zu sein für $n> \frac{1}{\varepsilon}$) kleiner als $\varepsilon$. Mit anderen Worten: Die Brüche $\frac{1}{n}$ werden „für hinreichend große $n$ beliebig klein“.
     \end{enumerate}
 \end{bsp}
@@ -445,7 +445,7 @@ Es gilt:
         \includegraphics[width=10cm]{./_img/Spirale.jpeg}
         \centering \caption{Eine konvergente Folge von Punkten in der Ebene}
     \end{figure}
-    Betrachten wir einmal eine Folge von Punkten in der Ebene, sie sich spiralenförmig dem Ursprung annähert. Konkret könnte man
+    Betrachten wir einmal eine Folge von Punkten in der Ebene, die sich spiralenförmig dem Ursprung annähert. Konkret könnte man
     \begin{align*}
         a_n & := \frac{1}{n}\cdot \begin{pmatrix}
             \cos(n\cdot \pi/4) \\
@@ -454,11 +454,11 @@ Es gilt:
     \end{align*}
     definieren, aber das soll gerade keine Rolle spielen.
     
-    Du siehst, dass die Folgenglieder dem Koordinatenursprung immer näher kommen, dass sie „für hinreichend große $n$ beliebig nahe kommen“. Genau das heißt Konvergenz.
+    Du siehst, dass die Folgenglieder dem Koordinatenursprung immer näher kommen, dass sie ihm „für hinreichend große $n$ beliebig nahe kommen“. Genau das heißt Konvergenz.
 \end{bem}
 
 
-\begin{de}[Konvergenz] \label{def:konvergenz} \index{konvergente Folge} \index{Grenzwert} \index{divergente Folge} \index{Limes}
+\begin{de}[Folgenkonvergenz] \label{def:konvergenz} \index{konvergente Folge} \index{Grenzwert} \index{divergente Folge} \index{Limes}
     Seien $X$ ein metrischer Raum, $(a_n)_{n\in \N}$ eine Folge in $X$ und $a\in X$ ein Punkt. Man sagt, die Folge $(a_n)_{n\in \N}$ \textbf{konvergiert} gegen $a$, falls eine der folgenden beiden äquivalenten Aussagen gilt:
     \begin{enumerate}[(i)]
         \item Für jede (noch so kleine) Umgebung $U$ von $a$ gilt: Für hinreichend große $n$ liegen alle $a_n$'s in $U$.
@@ -469,7 +469,7 @@ Es gilt:
     \end{enumerate}
     In diesem Fall heißt $a$ ein \textbf{Grenzwert} oder \textbf{Limes} der Folge $(a_n)_{n\in \N}$. Man schreibt
         \[ \lim_{n\to\infty}a_n=a \qquad\text{oder}\qquad a_n\xrightarrow[n\to \infty]{} a \]
-    Eine Folge, die einen Grenzwert besitzt, heißt \textbf{konvergent}, andernfalls heißt sie \textbf{divergent}.
+    Eine Folge, die einen Grenzwert besitzt, heißt \textbf{konvergent}. Andernfalls heißt sie \textbf{divergent}.
 \end{de}
 
 
@@ -506,7 +506,7 @@ Es gilt:
 \begin{bem}
     Bevor wir versuchen, für diese Aussage einen Bilderbuchbeweis hinzuschreiben, wollen wir „auf dem Skizzenblatt“ erstmal ein paar Überlegungen anstellen:
     
-    Nach \cref{def:konvergenz}(ii) müssen für ein beliebiges $\varepsilon \in \R_{>0}$ ein $N\in \N$ finden mit der Eigenschaft, dass für alle $n\in \N_{\ge N}$ gilt:
+    Nach \cref{def:konvergenz}(ii) müssen wir für ein beliebiges $\varepsilon \in \R_{>0}$ ein $N\in \N$ finden mit der Eigenschaft, dass für alle $n\in \N_{\ge N}$ gilt:
     \begin{align*}
         \varepsilon &  > d\left(1,\frac{n}{n+1}\right)
     \end{align*}
@@ -519,9 +519,9 @@ Es gilt:
     \end{align*}
     Die Ungleichung $\varepsilon >d(1,n/(n+1))$ lautet also
         \[ \varepsilon > \frac{1}{n+1} \]
-    Mit den Umformungen aus \cref{ungleichungerklaerung} kann dies nach $n$ umgestellt werden:
+    Mit den Umformungen aus \cref{bsp:ungleichungumstellen} kann dies nach $n$ umgestellt werden:
         \[ n > \frac{1}{\varepsilon} -1  \]
-    Wählen wir also für $N$ die nächstgrößere natürliche Zahl oberhalb von $1/\varepsilon$, indem wir $1/\varepsilon$ aufrunden (man könnte für $N$ auch jede weitere Zahl, die größer als $(1/\varepsilon -1)$ ist, verwenden). Dann sind sowohl $N$ als auch alle $n\in \N_{>N}$ größer als $1/\varepsilon- 1$, sodass die Ungleichung aufgeht.
+    Wählen wir also für $N$ die nächstgrößere natürliche Zahl oberhalb von $1/\varepsilon$, indem wir $1/\varepsilon$ aufrunden (man könnte für $N$ auch jede weitere Zahl, die größer als $1/\varepsilon -1$ ist, verwenden). Dann sind sowohl $N$ als auch alle $n\in \N_{>N}$ größer als $1/\varepsilon- 1$, sodass die Ungleichung aufgeht.
     
     Damit haben wir die Aufgabe auf dem Schmierblatt gelöst. Im finalen Beweis lassen wir die Überlegungen, die uns zur Wahl von $N$ geführt haben, weg. Dies tritt häufig in Analysis-Beweisen auf: die Beweise unterdrücken den Gedankenprozess, der zu ihrem Auffinden geführt hat und verlaufen genau in die entgegengesetzte Richtung:
 \end{bem}
@@ -539,12 +539,12 @@ Es gilt:
         & < \varepsilon & (\text{da $N> 1/\varepsilon$})
     \end{align*}
     \endgroup
-    Somit liegen ab dem $N$-ten Folgenglied alle Folgenglieder in $\bbB_\varepsilon(1)$. Da $\varepsilon \in \R_{>0}$ beliebig gewählt war, ist damit bewiesen, dass die $a_n$'s gegen $1$ konvergieren. \qed
+    Somit liegen ab dem $N$-ten Eintrag alle Folgenglieder in $\bbB_\varepsilon(1)$. Da $\varepsilon \in \R_{>0}$ beliebig gewählt war, ist damit bewiesen, dass die $a_n$'s gegen $1$ konvergieren. \qed
 \end{bew}
 
 
 \begin{bem}
-    Beachte, dass die Tatsache, ob eine Folge konvergiert oder divergiert, eine reine Eigenschaft des „Langzeitverhaltens“ dieser Folge ist. Die ersten paar Millionen Folgenglieder haben für sich allein keinen Einfluss auf das Konvergenzverhalten, weil die Folge ja ab dem dreimillionsten Eintrag plötzlich eine ganz andere Richtung einschlagen könnte. (Die Folgen, mit denen du es in der Vorlesung zu tun hat, unterliegen aber meist einem einfachen Muster, das spätestens nach ein paar Dutzend Folgengliedern ersichtlich sein sollte)
+    Beachte, dass die Tatsache, ob eine Folge konvergiert oder divergiert, eine reine Eigenschaft des „Langzeitverhaltens“ dieser Folge ist. Die ersten paar Millionen Folgenglieder haben für sich allein keinen Einfluss auf das Konvergenzverhalten, weil die Folge ja ab dem dreimillionsten Eintrag plötzlich eine ganz andere Richtung einschlagen könnte. (Die Folgen, mit denen du es in der Vorlesung zu tun hast, unterliegen aber meist einem einfachen Muster, das spätestens nach ein paar Dutzend Folgengliedern ersichtlich sein sollte.)
 \end{bem}
 
 
@@ -560,7 +560,7 @@ Es gilt:
 
 
 \begin{bem}
-    Der Satz lässt sich dahingehend verallgemeinern, dass auch schon jede Folge, die für hinreichend große $n$ konstant gleich $x$ ist, gegen $x$ konvergiert. In diesem Fall liegt die Folge zwar nicht mehr vollständig in der Umgebung $U$, aber immer noch für hinreichend große $n$, und dies reicht ja schon aus für das Vorliegen von Konvergenz.
+    Der Satz lässt sich dahingehend verallgemeinern, dass auch schon jede Folge, die für hinreichend große $n$ konstant gleich $x$ ist, gegen $x$ konvergiert. In diesem Fall liegt die Folge zwar nicht mehr unbedingt vollständig in der Umgebung $U$, aber immer noch für hinreichend große $n$, und dies reicht ja schon aus für das Vorliegen von Konvergenz.
 \end{bem}
 
 
@@ -578,7 +578,7 @@ Es gilt:
 
 
 \begin{satz}[Rechenregeln für Folgengrenzwerte] \label{konvergenzregeln}
-    Seien $(a_n)_{n\in \N},(b_n)_{n\in \N}\in \R^\N$ zwei konvergente Folgen mit $a=\lim_{n\to\infty}a_n$ und $b=\lim_{n\to\infty}b_n$. Dann gilt:
+    Seien $(a_n)_{n\in \N},(b_n)_{n\in \N}\in \R^\N$ zwei konvergente Folgen mit $a:=\lim_{n\to\infty}a_n$ und $b:=\lim_{n\to\infty}b_n$. Dann gilt:
     \begin{enumerate}[a)]
         \item $\lim_{n\to\infty}(a_n+b_n)=a+b$
         \item $\lim_{n\to\infty}(\lambda \cdot a_n)=\lambda \cdot a$ für $\lambda\in\R$
@@ -622,7 +622,7 @@ Es gilt:
         & = (2x+3)\cdot e^x + (x^2+3x)\cdot e^x \\
         & = (x^2+5x+3)\cdot e^x && x\in \R
     \end{align*}
-    Die „analytische“ Methode, komplexe Funktionen in einfache Bestandteile zu zerlegen, ist auch an der Uni überlebensnotwendig. Kein erfahrener Mathematiker würde, um die Ableitung von $(x^2+3x)\cdot e^x$ zu berechnen, unmittelbar mit der Definition der Ableitung arbeiten und versuchen, den Differenzialquotienten
+    Die „analytische Methode“, komplexe Funktionen in einfache Bestandteile zu zerlegen, ist auch an der Uni überlebensnotwendig. Kein erfahrener Mathematiker würde, um die Ableitung von $(x^2+3x)\cdot e^x$ zu berechnen, unmittelbar mit der Definition der Ableitung arbeiten und versuchen, den Differenzialquotienten
     \begin{align*}
         f'(x)&:=\lim_{h\to 0} \frac{((x+h)^2+3(x+h))\cdot e^{x+h} - (x^2+3x)\cdot e^{x}}{h} && x\in \R
     \end{align*}
@@ -637,10 +637,10 @@ Es gilt:
         \lim_{n\to\infty} \frac{n}{n+1} & = \lim_{n\to\infty} \frac{1}{1+\frac{1}{n}} && (\text{Bruch um den Faktor $n$ kürzen}) \\
         & = \frac{1}{\lim_{n\to\infty} \left(1+\frac{1}{n}\right)} && (\text{\cref{konvergenzregeln}d)}) \\
         & = \frac{1}{1+\lim_{n\to\infty} \frac{1}{n}} && (\text{\cref{konvergenzregeln}a)}) \\
-        & = \frac{1}{1+0} && (\text{da $\lim_{n\to\infty} \frac{1}{n}=0$, siehe \cref{bsp:eventually}}) \\
+        & = \frac{1}{1+0} && (\text{da $\lim_{n\to\infty} 1/n=0$, siehe \cref{bsp:eventually}}) \\
         & = 1
     \end{align*}
-    Auf diese Weise haben wir die Konvergenz bewiesen, ohne mit $\varepsilon$'s rechnen zu müssen.
+    Auf diese Weise können wir den Grenzwert berechnen, ohne mit $\varepsilon$'s arbeiten zu müssen.
 \end{bsp}
 
 
@@ -665,7 +665,7 @@ Es gilt:
 \begin{aufg}[Hausdorffeigenschaft\footnote{\href{https://de.wikipedia.org/wiki/Felix_Hausdorff}{Felix Hausdorff (1868-1942)}}]
     Seien $X$ ein metrischer Raum, $a,b\in X$ zwei verschiedene Punkte und $D:=d(a,b)>0$.
     
-    Beweist mithilfe der Dreiecksungleichung, dass $\bbB_{D/2}(a)\cap \bbB_{D/2}(b)=\emptyset$ und verdeutlicht die Situation mit einem Bild.
+    Beweist mithilfe der Dreiecksungleichung, dass $\bbB_{D/2}(a)\cap \bbB_{D/2}(b)=\emptyset$, und verdeutlicht die Situation mit einem Bild.
 \end{aufg}
 
 
@@ -685,7 +685,7 @@ Es gilt:
     \begin{enumerate}[a)]
         \item Die Folge der Kehrwerte natürlicher Zahlen $(1/n)_{n\in \N_{\ge 1}}$. Also $1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\dots$.
         \item Die Folge $0,1,-1,2,-2,3,-3,4,\dots$.
-        \item Die Folge $(n^2-4n)_{n\in \N}$. Also $0,-3,-4,\dots$.
+        \item Die Folge $(n^2-6n)_{n\in \N}$. Also $0,-5,-8,\dots$.
         \item Die Folge $(a_n)_{n\in \N}$, wobei $a_n$ definiert sei als die Quersumme von $n$.
     \end{enumerate}
 \end{aufg}

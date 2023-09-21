@@ -17,10 +17,10 @@ Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
 
     -- Kapitel 1 Logik:
     
-        A3 (Wahrheitstafeln) Weil ich 2021 erlebt habe, wie ein Tutor hier Bullshit verzapft hat, hier die Lösung:
-            a) ist eine Tautologie, nämlich eine der DeMorganschen Regeln, also in jedem Fall wahr.
-            b) ist ebenfalls eine Tautologie, die sogenannte Import-/Exportformel. Für Kenner: Es handelt sich hierbei um eine Adjunktion im Sinne der Kategorientheorie.
-            c) ist keine Tautologie und nur in den Fällen wahr, in denen A und B denselben Wahrheitswert haben.
+        A3 (Wahrheitstafeln) Weil ich 2021 erlebt habe, wie ein Tutor hier Bullshit verzapft hat, hier ein Kommentar:
+            b) ist dann und nur dann wahr, wenn A und B beide falsch sind. Nach der De Morganschen Regel muss es ja äquivalent zu a) sein.
+            c) ist dann und nur dann wahr, wenn A und B denselben Wahrheitswert haben, also beide wahr oder beide falsch sind.
+            d) ist eine Tautologie.
             
     -- Kapitel 2 Beweise:
     
@@ -29,23 +29,22 @@ Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
             (2) Es wurde nicht begründet, warum m+1 durch 2 teilbar, m+2 durch 3 teilbar ist usw.
             (3) Im Fall n=1 ist m+2 gar nicht durch 3 teilbar. Der Beweis ist unvorteilhaft geschrieben, weil er die Fälle n=1,2 nicht gut einschließt.
             (4) Die Schlussfolgerung, dass m+1,...,m+n keine Primzahlen sind, ist ungenau. Nur weil m+2 durch 3 teilbar ist, könnte ja dennoch m+2 eine Primzahl, nämlich m=3 sein. Hier wird die Information weggelassen, dass m+k > k+1 ist.
-            
+
     -- Kapitel 4 Abbildungen:
-    
+
         A1 (Zerlegen von Abbildungen)
-            c) ist vermutlich für die meisten zu schwierig. Teilt das den Leuten mit, damit sie ihre Zeit eher mit a) und b) verbringen. Eine mögliche Lösung für c) wäre:
-                f1 : R  --> R² , x --> (x,x)
-                f2 : R² --> R x R\{0} , (x,y) --> (sin(x), y²)
-                f3 : R x R\{0} --> R x R\{0} , (x,y) --> (x, y+3)
-                f4 : R x R\{0} --> R  , (x,y) --> x/y
-            Dann ist f4°f3°f2°f1 eine Faktorisierung der Abbildung aus der Aufgabenstellung.
+            d) erfordert einen Trick. Teilt den Leuten deshalb mit, ihre Zeit erstmal nur auf a),b),c) zu verwenden. Eine mögliche Lösung für d) wäre:
+                f1 : N  --> N² , n --> (n,n)
+                f2 : N² --> N² , (m,n) --> (3^m,n)
+                f3 : N² --> N , (m,n) --> m+n
+            Dann ist f3°f2°f1 eine Faktorisierung der Abbildung aus der Aufgabenstellung.
         
         A4 (Vererbung von Injektivität und Surjektivität)
             c) ist folgendermaßen intendiert: Sei f invertierbar mit Inverser g.
                 Wegen g°f=id und da id bijektiv ist, folgt aus a), dass f injektiv ist.
                 Wegen f°g=id und da id bijektiv ist, folgt aus b), dass f surjektiv ist.
                 Also ist f bijektiv.
-            Gebt den Anfis eventuell Tipps, indem ihr vielleicht besprecht, dass id eine Bijektion ist.
+            Gebt den Anfis eventuell Tipps, indem ihr vielleicht erstmal besprecht, dass id eine Bijektion ist.
             
 
 

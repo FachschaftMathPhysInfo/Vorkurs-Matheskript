@@ -1,7 +1,7 @@
 
 
 \setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
-    Relationen drücken Beziehungen zwischen Elementen einer Menge aus. Von besonderer Bedeutung sind Ordnungs- und Äquivalenzrelationen, deren Sprache in diesem Vortrag entwickelt und an Beispielen verdeutlicht wird.
+    Relationen setzen die Elemente einer Menge untereinander in Beziehung. Von besonderer Bedeutung sind Ordnungs- und Äquivalenzrelationen, deren grundlegende Sprache in diesem Vortrag entwickelt und an Beispielen verdeutlicht wird.
 \vspace{24pt}}
 
 
@@ -11,11 +11,13 @@
 \section{Allgemeines}
 
 
-Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} eingeführt. In diesem Kapitel soll es um eine Abstraktion jenes logischen Relationsbegriffs gehen.
+Dieses Kapitel handelt von einer mathematischen Abstraktion des bereits im Logikkapitel in \cref{def:praedikat} eingeführten Relationenbegriffs.
 
 
-\begin{de}[Relation -- abstrakte Definition] \label{def:relation} \index{Relation}
-    Sei $X$ eine Menge. Eine (zweistellige) \textbf{Relation auf $X$} ist ein mathematisches Objekt, das mit zwei beliebigen Elementen von $X$ zu einer Aussage kombiniert werden kann. Sind $R$ eine Relation auf $X$ und $x,y\in X$ zwei Elemente, so notieren wir die sich ergebende Aussage mit
+\begin{de}[Relation] \label{def:relation} \index{Relation}
+    Sei $X$ eine Menge. Eine (zweistellige) \textbf{Relation auf $X$} ist ein mathematisches Objekt, das mit zwei beliebigen Elementen von $X$ zu einer Aussage kombiniert werden kann.
+
+    Sind $R$ eine Relation auf $X$ und $x,y\in X$ zwei Elemente, so notieren wir die sich ergebende Aussage mit
         \[ xRy \]
     und sagen: „$x$ steht in der Relation $R$ zu $y$“.
 \end{de}
@@ -24,7 +26,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 \begin{axiom}[* Gleichheit von Relationen] \label{relgleich}
     Seien $X$ eine Menge und $R,S$ zwei Relationen auf $X$. Genau dann stimmen $R$ und $S$ überein, wenn hinsichtlich $R$ und $S$ genau dieselben Elemente in Relation zueinander stehen. Als Formel:
         \[ R=S \qquad\Leftrightarrow\qquad (\forall x,y\in X:\quad xRy\ \leftrightarrow\ xSy) \]
-    Vergleiche dieses Axiom mit \cref{mengengleich} und \cref{abbgleich}.
+    Vergleiche dieses Axiom mit \cref{mengengleich}, \cref{familiengleich} und \cref{abbgleich}.
 \end{axiom}
 
 
@@ -33,7 +35,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
     \begin{align*}
         xRy \quad :&\Leftrightarrow\quad E(x,y) && x,y\in X
     \end{align*}
-    ist als eine Definition zu verstehen: es wird eine Relation $R$ auf $X$ definiert mit der Eigenschaft, dass für $x,y\in X$ die Aussage $xRy$ äquivalent zu $E(x,y)$ ist. Wegen \cref{relgleich} ist die Relation $R$ durch diese Eigenschaft eindeutig bestimmt\footnote{vgl. \cref{def:extension}}. Der Buchstabe $R$ dient hierbei auch als \textbf{Relationssymbol}.
+    ist als eine Definition zu verstehen: es wird eine Relation $R$ auf $X$ definiert mit der Eigenschaft, dass für $x,y\in X$ die Aussage $xRy$ äquivalent zu $E(x,y)$ sei. Wegen \cref{relgleich} ist die Relation $R$ durch diese Eigenschaft eindeutig bestimmt\footnote{vgl. \cref{def:extension} und \cref{def:zuordnung}}. Der Buchstabe $R$ dient hierbei als \textbf{Relationssymbol}.
 \end{nota}
 
 
@@ -47,20 +49,20 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
         \end{align*}
         \item(Teilbarkeit) Man schreibt
         \begin{align*}
-            m \mid n \qquad& :\Leftrightarrow\qquad \exists k\in \Z:\ k\cdot m=n && m,n\in \Z \\
-            (\text{lies: „$m$ teilt $n$”})
+            n \mid m \qquad& :\Leftrightarrow\qquad \exists k\in \Z:\ k\cdot n=m && n,m\in \Z \\
+            (\text{lies: „$n$ teilt $m$”})
         \end{align*}
-        Dadurch wird eine Relation auf $\Z$ definiert, die \textbf{Teilbarkeitsrelation}. Sind $m,n\in \Z$ mit $m\mid n$, so heißt $m$ ein \textbf{Teiler} von $n$ und $n$ ein \textbf{Vielfaches} von $m$.
+        Dadurch wird eine Relation auf $\Z$ definiert, die \textbf{Teilbarkeitsrelation}. Sind $n,m\in \Z$ mit $n\mid m$, so heißen $n$ ein \textbf{Teiler} von $m$ und $m$ ein \textbf{Vielfaches} von $n$.
         \item(Teilmengenrelation) Für jede beliebige Menge $M$ gibt es auf der Potenzmenge $\calP(M)$ die Teilmengenrelation $\subseteq$, die in \cref{def:teilmenge} definiert wurde.
         \item(Ordnung der Zahlbereiche) Auf $\N,\Z,\Q,\R$ gibt es die Relationen $\le, \ge, <, >$.
     \end{enumerate}
 \end{bsp}
 
 
-\begin{de}[feinere/gröbere Relation] \index{feinere Relation} \index{gröbere Relation}
+\begin{de}[feinere/gröbere Relation] \index{feinere Relation} \index{groebere Relation@gröbere Relation}
     Seien $X$ eine Menge und $R,S$ zwei Relationen auf $X$. Die Relation $R$ heißt \textbf{feiner} als die Relation $S$ (und $S$ heißt \textbf{gröber} als $R$), wenn gilt
     \begin{align*}
-        xRy \quad&\Rightarrow\quad xSy && \text{für alle}\ x,y\in X
+        xRy \ &\implies\ xSy && \text{für alle}\ x,y\in X
     \end{align*}
     also wenn je zwei Elemente, die in Relation $R$ zueinander stehen, auch in Relation $S$ zueinander stehen.
 
@@ -76,9 +78,9 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 \begin{bsp} \quad
     \begin{enumerate}
         \item Die Negation der Gleichheitsrelation $=$ ist die Ungleichheitsrelation $\neq$.
-        \item Die Negation der Elementrelation $\in$ ist die Relation $\notin$ („kein Element von“)
+        \item Die Negation der Elementrelation $\in$ ist die Relation $\notin$ („kein Element von“).
         \item Die Negation der Teilmengenrelation $\subseteq$ ist die Relation $\nsubseteq$ („keine Teilmenge von“).
-        \item Seien $n,m\in \Z$. Die Aussage, dass $m$ kein Teiler von $n$ ist, wird notiert durch $m\nmid n$.
+        \item Seien $n,m\in \Z$. Die Aussage, dass $n$ kein Teiler von $m$ ist, wird notiert durch $n\nmid m$.
     \end{enumerate}
 \end{bsp}
 
@@ -103,7 +105,6 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
         \item \dots der Teilmengenrelation $\subseteq$ ist die Obermengenrelation $\supseteq$, d.h. für Mengen $M,N$ gilt:
             \[M\supseteq N \quad\iff\quad N\subseteq M \]
         \item \dots der „kleinergleich“-Relation $\le$ ist die „größergleich“-Relation $\ge$.
-        \item \dots der Elementrelation $\in$ ist die Relation $\ni$.
     \end{enumerate}
 \end{bsp}
 
@@ -125,12 +126,12 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
     \begin{align*}
         x\ R\vert_U\ y \qquad& :\Leftrightarrow\qquad xRy &&x,y\in U
     \end{align*}
-    eine Relation auf $U$ definiert, die \textbf{Einschränkung von $R$ auf $U$} oder auch die \textbf{von $X$ geerbte Relation}. Die eingeschränkte Relation stimmt quasi mit $R$ überein, mit dem einzigen Unterschied, dass sie nur noch für die Elemente von $U$ betrachtet wird.
+    eine Relation auf $U$ definiert, die \textbf{Einschränkung von $R$ auf $U$} oder auch die \textbf{von $X$ geerbte Relation}. Die eingeschränkte Relation $R\vert_U$ stimmt quasi mit $R$ überein, mit dem einzigen Unterschied, dass sie nur noch auf die Elemente von $U$ angewandt wird.
 \end{de}
 
 
 \begin{bsp}
-    Die gewöhnlichen $\le$-Relationen auf $\N,\Z,\Q$ sind allesamt Einschränkungen der $\le$-Relation auf $\R$. Denn eine natürliche/ganze/rationale Zahl $x$ ist genau dann kleinergleich eine andere solche Zahl $y$, wenn $x\le y$ im Sinne reeller Zahlen gilt.
+    Die gewöhnlichen $\le$-Relationen auf $\N$, $\Z$ und $\Q$ sind allesamt Einschränkungen der $\le$-Relation auf $\R$. Denn eine natürliche/ganze/rationale Zahl $x$ ist genau dann kleinergleich eine andere solche Zahl $y$, wenn $x\le y$ im Sinne reeller Zahlen gilt.
 \end{bsp}
 
 
@@ -146,15 +147,16 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 
 
 \begin{vorschau}[* mengentheoretische Relationsdefinition]
-    Die Relationsdefinition \cref{def:relation} ist, ähnlich wie die Mengendefinition \cref{def:menge} und die Abbildungsdefinition \cref{def:abbildung} nur informell. Wenn man denn möchte, lässt sie sich aber durch eine präzise mengentheoretische Definition ersetzen:
+    Die Relationsdefinition \cref{def:relation} ist, ähnlich wie die Mengendefinition \cref{def:menge} und die Abbildungsdefinition \cref{def:abbildung}, rein axiomatisch. Wenn man denn möchte, lässt sie sich aber durch eine präzise mengentheoretische Definition ersetzen:
+    \begin{quote}
+        Eine Relation auf einer Menge $X$ ist eine Teilmenge $R\subseteq X\times X$. Für Elemente $x,y\in X$ definiert man:
+        \begin{align*}
+            xRy\qquad:\Leftrightarrow\qquad (x,y) \in R
+        \end{align*}
+    \end{quote}
+    Vermöge dieser Definition wird \cref{relgleich} zu einer beweisbaren Aussage. Für die Praxis ist sie aber vollkommen irrelevant. Stattdessen erfolgt der Umgang mit Relationen über diejenigen Prädikate, die sie definieren.
     
-    Eine Relation auf einer Menge $X$ ist eine Teilmenge $R\subseteq X\times X$. Für Elemente $x,y\in X$ definiert man dann
-    \begin{align*}
-        xRy\qquad:\Leftrightarrow\qquad (x,y) \in R
-    \end{align*}
-    Mithilfe dieser Definition wird \cref{relgleich} zu einer beweisbaren Aussage. Für die Praxis ist sie aber vollkommen irrelevant. Stattdessen erfolgt der Umgang mit Relationen über diejenigen Aussagen, die sie definieren.
-    
-    Beachte aber, dass nicht jede Relation durch einen einfachen sprachlichen Ausdruck gegeben sein muss. Prinzipiell können Relationen beliebig kompliziert oder gar nicht mehr sprachlich beschreibbar sein. Beim Übergang vom sprachlichen Relationsbegriff aus \cref{def:praedikat} zum mengentheoretischen Relationsbegriff aus \cref{def:relation} treten die gleichen Phänomene auf, die auch in \cref{zuordvsabb} beschrieben wurden.
+    Beachte aber, dass nicht jede Relation durch einen einfachen sprachlichen Ausdruck gegeben sein muss. Prinzipiell können Relationen beliebig kompliziert oder gar nicht mehr sprachlich beschreibbar sein. Beim Übergang vom sprachlichen Relationsbegriff aus \cref{def:praedikat} zum abstrakten Relationsbegriff aus \cref{def:relation} treten die gleichen Phänomene auf, die auch in \cref{zuordvsabb} beschrieben wurden.
 \end{vorschau}
 
 
@@ -225,15 +227,15 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
         \[ 2 < 4 < 8 < 12 < 15 \]
     Mit dieser Notation lässt sich die Definition der Transitivität auch durch folgende Formel ausdrücken:
     \begin{align*}
-        xRyRz \quad&\Rightarrow\quad xRz && x,y,z\in X
+        xRyRz \ &\implies\ xRz && x,y,z\in X
     \end{align*}
     Transitivität heißt also, dass sich jede aus drei Elementen bestehende Relationenkette „zusammenziehen“ lässt. Es lässt sich zeigen, dass dies bei transitiven Relationen auch für beliebig lange Ketten gilt. Für $n\in \N_{\ge 1}$ und $x_1,\dots , x_n\in X$ gilt, sofern $R$ eine transitive Relation ist:
-        \[ x_1Rx_2R\ldots Rx_n \quad\Rightarrow\quad x_1Rx_n\]
+        \[ x_1Rx_2R\ldots Rx_n \ \implies\ x_1Rx_n\]
     Im Spezialfall, dass $R$ die Gleichheitsrelation ist, hast du das auch schon in der Schule andauernd ausgenutzt: Sind $x_1,\dots , x_n$ irgendwelche Zahlen/Vektoren/Funktionen/etc., so gilt
-        \[ x_1=x_2=\ldots = x_n \quad\Rightarrow\quad x_1=x_n\] 
+        \[ x_1=x_2=\ldots = x_n \ \implies\ x_1=x_n\]
     Beachte, dass diese Schlussfolgerung bei nicht-transitiven Relationen unzulässig ist. Beispielsweise gilt
         \[ 2\cdot 6 \neq 3\cdot 6\neq 3\cdot 4 \]
-    aber die Schlussfolgerung, dass deswegen auch $2\cdot 6\neq 3\cdot 4$ gälte, ist falsch. Ungleichheit von Zahlen ist keine transitive Relation.
+    aber die Schlussfolgerung, dass deswegen auch $2\cdot 6\neq 3\cdot 4$ gälte, wäre falsch. Ungleichheit von Zahlen ist keine transitive Relation.
 \end{bem}
 
 
@@ -264,28 +266,28 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 
 
 \begin{nota}
-    Bisher haben wir allgemeine Relationen mit dem Buchstaben „$R$“ notiert. Ordnungsrelationen sind Verallgemeinerungen der bekannten „$\le$“-Relation auf den Zahlräumen $\N,\Z,\Q,\R$, weshalb eine allgemeine Ordnungsrelation meist mit dem Zeichen $\le$ notiert wird. Beachte allerdings, dass eine Ordnungsrelation im Allgemeinen nichts mit den herkömmlichen Ordnungen auf $\N,\Z,\Q,\R$ zu tun haben muss!
+    Bisher habe ich allgemeine Relationen mit dem Buchstaben „$R$“ notiert. Ordnungsrelationen sind Verallgemeinerungen der bekannten „$\le$“-Relation auf den Zahlräumen $\N,\Z,\Q,\R$, weshalb eine allgemeine Ordnungsrelation meist mit dem Zeichen $\le$ notiert wird. Beachte allerdings, dass eine Ordnungsrelation im Allgemeinen nichts mit den herkömmlichen Ordnungen auf $\N,\Z,\Q,\R$ zu tun haben muss!
 \end{nota}
 
 
-\begin{de}[Ordnungsrelationen] \index{Ordnungsrelation} \index{Halbordnung} \index{partielle Ordnung} \index{geordnete Menge}
+\begin{de}[Ordnungsrelationen] \label{def:ordnungsrelation} \index{Ordnungsrelation} \index{Halbordnung} \index{partielle Ordnung} \index{geordnete Menge}
     Sei $X$ eine beliebige Menge. Eine Relation $\le$ auf $X$ heißt \textbf{Ordnungsrelation} (auch: \emph{partielle Ordnung} oder \emph{Halbordnung}), wenn sie reflexiv, transitiv und antisymmetrisch ist. In Formeln:
     \begin{align*}
         & (\text{O1}) & \forall x\in X:&&\quad &x\le x && (\text{Reflexivität}) \\
         & (\text{O2}) & \forall x,y,z\in X:&&\quad (x\le y\quad \text{und}\quad y\le z)\ \implies\ & x\le z && (\text{Transitivität}) \\
         & (\text{O3}) & \forall x,y\in X:&&\quad  (x\le y\quad \text{und}\quad y\le x)\ \implies\ & x=y && (\text{Antisymmetrie})
     \end{align*}
-    Ist $\le$ eine Ordnungsrelation auf $X$, so heißt das Paar $(X,\le)$ eine \textbf{geordnete Menge}. Sofern die Ordnungsrelation im Kontext klar ist, spricht man meist auch schlicht von „der geordneten Menge $X$“.
+    Ist $\le$ eine Ordnungsrelation auf $X$, so heißt das Paar $(X,\le)$ eine \textbf{geordnete Menge}. Sofern die Ordnungsrelation im Kontext klar oder gleichgültig ist, spricht man meist schlicht von „der geordneten Menge $X$“.
 \end{de}
 
 
 \begin{bsp} \quad
     \begin{enumerate}
         \item Die herkömmliche „kleinergleich“-Relation $\le$ ist eine Ordnungsrelation auf $\R$, $\Q$, $\Z$ und $\N$.
-        \item(Teilmengenrelation) Sei $M$ eine beliebige Menge. Dann ist die Teilmengenrelation $\subseteq$ eine Ordnungsrelation auf $\calP(M)$. Dies wurde in \cref{teilmengeneig} bewiesen. Somit ist $(\calP(M),\subseteq)$ eine geordnete Menge. Sofern nicht anders erwähnt, werden wir $\calP(M)$ fortan stets mit der Teilmengenordnung ausstatten. Ist von „der geordneten Menge $\calP(X)$“ die Rede, so ist damit die geordnete Menge $(\calP(M),\subseteq)$ gemeint.
+        \item(Teilmengenrelation) Sei $M$ eine beliebige Menge. Dann ist die Teilmengenrelation $\subseteq$ eine Ordnungsrelation auf $\calP(M)$. Dies wurde in \cref{teilmengeneig} bewiesen. Somit ist $(\calP(M),\subseteq)$ eine geordnete Menge. Sofern nicht anders erwähnt, werden wir $\calP(M)$ fortan stets mit der Teilmengenordnung ausstatten. Ist von „der geordneten Menge $\calP(M)$“ die Rede, so ist damit die geordnete Menge $(\calP(M),\subseteq)$ gemeint.
         \item(* Fortsetzung und Einschränkung) Seien $X,Y$ zwei Mengen und
             \[ \Sigma := \bigsqcup_{A\in \calP(X)} \Abb(A,Y) \]
-        (Dieser Ausdruck ist für dich vermutlich schwer zu lesen, weil er viele für dich neue Notationen involviert. Wenn du deren Bedeutung nicht kennst, schlage sie im Symbolverzeichnis nach)
+        (Dieser Ausdruck ist für dich vielleicht schwer lesbar, weil er viele für dich neue Notationen involviert. Wenn du deren Bedeutung nicht kennst, schlage sie im Symbolverzeichnis nach)
         Für $(A,f),(B,g)\in\Sigma$ sei
         \begin{align*}
             (A,f) \le (B,g) \qquad:\Leftrightarrow\qquad A\subseteq B\quad \text{und}\quad g\vert_A=f
@@ -310,7 +312,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
     Sei $(X,\le)$ eine geordnete Menge. Dann gilt:
     \begin{enumerate}
         \item Die Umkehrrelation $\ge$ ist ebenfalls eine Ordnungsrelation auf $X$, die sogenannte \textbf{Umkehrordnung}.
-        \item Für jede Teilmenge $U\subseteq X$ ist die Einschränkung von $\le$ auf $U$ ebenfalls eine Ordnungsrelation, die \textbf{auf $U$ induzierte Ordnung} oder die \textbf{von $X$ geerbte Ordnung}.
+        \item Für jede Teilmenge $U\subseteq X$ ist die Einschränkung von $\le$ auf $U$ ebenfalls eine Ordnungsrelation, die \textbf{auf $U$ induzierte Ordnung} oder \textbf{von $X$ geerbte Ordnung}.
     \end{enumerate}
 \end{satz}
 
@@ -328,8 +330,8 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 \end{bem}
 
 
-\begin{bsp}[Präordnungen] \index{Präordnung}
-    Eine Relation heißt \emph{Präordnung}, wenn sie reflexiv und transitiv ist (aber nicht unbedingt antisymmetrisch). Jede Ordnungsrelation ist eine Präordnung. Beispiele für Präordnungen, die keine Ordnungsrelationen sind:
+\begin{bsp}[Präordnungen] \index{Praeordnung@Präordnung}
+    Eine Relation heißt \textbf{Präordnung}, wenn sie reflexiv und transitiv ist (aber nicht unbedingt antisymmetrisch). Jede Ordnungsrelation ist eine Präordnung. Beispiele für Präordnungen, die keine Ordnungsrelationen sind:
     \begin{enumerate}
         \item(Teilbarkeit) Die Teilbarkeitsrelation auf $\Z$ ist eine Präordnung, d.h. reflexiv und transitiv, aber keine Ordnungsrelation, weil sie nicht antisymmetrisch ist.
         \begin{bew}
@@ -360,7 +362,7 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 \begin{de}[Hasse-Diagramm] \label{def:hasse} \index{Hasse-Diagramm}
     Sei $(X,\le)$ eine geordnete Menge, die nur endlich viele Elemente enthält. Ein \textbf{Hasse-Diagramm}\footnote{\href{https://de.wikipedia.org/wiki/Helmut_Hasse}{Helmut Hasse (1898-1979)}} von $X$ besteht aus:
     \begin{itemize}
-        \item Für jedes Element von $X$ einen Knotenpunkt.
+        \item Für jedes Element von $X$ ein Knotenpunkt.
         \item Für je zwei verschiedene Elemente $a,b\in X$ mit $a<b$, für die es kein $x\in X$ mit $a<x<b$ gibt, ein Kantenstrich zwischen den Punkten $a$ und $b$. Außerdem soll das „größere“ Element $b$ in einer einheitlich festgelegten Richtung vom Punkt $a$, etwa oberhalb von $a$ oder rechts von $a$, eingezeichnet sein.
     \end{itemize}
     Interessiert man sich weniger für die einzelnen Elemente von $X$ als vielmehr nur für die „Gestalt“ der geordneten Menge, kann man auf eine Bezeichnung der einzelnen Knotenpunkte verzichten.
@@ -450,19 +452,19 @@ Der Begriff der Relation wurde bereits im Logikkapitel in \cref{def:praedikat} e
 
 
 \begin{bem}
-    Das offene Intervall $(a,b)$ besteht also aus genau denjenigen Elementen, die zwischen $a$ und $b$ liegen. Es ist nicht zu verwechseln mit dem Paar $(a,b)\in \R^2$. Da sowohl für das Paar $(a,b)\in \R^2$ als auch für das offene Intervall $(a,b)\subseteq \R$ dieselbe Notation verwendet wird, musst du beim Lesen mathematischer Texte aus dem Kontext erraten, von welchem Objekt gerade die Rede ist.
+    Das offene Intervall $(a,b)$ besteht also aus genau denjenigen Elementen, die zwischen $a$ und $b$ liegen. Es ist nicht zu verwechseln mit dem Paar $(a,b)\in \R^2$ aus \cref{def:tupel}. Da sowohl für das Paar $(a,b)\in \R^2$ als auch für das offene Intervall $(a,b)\subseteq \R$ dieselbe Notation verwendet wird, musst du beim Lesen mathematischer Texte aus dem Kontext erraten, von welchem Objekt gerade die Rede ist.
     
     Das abgeschlossene Intervall $[a,b]$ unterscheidet sich vom offenen Intervall $(a,b)$ lediglich dadurch, dass in $[a,b]$ auch noch die beiden „Randpunkte“ $a$ und $b$ enthalten sind, während sie bei $(a,b)$ fehlen.
 \end{bem}
 
 
-\begin{de} \label{def:kleinstes} \index{größtes Element} \index{Maximum} \index{kleinstes Element} \index{Minimum} \index{maximales Element} \index{minimales Element}
+\begin{de} \label{def:kleinstes} \index{groesstes Element@größtes Element} \index{Maximum} \index{kleinstes Element} \index{Minimum} \index{maximales Element} \index{minimales Element}
 Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
     \begin{itemize}
         \item \textbf{kleinstes Element} (oder auch: \textbf{Minimum}) von $X$, falls für jedes $x\in X$ gilt, dass $a\le x$. Mit anderen Worten: „Jedes Element ist größergleich $x$“.
-        \item \textbf{größtes Element} (oder auch: \textbf{Maximum}) von $X$, falls für jedes $x\in X$ gilt, dass $a\le x$.
+        \item \textbf{größtes Element} (oder auch: \textbf{Maximum}) von $X$, falls für jedes $x\in X$ gilt, dass $x\le a$.
         \item \textbf{minimales Element} von $X$, falls es kein $x\in X$ gibt, für das $x<a$ gälte. Mit anderen Worten: „Es gibt kein strikt kleineres Element“.
-        \item \textbf{maximales Element} von $X$, falls es kein $x\in X$ gibt, für das $a>x$ gälte.
+        \item \textbf{maximales Element} von $X$, falls es kein $x\in X$ gibt, für das $a<x$ gälte.
     \end{itemize}
 \end{de}
 
@@ -510,7 +512,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 
 \begin{bew}
-    Sei $X$ eine geordnete Menge.
+    \quad
     \begin{enumerate}
         \item Sei $a\in X$ ein kleinstes Element. Angenommen, es gäbe ein $x\in X$ mit $x<a$, also $x\le a$ und $a\not\le x$. Dann widerspräche $a\not\le x$ der Eigenschaft von $a$, ein kleinstes Element zu sein.
         \item Seien $X$ totalgeordnet und $a\in X$ ein minimales Element. Sei $x\in X$ beliebig. Es ist zu zeigen, dass $a\le x$. Weil $X$ totalgeordnet ist, gilt $a\le x$ oder $x\le a$, sodass eine Fallunterscheidung möglich ist:
@@ -525,7 +527,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 
 \begin{bem}
-    Im totalgeordneten Fall sind die Begriffe „Minimum“ und „minimales Element“ also gleichbedeutend. Vor allem der für die Analysis wichtige Fall $(\R,\le)$ ist davon abgedeckt. Dagegen zeigt \cref{bsp:kleinstes}, dass es im nicht-total geordneten Fall durchaus minimale Elemente geben kann, die kein Minimum sind. Die Terminologie von „Minimum“ und „minimalem Element“ ist etwas unglücklich und ich empfehle, das Wort „Minimum“ nur im totalgeordneten Fall zu verwenden und andernfalls von „kleinsten Elementen“ zu sprechen.
+    Im totalgeordneten Fall sind die Begriffe „Minimum“ und „minimales Element“ also gleichbedeutend. Vor allem der für die Analysis wichtige Fall $(\R,\le)$ ist davon abgedeckt. Dagegen zeigt \cref{bsp:kleinstes}, dass es im nicht-total geordneten Fall durchaus minimale Elemente geben kann, die kein Minimum sind. Die Terminologie von „Minimum“ und „minimalem Element“ ist unglücklich verwirrend und ich empfehle, das Wort „Minimum“ nur im totalgeordneten Fall zu verwenden und andernfalls von „kleinsten Elementen“ zu sprechen.
 \end{bem}
 
 
@@ -535,13 +537,13 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \begin{de}[Schranken] \label{def:schranken} \index{Schranke (Ordnungstheorie)} \index{beschränkt (Ordnungstheorie)}
     Seien $X$ eine geordnete Menge und $T\subseteq X$ eine Teilmenge. Ein Element $x\in X$ heißt
     \begin{itemize}
-        \item eine \textbf{untere Schranke} von $T$, wenn für alle $t\in T$ gilt $x\le t$.
-        \item eine \textbf{obere Schranke} von $T$, wenn für alle $t\in T$ gilt $t\le x$.
+        \item eine \textbf{untere Schranke} für $T$, wenn für alle $t\in T$ gilt $x\le t$.
+        \item eine \textbf{obere Schranke} für $T$, wenn für alle $t\in T$ gilt $t\le x$.
     \end{itemize}
     Die Teilmenge $T\subseteq X$ heißt
     \begin{itemize}
-        \item \textbf{nach unten beschränkt} (in $X$), wenn es in $X$ mindestens eine untere Schranke von $T$ gibt.
-        \item \textbf{nach oben beschränkt} (in $X$), wenn es in $X$ mindestens eine obere Schranke von $T$ gibt.
+        \item \textbf{nach unten beschränkt} (in $X$), wenn es in $X$ mindestens eine untere Schranke für $T$ gibt.
+        \item \textbf{nach oben beschränkt} (in $X$), wenn es in $X$ mindestens eine obere Schranke für $T$ gibt.
         \item \textbf{beschränkt} (in $X$), wenn sie sowohl nach oben als auch nach unten beschränkt ist.
     \end{itemize}
 \end{de}
@@ -559,9 +561,9 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 \begin{bem} \quad
     \begin{itemize}
-        \item Aus der Transitivität von $\le$ ergibt sich direkt: ist $x$ eine untere (bzw. obere) Schranke von $T$ und ist $a\in X$ mit $a\le x$ (bzw. $a\ge x$), so ist auch $a$ eine untere (bzw. obere) Schranke von $T$. Im Allgemeinen kann eine Menge viele verschiedene Schranken besitzen.
+        \item Aus der Transitivität von $\le$ ergibt sich direkt: ist $x$ eine untere (bzw. obere) Schranke für $T$ und ist $a\in X$ mit $a\le x$ (bzw. $a\ge x$), so ist auch $a$ eine untere (bzw. obere) Schranke für $T$. Im Allgemeinen kann eine Menge viele verschiedene Schranken besitzen.
         \item Beachte, dass Beschränktheit ein „relativer“ Begriff ist: wir sprechen stets von der Beschränktheit von $T$ \emph{in $X$}. Beispielsweise ist das Intervall $(0,1)$ nicht in $\R_{>0}$ nach unten beschränkt, da es keine positive Zahl gibt, die kleiner als jede Zahl zwischen $0$ und $1$ ist. Dagegen ist $(0,1)$ in $\R$ nach unten beschränkt, eine untere Schranke ist beispielsweise die $0$.
-        \item Eine Teilmenge hat im Allgemeinen viele verschiedene Schranken. Beispielsweise ist jedes $x\in \R_{\le 0}$ eine untere Schranke von $(0,1]$. Allerdings ist die untere Schranke $0$ in gewisser Weise „optimal“, sie grenzt $(0,1]$ nach unten am engst möglichen ein.
+        \item Eine Teilmenge hat im Allgemeinen viele verschiedene Schranken. Beispielsweise ist jedes $x\in \R_{\le 0}$ eine untere Schranke für $(0,1]$. Allerdings ist die untere Schranke $0$ in gewisser Weise „optimal“, sie grenzt $(0,1]$ nach unten am engst möglichen ein.
     \end{itemize}
 \end{bem}
 
@@ -569,8 +571,8 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \begin{de}[Supremum/Infimum] \index{Supremum} \index{Infimum}
     Seien $X$ eine geordenete Menge und $T\subset X$ eine Teilmenge.
     \begin{itemize}
-        \item Ein Element $x\in X$ heißt \textbf{Infimum} von $T$, wenn $x$ eine größte untere Schranke von $T$ ist. Das heißt, $x$ ist eine untere Schranke von $T$ und für jede weitere untere Schranke $y$ von $T$ gilt $y\le x$.
-        \item Ein Element $x\in X$ heißt \textbf{Supremum} von $T$, wenn $x$ eine kleinste obere Schranke von $T$ ist. Das heißt, $x$ ist eine obere Schranke von $T$ und für jede weitere obere Schranke $y$ von $T$ gilt $x\le y$.
+        \item Ein Element $x\in X$ heißt \textbf{Infimum} von $T$, wenn $x$ eine größte untere Schranke für $T$ ist. Das heißt, $x$ ist eine untere Schranke für $T$ und für jede weitere untere Schranke $y$ gilt $y\le x$.
+        \item Ein Element $x\in X$ heißt \textbf{Supremum} von $T$, wenn $x$ eine kleinste obere Schranke für $T$ ist. Das heißt, $x$ ist eine obere Schranke für $T$ und für jede weitere obere Schranke $y$ gilt $x\le y$.
     \end{itemize}
 \end{de}
 
@@ -580,30 +582,32 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
     \begin{align*}
         \inf(T) \qquad\text{und}\qquad \sup(T)
     \end{align*}
-    Beachte allerdings, dass Infimum und Supremum nicht unbedingt existieren brauchen. Sofern sie existieren, können ihre Definitionen auch folgendermaßen formuliert werden: für jedes $x\in X$ gilt:
+    Beachte allerdings, dass Infimum und Supremum nicht unbedingt existieren brauchen.
+
+    Sofern sie existieren, gelten für jedes $x\in X$ folgende Äquivalenzen:
     \begin{align*}
-        \sup(T)\le x \qquad&\leftrightarrow\qquad \forall t\in T:\ t\le x \\
+        \sup(T)\le x \qquad&\Leftrightarrow\qquad \forall t\in T:\ t\le x \\
         x\le \inf(T) \qquad&\Leftrightarrow\qquad \forall t\in T:\ x\le t
     \end{align*}
-    Dies ist ein Beispiel für eine sogenannte \emph{universelle Eigenschaft}, die du dir einprägen solltest.
+    Dies sind zwei Beispiele für eine sogenannte \emph{universelle Eigenschaft}, die du dir einprägen solltest.
 \end{nota}
 
 
 \begin{bsp}
     \begin{enumerate}
         \item Weil $\N$ in $\Z$ nicht nach oben beschränkt ist, also gar keine einzige obere Schranke besitzt, besitzt $\N$ auch kein Supremum in $\Z$.
-        \item Das offene Intervall $(0,1)\subseteq \R$ besitzt $0$ als Infimum und $1$ als Supremum. Allerdings sind $0,1\notin (0,1)$. Dieses Beispiel zeigt, dass das Infimum bzw. Supremum einer Teilmenge nicht unbedingt auch ein Element von ihr sein braucht. Wenn doch, handelt es sich um ein Minimum bzw. Maximum im Sinne von \cref{def:kleinstes}.
+        \item Das offene Intervall $(0,1)\subseteq \R$ besitzt $0$ als Infimum und $1$ als Supremum. Allerdings sind $0,1\notin (0,1)$. Dieses Beispiel zeigt, dass das Infimum bzw. Supremum einer Teilmenge $T$ nicht unbedingt auch ein Element von ihr sein braucht. Wenn doch, handelt es sich um ein Minimum bzw. Maximum von $T$ im Sinne von \cref{def:kleinstes}.
         \item Es ist $T:=\{x\in \Q \mid x^2 < 2\}$ eine beschränkte Teilmenge von $\Q$, die weder ein Supremum noch ein Infimum in $\Q$ besitzt. In $\R$ besitzt sie dagegen welche, nämlich $\sqrt{2}$ und $-\sqrt{2}$.
         \item In der geordneten Menge $(\{\{1\},\{2\},\{1,2,3\},\{1,2,4\}\},\subseteq)$, vgl. das Diagramm in \cref{bsp:hasse}, besitzt die Teilmenge $T:=\{\{1\},\{2\}\}$ kein Supremum. Zwar besitzt sie genau zwei obere Schranken, nämlich $\{1,2,3\}$ und $\{1,2,4\}$, aber da keine der beiden kleiner als die andere ist, ist keine der beiden ein Supremum von $T$.
-        \item In der geordneten Menge $(\{\{1\},\{2\},\{1,2\},\{1,2,3\},\{1,2,4\}\},\subseteq)$, vgl. das Diagramm in \cref{bsp:hasse}, besitzt die Teilmenge $T:=\{\{1\},\{2\}\}$ dagegen ein Supremum, nämlich $\{0,1\}$.
+        \item In der geordneten Menge $(\{\{1\},\{2\},\{1,2\},\{1,2,3\},\{1,2,4\}\},\subseteq)$, vgl. das Diagramm in \cref{bsp:hasse}, besitzt die Teilmenge $T:=\{\{1\},\{2\}\}$ dagegen ein Supremum, nämlich $\{1,2\}$.
         \item Sei $M$ eine beliebige Menge. Dann besitzt jede Teilmenge $T\subseteq \calP(M)$ ein Infimum, nämlich $\bigcap T$ (wobei wir $\bigcap \emptyset:=M$ setzen) und ein Supremum, nämlich $\bigcup T$.
-        \item Das sogenannte \emph{Vollständigkeitsaxiom} besagt, dass jede beschränkte Teilmenge von $\R$ ein Infimum und ein Supremum in $\R$ besitzt.
+        \item Das sogenannte \emph{Vollständigkeitsaxiom} besagt, dass jede nichtleere beschränkte Teilmenge von $\R$ ein Infimum und ein Supremum in $\R$ besitzt.
     \end{enumerate}
 \end{bsp}
 
 
 \begin{bem}[Verallgemeinerbarkeit auf Präordnungen]
-    Eine Analyse ergibt, dass sich alle Definitionen und nahezu alle Sätze aus diesem Abschnitt über Ordnungsrelationen verallgemeinern lassen auf sogenannte \emph{prägeordnete Mengen}, d.h. Mengen mit einer reflexiven und transitiven (aber nicht unbedingt anstisymmetrischen) Relation. Die einzigen Aussagen, die im prägeordneten Fall nicht mehr gelten, sind die Eindeutigkeit kleinster und größter Elemente sowie die Eindeutigkeit von Infima und Suprema -- im Beweis für deren Eindeutigkeit ging essenziell die Antisymmetrie ein.
+    Eine Analyse ergibt, dass sich alle Definitionen und nahezu alle Sätze aus diesem Abschnitt über Ordnungsrelationen verallgemeinern lassen auf sogenannte \emph{prägeordnete Mengen}, d.h. Mengen mit einer reflexiven und transitiven (aber nicht unbedingt anstisymmetrischen) Relation. Die einzigen Aussagen, die im prägeordneten Fall nicht mehr gelten, sind die Eindeutigkeit kleinster und größter Elemente sowie die Eindeutigkeit von Infima und Suprema -- in die Beweise für deren Eindeutigkeit ging essenziell die Antisymmetrie ein.
 \end{bem}
 
 
@@ -614,11 +618,11 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 
 \begin{bem}[Philosophie der Äquivalenzrelationen] \label{aequirelphilo}
-    Warum ist das Gleichheitszeichen $=$ eigentlich nicht überflüssig? Wir verwenden es, um auszudrücken, dass zwei Objekte zueinander identisch sind -- aber in diesem Fall ergibt es ja von Anfang an überhaupt keinen Sinn, von „zwei Objekten“ zu sprechen. Beispielsweise ist die Gleichung
+    Warum ist das Gleichheitszeichen $=$ eigentlich nicht überflüssig? Wir verwenden es, um auszudrücken, dass zwei Objekte zueinander identisch sind -- aber in diesem Fall ergibt es ja von vornherein überhaupt keinen Sinn, von „zwei Objekten“ zu sprechen. Beispielsweise ist die Gleichung
         \[ 12\cdot 18 = 6\cdot 36 \]
     gleichbedeutend zu $216=216$, also einer Information, die eigentlich nicht der Rede wert ist.
     
-    Der springende Punkt ist hier das Vorliegen zweier verschiedener Abstraktionsebenen. Einerseits haben wir es beim Rechnen mit schlichten Zeichenketten wie „$12\cdot 18$“ oder „$6\cdot 36$“ zu tun. Auf einer abstrakteren Ebene interessieren wir uns aber eigentlich für die Zahlen, die durch die Zeichenketten \emph{repräsentiert} werden. So sind etwa „$216$“\footnote{Beachte, dass auch der Ausdruck „$216$“ noch eine Abkürzung ist für „$2\cdot 10^2 + 1\cdot 10^1 + 6 \cdot 10^0$“.} und „$12\cdot 18$“ zwei \emph{verschiedene} Zeichenketten, die dennoch \emph{dieselbe} Zahl bezeichnen. Es findet ein gedanklicher Abstraktionsprozess statt: zwei Objekte, die auf einer gewissen Ebene noch voneinander verschieden sind, fassen wir auf einer abstrakteren Ebene als identisch auf. Wir schwächen den Gleichheitsbegriff ab. Indem wir eine Gleichung „$12\cdot 18=6\cdot 36$“ als nicht-selbstverständliche Aussage hinstellen (wie hättest du darüber als Grundschüler gedacht?), machen wir auf diesen Abstraktionsprozess aufmerksam.
+    Der springende Punkt ist hier das Vorliegen zweier verschiedener Abstraktionsebenen. Einerseits haben wir es beim Rechnen mit schlichten Zeichenketten wie „$12\cdot 18$“ oder „$6\cdot 36$“ zu tun. Auf einer abstrakteren Ebene interessieren wir uns aber eigentlich für die Zahlen, die durch die Zeichenketten \emph{repräsentiert} werden. So sind etwa „$216$“\footnote{Beachte, dass auch der Ausdruck „$216$“ noch eine Abkürzung ist für „$2\cdot 10^2 + 1\cdot 10^1 + 6 \cdot 10^0$“.} und „$12\cdot 18$“ zwei \emph{verschiedene} Zeichenketten, die dennoch \emph{dieselbe} Zahl repräsentieren. Es findet ein gedanklicher Abstraktionsprozess statt: zwei Objekte, die auf einer gewissen Ebene noch voneinander verschieden sind, fassen wir auf einer abstrakteren Ebene als identisch auf. Wir schwächen den Gleichheitsbegriff ab. Indem wir eine Gleichung „$12\cdot 18=6\cdot 36$“ als nicht-selbstverständliche Aussage hinstellen, machen wir auf diesen Abstraktionsprozess aufmerksam.
     
     Formalisiert werden kann dieser Prozess durch Äquivalenzrelationen. Es handelt sich dabei um alternative Gleichheitsbegriffe, die schwächer als die herkömmliche, strikte Gleichheit sind und dadurch eine „Gleihheit auf einer abstrakteren Ebene“ repräsentieren. Bisher wurden allgemeine Relationen mit dem Buchstaben $R$ und allgemeine Ordnungsrelationen mit dem Zeichen $\le$ notiert. Für allgemeine Äquivalenzrelationen nutze ich die Tilde $\sim$.
 \end{bem}
@@ -672,7 +676,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
     \begin{align*}
         a \sim_f b \qquad&:\Leftrightarrow\qquad f(a)=f(b) && a,b\in X
     \end{align*}
-    definierte Relation eine Äquivalenzrelation auf $X$.\footnote{Es handelt sich um den Pullback der Gleichheitsrelation entlang $f$, vgl. \cref{pullbackrel}} Stellen wir uns $f$ als eine Abbildung vor, die den Elementen von $X$ gewisse „Merkmale“ zuordnet, so formalisiert die Relation $\sim_f$ das Teilen eines gemeinsamen Merkmals.
+    definierte Relation eine Äquivalenzrelation auf $X$.\footnote{Es handelt sich um den Pullback der Gleichheitsrelation entlang $f$, vgl. \cref{pullbackrel}.} Stellen wir uns $f$ als eine Abbildung vor, die den Elementen von $X$ gewisse „Merkmale“ zuordnet, so formalisiert die Relation $\sim_f$ das Teilen solcher gemeinsamen Merkmale.
 \end{bem}
 
 
@@ -686,14 +690,14 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 \begin{bsp} \quad
     \begin{enumerate}
-        \item(Wohngemeinschaften) Sei $M$ die Menge aller Menschen, die genau eine Wohnung haben. Wir haben eine Abbildung $M\to \{\text{Wohnungen}\}$, die jeder Person aus $M$ ihre Wohnung zuordnet. Nach \cref{merkmal} ist also durch „lebt in derselben Wohnung wie“ eine Äquivalenzrelation auf $M$ gegeben. Im Detail heißt das also:
+        \item(Wohngemeinschaften) Sei $M$ die Menge aller Menschen, die genau eine Wohnung haben. Wir haben eine Abbildung $M\to \{\text{Wohnungen}\}$, die jeder Person aus $M$ ihre Wohnung zuordnet. Nach \cref{merkmal} ist also durch „lebt in derselben Wohnung wie“ eine Äquivalenzrelation auf $M$ gegeben. Im Detail heißt das:
         \begin{itemize}
-            \item(Reflexivität) Jede Person wohnt mit sich selbst zusammen (so komisch das klingt);
-            \item(Symmetrie) Wenn eine Person $A$ mit einer Person $B$ zusammenwohnt, so wohnt $B$ auch mit $A$ zusammen;
+            \item(Reflexivität) Jede Person wohnt mit sich selbst zusammen (so komisch das klingt).
+            \item(Symmetrie) Wenn eine Person $A$ mit einer Person $B$ zusammenwohnt, so wohnt $B$ auch mit $A$ zusammen.
             \item(Transitivität) Wenn $A,B,C\in M$ drei Leute sind, bei denen $A$ mit $B$ und $B$ mit $C$ zusammenwohnt, so wohnt auch $A$ mit $C$ zusammen.
         \end{itemize}
         \item(Fußballvereine) Sei $F$ die Menge aller Fußballspieler in der Bundesliga. Wir haben eine Abbildung $F\to\{\text{Fußballvereine}\}$, die jedem Spieler seinen Verein zuordnet. Nach \cref{merkmal} ist also durch „spielt im selben Verein wie“ eine Äquivalenzrelation auf $F$ gegeben.
-        \item Später aus \cref{aequiklassegleich} wird sich ergeben, dass sich \emph{jede} Äquivalenzrelation über die Konstruktion aus \cref{merkmal} realisieren lässt.
+        \item Mithilfe von \cref{aequiklassegleich} lässt sich zeigen, dass \emph{jede} Äquivalenzrelation sich über die Konstruktion aus \cref{merkmal} realisieren lässt.
     \end{enumerate}
 \end{bsp}
 
@@ -745,7 +749,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \subsection*{Die Faktormenge zu einer Äquivalenzrelation}
 
 
-Äquivalenzrelationen sind vergröberte Gleichheitsbegriffe. In diesem Abschnitt wird die Methode vorgestellt, vormals „äquivalente“ Elemente nun künstlich \emph{gleich} zu machen.
+Äquivalenzrelationen sind vergröberte Gleichheitsbegriffe. In diesem Abschnitt wird die Methode vorgestellt, „äquivalente“ Elemente künstlich \emph{gleich} zu machen.
 
 
 \begin{de}[Faktormenge zu einer Äquivalenzrelation] \label{def:faktormenge} \index{Faktormenge} \index{Quotientenmenge} \index{Projektion (auf eine Faktormenge)}
@@ -777,8 +781,8 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
         \end{align*}
         Mithilfe des \href{https://de.wikipedia.org/wiki/Division_mit_Rest}{Satzes über die Division mit Rest} lässt sich beweisen, dass $\Z/n\Z$ genau $n$-viele Elemente enthält, nämlich
         \[ \Z/n\Z = \{\bar 0,\bar 1,\dots , \overline{n-1} \} \]
-        In der Algebra werden auf der Menge $\Z/n\Z$ eine Addition und eine Multipliktion erklärt, mit denen sich ähnlich „rechnen“ lässt wie mit gewöhnlichen Zahlen. $\Z/n\Z$ ist ein Beispiel für einen „Faktorring“, d.h. es liegt nicht nur ein „Faktorobjekt in der Kategorie der Mengen“ vor, sondern sogar ein „Faktorobjekt in der Kategorie der Ringe“, vgl. \cref{kategorien}.
-        \item Sei $\calA$ die Menge aller Aussagen. Die Faktormenge modulo die Äquivalenzrelation aus \cref{bsp:aequirel} heißt auch die \emph{Lindenbaum-Algebra}. Sie trägt in natürlicher Weise die Struktur einer sogenannten \emph{Boolschen Algebra}. Für eine Aussage $A$ kann die Äquivalenzklasse $[A]$ als der „Wahrheitswert“ von $A$ interpretiert werden. Die kanonische Projektion bildet dann jede Aussage auf ihren Wahrheitswert ab. Sind $A,B$ zwei Aussagen, so gilt $A\leftrightarrow B$ nach \cref{aequiklassegleich} genau dann wenn $[A]=[B]$ in $\calL$, also wenn $A$ und $B$ denselben Wahrheitswert haben. Die Lindenbaum-Algebra kann als Menge aller mathematischen Wahrheitswerte angesehen werden. Aufgrund der Existenz unentscheidbarer Aussagen\footnote{vgl. \cref{nichtkonstruktiv}} besteht $\calL$ nicht aus genau zwei Elementen, d.h. die klassischen zweiwertigen Interpretationen aus \cref{def:interpretation} sind für die Mathematik eigentlich inadäquat.
+        In der Algebra wird auf der Menge $\Z/n\Z$ eine Addition und eine Multipliktion erklärt, mit denen sich ähnlich „rechnen“ lässt wie mit gewöhnlichen Zahlen. $\Z/n\Z$ ist ein Beispiel für einen „Faktorring“, d.h. es liegt nicht nur ein „Faktorobjekt in der Kategorie der Mengen“ vor, sondern sogar ein „Faktorobjekt in der Kategorie der Ringe“, vgl. \cref{kategorien}.
+        \item Sei $\calA$ die Menge aller Aussagen. Die Faktormenge modulo die Äquivalenzrelation aus \cref{bsp:aequirel} heißt auch die \emph{Lindenbaum-Algebra}. Sie trägt in natürlicher Weise die Struktur einer sogenannten \emph{Boolschen Algebra}\footnote{vgl. \cref{bivalenz}}. Für eine Aussage $A$ kann die Äquivalenzklasse $[A]$ als der „Wahrheitswert“ von $A$ interpretiert werden. Die kanonische Projektion bildet dann jede Aussage auf ihren Wahrheitswert ab. Sind $A,B$ zwei Aussagen, so gilt $A\leftrightarrow B$ nach \cref{aequiklassegleich} genau dann wenn $[A]=[B]$ in $\calL$, also wenn $A$ und $B$ denselben Wahrheitswert haben. Die Lindenbaum-Algebra kann als Menge aller mathematischen Wahrheitswerte angesehen werden. Aufgrund der Existenz unentscheidbarer Aussagen\footnote{vgl. \cref{nichtkonstruktiv}} besteht $\calL$ nicht aus genau zwei Elementen, d.h. die klassischen zweiwertigen Interpretationen aus \cref{def:interpretation} sind für die Mathematik eigentlich inadäquat.
     \end{enumerate}
 \end{bsp}
 
@@ -795,7 +799,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 \begin{bew} \quad
     \begin{itemize}
         \item[(i)$\to$(ii):] Es gelte (i). Weil $\sim$ reflexiv ist, ist $x\in [x]$, wegen (i) also auch $x\in [y]$. Per Definition von $[y]$ heißt das gerade, dass $x\sim y$.
-        \item[(ii)$\to$(i):] Es gelte $x\sim y$. Da $\sim$ eine symmetrische Relation ist, gilt dann auch $y\sim x$. Wir zeigen nun die Gleichheit von Mengen $[x]=[y]$:
+        \item[(ii)$\to$(i):] Es gelte $x\sim y$. Da $\sim$ eine symmetrische Relation ist, gilt dann auch $y\sim x$. Wir zeigen nun die Gleichheit von Mengen $[x]=[y]$ mit der Technik aus \cref{mengengleichbeweis}.
         \begin{itemize}
             \item[„$\subseteq$“:] Sei $z\in [x]$ ein beliebiges Element. Dann ist $z\sim x$ und zusammen mit $x\sim y$ folgt aus der Transitivität, dass $z\sim y$. Also ist $z\in [y]$.
             \item[„$\supseteq$“:] Sei $z\in [y]$ ein beliebiges Element. Dann ist $z\sim y$ und zusammen mit $y\sim x$ folgt aus der Transitivität, dass $z\sim x$. Also ist $z\in [x]$. \qed
@@ -816,9 +820,9 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
 
 
 \begin{vorschau}[* Dualität zwischen Teilmengen und Faktormengen] \label{teilmengenvsfaktormengen} \index{Kobild}
-    Es gibt eine weitreichende Dualität zwischen Teilmengen und ihren Inklusionsabbildungen (siehe \cref{def:inklusion}) und Faktormengen und ihren Projektionsabbildungen und allgemein zwischen sogenannten „\href{https://ncatlab.org/nlab/show/subobject}{Unterobjekten}“ und „\href{https://ncatlab.org/nlab/show/quotient+object}{Faktorobjekten}“. Bereits in der LA1 wirst du damit in Kontakt kommen, wenn Unterräume und Faktorräume von Vektorräumen untersucht werden.
+    Es gibt eine weitreichende Dualität zwischen Teilmengen und ihren Inklusionsabbildungen (siehe \cref{def:inklusion}) und Faktormengen und ihren Projektionsabbildungen, und allgemein zwischen sogenannten „\href{https://ncatlab.org/nlab/show/subobject}{Unterobjekten}“ und „\href{https://ncatlab.org/nlab/show/quotient+object}{Faktorobjekten}“. Bereits in der LA1 wirst du damit in Kontakt kommen, wenn Unterräume und Faktorräume von Vektorräumen untersucht werden.
     
-    Ist $X\xrightarrow{f} Y$ eine Abbildung, so ist $\im(f)$ eine Teilmenge von $Y$. Das dazu „duale“ Objekt ist das sogenannte \href{https://ncatlab.org/nlab/show/coimage}{Kobild} von $f$ und ist definiert als die Faktormenge $X/{\sim_f}$ modulo die Äquivalenzrelation aus \cref{merkmal}. Notation: $\coim(f)$.
+    Ist $X\xrightarrow{f} Y$ eine Abbildung, so ist $\im(f)$ eine Teilmenge von $Y$. Das dazu „duale“ Objekt ist das sogenannte \textbf{Kobild} von $f$ und ist definiert als die Faktormenge $X/{\sim_f}$ modulo die Äquivalenzrelation aus \cref{merkmal}. Notation: $\coim(f)$.
     
     Es lässt sich ein regelrechtes Wörterbuch aufstellen, das Eigenschaften von Teilmengen in „duale“ Eigenschaften von Faktormengen übersetzt:
     \begin{longtable}{ll}
@@ -832,7 +836,7 @@ Sei $X$ eine geordnete Menge. Ein Element $a\in X$ heißt
      & \hfill etc. 
     \end{longtable}
     
-    \noindent Der zentrale Satz, der Kobild und Bild miteinander in Beziehung setzt, ist der sogenannte Erste Isomorphiesatz (manchmal auch „Homomorphiesatz“ genannt), der für viele Kategorien besagt, dass Kobild und Bild einander „isomorph“, d.h. von „ähnlicher Gestalt“, sind. Instanzen des allgemeinen Satzes werden dir für die Kategorien der Vektorräume und Gruppen vielleicht schon in der LA1 begegnen.
+    \noindent Der zentrale Satz, der Kobild und Bild miteinander in Beziehung setzt, ist der sogenannte \emph{Erste Isomorphiesatz} (manchmal auch „Homomorphiesatz“ genannt), der für viele Kategorien besagt, dass Kobild und Bild einander „isomorph“, d.h. von „ähnlicher Gestalt“, sind. Instanzen des allgemeinen Satzes werden dir für die Kategorien der Vektorräume und Gruppen vielleicht schon in der LA1 begegnen.
 \end{vorschau}
 
 
@@ -915,7 +919,7 @@ Zum Schluss dieses Abschnitts soll darauf eingegangen werden, inwiefern Äquival
         & \text{d)} & \{X\in\calP(\N)\mid X\ \text{enthält nur endlich viele Elemente}\} & \subseteq \calP(\N) \\
         & \text{e)} & \{x\in \Q \mid x^2<2\} & \subseteq \Q
     \end{align*}
-    Untersucht jede Teilmenge jeweils darauf, ob sie innerhalb der Obermenge nach oben oder unten beschränkt ist, größte oder kleinste, minimale oder maximale Elemente enthält und ob sie innerhalb der Obermenge ein Infimum oder ein Supremum besitzt.
+    Untersucht jede Teilmenge darauf, ob sie innerhalb der Obermenge nach oben oder unten beschränkt ist, größte oder kleinste, minimale oder maximale Elemente enthält und ob sie innerhalb der Obermenge ein Infimum oder ein Supremum besitzt.
 \end{aufg}
 
 
