@@ -1,7 +1,7 @@
 
 
 \setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
-    Der Begriff der Verknüpfung verallgemeinert die aus der Schule bekannten Rechenoperationen. In diesem Vortrag werden grundlegende Eigenschaften von Verknüpfungen untersucht und ein paar Konsequenzen daraus abgeleitet.
+    Der Begriff der Verknüpfung verallgemeinert die aus der Schule bekannten Rechenoperationen und dieser Vortrag könnte genausogut „Rechnen“ betitelt sein. Es werden grundlegende Eigenschaften von Verknüpfungen untersucht und ein paar Konsequenzen daraus abgeleitet.
 \vspace{24pt}}
 
 
@@ -12,7 +12,7 @@
 
 
 \begin{de} \index{Verknüpfung}
-    Sei $X$ eine beliebige Menge. Eine (zweistellige) \textbf{Verknüpfung auf $X$} ist eine Abbildung $X\times X \to X$, d.h. eine Abbildung, die jedem Elementepaar von $X$ wiederum ein Element von $X$ zuordnet. Eine zweistellige Verknüpfung wird in der Regel mit einem „Verknüpfungszeichen“ notiert. Das heißt: ist der Name der Abbildung etwa „$*$“, so schreibt man
+    Sei $X$ eine beliebige Menge. Eine (zweistellige) \textbf{Verknüpfung auf $X$} ist eine Abbildung $X\times X \to X$, d.h. eine Abbildung, die jedem Elementepaar von $X$ wiederum ein Element von $X$ zuordnet. Eine zweistellige Verknüpfung wird in der Regel mit einem „Verknüpfungszeichen“ notiert: ist der Name der Verknüpfungsabbildung etwa „$*$“, so schreibt man
         \[ x*y \qquad\text{anstelle von}\qquad *(x,y) \]
     für den Funktionswert des Paares $(x,y)$ unter der Abbildung $*$.
 \end{de}
@@ -21,7 +21,7 @@
 \begin{bem}[* Verallgemeinerungen]
     Eine zweistellige Verknüpfung auf $X$ ist also eine Art „Automat“, der je zwei Elemente von $X$ entgegennimmt und als Antwort ein drittes Element ausgibt.
     
-    Prinzipiell lassen sich auch dreistellige und höherstellige Verknüpfungen definieren. Auch können Verknüpfungen zwischen verschiedenen Mengen existieren. In diesem Vortrag sollen mit „Verknüpfungen“ aber stets (innere) zweistellige Verknüpfungen gemeint sein, wie sie soeben definiert wurden.
+    Prinzipiell lassen sich auch dreistellige und höherstellige Verknüpfungen definieren. Auch können Verknüpfungen zwischen verschiedenen Mengen existieren, wie es in der LA1 etwa bei der sogenannten \emph{skalaren Multiplikation} eines Vektorraums der Fall ist. In diesem Vortrag sollen mit „Verknüpfungen“ aber stets (innere) zweistellige Verknüpfungen gemeint sein, wie sie soeben definiert wurden.
 \end{bem}
 
 
@@ -29,9 +29,9 @@
     Es gilt:
     \begin{enumerate}
         \item Auf $\R$ ist durch die Addition $(x,y)\mapsto x+y$ eine zweistellige Verknüpfung gegeben. Da die Summe zweier rationaler Zahlen ebenfalls rational ist, liefert „$+$“ auch eine Verknüpfung auf der Menge $\Q$. Ebenso ist auch auf $\N$ und $\Z$ durch die Addition „$+$“ jeweils eine Verknüpfung gegeben.
-        \item Auf den Mengen $\Z,\Q,\R,\C$ ist durch die Subtraktion $(x,y)\mapsto x-y$ jeweils eine zweistellige Verknüpfung gegeben. Allerdings ergibt der Ausdruck
+        \item Auf den Mengen $\Z,\Q,\R,\C$ ist durch die Subtraktion $(x,y)\mapsto x-y$ jeweils eine zweistellige Verknüpfung gegeben. Für $\N$ ergäbe der Ausdruck
         \[ \text{„$\N \times \N \to \N \ ,\ (x,y) \mapsto x-y$“} \]
-        \emph{keinen} Sinn, da etwa $2-3$ gar kein Element von $\N$ ist. Auf $\N$ ist die Subtraktion also \textbf{keine} zweistellige Verknüpfung. Zwar lassen sich für gewisse Zahlenpaare durchaus Differenzen in $\N$ bilden (z.B. $3-2$); dass $-$ eine Verknüpfung auf $\N$ wäre, scheitert aber daran, dass eben nicht \emph{jedes} Paar natürlicher Zahlen eine Differenz in $\N$ besitzt.
+        allerdings keinen Sinn, da etwa $2-3$ gar kein Element von $\N$ ist. Auf $\N$ ist die Subtraktion also \textbf{keine} zweistellige Verknüpfung. Zwar lassen sich für gewisse Zahlenpaare durchaus Differenzen in $\N$ bilden (z.B. $3-2$); dass $-$ eine Verknüpfung auf $\N$ wäre, scheitert aber daran, dass eben nicht \emph{jedes} Paar natürlicher Zahlen eine Differenz in $\N$ besitzt.
         \item Auf den Mengen $\N,\Z,\Q,\R,\C$ ist durch die Multiplikation $(x,y)\mapsto x\cdot y$ jeweils eine zweistellige Verknüpfung gegeben.
         \item Auf den Mengen $\Q\setminus \{0\},\R\setminus \{0\},\C\setminus \{0\}$ ist durch die Division $(x,y)\mapsto x:y$ jeweils eine zweistellige Verknüpfung gegeben. Beachte, dass die Null ausgelassen werden muss, weil bspw. nicht „$1:0$“ gebildet werden kann. Zwar könnte man $1:0=\infty$ setzen, aber $\infty$ wäre kein Element von $\Q,\R$ bzw. $\C$, sodass dadurch nachwievor keine Verknüpfung auf $\Q,\R$ bzw. $\C$ zustandekäme.
     \end{enumerate}
@@ -40,16 +40,16 @@
 
 \begin{bsp}[Verketten von Abbildungen]
     Sei $M$ eine beliebige Menge. Dann ist auf der Menge $\Abb(M,M)$ der Selbstabbildungen von $M$ eine Verknüpfung gegeben durch die Verkettung\footnote{siehe \cref{def:verkettung}} von Abbildungen:
-        \[ \Abb(M,M)\times \Abb(M,M)\to \Abb(M,M) \ ,\ (f,g)\mapsto f\circ g \]
+        \[ \Abb(M,M)\times \Abb(M,M)\to \Abb(M,M) \ ,\ (g,f)\mapsto g\circ f \]
 \end{bsp}
 
 
 \begin{bem}[*]
     Beachte, dass in diesem Beispiel von Selbstabbildungen (also Abbildungen, deren Definitions- und Wertebereich übereinstimmen) die Rede ist. Sind allgemein $A,B,C$ drei Mengen, so hat man zwar eine Abbildung
-        \[ \Abb(B,C) \times \Abb(A,B) \to \Abb(A,C) \ ,\ (f,g) \mapsto f\circ g \]
+        \[ \Abb(B,C) \times \Abb(A,B) \to \Abb(A,C) \ ,\ (g,f) \mapsto g\circ f \]
     sofern $A,B,C$ drei verschiedene Mengen sind, ist dies aber \textbf{keine} zweistellige Verknüpfung -- denn auf welcher Menge sollte diese Verknüpfung „leben“, wenn ja $\Abb(B,C)$ und $\Abb(A,B)$ zwei verschiedene Mengen sind?
     
-    Nichtsdestotrotz besitzt auch das allgemeine Verketten von Abbildungen die interessante, häufig auftretende Struktur einer sogenannten \href{https://ncatlab.org/nlab/show/category}{Kategorie}. Mehr darüber wirst du spätestens in fortgeschrittenen Algebra-Vorlesungen erfahren.
+    Nichtsdestotrotz besitzt auch das allgemeine Verketten von Abbildungen die interessante, häufig auftretende Struktur einer sogenannten \href{https://ncatlab.org/nlab/show/category}{Kategorie}, vgl. \cref{kategorien}. Mehr darüber wirst du spätestens in fortgeschrittenen Algebra-Vorlesungen erfahren.
 \end{bem}
 
 
@@ -80,7 +80,7 @@
 
 
 \begin{nota}[Verknüpfungssymbole]
-    In diesem Text werden wir, wenn wir über eine „allgemeine zweistellige Verknüpfung“ schreiben, die Verknüpfung mit einem „$*$“ notieren. Die vorigen Beispiele zeigen, dass konkrete Verknüpfungen auch mit ganz anderen Zeichen wie etwa $+,-,\cdot,:,\cap,\cup$ usw. notiert werden. Andere Bücher und Vorlesungen verwenden auch andere Symbole wie etwa „$\odot$“ oder „$\circ$“, um über „die allgemeine Verknüpfung“ zu reden.
+    In diesem Text werde ich, wenn ich über eine „allgemeine zweistellige Verknüpfung“ schreibe, die Verknüpfung mit einem „$*$“ notieren. Die vorigen Beispiele zeigen, dass konkrete Verknüpfungen auch mit ganz anderen Zeichen wie etwa $+,-,\cdot,:,\cap,\cup$ usw. notiert werden. Andere Bücher und Vorlesungen verwenden auch andere Symbole wie etwa „$\odot$“ oder „$\circ$“, um über „die allgemeine Verknüpfung“ zu reden.
 \end{nota}
 
 
@@ -118,11 +118,11 @@
         \end{align*}
         \item Die Division auf $\Q\setminus \{0\},\R\setminus \{0\},\C\setminus \{0\}$ ist weder assoziativ noch kommutativ. Beispielsweise ist
         \begin{align*}
-            2:(3:2) = 4:3 &\neq 1:3 = (2:3):2 \\
+            2:(3:2) &\neq (2:3):2 \\
             2 : 3 & \neq 3:2
         \end{align*}
         \item Für jede Menge $M$ ist das Verketten von Abbildungen eine assoziative Verknüpfung auf $\Abb(M,M)$. Dies wurde in \cref{abbassoziativ} bewiesen. Im Allgemeinen (nämlich sobald $M$ mindestens zwei verschiedene Elemente enthält) ist sie aber nicht kommutativ, vgl. \cref{bsp:verkettung}.
-        \item Ist $M$ eine beliebige Menge, so sind die beiden Verknüpfungen $\cap$ und $\cup$ auf $\calP(M)$ sowohl assoziativ als auch kommutativ, siehe \cref{aufg:capcupgesetze} Die Operation $\setminus$ ist aber, sofern $M$ nichtleer ist, weder assoziativ noch kommutativ.
+        \item Ist $M$ eine beliebige Menge, so sind die beiden Verknüpfungen $\cap$ und $\cup$ auf $\calP(M)$ sowohl assoziativ als auch kommutativ, vgl. \cref{aufg:capcupgesetze}. Die Operation $\setminus$ ist aber, sofern $M$ nichtleer ist, weder assoziativ noch kommutativ.
     \end{enumerate}
 \end{bsp}
 
@@ -163,7 +163,7 @@
     Daher können bei assoziativen Verknüpfungen ganz allgemein überall die Klammern weglassen werden; in diesem Fall schriebe man schlicht
         \[ a*b*c*d*e \]
     Aus der Schule bist du es ja auch gewohnt, einfach
-        \[ 1+3+2+4 \qquad\text{anstelle von}\qquad (1+3)+(2+4)\ \text{oder}\ (1+(3+2))+4 \]
+        \[ 1+3+2+4 \qquad\text{anstelle von}\qquad (1+3)+(2+4)\ \text{oder}\ ((1+3)+2)+4 \]
     zu schreiben und daran ändert sich auch an der Uni nichts. Sind beispielsweise $A,B,C,D$ vier Mengen, so schreibt man schlicht
         \[ A\cup B\cup C \cup D \]
     für deren Vereinigung, was unproblematisch ist, da $\cup$ eine assoziative Verknüpfung ist. Sind $\begin{tikzcd}[cramped] A\ar[r, "f"] & B\ar[r, "g"] & C \ar[r, "h"] & D \end{tikzcd}$ drei Abbildungen, so schreibt man
@@ -218,12 +218,12 @@
 \begin{bem}[Beweisarbeit einsparen im kommutativen Fall]
     Seien $X$ eine Menge mit einer Verknüpfung $*$ und $e\in X$ ein Element, von dem du vermutest, dass es ein neutrales Element ist. Sofern $*$ eine \emph{kommutative Verknüpfung} ist, brauchst du, um zu beweisen, dass $e$ ein neutrales Element ist, von den beiden Gleichungen
         \[ e*x=x \qquad\text{und}\qquad x*e=x \qquad\qquad x\in X \]
-    nur eine zu beweisen. Die andere folgt dann direkt aus dem Kommutativgesetz.
+    nur eine zu beweisen. Die andere folgt dann ja direkt aus dem Kommutativgesetz.
 \end{bem}
 
 
 \begin{satz}[Eindeutigkeit neutraler Elemente] \label{neutreind}
-    Seien $X$ eine Menge und $*$ eine Verknüpfung auf $X$. Sofern $X$ diesbezüglich ein neutrales Element enthält, ist dieses eindeutig bestimmt.
+    Seien $X$ eine Menge und $*$ eine Verknüpfung auf $X$. Sofern $X$ bezüglich $*$ ein neutrales Element enthält, ist dieses eindeutig bestimmt.
 \end{satz}
  
 
@@ -269,7 +269,7 @@
 
 
 \begin{bem}[Trägermenge]
-    Beachte, dass ein Monoid immer ein Paar $(M,*)$ ist, in das sowohl die „Trägermenge“ $M$ als auch die Verknüpfung $*$ hineinkodiert ist. Ein und dieselbe Menge kann durchaus als Trägermenge für verschiedene Monoide herhalten. Beispielsweise sind $(\N_0,+)$ und $(\N_0,\cdot)$ zwei verschiedene Monoide, die dennoch dieselbe Trägermenge $\N_0$ besitzen.
+    Beachte, dass ein Monoid immer ein Paar $(M,*)$ ist, in das sowohl die „Trägermenge“ $M$ als auch die Verknüpfung $*$ hineinkodiert sind. Ein und dieselbe Menge kann durchaus als Trägermenge für verschiedene Monoide herhalten. Beispielsweise sind $(\N_0,+)$ und $(\N_0,\cdot)$ zwei verschiedene Monoide, die dennoch dieselbe Trägermenge $\N_0$ besitzen.
     
     Andererseits gibt es Mengen mit „kanonischen“ Verknüpfungen, wie z.B. $\Abb(X,X)$ (wobei $X$ irgendeine Menge ist). Sprechen Mathematiker von „dem Monoid $\Abb(X,X)$“, so meinen sie damit grundsätzlich das Monoid $(\Abb(X,X),\circ)$, also $\Abb(X,X)$ mit der Verkettung von Abbildungen als Verknüpfung. Solche Konventionen wirst du mit der Zeit durch Erfahrung und Gewohnheit verinnerlichen.
     
@@ -277,14 +277,14 @@
 \end{bem}
 
 
-\begin{bem}[Die eigentliche Bedeutung des Kommutativgesetzes]
+\begin{bem}[Die eigentliche Bedeutung des Kommutativgesetzes] \label{reihenfolgeegal}
     Es sei $(M,*)$ ein kommutatives Monoid. Weil dann $*$ assoziativ ist, brauchen wir nach \cref{klammerfrei} keine Klammern setzen. Sind beispielsweise $a,b,c,d\in M$, so können wir einfach
         \[ a*b*c*d \]
     schreiben. Das Kommutativgesetz
     \begin{align*}
         x*y&=y*x && \text{für alle}\ x,y\in M
     \end{align*}
-    sagt nun aus, dass es bei der Verknüpfung \emph{zweier} Elemente nicht auf die Reihenfolge ankommt. Es lässt sich zeigen, dass es damit sogar bei der Verknüpfung beliebig vieler Elemente nicht auf die Reihenfolge ankommt. Beispielsweise gilt
+    sagt nun aus, dass es bei der Verknüpfung zweier Elemente nicht auf die Reihenfolge ankommt. Es lässt sich zeigen, dass es damit sogar bei der Verknüpfung beliebig vieler Elemente nicht auf die Reihenfolge ankommt. Beispielsweise gilt
     \begin{align*}
         a*b*c*d & = a*c*b*d && (\text{Kommutativgesetz für $b$ und $c$}) \\
         & = c*a*b*d && (\text{Kommutativgesetz für $a$ und $c$}) \\
@@ -333,19 +333,19 @@
 \begin{bem}[Beweisarbeit einsparen im kommutativen Fall]
     Sei $X$ eine Menge mit einer Verknüpfung $*$, die ein neutrales Element $e\in X$ besitzt. Außerdem seien $a,b\in X$ und du vermutest, dass $b$ invers zu $a$ ist. Sofern $*$ eine \emph{kommutative} Verknüpfung ist, brauchst du, um zu beweisen, dass $b$ invers zu $a$ ist, von den beiden Gleichungen
         \[ a*b=e\qquad\text{und}\qquad b*a=e \]
-    nur eine zu beweisen. Die andere folgt dann aus dem Kommutativgesetz.
+    nur eine zu beweisen. Die andere folgt dann ja aus dem Kommutativgesetz.
 \end{bem}
 
 
 \begin{bsp}[*]
     Das folgende Beispiel zeigt, dass im Allgemeinen nicht aus der Gültigkeit einer der beiden Inversengleichungen schon auf die andere geschlossen werden kann.
     
-    Betrachte das Monoid $\Abb(\N_0,\N_0)$ und darin die beiden Abbildungen
+    Betrachte das Monoid $\Abb(\N_0,\N_0)$ und darin die beiden Abbildungen\footnote{vgl. \cref{bsp:umkehrabb}}
     \begin{align*}
         f : \N_0 \to \N_0 \ &,\ n \mapsto n+1 \\
         g: \N_0 \to \N_0 \ &,\ n\mapsto \begin{cases}
-            0 & n=0 \\
-            n-1 & n\ge 1
+            n-1 & n\ge 1 \\
+            0 & n=0
         \end{cases}
     \end{align*}
     Dann gilt zwar $g\circ f=\id_{\N_0}$. Allerdings ist $f\circ g\neq \id_{\N_0}$, sodass $g$ nicht invers zu $f$ ist. Tatsächlich kann $f$ gar keine Inverse besitzen, da $f$ wegen $0\notin \im(f)$ nicht surjektiv, also erst recht nicht bijektiv, ist.
@@ -513,7 +513,7 @@
 
     
 \begin{nota}[Notation im additiven Fall]
-    Im additiv geschriebenen Fall wird jedoch eine andere Notation verwendet. Sei $+$ eine additiv geschriebene, assoziative Verknüpfung auf der Menge $M$. Für $a\in M$ und $n\in \N_{\ge 0}$ wird dann die $n$-te Potenz von $a$ notiert durch
+    Im additiv geschriebenen Fall wird jedoch eine andere Notation verwendet. Sei $+$ eine additiv geschriebene, assoziative Verknüpfung auf der Menge $M$. Für $a\in M$ und $n\in \N_{\ge 1}$ wird dann die $n$-te Potenz von $a$ notiert durch
         \[ n \cdot a := \underbrace{a + \ldots + a}_{n\text{-mal}} \]
     Man spricht auch vom \textbf{$n$-fachen von $a$}. Sofern $M$ ein Nullelement enthält, ist
         \[ 0\cdot a := 0_M \]
@@ -569,12 +569,12 @@ durchgeführt werden.
 \end{bem}
 
 
-\begin{nota}[* Bruchschreibweise] \index{Zähler} \index{Nenner}
+\begin{nota}[* Bruchschreibweise] \index{Zaehler@Zähler} \index{Nenner}
     Sei $M$ ein multiplikativ geschriebenes \emph{kommutatives} Monoid. Für $a\in M$ und ein invertierbares Element $u\in M$ gibt es die Schreibweise
         \[ \frac{a}{u} := a\cdot u^{-1} = u^{-1} \cdot a\]
     Hierbei heißen $a$ der \textbf{Zähler}, $u$ der \textbf{Nenner}. Für diese Notation ist es essenziell, dass $M$ kommutativ ist. Denn andernfalls könnten die beiden Elemente $au^{-1}$ und $u^{-1}a$ durchaus verschieden sein und die Notation erklärte nicht, welches der beiden gemeint ist.
     
-    Ebenso dürfen a priori nur invertierbare Elemente in die Nenner geschrieben werden; beispielsweise gibt es in $\Q$ keine Zahl der Gestalt „$\frac{4}{0}$“.
+    Ebenso dürfen erstmal nur invertierbare Elemente in die Nenner geschrieben werden; beispielsweise gibt es in $\Q$ keine Zahl der Gestalt „$\frac{4}{0}$“.
 \end{nota}
 
 
@@ -593,25 +593,25 @@ durchgeführt werden.
 \end{bem}
 
 
-\begin{nota}[Mehrfach-Produkte] \label{mehrfachprodukt}
+\begin{nota}[Mehrfachprodukte] \label{mehrfachprodukt}
     Sei $M$ eine Menge mit einer assoziativen Verknüpfung $*$. Für $m,n\in \N$ mit $m\le n$ und $a_m,\dots , a_n\in X$ schreibt man
         \[ \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{k=m}^n a_k := a_m * \ldots * a_n \]
-    für die Verknüpfung der $a_m,\dots , a_n$ in aufsteigender Reihenfolge, d.h. man bedient sich einer vergrößerten Version des Verknüpfungszeichens. Beachte, dass auf der rechten Seite keine Klammern gesetzt werden müssen, weil $*$ assoziativ ist. Es heißen
+    für die Verknüpfung der $a_m,\dots , a_n$ in aufsteigender Reihenfolge, d.h. man bedient sich einer vergrößerten Version des Verknüpfungszeichens. Beachte, dass auf der rechten Seite keine Klammern gesetzt werden müssen, weil $*$ assoziativ ist, vgl. \cref{klammerfrei}. Es heißen
     \begin{itemize}
         \item $k$ die \textbf{Laufvariable}.\footnote{Es handelt sich um eine \emph{gebundene Variable} im Sinne von \cref{gebundenevariable}.}
         \item $m$ der \textbf{Startwert} der Laufvariable.
         \item $n$ der \textbf{Endwert} der Laufvariable.
     \end{itemize}
-    Ein Beispiel dafür sind Durchschnitt und Vereinigung von Mengen aus \cref{alternativmehrfachcapcup}. Die Laufvariable kann auch allgemeinere Werte durchlaufen, wie etwa ganze Zahlen oder die Elemente einer beliebigen totalgeordneten Menge.
+    Zwei Beispiele dafür wurden bereits mit „$\bigcap_{i=1}^n M_i$“ und „$\bigcup_{i=1}^n M_i$“ in \cref{alternativmehrfachcapcup} behandelt. Die Laufvariable kann auch allgemeinere Werte durchlaufen, wie etwa ganze Zahlen oder Elemente einer beliebigen totalgeordneten Menge.
     
-    Für additiv und multiplikativ geschriebene Verknüpfungen gibt es bestimmte Konventionen.
+    Für additiv und multiplikativ geschriebene Verknüpfungen gibt es bestimmte Konventionen:
     \begin{itemize}
         \item Bei einer additiv geschriebenen Verknüpfung bedient man sich eines großen Sigma $\Sigma$ (abkürzend für „Summe“):
             \[ \sum_{k=m}^n a_k := a_m + \ldots + a_n \]
         \item Bei einer multiplikativ geschriebenen Verknüpfung bedient man sich eines großen Pi $\Pi$ (abkürzend für „Produkt“):
             \[ \prod_{k=m}^n a_k := a_m \cdot \ldots \cdot a_n \]
     \end{itemize}
-    Falls $M$ ein neutrales Element $e$ zur Verknüpfung $*$ enthält, sind Mehrfach-Produkte auch für den Fall $m>n$, also falls es gar keine Indizes zwischen Start- und Endwert der Laufvariable gibt, erklärt. In diesem Fall ist
+    Falls $M$ ein neutrales Element $e$ zur Verknüpfung $*$ enthält, sind Mehrfachprodukte auch für den Fall $m>n$, also falls es gar keine Indizes zwischen Start- und Endwert der Laufvariable gibt, erklärt. In diesem Fall ist
     \begin{align*}
         \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{k=m}^n a_k & := e && (\text{falls $m>n$})
     \end{align*}
@@ -619,11 +619,11 @@ durchgeführt werden.
     \begin{align*}
         \sum_{k=m}^n a_k = 0 \qquad\text{bzw.}\qquad \prod_{k=m}^n a_k = 1 && (\text{falls $m>n$})
     \end{align*}
-    Man spricht von der \textbf{leeren Summe} und vom \textbf{leeren Produkt}.
+    Man spricht von der \textbf{leeren Summe} und vom \textbf{leeren Produkt}.\footnote{Im Beweis von \cref{euklid} erhielte man im Fall $k=0$ etwa \[ N = \left(\prod_{i=1}^0 p_i\right) + 1 = 1+1 = 2\]}
     
-    Ist überdies $M$ ein \emph{kommutatives} Monoid, so können Mehrfach-Produkte über beliebige Familien mit endlichen Indexmengen gebildet werden: Ist $I$ eine Menge, die nur endlich viele Elemente enthält, und ist $(a_i)_{i\in I}$ eine durch $I$ indizierte Familie von Elementen aus $M$, so bezeichnet
+    Ist überdies $M$ ein \emph{kommutatives} Monoid, so können Mehrfachprodukte über beliebige Familien mit endlichen Indexmengen gebildet werden: Ist $I$ eine Menge, die nur endlich viele Elemente enthält, und ist $(a_i)_{i\in I}$ eine durch $I$ indizierte Familie von Elementen aus $M$, so bezeichnet
         \[ \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{i\in I} a_i \qquad\text{bzw. im additiven Fall:}\quad \sum_{i\in I} a_i \qquad\text{bzw. im multiplikativen Fall:}\quad \prod_{i\in I} a_i\]
-    die Verknüpfung der $a_i$'s in einer beliebigen (irrelevanten, da $*$ kommutativ ist) Reihenfolge.
+    die Verknüpfung der $a_i$'s in einer beliebigen (irrelevanten, da $*$ kommutativ ist, vgl. \cref{reihenfolgeegal}) Reihenfolge.
 \end{nota}
 
 
@@ -631,9 +631,9 @@ durchgeführt werden.
     \begin{enumerate}
         \item(Binomischer Lehrsatz)\footnote{\href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{Francesco Binomi (1369-1420)}} Für $x,y,n\in \N$ gilt:
             \[ (x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k\cdot y^{n-k} \]
-        wobei der \emph{Binomialkoeefizient} $\binom{n}{k}$ die Anzahl aller Möglichkeiten, aus $n$-vielen Gegenständen ohne Berücksichtigung der Reihenfolge genau $k$-viele auszuwählen, bezeichnet. Im Spezialfall $n=2$ ergibt dies die aus der Schule bekannte binomische Formel $(x+y)^2=x^2+2xy+y^2$.
+        wobei der \emph{Binomialkoeffizient} $\binom{n}{k}$ die Anzahl aller Möglichkeiten, aus $n$-vielen Gegenständen ohne Berücksichtigung der Reihenfolge genau $k$-viele auszuwählen, bezeichnet. Im Spezialfall $n=2$ ergibt dies die aus der Schule bekannte binomische Formel $(x+y)^2=x^2+2xy+y^2$.
         \item Die Notation für Mehrfachprodukte kennst du bereits aus dem Mengenkapitel, wo sie für Durchschnitte, (disjunkte) Vereinigungen und Produkte von Mengen angesprochen wurde, siehe etwa \cref{alternativmehrfachcapcup}.
-        \item(„Unendliche“ Mehrfachprodukte?) In der Welt der zweistelligen Verknüpfungen, also dieses Kapitels, ist es nicht ohne Weiteres möglich, auch Verknüpfungen unendlich vieler Elemente zugleich zu definieren. Dies wäre auf die Anwesenheit von Zusatzstruktur, etwa einer sogenannten \emph{Topologie}, angewiesen. Schon in der Ana1 können damit „unendliche Summen“ studiert werden. Beispielsweise gilt für jede reelle Zahl $q\in \R$ mit $\vert q\vert < 1$:\footnote{vgl. \cref{aufg:geometrischereihe}}
+        \item(„Unendliche“ Mehrfachprodukte?) In der Welt der zweistelligen Verknüpfungen, also dieses Kapitels, ist es nicht ohne Weiteres möglich, auch Verknüpfungen unendlich vieler Elemente zugleich zu definieren. Dies wäre auf die Anwesenheit von Zusatzstruktur, etwa einer sogenannten \emph{Topologie}, angewiesen. Schon in der Ana1 können damit „unendliche Summen“ studiert werden. Beispielsweise gilt für jede Zahl $q\in \C$ mit $\vert q\vert < 1$:\footnote{vgl. \cref{aufg:geometrischereihe}}
             \[ \sum_{k=0}^\infty q^k = 1 + q + q^2 + q^3 + \ldots = \frac{1}{1-q} \]
         Der Ausdruck „$\sum_{k=0}^\infty$“ ist allein durch die Werkzeuge aus diesem Kapitel \emph{nicht} wohldefiniert, sondern muss in der Sprache der Analysis verstanden werden. Kannst du dir die Gleichung für den Fall $q=\frac{1}{2}$ intuitiv erklären?
     \end{enumerate}
@@ -664,7 +664,7 @@ durchgeführt werden.
         \item Das Monoid $(\N_0,+)$ ist keine Gruppe, da beispielsweise das Element $5\in \N_0$ nicht invertierbar ist.
         \item Sofern $X$ eine mindestens zweielementige Menge ist, ist das Monoid $\Abb(X,X)$ keine Gruppe.
         \begin{bew}[(*)]
-            Seien $a\in X$ irgendein Element und $f:X\to X$ die konstante Abbildung, die alles auf $a$ abbildet. Weil $X$ mindestens zwei Elemente enthält, ist $f$ nicht injektiv und nach \cref{bijektiviso} somit auch nicht invertierbar in $\Abb(X,X)$. Also ist $\Abb(X,X)$ keine Gruppe. \qed
+            Seien $a\in X$ irgendein Element und $f:X\to X$ die konstante Abbildung, die alles auf $a$ abbildet. Weil $X$ mindestens zwei verschiedene Elemente enthält, ist $f$ nicht injektiv und nach \cref{bijektiviso} somit auch nicht invertierbar in $\Abb(X,X)$. Also ist $\Abb(X,X)$ keine Gruppe. \qed
         \end{bew}
     \end{enumerate}
 \end{bsp}
@@ -727,7 +727,7 @@ durchgeführt werden.
 \begin{bem}[Endliche Permutationsgruppen]
     Für eine Zahl $n\in \N_0$ schreibt man
         \[ S_n := S(\{1,\dots , n\}) \]
-    für die Permutationsgruppe der Menge $\{1,\dots , n\}$. Diese Gruppen sind von großer Bedeutung in der Gruppentheorie, da sie nach dem \href{https://de.wikipedia.org/wiki/Satz_von_Cayley}{Satz von Cayley}\footnote{\href{https://de.wikipedia.org/wiki/Arthur_Cayley}{Arthur Cayley (1821-1895)}} in einem gewissen Sinne „universell“ sind unter allen Gruppen, die nur endlich viele Elemente besitzen. Die $S_n$-Gruppen werden dir bereits in der LA-Vorlesung wieder begegnen, dort spätestens im Kontext von \emph{Matrixdeterminanten}.
+    für die Permutationsgruppe der Menge $\{1,\dots , n\}$. Diese Gruppen sind von großer Bedeutung in der Gruppentheorie, da sie nach dem \href{https://de.wikipedia.org/wiki/Satz_von_Cayley}{Satz von Cayley}\footnote{\href{https://de.wikipedia.org/wiki/Arthur_Cayley}{Arthur Cayley (1821-1895)}} in einem gewissen Sinne „universell“ sind unter allen Gruppen, die nur endlich viele Elemente enthalten. Die $S_n$-Gruppen werden dir bereits in der LA-Vorlesung wieder begegnen, dort spätestens im Kontext von \emph{Matrixdeterminanten}.
 \end{bem}
 
 
@@ -766,7 +766,7 @@ durchgeführt werden.
         \text{a)} && a-(u+v) \quad&=\quad a-u-v \\
         \text{b)} && a-(u-v) \quad&=\quad a-u+v \\
         \text{c)} && -(u-v) \quad&=\quad v-u \\
-        \text{d)} && a-u=b-v \quad&\Leftrightarrow\quad a+v=b+u
+        \text{d)} && a-u=b \quad&\Leftrightarrow\quad a=b+u
     \end{align*}
 \end{aufg}
 
@@ -788,19 +788,21 @@ durchgeführt werden.
 
 
 \begin{aufg}[Geometrische Reihe] \label{aufg:geometrischereihe}
-    Vollzieht den Beweis des folgenden Satzes nach. Ist der Beweis korrekt und vollständig? Stimmt der Satz überhaupt?
+    Vollzieht den Beweis des folgenden Satzes nach. Ist der Beweis korrekt und vollständig? Kann er vereinfacht werden? Stimmt der Satz überhaupt?
     \begin{satz}
-        Für alle $n\in \N$ und $q\in \R$ gilt:
-            \[ (1-q) \cdot \sum_{k=0}^n q^k = 1-q^{n+1} \]
+        Für alle $n\in \N$ und $q\in \R\setminus \{1\}$ gilt:
+            \[ \sum_{k=0}^n q^k = \frac{1-q^{n+1}}{\kern-1.4em1-q} \]
     \end{satz}
     \begin{bew}
-        Es gilt:
+        Es ist:
         \begin{align*}
-            (1-q) \cdot \sum_{k=0}^n q^k & = \left( \sum_{k=0}^n q^k \right) - \left( \sum_{k=1}^{n+1} q^{k} \right) \\
+            (1-q) \cdot \sum_{k=0}^n q^k & = 1\cdot \left( \sum_{k=0}^n q^k \right) - q\cdot \left( \sum_{k=0}^n q^k \right) \\
+            & = \left( \sum_{k=0}^n q^k \right) - \left( \sum_{k=1}^{n+1} q^{k} \right) \\
             & = \left( \sum_{k=0}^n q^k \right) - \left( \sum_{k=0}^{n} q^{k+1} \right) && (\text{„Indexshift“}) \\
             & = \sum_{k=0}^n (q^k - q^{k+1}) \\
-            & = 1 - q^{n+1} && (\text{„Teleskopsumme“}) \qed
+            & = 1 - q^{n+1} && (\text{„Teleskopsumme“})
         \end{align*}
+    Division durch $(1-q)$ liefert die gewünschte Gleichung. \qed
     \end{bew}
 \end{aufg}
 

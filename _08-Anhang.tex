@@ -3,8 +3,8 @@
 \chapter{Formelsammlung Logik und Mengen} \label{formelsammlung}
 
 
-\section{Einige Aussagenlogische Tautologien}
-Dieser Abschnitt enthält Listen von logischen Tautologien. Versuche bloß nicht, sie auswendig zu lernen oder gar, sie mit Wahrheitstafeln zu verifizieren! -- das habe ich auch nie. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir intuitiv klarzumachen oder mithilfe der Beweistechniken aus dem zweiten Vortrag zu beweisen. Auf diese Weise trainierst du logisches Denken und den Umgang mit Junktoren und Quantoren. \\[0.5em]
+\section{Einige aussagenlogische Tautologien}
+Dieser Abschnitt enthält eine Liste von logischen Tautologien. Versuche bloß nicht, sie auswendig zu lernen oder gar, sie mit Wahrheitstafeln zu verifizieren! -- das habe ich auch nie. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir intuitiv klarzumachen oder mithilfe der Beweistechniken aus dem zweiten Kapitel zu beweisen. Auf diese Weise trainierst du logisches Denken und den Umgang mit Junktoren und Quantoren. \\[0.5em]
 In den folgenden Formeln seien
 \begin{itemize}
     \item $A,B,C$ stets drei beliebige Aussagen.
@@ -32,7 +32,7 @@ Es gilt:
         A \land B & \quad\leftrightarrow\quad  B \land A \\
         A \lor B & \quad\leftrightarrow\quad  B \lor A \\
         A\leftrightarrow B &\quad\leftrightarrow\quad  B \leftrightarrow A
-    \end{split} && ( \text{Kommuativgesetze}) \\[1em]
+    \end{split} && ( \text{Kommutativgesetze}) \\[1em]
     \begin{split} A \land (B \lor C) & \quad\leftrightarrow\quad  (A \land B) \lor (A \land C) \\
         A \lor (B \land C) & \quad\leftrightarrow\quad  (A \lor B) \land (A \lor C)
     \end{split} && ( \text{Distributivgesetze}) \\[1em]
@@ -69,14 +69,14 @@ Es gilt:
  
  
  
-\section{Einige Prädikatenlogische Tautologien}
+\section{Einige prädikatenlogische Tautologien}
 In den folgenden Formeln seien
 \begin{itemize}
     \item $A$ eine Aussage.
     \item $E,F$ zwei Eigenschaften.
     \item $R$ eine zweistellige Relation.
 \end{itemize}
-Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es mindestens ein Objekt vom Typ der Variablen $x$ gibt. Für die Russellsche Antinomie sei zusätzlich gefordert, dass beide Variablen von $R$ vom selben Typ seien. Es gilt:
+Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es mindestens ein Objekt vom Typ der Variablen $x$ gibt. Bei der Russellschen Antinomie sei außerdem angenommen, dass beide Variablen von $R$ vom selben Typ sind. Es gilt:
 \begingroup
 \allowdisplaybreaks
 \begin{align*}
@@ -101,7 +101,7 @@ Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es min
         A \to( \exists x : E(x)) & \quad\leftrightarrow^*\quad \exists x : ( A\to E(x)) \\ %nur in klassischer Logik
         (\forall x : E(x)) \to A & \quad\leftrightarrow^*\quad \exists x : (E(x) \to A) %nur in klassischer Logik
     \end{split} \\[1em]
-    \nexists x \ \forall y : (R(x,y) & \leftrightarrow \neg R(y,y)) && (\text{Russellsche Antinomie})
+    \nexists x\ \forall y : (R(x,y) & \ \leftrightarrow\ \neg R(y,y)) && (\text{Russellsche Antinomie})
 \end{align*}
 \endgroup
 
@@ -163,8 +163,8 @@ Es gilt:
 \section{Regeln für $\bigcap_{i\in I}$ und $\bigcup_{i\in I}$}
 In den folgenden Formeln seien
 \begin{itemize}
-    \item $A$ beliebige Mengen.
-    \item $I,K$ zwei weitere Mengen und $f:K\to I$ eine surjektive Abbildung.
+    \item $A$ eine beliebige Menge.
+    \item $I,J,K$ drei weitere Mengen und $f:K\to I$ eine surjektive Abbildung.
     \item $(X_i)_{i\in I}$, $(Y_i)_{i\in I}$, $(M_{ij})_{(i,j)\in I\times J}$ drei Familien von Mengen.
     \item Damit die Komplemente „$(-)^c$“ Sinn ergeben, sei außerdem eine gemeinsame Obermenge $V$ der $X_i$'s fixiert.
 \end{itemize}
@@ -185,7 +185,7 @@ Für die mit einem (*) markierten Gleichungen sei außerdem angenommen, dass $I\
     (\bigcap_{i\in I} X_i) \cup A & \quad =\quad \bigcap_{i\in I} (X_i \cup A) %nur in klassischer Logik
 \end{align*}
 \begin{align*}
-    \{ M\in X\mid M\ \text{ist eine Menge und}\ M\notin M \} & \notin X && (\text{Russellsche Antinomie})
+    \{ M\in A\mid M\ \text{ist eine Menge und}\ M\notin M \} & \notin A && (\text{Russellsche Antinomie})
 \end{align*}
 \begin{align*}
     \begin{split}
@@ -213,7 +213,7 @@ Für die mit einem (*) markierten Gleichungen sei außerdem angenommen, dass $I\
 \section{Regeln für Produkte}
 Für die nachfolgenden Formeln seien
 \begin{itemize}
-    \item $A,B,C,D$ Mengen.
+    \item $A,B,C,D$ vier Mengen.
     \item $(X_i)_{i\in I}$, $(Y_i)_{i\in I}$, und $(M_{ij})_{(i,j)\in I\times J}$ drei Mengenfamilien.
 \end{itemize}
 Für die mit einem (*) markierten Gleichungen sei außerdem angenommen, dass $I\neq\emptyset$. Es gilt:
@@ -297,7 +297,7 @@ In den folgenden Formeln seien
     \item $X,Y,Z$ drei Mengen.
     \item $\begin{tikzcd}[cramped] X \ar[r, "f"] &  Y\ar[r, "g"] & Z \end{tikzcd}$ zwei Abbildungen.
     \item $(X_i)_{i\in I}$ eine Familie von Teilmengen von $X$ und $(Y_i)_{i\in I}$ eine Familie von Teilmengen von $Y$.
-    \item $A,D\subseteq X$ und $B,E\subseteq Y$ und $C\subseteq Z$ weitere Teilmengen.
+    \item $A,U,V\subseteq X$ und $B,S,T\subseteq Y$ und $C\subseteq Z$ weitere Teilmengen.
 \end{itemize}
 Es gilt:
 \begingroup
@@ -320,8 +320,8 @@ Es gilt:
     f^{-1} (\bigcup_{i \in I} Y_i) & \quad=\quad \bigcup_{i \in I} f^{-1}(Y_i) \\[1em]
     f(\bigcup_{i \in I} X_i) & \quad=\quad \bigcup_{i \in I} f(X_i) \\
     f(\bigcap_{i \in I} X_i) & \quad \subseteq\quad \bigcap_{i \in I} f(X_i) \\[1em]
-    f^{-1}(B\setminus E) & \quad=\quad f^{-1}(B)\setminus f^{-1}(E) \\
-    f(A\setminus D) & \quad \supseteq\quad f(A)\setminus f(D)
+    f^{-1}(S\setminus T) & \quad=\quad f^{-1}(S)\setminus f^{-1}(T) \\
+    f(U\setminus V) & \quad \supseteq\quad f(U)\setminus f(V)
 \end{align*}
 \endgroup
 
@@ -329,7 +329,7 @@ Es gilt:
 
 
 \section{Einige natürliche Bijektionen}
-Dieser Abschnitt enthält eine Liste von „natürlichen Entsprechungen“ von Mengen. Es handelt sich dabei nicht um Gleichungen im strikten Sinne, weshalb ich nicht das Zeichen „$=$“ benutze -- jedoch können die Elemente der einen Menge jeweils „natürlich“ mit den Elementen der anderen Menge „identifiziert“ werden, d.h. es gibt eine Bijektion zwischen beiden Mengen. Dies notiere ich mit dem Zeichen „$\cong$“. Ich werde keine konkreten Bijektionen angeben, wenn du Lust hast, versuche selbst einmal herauszufinden, inwiefern die Elemente der einen Menge jeweils den Elementen der anderen „entsprechen“.
+Dieser Abschnitt enthält eine Liste von „natürlichen Entsprechungen“ von Mengen. Es handelt sich dabei nicht um Gleichungen im strikten Sinne, weshalb ich nicht das Zeichen „$=$“ benutze -- jedoch können die Elemente der einen Menge jeweils „natürlich“ mit den Elementen der anderen Menge „identifiziert“ werden, d.h. es gibt eine naheliegende Bijektion zwischen beiden Mengen. Dies notiere ich mit dem Zeichen „$\cong$“. Ich werde keine konkreten Bijektionen angeben, wenn du Lust hast, versuche selbst einmal herauszufinden, inwiefern die Elemente der einen Menge jeweils den Elementen der anderen „entsprechen“.
 
 Es seien
 \begin{itemize}
@@ -400,7 +400,7 @@ Dann gibt es natürliche Bijektionen:
 
 \begin{description}[labelindent=0pt, leftmargin=0pt]
 
-    \item[abuse of notation:] Um die Übersichtlichkeit mathematischer Formelsprache zu wahren, wird gelegentlich ein Zeichen mit mehreren verschiedenen Bedeutungen zugleich oder einer inkorrekten Syntax verwendet. Ist beispielsweise $(G,*)$ eine Gruppe, so spricht man meist von „der Gruppe $G$“ und geht unterschwellig davon aus, dass die Verknüpfung $*$ vom Leser mitgedacht wird. Diese Notation ist manchmal leicht missbräuchlich (englisch: ``abuse of notation''), um ihrer besseren Lesbarkeit aber vorzuziehen.
+    \item[abuse of notation:] Um die Übersichtlichkeit mathematischer Formelsprache zu wahren, wird gelegentlich ein Zeichen mit mehreren verschiedenen Bedeutungen zugleich oder einer inkorrekten Syntax verwendet. Ist beispielsweise $(G,*)$ eine Gruppe, so spricht man meist von „der Gruppe $G$“ und geht unterschwellig davon aus, dass die Verknüpfung $*$ vom Leser mitgedacht wird. Diese Notation ist manchmal leicht missbräuchlich, um ihrer besseren Lesbarkeit aber vorzuziehen.
 
     \item[Ansatz:] Herangehensweise, einen Beweis zu führen, ein Problem zu lösen oder ein Objekt zu definieren. Beispielsweise ist die \href{https://en.wikipedia.org/wiki/Completing_the_square}{quadratische Ergänzung} ein Ansatz zum Lösen quadratischer Gleichungen. 
     
@@ -410,7 +410,7 @@ Dann gibt es natürliche Bijektionen:
 
     \item[Charakterisierung:] Äquivalente Beschreibung eines Objekts.
 
-    \item[Echt:] wahlweise von der Bedeutung „strikt“ oder „nichttrivial“. Beispielsweise sind die \emph{echten Teiler} einer natürlichen Zahl $n$ alle Teiler von $n$ ausgenommen den „trivialen Teiler“ $n$ selbst. Die \emph{echten Teilmengen} einer Menge $M$ sind sind alle Teilmengen von $M$ mit Ausnahme der „trivialen Teilmenge“ $M$ (und eventuell $\emptyset$).
+    \item[Echt:] wahlweise von der Bedeutung „strikt“ oder „nichttrivial“. Beispielsweise sind die \emph{echten Teiler} einer natürlichen Zahl $n$ alle Teiler von $n$ ausgenommen den „trivialen Teiler“ $n$ selbst. Die \emph{echten Teilmengen} einer Menge $M$ sind alle Teilmengen von $M$ mit Ausnahme der „trivialen Teilmenge“ $M$ (und eventuell $\emptyset$).
 
     \item[Eindeutig bestimmt:] Ein mathematisches Objekt ist durch eine Eigenschaft eindeutig bestimmt, falls es kein anderes Objekt mit derselben Eigenschaft gibt. Beispielsweise ist der Mittelpunkt eines Kreises eindeutig bestimmt durch die Eigenschaft, dass er zu jedem Punkt auf dem Kreis denselben Abstand hat. Dagegen ist etwa die komplexe Quadratwurzel von $-1$ nicht eindeutig bestimmt, weil sowohl die komplexe Zahl $i$ als auch die Zahl $-i$ jeweils Quadratwurzeln von $-1$ sind.
     
@@ -431,7 +431,7 @@ Dann gibt es natürliche Bijektionen:
     \end{align*}
     die einer Teilmenge jeweils ihre Bildmenge bzw. ihre Urbildmenge zuordnen.
     
-    \item[Kanonisch:] Ein Objekt ist kanonisch, wenn es sich um ein Standard-Beispiel handelt, wenn es als Standard-Struktur eines anderen Objekts angesehen wird oder wenn es \emph{natürlich} (siehe unten) ist. Andernfalls heißt es \textbf{unkanonisch}. Beispielsweise besitzt der $\R^n$ eine kanonische Basis, die sogenannte Standardbasis, wohingegen der Folgenraum $\R^\N$ keine kanonische Basis besitzt, die Wahl einer Basis daher unkanonisch wäre. Noch ein Beispiel: die „kanonische“ Gruppenstruktur auf $\Z$ besteht aus der Addition $+$ -- schreiben Mathematiker von „der Gruppe $\Z$“, so ist damit so gut wie immer die Gruppe $(\Z,+)$ gemeint.
+    \item[Kanonisch:] Ein Objekt ist kanonisch, wenn es sich um ein Standard-Beispiel handelt, wenn es als Standard-Struktur eines anderen Objekts angesehen wird oder wenn es \emph{natürlich} (siehe unten) ist. Andernfalls heißt es \textbf{unkanonisch}. Beispielsweise besitzt der $\R^n$ eine kanonische Basis, die sogenannte Standardbasis, wohingegen der Folgenraum $\R^\N$ keine kanonische Basis besitzt, die Wahl einer Basis daher unkanonisch wäre. Noch ein Beispiel: die „kanonische“ Gruppenstruktur auf $\Z$ besteht aus der Addition. Schreiben Mathematiker von „der Gruppe $\Z$“, so ist damit so gut wie immer die Gruppe $(\Z,+)$ gemeint.
 
     \item[Konstruktiv:] Ein Beweis oder eine Theorie sind „konstruktiv“, wenn jede ihrer Existenzaussagen durch ein Beispiel belegt werden kann. Andernfalls sind sie \textbf{nichtkonstruktiv}. Beispielsweise ist die Aussage „Jede surjektive Abbildung besitzt eine Rechtsinverse“ nichtkonstruktiv.
     
@@ -439,29 +439,29 @@ Dann gibt es natürliche Bijektionen:
 
     \item[Lemma:] Hilfssatz, der an und für sich von geringerem Interesse ist, oftmals aber wichtige und technische Beweisarbeit einschließt, auf die später im Beweis eines bedeutsamen Satzes zurückgegriffen wird.
 
-    \item[Mathematischer Komparativ:] Schreiben Mathematiker so etwas wie „$a$ ist größer als $b$“ oder „$a$ ist gröber als $b$“, so ist darin oft auch der Fall mit eingeschlossen, dass $a$ und $b$ die Eigenschaft in genau demselben Grad aufweisen, also „$a$ ist größergleich $b$“ oder „$a$ ist gröber oder gleich $b$“. Möchte man diesen Fall explizit ausschließen, kann man so etwas wie „$a$ ist \emph{strikt} größer als $b$“, oder $a$ ist strikt gröber als $b$“ schreiben.
+    \item[Mathematischer Komparativ:] Schreiben Mathematiker so etwas wie „$a$ ist größer als $b$“, so ist darin oft auch der Fall mit eingeschlossen, dass $a$ und $b$ die Eigenschaft in genau demselben Grad aufweisen, also „$a$ ist größergleich $b$“. Möchte man diesen Fall explizit ausschließen, kann man so etwas wie „$a$ ist \emph{strikt} größer als $b$“ schreiben.
     
-    \item[Modulo:] Das Arbeiten mit Äquivalenzklassen. Der Begriff wird auch im übertragenen Sinne verwendet, wenn Objekte nicht vollständig, aber bis auf „vernachlässigbare“ Unterschiede, voneinander unterschieden werden. Beispielsweise ist die Lösung der Gleichung $x^2=2$ „eindeutig bis auf (\glq modulo\grq) Vorzeichen“.
+    \item[Modulo:] Das Arbeiten mit Äquivalenzklassen. Der Begriff wird auch im übertragenen Sinne verwendet, wenn Objekte nicht vollständig, aber bis auf „vernachlässigbare“ Unterschiede voneinander unterschieden werden. Beispielsweise ist die Lösung der Gleichung $x^2=2$ „eindeutig bis auf (\glq modulo\grq) Vorzeichen“.
 
     \item[Natürlich:] Eine mathematische Konstruktion wird \emph{natürlich} genannt, wenn sie besonders naheliegend ist, nicht auf willkürliche Wahlen angewiesen ist, aus den Definitionen „in natürlicher Weise“, quasi wie von selbst emergiert oder sich in einem „universellen“, allgemeinen Kontext definieren lässt. Andernfalls heißt sie \textbf{unnatürlich}. Im Gegensatz zum informellen mathematischen Jargon besitzt das Wort „natürlich“ in der \href{https://ncatlab.org/nlab/show/category+theory}{Kategorientheorie} eine präzise mathematische Bedeutung, wo es das Vorliegen gewisser Gleichungen in Form von \emph{kommutativen Diagrammen} beschreibt.
 
-    \item[Ohne Beschränkung der Allgemeinheit (OBdA):] Eine Annahme in einem Beweis geschieht „ohne Beschränkung der Allgemeinheit“ (oder auch: „ohne Einschränkung“), wenn sie streng genommen zwar nicht jeden von der zu beweisenden Aussage eingeschlossenen Fall abdeckt, der Verlust an Allgemeinheit aber nur oberflächlich ist, indem sich der allgemeinere Fall leicht aus dem spezielleren ableiten lässt oder so naheliegend zu beweisen ist, dass er nicht der Rede wert ist. Sind beispielsweise $n,m$ zwei natürliche Zahlen, so kann \emph{OBdA} angenommen werden, dass $n\le m$, da eine der beiden Zahlen größergleich die andere sein muss und im Fall $n\ge m$ die Variablen schlicht umbenannt werden könnten.
+    \item[Ohne Beschränkung der Allgemeinheit (OBdA):] Eine Annahme in einem Beweis geschieht „ohne Beschränkung der Allgemeinheit“ (oder auch: „ohne Einschränkung“), wenn sie streng genommen zwar nicht jeden von der zu beweisenden Aussage eingeschlossenen Fall abdeckt, der Verlust an Allgemeinheit aber nur oberflächlich ist, indem sich der allgemeine Fall leicht aus dem spezielleren ableiten lässt oder so naheliegend zu beweisen ist, dass er nicht der Rede wert ist. Sind beispielsweise $n,m$ zwei natürliche Zahlen, so kann \emph{oBdA} angenommen werden, dass $n\le m$, da eine der beiden Zahlen größergleich die andere sein muss und im Fall $n\ge m$ die Variablen schlicht umbenannt werden könnten.
 
-    \item[Pathologisch:] Ein mathematisches Objekt verhält sich \emph{pathologisch}, wenn es in sich Eigenschaften vereint, die kontraintuitiv oder unerwünscht sind. Pathologien dienen oft als Gegenbeispiele um zu beweisen, dass eine Eigenschaft eine andere Eigenschaft nicht impliziert. Beispielsweise braucht eine stetige Funktion an keinem Punkt differenzierbar sein, wie die pathologische \href{https://de.wikipedia.org/wiki/Weierstrass-Funktion}{Weierstraß-Funktion} demonstriert. Das Gegenteil von „pathologisch“ ist \textbf{regulär}. In einzelnen Disziplinen besitzt das Wort „regulär“ allerdings eine präzise festgelegte Bedeutung, die oftmals überaltert ist, aus kommunikativen Gründen aber dennoch beibehalten wird.
+    \item[Pathologisch:] Ein mathematisches Objekt verhält sich \emph{pathologisch}, wenn es in sich Eigenschaften vereint, die kontraintuitiv oder unerwünscht sind. Pathologien dienen oft als Gegenbeispiele um zu beweisen, dass eine Eigenschaft eine andere Eigenschaft nicht impliziert. Beispielsweise braucht eine stetige Funktion an keiner Stelle differenzierbar sein, wie die pathologische \href{https://de.wikipedia.org/wiki/Weierstrass-Funktion}{Weierstraß-Funktion} demonstriert. Das Gegenteil von „pathologisch“ ist \textbf{regulär}. In einzelnen Disziplinen besitzt das Wort „regulär“ allerdings häufig eine präzise festgelegte Bedeutung, die oftmals überaltert ist, aus kommunikativen Gründen aber dennoch beibehalten wird.
 
     \item[QED:] Latein für „quod erat demonstrandum“ -- „was zu beweisen war“. Wurde früher ans Ende eines mathematischen Beweises geschrieben. Heutzutage sind kleine Symbole wie $\square$, $\blacksquare$ oder $\lozenge$ zur Markierung des Beweisendes üblich.
     
-    \item[Rigoros:] Ein Beweis ist \emph{rigoros}, wenn er logische Schlüsse präzise und ausführlich beschreibt. Ein nicht-rigoroser Beweis weicht gelegentlich auf ungenaue Plausibilitätsargumente aus, begründet die Gültigkeit gewisser Hypothesen nicht oder vernachlässigt Spezialfälle. Beispielsweise kann die Kommutativität der Addition natürlicher Zahlen
+    \item[Rigoros:] Ein Beweis ist \emph{rigoros}, wenn er logische Schlüsse präzise und ausführlich beschreibt. Ein nicht-rigoroser Beweis weicht gelegentlich auf ungenaue Plausibilitätsargumente aus, begründet die Gültigkeit gewisser Hypothesen nicht oder vernachlässigt Spezialfälle. Beispielsweise kann die Kommutativität der Multiplikation natürlicher Zahlen
     \begin{align*}
-        n+m & = m+n && \text{für alle}\ n,m\in \N
+        n \cdot m & = m \cdot n && \text{für alle}\ n,m\in \N
     \end{align*}
-    mithilfe visueller Plausibilitätsargumente oder aber rigoros per Induktion bewiesen werden.
+    mithilfe visueller Plausibilitätsargumente erklärt werden oder aber rigoros per Induktion bewiesen werden.
 
-    \item[Trivial:] Eine mathematische Aussage heißt trivial, wenn sie sich unmittelbar aus den Definitionn der in ihr vorkommenden Begriffen ergibt. Andernfalls heißt sie \textbf{nichttrivial}. Beispielsweise ist die Aussage „Eine Abbildung $X\xrightarrow{f} Y$ ist genau dann surjektiv, wenn $\im(f)=Y$“ trivial, wohingegen die Aussage „Eine Menge $M$ ist genau dann endlich, wenn jede injektive Abbildung $M\to M$ auch surjektiv ist“ eher nichttrivial ist.
+    \item[Trivial:] Eine mathematische Aussage heißt trivial, wenn sie sich unmittelbar aus den Definitionn der in ihr vorkommenden Begriffe ergibt. Andernfalls heißt sie \textbf{nichttrivial}. Beispielsweise ist die Aussage „Eine Abbildung $X\xrightarrow{f} Y$ ist genau dann surjektiv, wenn $\im(f)=Y$“ trivial, wohingegen die Aussage „Eine Menge $M$ ist genau dann endlich, wenn jede injektive Abbildung $M\to M$ auch surjektiv ist“ eher nichttrivial ist.
     
     Ein mathematisches Objekt heißt trivial, wenn es simpel konstruierbar und auf den ersten Blick nicht von größerem Interesse ist. Beispielsweise ist $(\{0\},+)$ eine „triviale Gruppe“. 
 
-    \item[Verallgemeinerung:] Ein mathematischer Satz $A$ ist eine Verallgemeinerung eines Satzes $B$, wenn er den Satz $B$ in sich einschließt oder wenn $B$ aus $A$ abgeleitet werden kann. Eine solche Ableitung kann allerdings alles andere als naheliegend oder einfach sein. Das Gegenteil ist der Begriff des \textbf{Spezialfalls}. Beispielsweise ist der sogenannte \emph{Struktursatz für endlich erzeugte Moduln über Dedekindringen} eine Verallgemeinerung der des Satzes aus der LA1, dass jeder endlich erzeugte Vektorraum eine Basis besitzt, der umgekehrt ein Spezialfall ersteren Satzes ist.
+    \item[Verallgemeinerung:] Ein mathematischer Satz $A$ ist eine Verallgemeinerung eines Satzes $B$, wenn er den Satz $B$ in sich einschließt oder wenn $B$ aus $A$ abgeleitet werden kann. Eine solche Ableitung kann allerdings alles andere als naheliegend oder einfach sein. Das Gegenteil ist der Begriff des \textbf{Spezialfalls}. Beispielsweise ist der sogenannte \emph{Struktursatz für endlich erzeugte Moduln über Dedekindringen} eine Verallgemeinerung des Satzes aus der LA1, dass jeder endlich erzeugte Vektorraum eine Basis besitzt, der umgekehrt ein Spezialfall des Struktursatzes ist.
     
     \item[Vertreterabhängig:] Eine Konstruktion ist (vordergründig) \emph{vertreterabhängig}, wenn sie es mit Objekten zu tun hat, die auf verschiedenerlei Weise dargestellt werden können, allerdings erst nach Fixierung einer solchen Darstellung anwendbar ist. Beispielsweise kann jede rationale Zahl als Bruch der Gestalt $\frac{p}{q}$ mit $p\in \Z$, $q\in \N_{>0}$ dargestellt werden, aber diese Darstellung ist nicht eindeutig, da beispielsweise $\frac{1}{2}=\frac{2}{4}$. Ein einzelner Bruch ist also nur einer von vielen Repräsentanten für ein und dieselbe Zahl. Die Ausdrücke
     \begin{align*}

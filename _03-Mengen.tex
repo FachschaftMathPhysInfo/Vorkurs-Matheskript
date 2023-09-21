@@ -1,7 +1,7 @@
 
 
 \setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
-    In diesem Vortrag werden grundlegende Eigenschaften und Operationen von Mengen vorgestellt. Ebenso werden Familien und Tupel eingeführt, da sie grundlegend für die Konzepte „Relation“, „Folge“ und „Verknüpfung“ aus den späteren Vorträgen sind.
+    In diesem Vortrag werden grundlegende Eigenschaften und Operationen von Mengen vorgestellt. Ebenso werden Familien und Tupel eingeführt, da sie grundlegend für die Konzepte „Relation“, „Folge“ und „Verknüpfung“ in den späteren Vorträgen sind.
 \vspace{24pt}}
 
     
@@ -11,20 +11,12 @@
 \section{Mengen und Elemente}
 
 
-Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogikkapitel} angesprochen. Seine Einführung in die Mathematik erfolgte durch Georg Cantor\footnote{\href{https://de.wikipedia.org/wiki/Georg_Cantor}{Georg Cantor (1845-1918)}} in den 1870er Jahren. Cantor beschreibt seine Idee in \cite{Can95} mit den folgenden Worten:
+Eine historische Definition des Mengenbegriffs durch Cantor wurde bereits im Logikkapitel in \cref{mengenimlogikkapitel} gegeben.
 
 
-\begin{de}[Mengendefinition von Cantor] \label{def:menge} \index{Menge}
-    „Unter einer \textbf{Menge} $M$ verstehen wir jede Zusammenfassung von bestimmten wohlunterschiedenen Objekten $m$ unserer Anschauung oder unseres Denkens (welche die \textbf{Elemente} von $M$ genannt werden) zu einem Ganzen.“
+\begin{de}[Menge] \label{def:menge} \index{Menge}
+    Eine \textbf{Menge} ist ein mathematisches Objekt, dem andere Objekte als ihre sogenannten \textbf{Elemente} angehören können.% Sie ist allein dadurch bestimmt, welche Elemente sie umfasst.
 \end{de}
-
-
-\begin{bem}
-    Eine (möglicherweise fiktive) Anekdote aus \cite{Ded32}, S. 449 beschreibt folgende „Veranschaulichungen“ des Mengenbegriffs:
-    \begin{quote}
-        Dedekind\footnote{\href{https://de.wikipedia.org/wiki/Richard_Dedekind}{Richard Dedekind (1831-1916)}} äußerte, hinsichtlich des Begriffes der Menge: er stelle sich eine Menge vor wie einen geschlossenen Sack, der ganz bestimmte Dinge enthalte, die man aber nicht sähe, und von denen man nichts wisse, außer dass sie vorhanden und bestimmt seien. Einige Zeit später gab Cantor seine Vorstellung einer Menge zu erkennen: Er richtete seine kolossale Figur hoch auf, beschrieb mit erhobenem Arm eine großartige Geste und sagte mit einem ins Unbestimmte gerichteten Blick: „Eine Menge stelle ich mir vor wie einen Abgrund.“
-    \end{quote}
-\end{bem}
 
 
 \begin{nota}[Elementzeichen]
@@ -37,7 +29,12 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 \end{nota}
 
 
-\begin{axiom}[Extensionalitätsaxiom] \label{mengengleich} \index{Extensionalitätsaxiom}
+\noindent Für ein Objekt $x$ und eine Menge $M$ ergibt es nur Sinn, zu fragen, \emph{ob} $x$ ein Element von $M$ ist -- dagegen ergäbe es keinen Sinn, danach zu fragen, „an welcher Stelle“ oder „wie oft“ $x$ ein Element von $M$ wäre.
+
+Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll allein dadurch bestimmt sein, welche Elemente ihr angehören. Dies wird durch das sogenannte \textbf{Extensionalitätsaxiom} formalisiert:
+
+
+\begin{axiom}[Gleichheit von Mengen] \label{mengengleich} \index{Extensionalitätsaxiom}
     Zwei Mengen $M,N$ stimmen genau dann überein, wenn sie dieselben Elemente haben. Als Formel:
         \[ (\forall x:\quad x\in M\ \leftrightarrow\ x\in N)\qquad\leftrightarrow\qquad M=N\]
     Dementsprechend sind zwei Mengen \emph{verschieden}, wenn mindestens eine der beiden ein Element enthält, das die andere nicht enthält.
@@ -77,10 +74,10 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 
 \begin{bsp}
     Zum Beispiel ist
-        \[ M:=\{2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97\} \]
-    diejenige Menge, die genau aus den Zahlen $2,3,5,\dots , 97$ besteht. Es gilt
-        \[ M = \{p\mid p\ \text{ist eine Primzahl und}\ 1< p <100 \} \]
-    d.h. $M$ ist die Menge aller Primzahlen zwischen $1$ und $100$. Sie enthält genau fünfundzwanzig Elemente.
+        \[ M:=\{2,3,5,7\} \]
+    diejenige Menge, die genau aus den Zahlen $2$, $3$, $5$ und $7$ besteht. Es gilt
+        \[ M = \{p\mid p\ \text{ist eine Primzahl und}\ p <10 \} \]
+    d.h. $M$ ist gleich der Menge aller einstelligen Primzahlen.
 \end{bsp}
 
 
@@ -111,9 +108,9 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
     Es gilt:
     \begin{align*}
         \forall n\in \N &:\ n\cdot (n+1)\ \text{ist eine gerade Zahl} && (\text{vgl. \cref{bsp:fallunterscheidung}})\\
-        \exists x\in \R &:\ x=x^5-1 && (\text{vgl. \cref{bsp:exverwendung}})\\
+        \exists x\in \R &:\ x^5 = x+1 && (\text{vgl. \cref{bsp:exverwendung}})\\
         \nexists n\in \N &:\ 17\cdot n = 198 && (\text{vgl. \cref{bsp:reductio}})\\ 
-        \exists ! x\in \R \ \forall y\in \R & :\ xy=x &&(\text{vgl. \cref{bsp:eindbeweis}})
+        \exists ! a\in \R \ \forall x\in \R & :\ ax=a &&(\text{vgl. \cref{bsp:eindbeweis}})
     \end{align*}
 \end{bsp}
 
@@ -132,21 +129,22 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
             M \subseteq N \qquad &:\Leftrightarrow\qquad M\ \text{ist eine Teilmenge von $N$} \\
             M \nsubseteq N \qquad &:\Leftrightarrow\qquad M\ \text{ist keine Teilmenge von $N$}
         \end{align*}
-        \item $M$ heißt eine \textbf{echte Teilmenge} von $N$, falls $M$ eine Teilmenge von $N$ ist, aber von $N$ verschieden ist. Notation:
+        \item $M$ heißt eine \textbf{echte Teilmenge} von $N$, falls $M$ eine Teilmenge von $N$ ist, aber die Obermenge $N$ noch weitere Elemente enthält, die nicht in $M$ liegen. Notation:
         \begin{align*}
-            M\subsetneq N \qquad:\Leftrightarrow\qquad M\subseteq N\ \text{und}\ M\neq N
+            M\subsetneq N \qquad:\Leftrightarrow\qquad M\subseteq N\quad \land\quad \exists x\in N:\ x\notin M
         \end{align*}
-        Mit anderen Worten: Jedes Element von $M$ ist auch eines von $N$, wohingegen es mindestens ein Element von $N$ gibt, das keines von $M$ ist.
-        \begin{figure}[ht]
-            \begin{tikzpicture}
-                \filldraw[fill=blue!10!white, draw=black] (0,0) ellipse (2cm and 1.3cm);
-                \filldraw[fill=blue!25!white, draw=black] (.5,0) ellipse (1cm and .7cm);
-                \path (-1.6,0) node {$N$} (-.1,0) node {$M$};
-            \end{tikzpicture}
-            \centering \caption{Die Menge $M$ ist Teilmenge der Menge $N$.}
-        \end{figure}
     \end{itemize}
 \end{de}
+
+
+\begin{figure}[ht]
+    \begin{tikzpicture}
+        \filldraw[fill=blue!10!white, draw=black] (0,0) ellipse (2cm and 1.3cm);
+        \filldraw[fill=blue!25!white, draw=black] (.5,0) ellipse (1cm and .7cm);
+        \path (-1.6,0) node {$N$} (-.1,0) node {$M$};
+    \end{tikzpicture}
+    \centering \caption{Die Menge $M$ ist Teilmenge der Menge $N$.}
+\end{figure}
 
 
 \begin{bsp} \quad
@@ -205,11 +203,9 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 
 
 \begin{bem}[* Gleichheit von Mengen beweisen] \label{mengengleichbeweis}
-    Kombinieren von \cref{teilmengebeweisen} und \cref{teilmengeneig}(c) liefert eine Methode, die Gleichheit zweier Mengen $M,N$ zu zeigen, indem nacheinander die Inklusion $M\subseteq N$ und die Inklusion $N\subseteq M$ gezeigt werden.
+    Kombinieren von \cref{teilmengebeweisen} und \cref{teilmengeneig}c) liefert eine Methode, die Gleichheit zweier Mengen $M,N$ zu zeigen: Beweise nacheinander die Inklusion $M\subseteq N$ und die Inklusion $N\subseteq M$.
     
-    Aus beiden Inklusionen folgt dann mit \cref{teilmengeneig}(c), dass $M=N$. In Beweisen solltest du die Abschnitte, die den einzelnen Inklusionen $M\subseteq N$ und $N\subseteq M$ gewidmet sind, durch Markierungen deutlich machen.
-    
-    Diese Beweistechnik ist auch Inhalt von \cref{aufg:capcupgesetze} .
+    Aus beiden Inklusionen folgt dann mit \cref{teilmengeneig}c), dass $M=N$. In Beweisen solltest du die Abschnitte, die den einzelnen Inklusionen $M\subseteq N$ und $N\subseteq M$ gewidmet sind, durch Markierungen deutlich machen.
 \end{bem}
 
 
@@ -227,9 +223,9 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 
 
 \begin{bem} \label{mengenstrukturlos}
-    Im letzten Beispiel sehen wir ganz deutlich, dass die Elemente einer Menge keiner Reihenfolge oder „Zählung“ unterliegen: Eine Menge trägt von sich aus bis auf ihre Elemente keine weitere Struktur; Fragen wie „Wie genau / Wie oft / An welcher Stelle ist $x$ in $M$ enthalten?“ kann sie also nicht beantworten, sondern nur „Ist $x$ in $M$ enthalten (oder nicht)?“.
+    An diesem Beispiel wird deutlich, dass die Elemente einer Menge keiner Reihenfolge oder „Platzierung“ unterliegen. Eine Menge $M$ trägt von sich aus bis auf ihre Elemente keine weitere Struktur. Fragen wie „Wie genau / Wie oft / An welcher Stelle ist $x$ in $M$ enthalten?“ kann sie nicht beantworten, sondern nur „Ist $x$ in $M$ enthalten (oder nicht)?“.
     
-    Möchte man den Elementen dennoch verschiedene „Plätze“ zuweisen, bietet sich der Begriff der „Familie“ an, der später in \cref{def:familie} eingeführt wird.
+    Um den Elementen dennoch verschiedene „Plätze“ zuzuweisen, können „Familien“, die später in \cref{def:familie} eingeführt werden, verwendet werden. Ein weiteres Konzept, das die Elemente einer Menge in eine Art „Reihenfolge“ bringt, sind sogenannte „Ordnungsrelationen“, die im Relationenkapitel in \cref{def:ordnungsrelation} eingeführt werden.
 \end{bem}
 
 
@@ -256,14 +252,14 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 
 \begin{bew}
     (Existenz): Sei $E(x)$ irgendeine Eigenschaft, die kein einziges Objekt besitzt (z.B. „$x\neq x$“). Dann ist $\{ x\mid E(x) \}$ eine leere Menge. \\[0.5em]
-    (Eindeutigkeit): Seien $M,N$ zwei leere Mengen. Dann enthalten $M$ und $N$ genau dieselben Elemente (nämlich gar keine), sodass aus \cref{mengengleich} folgt, dass $M=N$.
+    (Eindeutigkeit): Seien $M,N$ zwei leere Mengen. Dann enthalten $M$ und $N$ genau dieselben Elemente (nämlich gar keine), sodass aus \cref{mengengleich} folgt, dass $M=N$. \qed
 \end{bew}
 
 
 \begin{nota}[\textbf{Die} leere Menge]
     Somit ergibt es Sinn, von \emph{der} leeren Menge zu sprechen. Die leere Menge wird meist notiert durch
         \[ \emptyset \]
-    Angelehnt an \cref{auflistung} notieren manche Autoren die leere Menge auch mit $\{\}$.
+    Angelehnt an \cref{auflistung} notieren manche Autoren die leere Menge auch mit „ $\{\}$ “.
 \end{nota}
 
 
@@ -276,33 +272,33 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 \end{bsp}
 
 
-\begin{bem}[Vacuous Truth] \label{vacuoustruth} \index{vacuous truth}
-    Eine weitere Feinheit im Umgang mit leeren Mengen sind so genannte ``vacuous truths''. Das sind Aussagen wie
+\begin{bem}[vacuous truths] \label{vacuoustruth} \index{vacuous truth}
+    Betrachte die beiden Allaussagen
     \begin{itemize}
         \item „Alle rosa Elefanten können fliegen.“
-        \item „Alle meine Geschwister sind Gürteltiere“, gesprochen von einem Einzelkind.
+        \item „Jedes fünfeckige Rechteck ist ein Quadrat.“
     \end{itemize}	
-    Formal sind diese Aussagen von der Form
-        \[ \forall x\in M:\ E(x) \]
-    wobei $E$ in unserem Fall die Eigenschaft „kann fliegen“ bzw. „ist ein Gürteltier“, war, und $M$ die Menge der rosa Elefanten bzw. der Geschwister des Einzelkindes war. Diese Mengen haben keine Elemente, sind also gleich der leeren Menge:
+    Sowohl die Menge der rosa Elefanten als auch die Menge der fünfeckigen Rechtecke ist leer. Beide Allaussagen quantifizieren lediglich über eine leere Menge, sind also von der Gestalt
         \[ \forall x\in \emptyset:\ E(x) \]
-    Gemäß \cref{beschraenktquant} ist diese Formel gleichbedeutend zu
-        \[ \forall x:\qquad x\in \emptyset\ \to\ E(x) \]
-    Die Aussage $x\in\emptyset$ ist aber für alle Objekte $x$ falsch, denn die leere Menge hat keine Elemente. Nach dem Prinzip \emph{ex falso quodlibet} aus \cref{exfalso} ist die Implikation $x\in \emptyset\ \to\ E(x)$ also für jedes $x$ wahr, und somit auch $\forall x: \left(x\in \emptyset\ \to\ E(x)\right)$ eine wahre Aussage.
-	
-    Fazit: Aussagen, die den Elementen einer leeren Menge (wie der Menge der rosa Elefanten oder den Geschwistern eines Einzelkindes) eine gewisse Eigenschaft zuordnen, sind immer wahr, egal was die Eigenschaft ist.
+    für eine gewisse Eigenschaft $E$. Es mag vielleicht überraschend klingen: Aussagen dieser Form sind grundsätzlich wahr!
+    \begin{bew}
+        Gemäß \cref{beschraenktquant} ist obige Formel gleichbedeutend zu
+            \[ \forall x:\qquad x\in \emptyset\ \to\ E(x) \]
+        Sei nun $x$ ein beliebiges Objekt (hier kommt die Beweistechnik aus \cref{allbeweis} zum Einsatz). Die Aussage $x\in\emptyset$ ist falsch, da die leere Menge keine Elemente enthält. Nach dem Prinzip \emph{ex falso quodlibet} aus \cref{exfalso} ist dann die Implikation $x\in \emptyset\ \to\ E(x)$ eine wahre Aussage. Weil das Objekt $x$ beliebig gewählt war, ist somit die Allaussage $\forall x: \left(x\in \emptyset\ \to\ E(x)\right)$ bewiesen. \qed
+	\end{bew}
+    \noindent Aussagen, die den Elementen einer leeren Menge eine gewisse Eigenschaft zuordnen, etwa dass alle rosa Elefanen fliegen können oder dass jedes fünfeckige Rechteck ein Quadrat ist, sind also stets wahr, egal um welche Eigenschaft es sich handelt. Solche „leeren Wahrheiten“ werden im Englischen ``vacuous truths'' genannt.
 \end{bem}
 
 
 \begin{satz} \label{leeremengeimmerdrin}
-    Die leere Menge $\emptyset$ ist Teilmenge jeder beliebigen Menge.
+    Sei $M$ eine Menge. Dann gilt $\emptyset\subseteq M$.
+
+    Mit anderen Worten: Die leere Menge $\emptyset$ ist Teilmenge einer jeden beliebigen Menge.
 \end{satz}
 
 
 \begin{bew}
-    Sei $M$ eine beliebige Menge. Zu zeigen ist $\emptyset\subseteq M$, also
-        \[ \forall x:\qquad x\in \emptyset\ \to\ x\in M \]
-    was nach \emph{ex falso quodlibet} eine wahre Aussage ist. \qed
+    Zu zeigen ist, dass jedes Element von $\emptyset$ auch ein Element von $M$ ist. Dies ist eine ``vacuous truth'' und somit eine wahre Aussage. \qed
 \end{bew}
 
 
@@ -331,23 +327,23 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 \end{bsp}
 
 
-\noindent In alten Büchern wird die Potenzmenge einer Menge $X$ auch mit „$2^X$“ notiert, woher der Name „Potenzmenge“ stammt. Es lässt sich zeigen: ist $n\in \N$ und enthält die Menge $M$ genau $n$-viele Elemente, so enthält $\calP(M)$ genau $2^n$-viele Elemente.
+\noindent In alten Büchern wird die Potenzmenge einer Menge $M$ auch mit „$2^M$“ notiert, woher der Name „Potenzmenge“ stammt. Es lässt sich zeigen: ist $n\in \N$ und enthält die Menge $M$ genau $n$-viele Elemente, so enthält $\calP(M)$ genau $2^n$-viele Elemente.
 
 
 \begin{bem}
     Die Konzepte „Einermenge“ und „Potenzmenge“ erlauben es, Elementaussagen und Teilmengenaussagen ineinander zu überführen. Denn für Mengen $M,N$ und Objekte $x$ gilt:
-    \begin{align*}
-        x\in M\ & \leftrightarrow\ \{x\}\subseteq M & M\subseteq N\ &\leftrightarrow\ M\in \calP(N)
-    \end{align*}
+        \[ x\in M\ \leftrightarrow\ \{x\}\subseteq M \quad\qquad\text{sowie}\quad\qquad M\subseteq N\  \leftrightarrow\ M\in \calP(N) \]
 \end{bem}
 
 
 \begin{vorschau}[* Mengen von Mengen von Mengen von \dots]
-    Das Konzept der Menge ist iterativ. Eine Menge kann wiederum Element einer anderen Menge sein, die wiederum in einer Menge enthalten sein kann usw.. Zum Beispiel ist $\N$ ein Element der Einermenge $\{\N\}$, die wiederum ein Element von $\{ \{\N \}\}$ ist.
+    Das Konzept der Menge ist iterativ. Eine Menge kann wiederum Element einer anderen Menge sein, die wiederum in einer Menge enthalten sein kann usw. Zum Beispiel ist $\N$ ein Element der Einermenge $\{\N\}$, die wiederum ein Element der dreielementigen Menge $\{ \{\N \}, 4, \Z\}$ ist.
 
-    Ist $M$ eine Menge, so solltest du dir den Unterschied zwischen $M$ und $\{M\}$ klarmachen. Betrachte etwa $\emptyset$ im Vergleich mit $\{\emptyset\}$. Auch wenn es zunächst scheinen mag, dass in beiden Mengen letztlich „nichts drin ist“ , so liegen doch zwei verschiedene Mengen vor. Mit $\emptyset$ haben wir nämlich eine Menge mit gar keinen Elementen, mit $\{\emptyset\}$ dagegen eine Einermenge, deren einziges Element die leere Menge $\emptyset$ ist.
+    Es ist $\emptyset$ eine Menge, die überhaupt keine Element enthält, wohingegen $\{\emptyset\}$ eine Einermenge ist, deren einziges Element das Objekt $\emptyset$ ist. Insbesondere ist $\{\emptyset\}$ eine nichtleere Menge, also $\{\emptyset\}\neq \emptyset$. Somit haben auch die beiden Einermengen $\{\{\emptyset\}\}$ und $\{\emptyset\}$ zwei verschiedene Elemente, sind also ebenfalls voneinander verschieden. Iterativ erhält man eine unendliche Folge paarweise verschiedener Mengen:
+        \[ \emptyset \ ,\quad \{\emptyset\} \ ,\quad \{\{\emptyset\}\} \ ,\quad \{\{\{\emptyset\}\}\} \ , \quad \{\{\{\{\emptyset\}\}\}\} \ ,\quad \dots \]
+    welche auch \emph{Zermelo'sche Zahlreihe} genannt wird.
 
-    Das \href{https://de.wikipedia.org/wiki/Nat\%C3\%BCrliche_Zahl#Von_Neumanns_Modell_der_nat\%C3\%BCrlichen_Zahlen}{von Neumannsche Modell der natürlichen Zahlen} macht sich genau diesen Unterschied zunutze. Es ermöglicht die Simulation natürlicher Zahlen durch gewisse Mengen und demonstriert dadurch, dass sich der Begriff der natürlichen Zahl, wenn man es denn will, zurückführen lässt auf den Begriff der Menge.
+    Damit verwandt ist das \href{https://de.wikipedia.org/wiki/Nat\%C3\%BCrliche_Zahl#Von_Neumanns_Modell_der_nat\%C3\%BCrlichen_Zahlen}{von Neumannsche Modell der natürlichen Zahlen}. Beide Konstruktionen ermöglichen die Simulation natürlicher Zahlen durch gewisse Mengen und demonstrieren dadurch, dass sich der Begriff der natürlichen Zahl, wenn man es denn will, zurückführen lässt auf den Begriff der Menge.
 \end{vorschau}
 
 
@@ -361,17 +357,17 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 \begin{nota}[Sprechweisen bei $\in$ und $\subseteq$]
     Seien $M,N$ zwei Mengen und $x$ irgendein Objekt. Lesarten für die Elementaussage „$x\in M$“ sind
     \begin{itemize}
-        \item „$x$ ist ein Element von $M$“.
-        \item „$x$ liegt in $M$“.
-        \item „$x$ ist enthalten in $M$“.
-        \item „$x$ wird von $M$ umfasst“.
+        \item „$x$ ist ein Element von $M$“
+        \item „$x$ liegt in $M$“
+        \item „$x$ ist enthalten in $M$“
+        \item „$x$ wird von $M$ umfasst“
     \end{itemize}
     Lesarten für die Teilmengenaussage „$N\subseteq M$“ sind:
     \begin{itemize}
-        \item „$N$ ist eine Teilmenge von $M$“.
-        \item „$N$ liegt in $M$”.
-        \item „$N$ ist enthalten in $M$“.
-        \item „$N$ wird von $M$ umfasst“.
+        \item „$N$ ist eine Teilmenge von $M$“
+        \item „$N$ liegt in $M$”
+        \item „$N$ ist enthalten in $M$“
+        \item „$N$ wird von $M$ umfasst“
     \end{itemize}
     Die Ausdrücke „liegt in“, „enthält“, „umfasst“ sind also mehrdeutig und können sowohl ein Elementverhältnis als auch ein Teilmengenverhältnis beschreiben. Ohne Weiteres ist nicht klar, ob „$M$ liegt in $N$“ besagen soll, dass $M\in N$ oder $M\subseteq N$. Beides ist möglich; zum Beispiel ist
     \begin{align*}
@@ -388,7 +384,7 @@ Der Begriff der Menge wurde bereits im Vortrag über Logik in \cref{mengenimlogi
 \section{Familien}
 
 
-Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusätzliche Struktur verleihen: Statt uns nur zu merken, welche Objekte in unserer Sammlung enthalten sind (wie dies bei Mengen der Fall ist), unterscheiden wir nun verschiedene „Stellen“, an denen sich Objekte in der Sammlung befinden können. Realisiert wird das, indem wir die Elemente unserer Sammlung mit Indizes versehen und dann von dem „Objekt am Index $i$/an der Stelle $i$“ sprechen:
+Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätzliche Struktur verleihen: Statt uns nur zu merken, welche Objekte in unserer Sammlung enthalten sind (wie dies bei Mengen der Fall ist), unterscheiden wir nun verschiedene „Stellen“, an denen sich Objekte in der Sammlung befinden können. Realisiert wird das, indem wir die Objekte unserer Sammlung mit Indizes versehen und dann von dem „Objekt mit Index $i$ / an der Stelle $i$“ sprechen:
 
 
 \begin{de}[Familien] \label{def:familie} \index{Familie} \index{Indexmenge} \index{Einträge einer Familie}
@@ -434,8 +430,8 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 	
 	Dagegen hat sich die \emph{Menge} der im Raum sitzenden Leute durch den Sitzplatzwechsel nicht verändert, da immer noch dieselben Leute im Raum sitzen (nur eben an anderen Stellen). Bei $\{a_i\mid i\in I\}$ und $\{b_i \mid i\in I\}$ handelt es sich also um dieselbe Menge, während $(a_i)_{i\in I}$ und $(b_i)_{i\in I}$ zwei verschiedene Familien sind.
 	
-        Hieran wird der Unterschied zwischen den Begriffen „Familie“ und „Menge“ deutlich. Zwei Mengen, in denen die gleichen Elemente vorkommen, sind nach \cref{mengengleich} schon gleich; für eine Gleichheit von Familien müssen dagegen die Elemente sich auch noch an denselben „Stellen“ befinden. Im Gegensatz zu Mengen haben Familien also eine gewisse durch die Indizierung gegebene Zusatzstruktur.\footnote{vgl. \cref{mengenstrukturlos}}
-	\item Bei Matrizen und den ``arrays'' aus der Informatik handelt es sich um Familien, siehe \cref{bsp:matrizen}.
+    Hieran wird der Unterschied zwischen den Begriffen „Familie“ und „Menge“ deutlich. Zwei Mengen, welche genau dieselben Elemente enthalten, sind nach \cref{mengengleich} schon gleich; für eine Gleichheit von Familien müssen dagegen die Elemente sich auch noch an denselben „Stellen“ befinden. Im Gegensatz zu Mengen haben Familien also eine gewisse durch die Indizierung gegebene Zusatzstruktur.\footnote{vgl. \cref{mengenstrukturlos}}
+	\item Bei Matrizen sowie bei den ``arrays'' aus der Informatik handelt es sich um spezielle Familien, siehe \cref{bsp:matrizen}.
     \end{enumerate}
 \end{bsp}
 
@@ -450,10 +446,11 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 
 
 \begin{bsp}[Folgen]
-    Familien, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist, heißen \textbf{Folgen} und sind ein zentrales Thema im siebten Kapitel.\footnote{siehe \cref{def:folge}} Beispielsweise ist $\R^\N$ die Menge derjenigen Folgen, deren Einträge allesamt reelle Zahlen sind (man spricht von \emph{reellen Folgen}). Eine solche Folge ist beispielsweise die Folge $(a_n)_{n\in\N}$ mit $a_n:=\frac{1}{n}$
+    Familien, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist, heißen \textbf{Folgen} und sind ein zentrales Thema im siebten Kapitel.\footnote{siehe \cref{def:folge}} Beispielsweise ist $\R^\N$ die Menge derjenigen Folgen, deren Einträge allesamt reelle Zahlen sind (man spricht von \emph{reellen Zahlenfolgen}). Elemente des „Folgenraums“ $\R^\N$ wären beispielsweise die Folge $(a_n)_{n\in\N}$ mit $a_n:=\frac{1}{n}$
     \[\begin{tabular}{c|cccc}
-            $n$ & 1 & 2 & 3 & $\dots$ \\ \midrule
-            $a_n$ & 1 & 1/2 & 1/3 & $\dots$
+            $n$ & $1$ & $2$ & $3$ & $\dots$ \\
+            \midrule
+            $a_n$ & $1$ & $1/2$ & $1/3$ & $\dots$
     \end{tabular}\]
     oder die Folge $(n^2)_{n\in \N}$ der Quadratzahlen. Analog sind $\Z^\N$, $\Q^\N$, $\C^\N$ die Mengen aller Folgen mit ganzzahligen/rationalen/komplexen Einträgen. $(\Z^\N)^\N$ ist die Menge aller Folgen von Folgen von ganzen Zahlen.
 \end{bsp}
@@ -474,11 +471,11 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 \begin{bsp}
     Es ist $\R^3$ die Menge aller Tripel reeller Zahlen:
         \[ \R^3 = \{(x,y,z) \mid x,y,z\in \R \} \]
-    Diese Menge ist dir vielleicht schon aus der Schule bekannt. In der analytischen Geometrie repräsentieren die Elemente des $\R^3$ Punkte im Raum und die drei Einträge eines solchen Tripels repräsentieren seine Koordinaten in einem Koordinatensystem. In der Matrizenrechnung werden die Komponenten in einer senkrechten Anordnung notiert
+    Diese Menge ist dir vielleicht schon aus der Schule bekannt. In der analytischen Geometrie repräsentieren die Elemente des $\R^3$ Punkte im Raum und die drei Einträge eines solchen Tripels repräsentieren seine Koordinaten bezüglich eines Koordinatensystems. In der Matrizenrechnung werden die Komponenten in einer senkrechten Anordnung notiert:
     \[\begin{pmatrix}
         x \\ y \\ z 
     \end{pmatrix} \]
-    man spricht von „Vektoren“. Hier wird auch die Signifikanz des Tupelbegriffs deutlich: Beispielsweise sind $\begin{pmatrix} 2 \\ 0 \\ 3 \end{pmatrix}$ und $\begin{pmatrix} 2 \\ 3 \\ 0 \end{pmatrix}$ zwei verschiedene Vektoren, denn sie unterscheiden sich in ihrer zweiten und dritten Komponente. Dagegen sind die \emph{Mengen} $\{2,0,3\}$ und $\{0,3,2\}$ identisch\footnote{vgl. \cref{bsp:mengengleichbeweis}}. Bei einer bloßen Menge gibt es keinen „zweiten Eintrag“ oder dergleichen.
+    Man spricht von „Vektoren“. Hier wird auch die Signifikanz des Tupelbegriffs deutlich: Beispielsweise sind $\begin{pmatrix} 2 \\ 0 \\ 3 \end{pmatrix}$ und $\begin{pmatrix} 2 \\ 3 \\ 0 \end{pmatrix}$ zwei verschiedene Vektoren, denn sie unterscheiden sich in ihrer zweiten und dritten Komponente. Dagegen sind die \emph{Mengen} $\{2,0,3\}$ und $\{0,3,2\}$ identisch\footnote{vgl. \cref{bsp:mengengleichbeweis}}. Bei einer bloßen Menge gibt es keinen „zweiten Eintrag“ oder dergleichen.
 \end{bsp}
 
 
@@ -490,7 +487,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 \begin{bem}[* „Niedrige“ Potenzen]
     Sei $M$ eine beliebige Menge.
     \begin{itemize}
-        \item(Nullte Potenz) Es ist eine ``vacuous truth'', dass alle Einträge der leeren Familie Elemente von $M$ sind. Daher ist $M^\emptyset=M^0 = \{\emptyset\}$ eine Einermenge, die als einziges Element die leere Familie enthält. Dies entspricht der Rechenregel, dass $x^0=1$ für jede Zahl $x$.
+        \item(Nullte Potenz) Es ist eine ``vacuous truth'', dass alle Einträge der leeren Familie Elemente von $M$ sind. Daher ist $M^\emptyset=M^0 = \{\emptyset\}$ eine Einermenge, die als einziges Element die leere Familie enthält. Dies entspricht der Rechenregel, dass $x^0=1$ ist für jede Zahl $x$.
         \item(Erste Potenz) Es ist $M^1 = \{(x)\mid x\in M\}$ die Menge aller „Eins-Tupel“ von Elementen aus $M$. Deren Elemente entsprechen letztendlich genau den Elementen von $M$.\footnote{In der Sprache von \cref{def:bijektiv} heißt das: Man hat eine „natürliche Bijektion“ zwischen $M$ und $M^1$.} Oftmals wird zwischen $M$ und $M^1$ gar nicht unterschieden, was der Rechenregel $x^1=x$ entspricht.
     \end{itemize}
 \end{bem}
@@ -627,7 +624,7 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 
 
 \begin{bsp}
-    Sei $H$ die Menge aller Lustigen Taschenbücher und für $h\in H$ sei $L_h$ die Menge aller Menschen, die das Comicbuch $h$ gelesen haben. Dann ist $\bigcap_{h\in H} L_h$ die Menge aller Leute, die \emph{jedes} LTB gelesen haben. Dagegen ist $\bigcup_{h\in H} L_h$ die Menge aller Leute, die mindestens einmal ein LTB gelesen haben.
+    Sei $H$ die Menge aller Lustigen Taschenbücher und für $h\in H$ sei $L_h$ die Menge aller Menschen, die das Comicbuch $h$ gelesen haben. Dann ist $\bigcap_{h\in H} L_h$ die Menge aller Leute, die \emph{jedes} LTB gelesen haben. Dagegen ist $\bigcup_{h\in H} L_h$ die Menge aller Leute, die schonmal irgendein LTB gelesen haben.
 \end{bsp}
 
 
@@ -652,12 +649,12 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
         \[ M_1\times\ldots\times M_n := \prod_{i=1}^n M_i := \prod_{i\in \{1,\dots , n\}} M_i   \]
     Per Definition ist
         \[ M_1\times\ldots\times M_n = \{ (x_1,\dots , x_n) \mid x_1\in M_1,\ \ldots,\ x_n\in M_n \} \]
-    d.h. bei $M_1\times\ldots\times M_n$ handelt sich um die Menge aller $n$-Tupel, deren $i$-ter Eintrag ($i\in \{1,\dots , n\}$) jeweils ein Element von $M_i$ ist.
+    d.h. bei $M_1\times\ldots\times M_n$ handelt sich um die Menge aller $n$-Tupel, deren $i$-ter Eintrag, für jedes $i\in \{1,\dots , n\}$, jeweils ein Element von $M_i$ ist.
     Insbesondere ist für zwei Mengen $M$ und $N$
     \begin{align*}
         M \times N & = \left\{ (x,y) \mid x\in M\ \text{und}\ y\in N \right\}  && (\text{lies: „$M$ kreuz $N$“})
     \end{align*}
-    die Menge aller geordneten Paare, deren erster Eintrag aus $M$ und deren zweiter Eintrag aus $N$ stammen. Man spricht vom \emph{(kartesischen) Produkt} von $M$ und $N$.
+    die Menge aller geordneten Paare, deren erster Eintrag aus $M$ und deren zweiter Eintrag aus $N$ stammt. Man spricht vom \emph{(kartesischen) Produkt} von $M$ und $N$.
 \end{de}
 
 
@@ -756,17 +753,17 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 
 
 \begin{bem}
-    Die Vereinigung einer paarweise disjunkten Mengenfamilie kannst du dir als eine Art „Addition“ vorstellen. Beispielsweise lässt sich zeigen: sind $n,m\in \N$ und $M$ eine Menge mit $m$-vielen Elementen, $N$ eine zu $M$ disjunkte Menge mit $n$-vielen Mengen, so enthält die disjunkte Vereinigung $M\ \dot\cup\ N$ genau $(m+n)$-viele Elemente.
+    Die Vereinigung einer paarweise disjunkten Mengenfamilie kannst du dir als eine Art „Addition“ vorstellen. Beispielsweise lässt sich zeigen: sind $n,m\in \N$ und $M$ eine Menge mit $m$-vielen Elementen, $N$ eine zu $M$ disjunkte Menge mit $n$-vielen Elementen, so enthält die disjunkte Vereinigung $M\ \dot\cup\ N$ genau $(m+n)$-viele Elemente.
 
     Für nicht-disjunkte Vereinigungen gilt das aber nicht. Beispielsweise ist
         \[\{1,3,4\} \cup \{2,3\}= \{1,2,3,4\} \]
-    d.h. die Vereinigung einer 2-elementigen Menge mit einer dreielementigen Menge enthält nur vier Elemente.
+    d.h. in diesem Beispiel enthält die Vereinigung einer dreielementigen Menge mit einer zweielementigen Menge nur vier Elemente.
 
     Aber auch nicht-disjunkte Mengen können aufeinander „addiert“ werden mithilfe des folgenden Tricks: Ist $(M_i)_{i\in I}$ eine beliebige (nicht notwendig paarweise disjunkte) Mengenfamilie, so sind die Mengen
     \begin{align*}
         \{i\}\times M_i &= \{(i,x) \mid x\in M_i\} && i\in I
     \end{align*}
-    paarweise disjunkt. Die Elemente von $\{i\}\times M_i$ kannst du dir vorstellen als die gleichen Elemente wie von $M_i$, nun aber mit einem „Marker“ versehen, der ihre Zugehörigkeit zu $M_i$ kennzeichnet und sie von den Elementen von $\{j\}\times M_j$ für $j\in I\setminus \{i\}$ unterscheidet. Durch den Übergang von $M_i$ zu den $\{i\}\times M_i$ wurden die $M_i$'s „künstlich disjunkt gemacht”. 
+    paarweise disjunkt. Die Elemente von $\{i\}\times M_i$ kannst du dir vorstellen als „Klone“ der Elemente von $M_i$, welche mit einem „Marker“ versehen wurden, der ihre Zugehörigkeit zu $M_i$ kennzeichnet und sie von den Elementen von $\{j\}\times M_j$ für $j\in I\setminus \{i\}$ unterscheidet. Infolge des Übergangs von den $M_i$'s zu den $\{i\}\times M_i$ wurden die $M_i$'s „künstlich disjunkt gemacht”.
 \end{bem}
 
 
@@ -835,15 +832,15 @@ Mit dem Begriff der Familie möchten wir einer Sammlung von Objekten eine zusät
 \begin{vorschau}
     Der Ausdruck „disjunkte Vereinigung“ ist nun mit mehreren Bedeutungen „überladen“.
     \begin{enumerate}[(1)]
-        \item Zum einen bezeichnet er die disjunkte Vereinigung aus \cref{def:disjunktcup}, also die Konstruktion, mit der Mengen zuerst „künstlich disjunkt“ gemacht und daraufhin „addiert“ werden. Wir haben dafür folgende Notation verwendet:
+        \item Zum einen bezeichnet er die disjunkte Vereinigung aus \cref{def:disjunktcup}, also die Konstruktion, mit der Mengen zuerst „künstlich disjunkt“ gemacht und daraufhin „addiert“ werden. Ich habe dafür folgende Notation verwendet:
             \[ M\sqcup N \qquad\text{bzw.}\qquad \bigsqcup_{i\in I} M_i \]
-        \item Zum anderen bezeichnet er schlicht die gewöhnliche Vereinigung einer Familie paarweiser disjunkter Mengen, siehe \cref{def:disjunkt}, was wir durch
+        \item Zum anderen bezeichnet er schlicht die gewöhnliche Vereinigung einer Familie paarweiser disjunkter Mengen, siehe \cref{def:disjunkt}, was ich mit
             \[ M\ \dot\cup\ N \qquad\text{bzw.}\qquad   \dot{\bigcup_{i\in I}}\ M_i \]
-        notiert haben.
+        notiert habe.
     \end{enumerate}
-    Hinzu kommt, dass in der Literatur beide Notationen durcheinander verwendet werden, d.h. sowohl die Objekte (1) als auch die Objekte (2) werden mal mit „$\dot\cup$“, mal mit „$\sqcup$“ bezeichnet
+    Hinzu kommt, dass in der Literatur beide Notationen durcheinander verwendet werden, d.h. sowohl die Objekte (1) als auch die Objekte (2) werden mal mit „$\dot\cup$“, mal mit „$\sqcup$“ bezeichnet.
     
-    Tatsächlich ist es in den meisten Fällen auch gar nicht wichtig, wie genau die disjunkte Vereinigung „$M \sqcup N$“ definiert ist, d.h. wie ganau man die Mengen $M,N$ künstlich disjunkt gemacht hat. Die disjunkte Vereinigung bezieht ihre Signifikanz vor allem aus der kategorientheoretischen Eigenschaft, ein sogenanntes \emph{Koprodukt} zu sein. In dieser Hinsicht ist sie ein genaues Gegenstück zum kartesischen Produkt. Mehr darüber wirst du in Vorlesungen und Büchern über Kategorientheorie lernen.
+    Tatsächlich ist es in den meisten Fällen gar nicht wichtig, wie genau die disjunkte Vereinigung „$M \sqcup N$“ definiert ist, d.h. wie ganau man die Mengen $M,N$ künstlich disjunkt gemacht hat. Die disjunkte Vereinigung bezieht ihre Signifikanz vor allem aus der kategorientheoretischen Eigenschaft, ein sogenanntes \emph{Koprodukt} zu sein. In dieser Hinsicht ist sie ein genaues Gegenstück zum kartesischen Produkt. Mehr darüber wirst du in Vorlesungen und Büchern über Kategorientheorie lernen.
 \end{vorschau}
 
 

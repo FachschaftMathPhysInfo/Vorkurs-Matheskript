@@ -12,7 +12,7 @@
 
 
 \begin{bem}[Buchtipp]
-    Dieses Vorkurs-Kapitel bietet nur einen Crashkurs ins Beweisen. Eine schöne und weit ausführlichere (aber auch sehr seitenstarke) Darstellung bietet das Buch \cite{Vel06}, vor allem dessen Kapitel 3. Über den Link im Literaturverzeichnis kannst du das Buch einfach als Pdf herunterladen.
+    Dieses Vorkurs-Kapitel bietet nur einen Crashkurs im Beweisen. Eine freundliche und weit ausführlichere (aber auch sehr seitenstarke) Darstellung bietet das Buch \cite{Vel06}, vor allem dessen Kapitel 3. Über den Link im Literaturverzeichnis kannst du das Buch als Pdf herunterladen.
 \end{bem}
 
 
@@ -22,14 +22,14 @@
 
 
 \begin{bsp} \label{bsp:schlussregel}
-    Seien $A,B$ irgend zwei Aussagen. Die Schlussregel „Modus tollens“ (die später in \cref{reductio} auftauchen wird) geht folgendermaßen:
+    Seien $A,B$ irgend zwei Aussagen. Die Schlussregel „Modus tollens“ (die später in \cref{reductio} eingeführt wird) geht folgendermaßen:
     \[\begin{tabular}{r}
         $A\to B$ \\
         $\neg B$ \\
         \midrule
         $\neg A$
     \end{tabular}\]
-    Sie besagt: „Aus $A\to B$ und $\neg B$ kann auf $\neg A$ geschlossen werden“. Die Prämissen dieser Schlussregel sind $A\to B$ und $\neg B$ und die Konklusion ist $\neg A$.
+    Sie besagt: „Aus $A\to B$ und $\neg B$ kann auf $\neg A$ geschlossen werden.“ Die Prämissen dieser Schlussregel sind $A\to B$ und $\neg B$ und die Konklusion ist $\neg A$.
     
     Bezeichnet $n$ eine natürliche Zahl, so sind beispielsweise durch 
     \begingroup
@@ -80,7 +80,7 @@
 
 
 \begin{de}[Satz und Beweis] \index{Beweis}
-    Ein \textbf{mathematischer Satz} ist die Feststellung in einem mathematischen Text, dass eine Aussage $A$ „gilt“, d.h. dass sie vermöge der in der Mathematik üblichen logischen Schlussregeln aus denjenigen Aussagen, die im Umfeld des Satzes axiomatisch angenommen werden oder für gültig befunden wurden, hergeleitet werden kann.
+    Ein \textbf{mathematischer Satz} ist die Feststellung in einem mathematischen Text, dass eine Aussage $A$ „gilt“, d.h. dass sie vermöge der in der Mathematik üblichen logischen Schlussregeln aus denjenigen Aussagen, die im Umfeld des Satzes axiomatisch angenommen werden oder bereits für gültig befunden wurden, hergeleitet werden kann.
     
     Ein \textbf{mathematischer Beweis} für $A$ ist eine (mehr oder weniger ausführliche) Beschreibung einer solchen Herleitung, die dich von der Gültigkeit von $A$ überzeugt.
 \end{de}
@@ -110,15 +110,15 @@
     Komplizierte Beweise involvieren dutzende logische Schlussfolgerungen und ein Mathe-Lehrbuch würde, schriebe man alle Beweise in größter Ausführlichkeit auf, den halben Regenwald verschlingen. Daher listen mathematische Beweise selten jede einzelne logische Schlussfolgerung auf, sondern beschreiben mehrere logische Schlüsse auf einmal und führen „Routine-Argumente“, von denen erwartet werden kann, dass sie der Leser mit Leichtigkeit selbst ergänzen kann, gar nicht erst aus. Aus der Schule bist du es ja auch gewohnt, in einer langen Rechnung nicht jeden einzelnen Rechenschritt separat aufzuschreiben, sondern mitunter mehrere Zwischenschritte auf einmal durchzuführen. Im extremsten Fall wird in einem Beweis gar nicht argumentiert, sondern es wird lediglich behauptet, die Aussage gelte „offensichtlicherweise“ oder „sei klar“. In vielen Fällen sind solche Aussagen tatsächlich „offensichtlich“; manchmal kommt es aber auch vor, dass der Prof. selbst nicht weiß, dass die Zwischenschritte, die er gerade überspringt, weil er sie für „trivial“ hält, einer komplizierten Begründung bedürfen. Dann kann es passieren, dass er/sie bei einer Zwischenfrage minutenlang auf dem Schlauch steht. Mit Floskeln wie „gilt offensichtlich“ oder „ist trivial“ solltest du äußerst vorsichtig umgehen. In vielen Fällen ist ihre Verwendung, selbst wenn sie legitim ist, schlechter Stil.
     \begin{figure}[ht]
         \includegraphics[width=10cm]{./_img/Istklar.jpeg}
-        \centering \caption{Beispiel aus der LA1 vom Wintersemester 2020/21 für einen „Beweis“, in dem gar nichts argumentiert wurde. Vgl. die Begründung von \cref{def:surjektiv}.}
+        \centering \caption{Beispiel aus einer LA1-Vorlesung für einen „Beweis“, in dem gar nichts argumentiert wurde. Vgl. die Begründung von \cref{def:surjektiv}.}
     \end{figure}
 \end{bem}
 
 
 \begin{bem}[Subjektivität des Beweisbegriffs]
-    Das Wort „überzeugt“ in meiner Beweisdefinition deutet eine subjektive Komponente an. Wenn dich ein Vorlesungs-„Beweis“ nicht überzeugen kann, dann ist er für dich eben auch kein Beweis. Ein Beweistext kann für den Einen eine befriedigende Begründung sein, während er für den Anderen völlig unverständlich und praktisch wertlos ist. Wenn dir unmittelbar klar ist, dass eine Aussage gilt, kann sogar ein „Ist-klar-Beweis“ überzeugend sein.
+    Das Wort „überzeugt“ in meiner Beweisdefinition deutet eine subjektive Komponente an. Wenn dich ein Vorlesungs-„Beweis“ nicht überzeugen kann, dann ist er für dich eben auch kein Beweis. Ein Beweistext kann für den Einen eine befriedigende Begründung sein, während er für den Anderen völlig unverständlich und praktisch wertlos ist. Wenn dir unmittelbar einsichtig ist, dass eine Aussage gilt, kann sogar ein „Ist-klar-Beweis“ überzeugend sein.
     
-    Nichtsdestotrotz gibt es gewisse Regeln und Techniken, über deren Zulässigkeit ein Konsens besteht. Beweise, die diesen Regeln unterliegen, muss ein Mathematiker anerkennen. Dass Beweise nicht überzeugend sind, kommt so gut wie nie von Verstößen gegen die Logik her; sondern eher von der Verwendung obskurer Begriffe, dem Mangel an Erläuterung komplizierter Beweisschritte, Schreibfehlern, dem Verschleiern von Beweislücken oder oder der unbegründeten Verwendung von Aussagen, die irgendwo fünfzig Seiten vorher einmal in einem unscheinbaren Lemma hergeleitet wurden.
+    Nichtsdestotrotz gibt es gewisse Regeln und Techniken, über deren Zulässigkeit ein Konsens besteht. Beweise, die diesen Regeln unterliegen, muss ein Mathematiker anerkennen. Dass Beweise nicht überzeugend sind, kommt so gut wie nie von Verstößen gegen die Logik her; sondern eher von der Verwendung obskurer Begriffe, dem Mangel an Erläuterung komplizierter Beweisschritte, Schreibfehlern, dem Verschleiern von Beweislücken oder der unbegründeten Verwendung von Aussagen, die irgendwo fünfzig Seiten vorher einmal in einem unscheinbaren Lemma hergeleitet wurden.
 \end{bem}
 
 
@@ -147,7 +147,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 
 \begin{bew}
-    Es sei einmal angenommen, der FC Bayern liege nach dem vorletzten Spieltag vier Punkte vor dem Tabellenzweiten. Weil nur noch ein Spieltag verbleibt, kann der Zweite (und jeder weiter unten stehende Verein) nur noch höchstens drei Punkte im letzten Spieltag gewinnen. Also sind dann die Bayern (schon wieder) uneinholbar und werden Deutscher Meister. \qed
+    Angenommen, der FC Bayern liege nach dem vorletzten Spieltag vier Punkte vor dem Tabellenzweiten. Weil nur noch ein Spieltag verbleibt, kann der Zweite (und jeder weiter unten stehende Verein) nur noch höchstens drei Punkte im letzten Spieltag gewinnen. Also sind dann die Bayern (schon wieder) uneinholbar und werden Deutscher Meister. \qed
 \end{bew}
 
 
@@ -165,7 +165,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
         f & w & w \\
         f & f & w
     \end{tabular}\]
-    Vermittels der Aussage (T) kann diese Wahrheitstafel zur Rechtfertigung der Technik des direkten Beweises verwendet werden. Umgekehrt kannst du aber auch die Technik des direkten Beweises als „natürlicher“ ansehen und die Aussage (T) als Rechtfertigung für die Wahrheitstafel des Implikationspfeils verstehen.
+    Vermittels der Aussage (T) kann diese Wahrheitstafel zur Rechtfertigung der Technik des direkten Beweises verwendet werden. Umgekehrt kannst du aber auch die Technik des direkten Beweises als „natürlicher“ ansehen und die Aussage (T) als Rechtfertigung für die Wahrheitstafel des Implikationspfeils ansehen.
 \end{bem}
   
   
@@ -227,14 +227,14 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 
 \begin{bem}[Logik-Latein]
-    Du brauchst dir nicht merken, dass diese Schlussregel „Modus ponens“ heißt. Ebensowenig brauchst du dir die anderen lateinischen Bezeichnungen in diesem Vortrag zu merken. Ich gebe die Wörter nur an, um dir das Nachschlagen in Internet und Literatur zu erleichtern.
+    Du brauchst dir nicht merken, dass diese Schlussregel „Modus ponens“ heißt. Ebensowenig brauchst du dir die anderen lateinischen Bezeichnungen in diesem Vortrag zu merken. Ich gebe die Wörter an, um dir das Nachschlagen in Internet und Literatur zu erleichtern.
 \end{bem}
 
 
 \begin{bem}
     \textbf{Vorsicht}: Anfänger machen gelegentlich den Fehler, aus $A\to B$ und $B$ auf die Aussage $A$ zu schließen. Hier ist ein Beispiel für diesen Fehlschluss:
     \begin{quote}
-        Sei $x$ eine reelle Zahl. Bekanntlich gilt $(x=3)\to (x^2=9)$. Wenn also tatsächlich $x^2=9$ ist, so muss $x=3$ sein.
+        Wenn ich verschlafe, komme ich zu spät zur Uni. Nun bin ich heute tatsächlich zu spät zur Uni gekommen, also habe ich verschlafen.
     \end{quote}
     Mach dir klar, warum diese Argumentation unzulässig ist.
 \end{bem}
@@ -285,7 +285,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 
-\begin{axiom}[Hin- und Rückrichtung] \label{hinruck} \index{Hinrichtung} \index{Rückrichtung} \index{Aequivalenzbeweis@Äquivalenzbeweis}
+\begin{axiom}[Hin- und Rückrichtung] \label{hinruck} \index{Hinrichtung} \index{Rueckrichtung@Rückrichtung} \index{Aequivalenzbeweis@Äquivalenzbeweis}
     Aus dem Vorliegen der beiden Implikationen $A\to B$ und $B\to A$ kann auf die Äquivalenz $A\leftrightarrow B$ geschlossen werden.\footnote{vgl. \cref{teilmengeneig}c)}
     \[\begin{tabular}{r}
         $A\to B$ \\
@@ -332,7 +332,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 \end{bem}
 
 
-\begin{bem}[Signalwörter]
+\begin{bem}[Guter Stil]
     Wenn du eine Äquivalenz per Hin- und Rückrichtung beweist, solltest du die jeweiligen Beweisteile mit „$\Rightarrow$“ und „$\Leftarrow$“ beginnen (so wie im Beispiel gerade eben) oder so etwas wie „Ich beweise zuerst die Hinrichtung“ und „Für den Beweis der Rückrichtung sei nun\dots“ schreiben, damit deinem Leser jederzeit klar ist, um welche der beiden Richtungen es gerade geht.
 \end{bem}
 
@@ -359,14 +359,14 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 \begin{satz}[Äquivalenzbeweis mit Zwischenschritten] \label{ifftrans}
     Seien $n$ eine natürliche Zahl und $Z_1,\dots , Z_n$ ein paar Aussagen. Dann kannst du die Äquivalenz $A\leftrightarrow B$ beweisen, indem du die Äquivalenzen
         \[ A\leftrightarrow Z_1,\quad Z_1\leftrightarrow Z_2,\quad \dots,\quad Z_{n-1}\leftrightarrow Z_n \quad\text{und}\quad Z_n\leftrightarrow B \]
-    beweist. In diesem Fall agieren die Aussagen $Z_1,\dots , Z_n$ in deinem Beweis als \textbf{Zwischenschritte}.
+    beweist. In diesem Fall fungieren die Aussagen $Z_1,\dots , Z_n$ in deinem Beweis als \textbf{Zwischenschritte}.
 \end{satz}
 
 
 \begin{bew}[*]
     \begin{enumerate}
-        \item[„$\Rightarrow$“:] Aus den Äquivalenzen $A\leftrightarrow Z_1$, $Z_1\leftrightarrow Z_2$, \dots, $Z_n\leftrightarrow B$ folgen die Implikationen $A\to Z_1$, $Z_1\to Z_2$, \dots, $Z_n\to B$, woraus sich mittels \cref{implikationtrans} ergibt, dass $A\to B$ gilt.
-        \item[„$\Leftarrow$“:] Aus den Äquivalenzen $A\leftrightarrow Z_1$, $Z_1\leftrightarrow Z_2$, \dots, $Z_n\leftrightarrow B$ folgen auch die Implikationen $B\to Z_n$, $Z_n\to Z_{n-1}$, \dots, $Z_1\to A$, woraus sich mittels \cref{implikationtrans} auch $B\to A$ ergibt. \qed
+        \item[„$\Rightarrow$“:] Die Äquivalenzen $A\leftrightarrow Z_1$, $Z_1\leftrightarrow Z_2$, \dots, $Z_n\leftrightarrow B$ beinhalten die Implikationen $A\to Z_1$, $Z_1\to Z_2$, \dots, $Z_n\to B$, woraus sich mittels \cref{implikationtrans} ergibt, dass $A\to B$ gilt.
+        \item[„$\Leftarrow$“:] Ebenso beinhalten die Äquivalenzen $A\leftrightarrow Z_1$, $Z_1\leftrightarrow Z_2$, \dots, $Z_n\leftrightarrow B$ auch die Implikationen $B\to Z_n$, $Z_n\to Z_{n-1}$, \dots, $Z_1\to A$, woraus sich mittels \cref{implikationtrans} auch $B\to A$ ergibt. \qed
     \end{enumerate}
 \end{bew}
 
@@ -507,12 +507,12 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
     \end{align*}
     notieren, was Leser arg verwirren kann (vor allem, wenn es nicht so schön eingerückt wäre, sondern einfach nur $x=y-3=x+3=y$ dastünde) und auch schlicht mathematisch falsch ist.
     
-    Auch hier gilt wieder: In der kreativen Phase, in der du nach einem Beweis suchst und Schmierblatt um Schmierblatt mit Ideen vollschreibst, darfst du Gleichheitszeichen nach Belieben spammen und sogar falsch verwenden. Aber bei der Erstellung des Endprodukts, des Beweises, wie ihn Andere lesen sollen, solltest du penibel auf die korrekte Verwendung von „$=$“'s und „$\leftrightarrow$“'s achten.
+    Auch hier gilt wieder: In der kreativen Phase, in der du nach einem Beweis suchst und Schmierblatt um Schmierblatt mit Ideen vollschreibst, kannst du Gleichheitszeichen nach Belieben spammen und sogar falsch verwenden. Aber bei der Erstellung des Endprodukts, des Beweises, wie ihn Andere lesen sollen, solltest du penibel auf die korrekte Verwendung von „$=$“'s und „$\leftrightarrow$“'s achten.
 \end{bem}
 
 
 \begin{bem}[Beweise „rückwärts“ führen] \label{hintennachvorne}
-    Mal angenommen, ich möchte beweisen, dass die Kubikwurzel von $3$ größer als die Quadratwurzel von $2$ ist. Auf der Suche nach einem Beweis beginne ich einfach mal mit der zu zeigenden Ungleichung $\sqrt[3]{3}>\sqrt{2}$ und forme ein bisschen um:
+    Mal angenommen, ich möchte beweisen, dass die Kubikwurzel von $3$ größer ist als die Quadratwurzel von $2$. Auf der Suche nach einem Beweis beginne ich einfach mal mit der zu zeigenden Ungleichung $\sqrt[3]{3}>\sqrt{2}$ und forme ein bisschen um:
     \begin{align*}
         && \sqrt[3]{3}& >\sqrt{2} \\
         & \to& \sqrt[3]{3}^{3\cdot 2} & > \sqrt{2}^{2\cdot 3} & (\text{beide Seiten mit $6$ potenzieren}) \\
@@ -520,7 +520,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
         & \to & 3^2 & > 2^3 \\
         & \to & 9 & > 8
     \end{align*}
-    Das sieht schonmal gut aus! Durch ein paar Umformungen bin ich auf eine wahre Aussage gelangt. Mancher Anfänger würde nun denken, dass das Problem damit erledigt ist und die obige Ungleichungskette als Beweis taugt.
+    Das sieht schonmal gut aus! Durch ein paar Umformungen bin ich zu einer wahren Aussage gelangt. Mancher Anfänger würde nun denken, dass das Problem damit erledigt ist und die obige Ungleichungskette als Beweis taugt.
     
     Das ist aber falsch. Denn die Ungleichungskette beginnt ja mit der zu beweisenden Aussage. Hier wurde also nur die Aussage „Wenn $\sqrt[3]{3} >\sqrt{2}$ gilt, dann ist $9>8$“ bewiesen, die aber leider nichts darüber aussagt, ob nun tatsächlich $\sqrt[3]{3} >\sqrt{2}$ gilt. Glücklicherweise handelt es sich bei allen Umformungen sogar um Äquivalenzumformungen, sodass die Ungleichungskette auch in umgekehrter Richtung gültig ist:
     \begin{align*}
@@ -615,7 +615,7 @@ Würde man hier die Äquivalenz jedes Aussagenpaars per Hin- und Rückrichtung b
         &A_n\ar[rru]&&&& A_2 \ar[ld]& \\
         && \dots \ar[lu] && A_3 \ar[ll]&& 
     \end{tikzcd} \]
-    Man sieht, dass sich nun von jeder Aussage mittels Zwischenschritten zu jeder anderen Aussage gelangen lässt, solange man nur lang genug „im Uhrzeigersinn läuft“. Wegen \cref{implikationtrans} gilt daher für je zwei Aussagen $B,C$ aus den $A_1,\dots , A_n$, dass $B\to C$ und $C\to B$, also insgesamt $B\leftrightarrow C$. Demzufolge sind je zwei beliebige Aussagen aus $A_1,\dots , A_n$ zueinander äquivalent. \qed
+    Man sieht, dass sich nun von jeder Aussage mittels Zwischenschritten zu jeder anderen Aussage gelangen lässt, solange man nur lang genug „im Uhrzeigersinn läuft“. Wegen \cref{implikationtrans} gilt daher für je zwei Aussagen $B,C$ aus den $A_1,\dots , A_n$, dass $B\to C$ und $C\to B$, also insgesamt $B\leftrightarrow C$. Demzufolge sind je zwei beliebige Aussagen von $A_1,\dots , A_n$ zueinander äquivalent. \qed
 \end{bew}
 
 
@@ -666,7 +666,7 @@ Würde man hier die Äquivalenz jedes Aussagenpaars per Hin- und Rückrichtung b
 \end{bem}
 
 
-\begin{bem}[Signalwörter]
+\begin{bem}[Guter Stil]
     Wenn du eine Aussage der Gestalt „Folgende Aussagen sind äquivalent\dots“ beweist, solltest du den Beweis jeder einzelnen Implikation mit „(i)$\to$(ii)“, „(iii)$\to$(i)“ oder Ähnlichem betiteln, damit deinem Leser jederzeit klar ist, welche Implikation gerade Thema ist.
 \end{bem}
 
@@ -677,7 +677,7 @@ Würde man hier die Äquivalenz jedes Aussagenpaars per Hin- und Rückrichtung b
 \section{Und und Oder}
 
 
-In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen
+In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 
 \begin{axiom}[*]\label{undoderaxiome}
@@ -686,12 +686,12 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen
         (A\land B) & \to A & A & \to (A\lor B) \\
         (A\land B) & \to B & B & \to (A\lor B)
     \end{align*}
-    Mit anderen Worten: Aus $A\land B$ folgt sowohl $A$ als auch $B$; und $A$ und $B$ sind wiederum hinreichende Bedingungen für $A\lor B$.
+    Mit anderen Worten: Aus $A\land B$ folgen sowohl $A$ als auch $B$; und $A$ und $B$ sind wiederum hinreichende Bedingungen für $A\lor B$.
 \end{axiom}
 
 
 \begin{bem}
-    Wenn dir die Aussage $A\land B$ gegeben ist, kannst du das also so behandeln, als hättest du zwei gegebene Aussagen, nämlich $A$ und $B$.
+    Wenn dir die Aussage $A\land B$ gegeben ist, kannst du das also so behandeln, als seien dir zwei Aussagen gegeben, nämlich $A$ und $B$.
     
     Und wenn du $A\lor B$ beweisen möchtest, würde es schon reichen, wenn du $A$ beweist oder wenn du $B$ beweist.
 \end{bem}
@@ -778,7 +778,7 @@ In diesem Abschnitt sei $E(x)$ stets ein einstelliges Prädikat.
 \begin{bsp}[*] \quad
     \begin{enumerate}
         \item Weil jede positive reelle Zahl eine Qudaratwurzel besitzt, existiert insbesondere auch eine reelle Quadratwurzel der Zwei.
-        \item Es existieren $p,q,x,y\in \N_{\ge 1}$ mit $x^p-y^q=1$, denn $3^2-2^3=1$. (Nach dem \href{https://de.wikipedia.org/wiki/Catalansche_Vermutung}{Satz von Catalan-Mihăilescu} gibt es aber keine weiteren Möglichkeiten) 
+        \item Es existieren $p,q,x,y\in \N_{\ge 1}$ mit $x^p-y^q=1$, denn es ist $3^2-2^3=1$. (Nach dem \href{https://de.wikipedia.org/wiki/Catalansche_Vermutung}{Satz von Catalan-Mihăilescu} gibt es aber keine weiteren Möglichkeiten)
     \end{enumerate}
 \end{bsp}
 
@@ -806,26 +806,26 @@ In diesem Abschnitt sei $E(x)$ stets ein einstelliges Prädikat.
 
   
 \begin{bem}
-    Lässt sich eine Existenzaussage mit einem Beispiel beweisen, so ist es eigentlich schlechter Stil, in einem Buch oder einem Vortrag nur die Existenzaussage anzugeben. Beispielsweise ist ja die Information „Die $24$ ist gleich der Summe ihrer echten Teiler“ umfangreicher als die Information „Es gibt eine natürliche Zahl, die gleich der Summe ihrer echten Teiler ist“. Du solltest dir nicht einfach nur die Existenzaussage merken, sondern, sofern es welche gibt, auch ein paar Beispiele und deren Konstruktion im Hinterkopf behalten. Auch die essenzielle Aussage des Satzes von Euklid \cref{euklid} besteht weniger in der Aussage „Es gibt eine Primzahl, die größer als $n$ ist“ als vielmehr in der trickreichen Art und Weise, wie eine solche Primzahl aufgespürt wird.
+    Lässt sich eine Existenzaussage mit einem Beispiel beweisen, so ist es eigentlich schlechter Stil, in einem Buch oder einem Vortrag nur die Existenzaussage anzugeben. Beispielsweise ist ja die Information „Die $28$ ist gleich der Summe ihrer echten Teiler“ umfangreicher als die Information „Es gibt eine natürliche Zahl, die gleich der Summe ihrer echten Teiler ist“. Du solltest dir nicht einfach nur die Existenzaussage merken, sondern, sofern es welche gibt, auch ein paar Beispiele und deren Konstruktion im Hinterkopf behalten. Auch die essenzielle Aussage des Satzes von Euklid \cref{euklid} besteht weniger in der Aussage „Es gibt eine Primzahl, die größer als $n$ ist“ als vielmehr in der trickreichen Art und Weise, wie eine solche Primzahl aufgespürt wird.
     
-    Es gibt allerdings auch Situationen, in denen eine Existenzaussage beweisbar ist, obwohl es unmöglich ist, konkrete Beispiele zu geben. Falls in einer Vorlesung keine Beispiele gegeben werden (was bedauerlicherweise recht häufig vorkommt und dem Zeitdruck im Vorlesungsbetrieb zu verdanken ist), solltest du beim Prof. nachhaken, ob er/sie vielleicht deshalb keine Beispiele bringt, weil es gar keine gibt oder die wenigen bekannten Beispiele zu kompliziert und zeitaufwendig sind. Gute Bücher und Vorlesungen erkennt man daran, dass sie, wenn sie keine Beispiele geben, auch erklären, warum.
+    Es gibt allerdings auch Situationen, in denen eine Existenzaussage beweisbar ist, obwohl es unmöglich ist, konkrete Beispiele zu geben. Falls in einer Vorlesung keine Beispiele gegeben werden (was bedauerlicherweise recht häufig vorkommt und vom Zeitdruck im Vorlesungsbetrieb verschuldet ist), solltest du beim Prof. nachhaken, ob er/sie vielleicht deshalb keine Beispiele bringt, weil es gar keine gibt oder die wenigen bekannten Beispiele zu kompliziert und zeitaufwendig sind. Gute Bücher und Vorlesungen erkennt man daran, dass sie, wenn sie keine Beispiele geben, auch erklären, warum.
 \end{bem}
 
 
 \begin{axiom}[Allaussagen an einem „beliebigen“ Objekt nachweisen]\label{allbeweis} \index{beliebig}
     Um die Allaussage $\forall x: E(x)$ zu beweisen, kannst du folgendermaßen vorgehen:
     
-    Führe eine Variable $a$, die bislang noch nicht im Beweis verwendet wurde und ein \emph{beliebiges} Objekt bezeichnen soll, ein und beweise nun, dass $a$ die Eigenschaft $E$ besitzt.
+    Führe eine Variable $a$, die bislang noch nicht im Beweis verwendet wurde und ein \emph{beliebiges} Objekt vom Typ der Variablen $x$ bezeichnen soll, ein und beweise nun, dass $a$ die Eigenschaft $E$ besitzt.
 \end{axiom}
 
 
 \begin{bsp} \label{bsp:allbeweis}
-    Für jede reelle Zahl $x\neq 1$ existiert eine reelle Zahl $y$ mit $x=\frac{y+1}{y-2}$.
+    Für jede reelle Zahl $y\neq 1$ existiert eine reelle Zahl $x$ mit $y=\frac{x+1}{x-2}$.
 \end{bsp}
 
 
 \begin{bew}
-    Sei $x$ eine beliebige reelle Zahl $\neq 1$. Wegen $x\neq 1$ ist $x-1\neq 0$, sodass durch $y:= \frac{1+2x}{x-1}$ eine wohldefinierte reelle Zahl gegeben ist. Nun rechnet man nach, dass $y\neq 2$ und $\frac{y+1}{y-2}=x$. \qed
+    Sei $y$ eine beliebige reelle Zahl $\neq 1$. Wegen $y\neq 1$ ist $y-1\neq 0$, sodass durch $x:= \frac{1+2y}{y-1}$ eine wohldefinierte reelle Zahl gegeben ist. Nun rechnet man nach, dass $x\neq 2$ und $\frac{x+1}{x-2}=y$. \qed
 \end{bew}
 
   
@@ -847,7 +847,7 @@ In diesem Abschnitt sei $E(x)$ stets ein einstelliges Prädikat.
 
 
 \begin{bsp}[* Satz von Euklid\footnote{\href{https://de.wikipedia.org/wiki/Euklid}{Euklid (ca. 3. Jhd. v. Chr.)}}] \label{euklid}
-    Für jede natürliche Zahl $n$ gibt es eine Primzahl, die größer als $n$ ist.
+    Für jede natürliche Zahl $n$ gibt es eine Primzahl $P$, die größer als $n$ ist.
 \end{bsp}
 
 
@@ -894,10 +894,10 @@ In diesem Abschnitt sei $E(x)$ stets ein einstelliges Prädikat.
 
 
 \begin{bew}
-    Ich beweise jeweils nur die Hinrichtung „$\to$“. Die Rückrichtung wird analog unter Vertauschung der Rollen von $x$ und $y$ bewiesen.
+    Ich beweise jeweils nur die Hinrichtung „$\to$“. Die Rückrichtung wird, unter Vertauschung der Rollen von $x$ und $y$, analog bewiesen.
     \begin{itemize}
-        \item[„$\forall$“:] Seien $a,b$ zwei beliebige Objekte und es gelte $\forall x\ \forall y: R(x,y)$. Mit \cref{quantorenaxiom} folgt durch Einsetzen von $a$, dass $\forall y: R(a,y)$ und durch Einsetzen von $b$, dass $R(a,b)$. Da $a$ beliebig gewählt war, gilt somit sogar $\forall x: R(x,b)$. Und da auch $b$ beliebig gewählt war, folgt hieraus, dass $\forall y\ \forall x: R(x,y)$.
-        \item[„$\exists$“:] Es sei angenommen, dass $\exists x\ \exists y: R(x,y)$ gilt. Dann gibt es ein Objekt $a$, für das $\exists y: R(a,y)$ gilt. Damit gibt es auch ein Objekt $b$, für das $R(a,b)$ gilt. Wegen $R(a,b)$ gilt insbesondere $\exists x: R(x,b)$ und daraus folgt wiederum $\exists y\ \exists x: R(x,y)$. \qed
+        \item[„$\forall$“:] Seien $a,b$ zwei beliebige Objekte und es gelte $\forall x\ \forall y: R(x,y)$. Mit \cref{quantorenaxiom} folgt durch Einsetzen von $a$, dass $\forall y: R(a,y)$, und durch Einsetzen von $b$, dass $R(a,b)$. Da $a$ beliebig gewählt war, gilt somit sogar $\forall x: R(x,b)$. Und da auch $b$ beliebig gewählt war, folgt hieraus, dass $\forall y\ \forall x: R(x,y)$.
+        \item[„$\exists$“:] Es sei angenommen, dass $\exists x\ \exists y: R(x,y)$ gilt. Dann gibt es ein Objekt $a$, für das $\exists y: R(a,y)$ gilt (hier wird \cref{exverwendung} genutzt). Somit gibt es auch ein Objekt $b$, für das $R(a,b)$ gilt. Wegen $R(a,b)$ gilt insbesondere $\exists x: R(x,b)$ und daraus folgt wiederum $\exists y\ \exists x: R(x,y)$. \qed
     \end{itemize}
 \end{bew}
 
@@ -919,12 +919,12 @@ In diesem Abschnitt sei $E(x)$ stets ein einstelliges Prädikat.
 \subsection*{Eindeutigkeitsbeweise}
 
 
-Im letzten Vortrag wurde thematisiert, wie sich der Eindeutgikeitsquantor „$\exists !$“ aus dem Allquantor und dem Existenzquantor zusammensetzt:
+Im Logikkapitel wurde thematisiert, wie sich der Eindeutgikeitsquantor „$\exists !$“ aus dem Allquantor und dem Existenzquantor zusammensetzt:
     \[ \underbrace{\exists x:\ E(x)}_{\text{Es gibt mindestens ein\dots}}\quad \land\quad \underbrace{\forall y,z:\ (E(y)\land E(z)) \to y=z}_{\text{Es gibt höchstens ein\dots}}\]
 Diese Und-Aussage kann gemäß \cref{undbeweise} als zwei separate Aussagen behandelt werden:
 
 
-\begin{satz}[Existenz- und Eindeutigkeitsbeweise] \label{eindbeweis} \index{Eindeutigkeitsbeweis}
+\begin{satz}[Existenz- und Eindeutigkeitsbeweis] \label{eindbeweis} \index{Eindeutigkeitsbeweis}
     Wenn du eine Aussage der Form $\exists ! x: E(x)$ beweisen möchtest, kannst du deinen Beweis in einen Existenz-Teil und einen Eindeutigkeit-Teil aufteilen:
     \begin{itemize}
         \item Im Existenz-Teil beweist du, dass es mindestens ein Objekt gibt, das die Eigenschaft $E$ besitzt (z.B. durch Angabe eines Beispiels).
@@ -950,7 +950,7 @@ Diese Und-Aussage kann gemäß \cref{undbeweise} als zwei separate Aussagen beha
 \end{bew}
 
 
-\begin{bem}[Signalwörter]
+\begin{bem}[Guter Stil]
     Du solltest den Existenz-Teil und den Eindeutigkeit-Teil deines Beweises immer auch als solchen betiteln, so wie es gerade im Beispiel geschah.
 \end{bem}
 
@@ -972,7 +972,7 @@ Im Sonderfall, dass sich Allaussagen auf natürliche Zahlen beziehen, stehen Bew
 
 \begin{bem}[Erklärung des Induktionsbeweises]
     Die natürlichen Zahlen lassen sich „abzählen“. Das heißt, wenn ich mit der Null starte und dann anfange zu zählen „Null, Eins, Zwei, Drei,\dots“, so werde ich zwar nie fertig, da es ja unendlich viele Zahlen gibt -- ich werde aber jede beliebige Zahl nach hinreichend langer Zeit abgezählt haben. Mit anderen Worten: Der Zählprozess schöpft die Gesamtheit aller natürlichen Zahlen vollständig aus. Oder: Die Gesamtheit aller natürlichen Zahlen kann durch den Zählprozess „vollständig abgetragen“ werden. \\
-    Zählen heißt, mit der Null zu starten und nach jeder genannten Zahl mit der kleinsten noch nicht genannten Zahl fortzufahren. Die natürlichen Zahlen lassen sich also vollständig durch die beiden Operationen
+    Zählen heißt, mit der Null zu starten und nach jeder genannten Zahl mit der kleinsten noch nicht genannten Zahl fortzufahren. Die natürlichen Zahlen lassen sich also restlos durch die beiden Operationen
     \begin{itemize}
         \item Mit der Null beginnen.
         \item Sofern man schon ein paar Zahlen abgezählt hat, mit der kleinsten Zahl fortfahren, die noch nicht drankam.
@@ -985,7 +985,7 @@ Im Sonderfall, dass sich Allaussagen auf natürliche Zahlen beziehen, stehen Bew
     Möchtest du beweisen, dass jede natürliche Zahl die Eigenschaft $E$ besitzt, so kannst du dies folgendermaßen erledigen:
     \begin{itemize}
         \item Im sogenannten \textbf{Induktionsanfang} beweist du, dass $E(0)$ gilt. (Je nach Kontext kann der Induktionsanfang auch bei $n=1$ oder sogar noch höher stattfinden)
-        \item Im sogenannten \textbf{Induktionsschritt} fixierst du eine beliebige natürliche Zahl $n\ge 1$ und nimmt an, dass jede Zahl, die kleiner als $n$ ist, die Eigenschaft $E$ besitzt (diese Annehme heißt \textbf{Induktionsannahme} oder auch \textbf{Induktionsvoraussetzung}). Mithilfe dieser Annahme beweist man nun, dass auch $n$ die Eigenschaft $E$ besitzt.
+        \item Im sogenannten \textbf{Induktionsschritt} fixierst du eine beliebige natürliche Zahl $n\ge 1$ und nimmst an, dass jede Zahl, die kleiner als $n$ ist, die Eigenschaft $E$ besitzt (diese Annahme heißt \textbf{Induktionsannahme} oder auch \textbf{Induktionsvoraussetzung}). Mithilfe dieser Annahme beweist du nun, dass auch $n$ die Eigenschaft $E$ besitzt.
         %\[ \forall n \ge 1:\ (\forall k\le n: E(k)) \to E(n) \]
     \end{itemize}
 \end{axiom}
@@ -1004,11 +1004,11 @@ Im Sonderfall, dass sich Allaussagen auf natürliche Zahlen beziehen, stehen Bew
         \[ a-b = pb + r \]
     gilt. Setzt man $q:=p+1$, so folgt
         \[ a = (p+1)b + r = qb+r\]
-    (Eindeutigkeit): Seien $q,q,r,r'$ natürliche Zahlen mit $r,r'<b$ und $a=qb+r=q'b+r'$. AUSSTEHEND
+    (Eindeutigkeit): Seien $q,q,r,r'$ natürliche Zahlen mit $r,r'<b$ und $a=qb+r=q'b+r'$. \TODO
 \end{bew}
 
 
-\begin{bem}[Signalwörter]
+\begin{bem}[Guter Stil]
     An diesem Beweis werden eine Reihe wichtiger Punkte deutlich.
     \begin{itemize}
         \item Wenn im Beweis mehrere Variablen vom Typ „natürliche Zahl“ auftreten, musst du deutlich machen, über welche Variable dein Induktionsbeweis verläuft.
@@ -1073,7 +1073,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 
 
 \begin{bew}
-    Angenommen, du hast $\neg E(a)$ bewiesen. Wegen $(\forall x: E(x)) \to E(a)$ würde dann aus $\forall x:E(x)$ eine falsche Aussage folgen, sodass $\forall x:E(x)$ falsch sein muss. \qed
+    Angenommen, es wurde $\neg E(a)$ bewiesen. Wegen $(\forall x: E(x)) \to E(a)$ würde dann aus $\forall x:E(x)$ eine falsche Aussage folgen, sodass $\forall x:E(x)$ falsch sein muss. \qed
 \end{bew}
 
  
@@ -1083,7 +1083,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 
 
 \begin{bew}
-    Schauen wir uns Franz Schubert an. Mit Mitte Zwanzig an der Syphilis erkrankt, mit 31 Jahren gestorben war es dem Armen nicht leicht gemacht, einen Herzenspartner zu finden. Mehr als kurzzeitige Liebschaften, die er nicht frei ausleben konnte, waren dem Wiener Komponisten zu Lebzeiten nicht vergönnt. Ich meine, hör dir seine \href{https://youtu.be/F6I6Y1LhMKo?t=1665}{Winterreise} nur mal an! -- \qed 
+    Schauen wir uns Franz Schubert an. Mit Mitte Zwanzig an der Syphilis erkrankt, mit 31 Jahren gestorben, war es dem Armen nicht leicht gemacht, einen Herzenspartner zu finden. Mehr als kurzzeitige Liebschaften, die er nicht frei ausleben konnte, waren dem Wiener Komponisten zu Lebzeiten nicht vergönnt. Ich meine, hör dir seine \href{https://youtu.be/F6I6Y1LhMKo?t=1665}{Winterreise} nur mal an! -- \qed
 \end{bew}
 
 
@@ -1098,9 +1098,9 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 
 
 \begin{bem}[*]
-    Die indirekte Widerlegung basiert darauf, dass eine Aussage, aus der etwas Falsches folgt, nicht stimmen kann. Dass aus einer Aussage etwas Wahres folgt, hat dagegen keinerlei Auswirkung, da nach \cref{wahresausbeliebigem} ja Wahres aus Beliebigem folgt.
+    Die indirekte Widerlegung basiert darauf, dass eine Aussage, aus der etwas Falsches folgt, nicht stimmen kann. Dass aus einer Aussage etwas Wahres folgt, lässt dagegen keinen Rückschluss auf ihren Wahrheitsgehalt zu, da nach \cref{wahresausbeliebigem} ja Wahres aus Beliebigem folgt.
     
-    Betrachte z.B. die (falsche) Aussage $A=$ „Jedes Kind weiß, dass die Summe der Zahlen $1$ bis $100$ gleich $5050$ ist“. Dann folgt aus $A$, dass auch der neunjährige Gauß\footnote{\href{https://de.wikipedia.org/wiki/Carl_Friedrich_Gau\%C3\%9F}{Carl Friedrich Gauß (1777-1855)}} dies wusste, was der \href{https://de.wikipedia.org/wiki/Gau\%C3\%9Fsche_Summenformel#Herkunft_der_Bezeichnung}{Anekdote} zufolge sogar eine wahre Aussage ist. Das ändert allerdings nichts daran, dass $A$ wohl trotzdem falsch ist.
+    Betrachte z.B. die (falsche) Aussage $A=$ „Jedes Kind weiß, dass die Summe der Zahlen $1$ bis $100$ gleich $5050$ ist“. Dann folgt aus $A$, dass auch der neunjährige Gauß\footnote{\href{https://de.wikipedia.org/wiki/Carl_Friedrich_Gau\%C3\%9F}{Carl Friedrich Gauß (1777-1855)}} dies wusste, was der \href{https://de.wikipedia.org/wiki/Gau\%C3\%9Fsche_Summenformel#Geschichte_der_Bezeichnung}{Anekdote} zufolge sogar eine wahre Aussage ist. Das ändert allerdings nichts daran, dass $A$ wohl trotzdem falsch ist.
 \end{bem}
 
 
@@ -1135,7 +1135,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 \end{bew}
   
   
-\begin{bem}[Signalwörter]
+\begin{bem}[Guter Stil]
     Wenn du einen indirekten Beweis führst, solltest du dies ankündigen, beispielsweise mit „Ich führe einen indirekten Beweis“, „Der Beweis geschieht indirekt“ oder „Beweis per Kontraposition:“.
 \end{bem}
 
@@ -1152,7 +1152,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 
 
 \begin{bsp}
-    Falls $A$ die Aussage „Schrödingers Katze geht es gut“ ist, so besagt $A\land \neg A$, dass es Schrödingers Katze sowohl gut geht als auch nicht gut geht.
+    Falls $A$ die Aussage „Schrödingers Katze geht es gut“ ist, so besagt $A\land \neg A$, dass es der Katze sowohl gut geht als auch nicht gut geht.
 \end{bsp}
 
 
@@ -1188,7 +1188,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 \end{bem}
 
   
-\begin{bem}[Signalwörter]
+\begin{bem}[Guter Stil]
     Wenn du dich in einem Widerspruchsbeweis befindest, kannst du, um deinem Leser zu signalisieren, dass du gerade mit \emph{falschen} Aussagen arbeitest, den Konjunktiv II verwenden („dann wäre“, „nun gälte“). Außerdem solltest du die Annahme einer falschen Aussage stets mit „Angenommen, dass\dots“ oder Ähnlichem beginnen. Für den Leser ist es äußerst wichtig zu wissen, zu welchem Zeitpunkt im Beweis es gerade um die Herleitung wahrer Aussagen geht und zu welchem es (um eines Widerspruchsbeweises willen) um die Herleitung falscher Aussagen geht.
     
     Die Stelle im Beweis, an der ein Widerspruch erreicht wird, wird handschriftlich oft mit einem Blitz $\lightning$ markiert. In gedruckten Texten ist der Blitz weniger gängig. Egal wie du es handhabst: du solltest den Moment, an dem du bei einem Widerspruch angelangt bist, stets sprachlich hervorheben.
@@ -1202,7 +1202,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 
 
 \begin{bew}
-    Für einen Widerspruchsbeweis sei angenommen, dass $A\leftrightarrow \neg A$ gilt. Daraus folgte $A\to \neg A$ und wegen $A\to A$ gälte dann insgesamt $A\to (A\land \neg A)$. Demnach müsste $A$ falsch sein, d.h. es müsste $\neg A$ gelten. Wegen $A\leftrightarrow \neg A$ folgte aus $\neg A$, dass auch $A$ gälte. Insgesamt läge nun der Widerspruch $A\land \neg A$ vor. \qed
+    Für einen Widerspruchsbeweis sei angenommen, dass $A\leftrightarrow \neg A$ gilt. Daraus folgte $A\to \neg A$ und wegen $A\to A$ gälte dann insgesamt $A\to (A\land \neg A)$. Wegen \cref{widerspruchsbeweis} müsste $A$ demnach falsch sein, d.h. es müsste $\neg A$ gelten. Wegen $A\leftrightarrow \neg A$ folgte aus $\neg A$, dass auch $A$ gälte. Insgesamt läge nun der Widerspruch $A\land \neg A$ vor. \qed
 \end{bew}
 
 
@@ -1215,7 +1215,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
             $A:=$ „Diese Aussage ist falsch.“
         \end{quote}
         Hier gilt tatsächlich $A\leftrightarrow \neg A$.
-        \item Eine weitere berühmte Situation, in der eine Aussage äquivalent zu ihrer Negation ist, ist das „Barbier-Paradoxon“, das wiederum ein Spezialfall der sogenannten \emph{Russellschen Antinomie}\footnote{\href{https://de.wikipedia.org/wiki/Bertrand_Russell}{Bertrand Russell 1872-1970}} ist:
+        \item Eine weitere berühmte Situation, in der eine Aussage äquivalent zu ihrer Negation ist, ist das „Barbier-Paradoxon“, das wiederum ein Spezialfall der Russellschen Antinomie \cref{russell} ist:
         \begin{satz}
             In Sevilla lebt kein Mann, der genau denjenigen Männern Sevillas den Bart rasiert, die sich nicht selbst den Bart rasieren.
         \end{satz}
@@ -1237,7 +1237,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 \end{bew}
 
 
-\begin{satz}[* Russellsche Antinomie] \label{russell} \index{Russellsche Antinomie}
+\begin{satz}[* Russellsche Antinomie\footnote{\href{https://de.wikipedia.org/wiki/Bertrand_Russell}{Bertrand Russell 1872-1970}}] \label{russell} \index{Russellsche Antinomie}
     Sei $R$ ein zweistelliges Prädikat, dessen beide Variablen vom selben Typ sind. Dann gilt:
         \[ \nexists x\ \forall y:\ (R(x,y) \leftrightarrow \neg R(y,y))\]
     Mit anderen Worten: Es gibt kein Objekt $x$, sodass jedes Objekt $y$ genau dann in Relation zu $x$ stünde, wenn es nicht in Relation zu sich selbst stünde.
@@ -1249,7 +1249,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
         \[ \forall y:\ R(a,y) \leftrightarrow \neg R(y,y) \]
     gälte. Weil es sich hierbei um eine Allaussage handelt, könnten wir für $y$ das Objekt $a$ einsetzen und erhielten die Äquivalenz
         \[ R(a,a) \leftrightarrow \neg R(a,a) \]
-    Aber dies ergibt mit \cref{paradox} einen Widerspruch. \qed
+    Aber dies mündet mit \cref{paradox} in einen Widerspruch. \qed
 \end{bew}
  
 
@@ -1304,7 +1304,7 @@ In diesem Abschnitt seien $A,B$ stets zwei Aussagen.
 
 
 \begin{vorschau}[``principle of explosion''] \label{explosion}
-    Da aus Widersprüchen Beliebiges folgt, ist in die Logik eine Art „Bombe“ eingebaut (in der englischen Literatur spricht man sogar vom ``principle of explosion''). Denn wenn es uns gelingen sollte, auch nur eine einzige Aussage sowohl zu beweisen als auch zu widerlegen, folgt aus \cref{exfalso}, dass \emph{jede} beliebige mathematische Aussage beweisbar ist, so unsinnig sie auch sei. Ein solcher Beweis wäre wohl nicht mehr dazu geeignet, die „Wahrheit“ irgendwelcher Aussagen zu etablieren.
+    Da aus Widersprüchen Beliebiges folgt, ist in die Logik eine Art „Bombe“ eingebaut (in der englischen Literatur spricht man sogar vom ``principle of explosion''). Denn wenn es uns gelingen sollte, auch nur eine einzige Aussage sowohl zu beweisen als auch zu widerlegen, folgt aus \cref{exfalso}, dass \emph{jede} beliebige mathematische Aussage beweisbar ist, so unsinnig sie auch sei. Das Angeben von Beweisen wäre dann nicht mehr dazu geeignet, die „Wahrheit“ irgendwelcher Aussagen zu begründen.
     
     Logiken, in denen das ex falso quodlibet nicht gilt, heißen \href{https://ncatlab.org/nlab/show/paraconsistent+logic}{parakonsistente Logiken}. In solchen Logiken hält sich der von Widersprüchen verursachte Schaden in Grenzen und wird teils sogar absichtlich in Kauf genommen; dafür ist dort die Schlussregel aus \cref{modustp} nicht uneingeschränkt anwendbar.
 \end{vorschau}
@@ -1324,7 +1324,7 @@ Die bisherigen Axiome bilden zusammen die sogenannte „intuitionistische“ ode
 \begin{axiom}[Satz vom ausgeschlossenen Dritten] \label{excludedmiddle} \index{tertium non datur} \index{Satz vom ausgeschlossenen Dritten}
     Es gilt:
         \[ A\lor \neg A \]
-    Dieses Prinzip heißt auch \textbf{tertium non datur}, was latein für „ein Drittes kommt nicht vor“ ist. Im Englischen spricht man vom ``principle of excluded middle''.
+    Dieses Prinzip heißt auch \textbf{tertium non datur}, was Latein für „ein Drittes kommt nicht vor“ ist. Im Englischen spricht man vom ``principle of excluded middle''.
 \end{axiom}
 
 
@@ -1334,16 +1334,16 @@ Die bisherigen Axiome bilden zusammen die sogenannte „intuitionistische“ ode
 
 
 \begin{bem}
-    Der Satz vom ausgeschlossenen Dritten ist nicht zu verwechseln mit dem Bivalenzprinzip aus \cref{bivalenz}. Das tertium non datur schließt (entgegen seinem Namen -- die Terminologie ist etwas unglücklich) nicht aus, dass es mehr als nur zwei Wahrheitswerte gibt; es besagt lediglich, dass sich die beiden Wahrheitswerte von $A$ und $\neg A$ „in der Summe immer zu `absolut wahr' kombinieren“.
+    Der Satz vom ausgeschlossenen Dritten ist nicht zu verwechseln mit dem Bivalenzprinzip aus \cref{bivalenz}. Das tertium non datur schließt (entgegen seinem Namen -- die Terminologie ist unglücklich kontraintuitiv) nicht aus, dass es mehr als nur zwei Wahrheitswerte gibt; es besagt lediglich, dass sich die beiden Wahrheitswerte von $A$ und $\neg A$ „in der Summe immer zu `absolut wahr' kombinieren“.
     
-    In der philosophischen Logik wird dagegen der Satz vom ausgeschlossenen Dritten mitunter synonym zum Bivalenzprinzip verstanden.
+    In der philosophischen Logik wird dagegen der Satz vom ausgeschlossenen Dritten gelegentlich mit dem Bivalenzprinzip gleichgesetzt.
 \end{bem}
 
 
 \begin{bem}[Konsequenz für Fallunterscheidungsbeweise]
-    Mit dem tertium non datur stehen uns bedingungslos Oder-Aussagen der Gestalt $A\lor \neg A$ zur Verfügung, die wir für Fallunterscheidungsbeweise einsetzen können. Möchten wir eine Aussage $X$ beweisen und ist $A$ irgendeine beliebige weitere Aussage, so genügt es, $X$ einmal unter der Annahme, dass $A$ gilt, zu beweisen und andererseits unter der Annahme, dass $A$ falsch ist.
+    Mit dem tertium non datur stehen uns bedingungslos Oder-Aussagen der Gestalt $A\lor \neg A$ zur Verfügung, die wir für Fallunterscheidungsbeweise einsetzen können. Möchten wir eine Aussage $X$ beweisen und ist $A$ irgendeine beliebige weitere Aussage, so genügt es, $X$ einmal unter der Annahme, dass $A$ gilt, zu beweisen, und andererseits unter der Annahme, dass $A$ falsch ist.
     
-    Eine der berühmtesten bisher unentschiedenen Aussagen der Mathematik ist die sogenannte \href{https://de.wikipedia.org/wiki/Riemannsche_Vermutung}{Riemannsche Vermutung}\footnote{\href{https://de.wikipedia.org/wiki/Bernhard_Riemann}{Bernhard Riemann (1826 - 1866)}}. Obwohl bislang weder bekannt ist, ob die Vermutung zutrifft oder nicht, konnten \href{https://en.wikipedia.org/wiki/Riemann_hypothesis#Excluded_middle}{diverse Aussagen} dadurch bewiesen werden, dass sie sowohl im Fall, dass die Vermutung zutrifft, gelten, als auch im Fall, dass die Vermutung falsch wäre. Hierbei wird essenziell auf das tertium non datur zurückgegriffen.
+    Eine der berühmtesten bisher unentschiedenen Aussagen der Mathematik ist die sogenannte \href{https://de.wikipedia.org/wiki/Riemannsche_Vermutung}{Riemannsche Vermutung}\footnote{\href{https://de.wikipedia.org/wiki/Bernhard_Riemann}{Bernhard Riemann (1826 - 1866)}}. Obwohl bislang unbekannt ist, ob die Vermutung zutrifft oder nicht, konnten \href{https://en.wikipedia.org/wiki/Riemann_hypothesis#Excluded_middle}{diverse Aussagen} dadurch bewiesen werden, dass sie sowohl im Fall, dass die Vermutung zutrifft, gelten, als auch im Fall, dass die Vermutung falsch wäre. Hierbei wird essenziell auf das tertium non datur zurückgegriffen.
 \end{bem}
 
 
@@ -1372,11 +1372,11 @@ Die bisherigen Axiome bilden zusammen die sogenannte „intuitionistische“ ode
     \begin{align*}
         b=\sqrt{2}\ \text{und}\ a=\sqrt{2} \qquad \text{oder}\qquad  b=\sqrt{2}\ \text{und}\ a=\sqrt{2}^{\sqrt{2}}
     \end{align*}
-    funktioniert -- welche genau dies ist, bleibt aber im Dunkeln. (Tatsächlich ist $\sqrt{2}^{\sqrt{2}}$ eine irrationale Zahl, sodass $a=\sqrt{2}^{\sqrt{2}}$ gewählt werden muss -- aber dies ist deutlich schwieriger zu beweisen)
+    funktioniert -- welche genau dies ist, bleibt aber im Dunkeln. (Tatsächlich ist $\sqrt{2}^{\sqrt{2}}$ eine irrationale Zahl, sodass $a=\sqrt{2}^{\sqrt{2}}$ gewählt werden muss -- aber dies ist deutlich schwieriger zu beweisen.)
     
-    Mit dem tertium non datur kommt eine weitere Pathologie auf: In der Mathematik gibt es Aussagen, die, sofern keine Widersprüche herleitbar sind, weder beweisbar noch widerlegbar sind. Die berühmteste dieser „unentscheidbaren“ Aussagen ist vielleicht die \href{https://de.wikipedia.org/wiki/Kontinuumshypothese}{Kontinuumshypothese}. Ist nun $A$ eine unentscheidbare Aussage und ist die Theorie konsistent, so ist weder $A$ noch $\neg A$ beweisbar, obwohl dem tertium non datur gemäß $A\lor \neg A$ gilt. Es liegt also die Situation vor, dass eine Aussage der Gestalt „$X$ oder $Y$“ beweisbar ist, obwohl weder $X$ noch $Y$ beweisbar ist.
+    Mit dem tertium non datur kommt ein weiteres seltsames Phänomen auf: In der Mathematik gibt es Aussagen, die, sofern keine Widersprüche herleitbar sind (denn dann wäre nach \cref{exfalso} ja \emph{alles} beweisbar), weder beweisbar noch widerlegbar sind. Die berühmteste dieser „unentscheidbaren“ Aussagen ist vielleicht die \href{https://de.wikipedia.org/wiki/Kontinuumshypothese}{Kontinuumshypothese}. Ist nun $A$ eine unentscheidbare Aussage und ist die Theorie konsistent, so sind weder $A$ noch $\neg A$ beweisbar, obwohl dem tertium non datur gemäß $A\lor \neg A$ gilt. Es liegt also die Situation vor, dass eine Aussage der Gestalt „$X$ oder $Y$“ beweisbar ist, obwohl weder $X$ noch $Y$ beweisbar sind.
     
-    In der \emph{intuitionistischen Logik}, die aus allen bisherigen Axiomen mit Ausnahme des tertium non datur besteht, kann dies nicht vorkommen. Mithilfe fortgeschrittener semantischer Methoden lässt sich beweisen, dass sich, sofern sich eine Aussage der Gestalt „$X$ oder $Y$“ ohne Rückgriff aufs tertium non datur beweisen lässt, stets auch schon eine der beiden Aussagen $X$ oder $Y$ beweisen lässt\footnote{Auf Englisch nennt man dies die \href{https://en.wikipedia.org/wiki/Disjunction_and_existence_properties}{``Disjunction property''} der konstruktiven Logik.}. Allerdings lassen sich ohne Rückgriff aufs tertium non datur eben auch weniger Aussagen überhaupt beweisen.
+    In der \emph{intuitionistischen Logik}, die aus allen bisherigen Axiomen mit Ausnahme des tertium non datur besteht, kann dies nicht vorkommen. Mithilfe fortgeschrittener semantischer Methoden lässt sich zeigen, dass sich, sofern sich eine Aussage der Gestalt „$X$ oder $Y$“ ohne Rückgriff aufs tertium non datur beweisen lässt, stets auch schon eine der beiden Aussagen $X$ oder $Y$ beweisen lässt\footnote{Auf Englisch nennt man dies die \href{https://en.wikipedia.org/wiki/Disjunction_and_existence_properties}{``Disjunction property''} der intuitionistischen Logik.}. Allerdings lassen sich ohne Rückgriff aufs tertium non datur eben auch weniger Aussagen überhaupt beweisen.
 \end{vorschau}
 
    
@@ -1395,7 +1395,7 @@ Die bisherigen Axiome bilden zusammen die sogenannte „intuitionistische“ ode
 
 
 \begin{bem}
-    Aufgrund der Regel der doppelten Verneinung kann jede Aussage $A$ mit der verneinenden Aussage $\neg\neg A$ identifiziert werden. Die Aussage $A$ zu beweisen, ist dann gleichwertig dazu, die Aussage $\neg A$ zu widerlegen. Dadurch können alle Widerlegetechniken auch zum Beweis von $A$ eingesetzt werden.
+    Aufgrund der Regel der doppelten Verneinung kann jede Aussage $A$ mit der verneinenden Aussage $\neg\neg A$ identifiziert werden. Die Aussage $A$ zu beweisen, ist dann gleichwertig dazu, die Aussage $\neg A$ zu widerlegen. Diese Verlagerung erlaubt es, für den Beweis von $A$ auch alle Widerlegetechniken einsetzen zu können.
 \end{bem}
 
 
@@ -1407,7 +1407,7 @@ Die bisherigen Axiome bilden zusammen die sogenannte „intuitionistische“ ode
 
 \begin{bew}[(*)]
     \begin{enumerate}
-        \item[„$\Rightarrow$“:] Es gelte $A\to B$. Um nun „$\neg A\lor B$“ zu beweisen, mache ich mir das tertium non datur zunutze, demzufolge $A$ oder $\neg A$ gelten muss und führe eine Fallunterscheidung durch:
+        \item[„$\Rightarrow$“:] Es gelte $A\to B$. Um nun „$\neg A\lor B$“ zu beweisen, mache ich mir das tertium non datur zunutze, demzufolge $A$ oder $\neg A$ gelten muss, und führe eine Fallunterscheidung durch:
         \begin{enumerate}[(1)]
             \item Der Fall, dass $A$ wahr ist. In diesem Fall folgt aus der Annahme $A\to B$, dass auch $B$ gilt. Aber dann ist insbesondere auch $\neg A\lor B$ korrekt.
             \item Der Fall, dass $A$ falsch ist. In diesem Fall gilt $\neg A\lor B$ ebenfalls, da ja schon $\neg A$ gilt.
@@ -1498,7 +1498,7 @@ Es gilt:
         Es ist $1=0$.
     \end{satz}
     \begin{bew}[(Unnötig komplizierter Widerspruchs„beweis“)]
-        Ich führe einen Widerspruchsbeweis. Dazu nehme ich an, dass $1\neq 0$ und leite daraus einen Widerspruch her.
+        Ich führe einen Widerspruchsbeweis. Dazu nehme ich an, dass $1\neq 0$ ist, und leite daraus einen Widerspruch her.
         
         Wegen $1\neq 0$ ist auch
             \[ 0 = 2\cdot 0 \neq 2\cdot 1 = 2 \]
@@ -1523,7 +1523,7 @@ Es gilt:
             & = \sqrt{-1}^2 \\
             & = -1
         \end{align*}
-        also insgesamt $1=-1$. Durch weitere Äquivalenzumformungen folgt:
+        also insgesamt $1=-1$. Weitere Äquivalenzumformungen ergeben:
         \begin{align*}
             1 & = -1 \quad\xrightarrow{+1}\quad 2=0 \quad\xrightarrow{:2}\quad 1=0 
         \end{align*}
@@ -1533,7 +1533,7 @@ Es gilt:
 
 
 \begin{satz}[Quantoren negieren] \label{quantorennegieren} \index{Negation von Quantoren}
-    Es gilt:
+    Sei $E$ eine Eigenschaft. Dann gilt:
     \begin{align*}
         \nexists x: E(x) \quad& \leftrightarrow\quad \forall x: \neg E(x) \\
         \neg (\forall x: E(x)) \quad& \leftrightarrow\quad \exists x: \neg E(x)
@@ -1561,7 +1561,7 @@ Es gilt:
 
 
 \begin{vorschau}[* Vollständigkeit der erststufigen Prädikatenlogik]
-    Jede Formel, die bisher als Axiom gewählt oder hergeleitet wurde, ist eine Tautologie, d.h. wahr unter jeder möglichen (zweiwertigen) Interpretation, siehe \cref{def:interpretation}. Der \emph{Gödelsche Vollständigkeitssatz} besagt auch das Umgekehrte: Jede Tautologie (im Sinne zweiwertiger Interpretationen) lässt sich mithilfe der Axiome und Beweistechniken aus diesem Vortrag herleiten.
+    Jede Formel, die bisher als Axiom gewählt oder hergeleitet wurde, ist eine Tautologie, d.h. wahr unter jeder möglichen (zweiwertigen) Interpretation im Sinne von \cref{def:interpretation}. Der \emph{Gödelsche Vollständigkeitssatz} besagt auch das Umgekehrte: Jede Tautologie (im Sinne zweiwertiger Interpretationen) lässt sich mithilfe der Axiome und Beweistechniken aus diesem Kapitel herleiten.
     
     Für eine allgemeine Aussage mit Junktoren und Quantoren ist das nicht allzu hilfreich, denn die Beweistechniken dienen uns ja dazu, herauszufinden, welche Aussagen wahr sind -- und nicht etwa dient uns umgekehrt irgendein Wahrheitsorakel dazu, herauszufinden, welche Aussagen beweisbar sind.
     
@@ -1580,7 +1580,7 @@ Es gilt:
 \section{Entstehungsprozess eines Beweises}
 
 
-Das Schreiben eines mathematischen Beweises gliedert sich grob in drei Phasen, die in diesem Abschnitt einmal durchgegangen werden sollen.  Neben deren abstrakter Beschreibung wird in diesem Abschnitt ein ganz konkretes Beispiel aus der Linearen Algebra entwickelt:
+Das Schreiben eines mathematischen Beweises lässt sich grob in drei Phasen gliedern, die in diesem Abschnitt einmal durchgegangen werden sollen. Parallel zu deren abstrakter Beschreibung wird ein ganz konkretes Beispiel aus der Linearen Algebra entwickelt:
 
 
 \begin{aufg}
@@ -1597,7 +1597,7 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
     In diesem Schritt stellt ihr sicher, euch auf dem Stand der Dinge zu befinden:
     \begin{itemize}
         \item Sofern ihr nicht die Bedeutung aller in der Aufgabenstellung vorkommenden Begriffe kennt, müsst ihr sie im Vorlesungsskript, in eurem Aufschrieb, in einem Lehrbuch oder im Internet nachschlagen. Solange ihr nicht genau wisst, was die Aufgabe besagt, könnt ihr sie nicht lösen.
-        \item Mit den Definitionen allein kommt ihr meist aber noch nicht sehr weit. Denn in der Regel wurden in der Vorlesung bereits ein paar praktische Aussagen bewiesen, die ihr euch für eure Lösung zunutze machen könnt. Auf diese Weise bekommt ihr Werkzeuge in die Hand, die ihr in eurem Beweis einsetzen könnt, um euch die Arbeit zu erleichtern. Erstsemestern passiert es nicht selten, dass sie keinen genauen Überblick darüber, was genau in der Vorlesung bewiesen wurde und was nicht, haben, und deshalb unnötige Mehrarbeit verrichten, indem sie unbeabsichtigt versuchen, bereits in der Vorlesung bewiesene Sätze noch einmal selbst zu beweisen.
+        \item Mit den Definitionen allein kommt ihr meist aber noch nicht weit. Denn in der Regel wurden in der Vorlesung bereits ein paar praktische Aussagen bewiesen, die ihr euch für eure Lösung zunutze machen könnt. Auf diese Weise bekommt ihr Werkzeuge in die Hand, die ihr in eurem Beweis einsetzen könnt, um euch die Arbeit zu erleichtern. Erstsemestern passiert es nicht selten, dass sie keinen genauen Überblick darüber, was genau in der Vorlesung bewiesen wurde und was nicht, haben, und deshalb unnötige Mehrarbeit verrichten, indem sie unbeabsichtigt versuchen, bereits in der Vorlesung bewiesene Sätze noch einmal selbst zu beweisen.
         \item Ein Problem, das vor allem das erste Studiensemester betrifft, ist, dass gewisse „offensichtliche“ oder bereits aus der Schule bekannte Aussagen für die Lösung der Übungszettel nicht verwendet werden sollen, weil sie noch nicht in der Vorlesung bewiesen wurden. Leider ist im ersten Semester manchmal nicht ganz klar, was man denn nun alles für bekannt voraussetzen darf und wobei es sich um „nichttriviale“ Aussagen, die eines Beweises bedürfen, handelt. Im Zweifelsfall solltet ihr bei eurem Tutor / eurer Tutorin nachfragen. Glücklicherweise hört diese Problematik spätestens im dritten Semester auf.
     \end{itemize}
     Zu dem Beispiel mit den Basisvektoren: Solange ich nicht genau weiß, was eine „Basis des $\R^3$“ ist, kann ich die Aufgabe nicht lösen. Ein Blick in den Vorlesungsaufschrieb verrät mir:
@@ -1606,7 +1606,7 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
     \end{quote}
     An dieser Definition könnte ich nun meinen Beweisansatz orientieren. Damit würde ich aber unnötige Beweisarbeit verrichten, die bereits in der Vorlesung erledigt wurde. Denn dort wurde die folgende Aussage bewiesen:
     \begin{quote}
-        In der Vorlesung wurde bewiesen: Da der $\R^3$ dreidimensional ist, ist $(v_1,v_2,v_3)$ schon dann eine Basis, wenn es linear unabhängig ist.
+        Da der $\R^3$ dreidimensional ist, ist das Tripel $(v_1,v_2,v_3)$ schon dann eine Basis, wenn es linear unabhängig ist.
     \end{quote}
     Dies führt mich auf den Begriff „linear unabhängig“, dessen Bedeutung ich, sofern sie mir nicht absolut klar ist, ebenfalls nachschlagen muss:
     \begin{quote}
@@ -1621,7 +1621,7 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
     \begin{quote}
         The enormous increase in the number of practising mathematicians since the 1930s has inevitably produced a corresponding decrease in the range of mathematical knowledge that each one possesses on average, and the effect of this is easy to see: theorems and techniques which are commonplace in one field are laboriously and imperfectly rediscovered in adjacent ones.
     \end{quote}
-    Gehöre also später nicht zu den Mathematikern, die ihre Zeit damit vergeuden, solche Sätze, die in Fachkreisen längst bewiesen wurden, unter großen Mühen und auch nur halbgar neu zu beweisen, nur weil sie zu schlecht informiert sind; oder den Programmieren, die eine Prozedur furchtbar kompliziert und ineffizient programmieren, nur weil ihnen die frei zugänglichen Bibliotheken unbekannt sind, in denen die Algorithmen bereits hocheffizient implementiert sind. Von diesen Leuten gibt es eine ganze Menge.
+    Gehöre also später nicht zu den Mathematikern, die ihre Zeit damit vergeuden, solche Sätze, die in Fachkreisen längst bewiesen wurden, unter großen Mühen und auch nur halbgar neu zu beweisen, nur weil sie zu schlecht informiert sind; oder zu den Programmierern, die eine Prozedur furchtbar kompliziert und ineffizient programmieren, nur weil ihnen die frei zugänglichen Bibliotheken unbekannt sind, in denen die Algorithmen bereits hocheffizient implementiert sind! Von diesen Leuten gibt es leider eine ganze Menge.
 \end{bem}
 
 
@@ -1629,12 +1629,12 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
     Der zweite Schritt ist die kreativste Phase. Nachdem ihr euch möglichst alle Hilfsmittel, die euch die Vorlesung zum Thema bereitstellt, vergegenwärtigt habt, müsst ihr nun irgendwie einen Beweis aus dem Hut zaubern. Oft werden eure Überlegungen auch dazu führen, dass ihr nochmal zu Phase 1 zurückgeht und weitere Definitionen und Sätze nachschlagt.
     \begin{itemize}
         \item Beleuchtet das Problem von mehreren Seiten. Wenn eine Implikation $A\to B$ zu beweisen ist: seht euch die Kontraposition $\neg B\to \neg A$ an und schaut, ob ihr dadurch eher auf eine Beweisidee kommt. Oder nehmt an, dass sowohl $A$ als auch $\neg B$ gelten und schaut, ob daran irgendetwas faul ist.
-        \item In dieser Phase ist wirklich \emph{alles} erlaubt. Ihr könnt völlig ungerechtfertigt irgendwelche Vermutungen aufstellen und mit Hypothesen arbeiten, die euch zwar plausibel erschienen, von denen ihr euch aber gar nicht hundertprozentig sicher seid. Ihr braucht euch hier an keinerlei Logikregeln halten und könnt jeden noch so fernliegenden Bullshit ausprobieren. In dieser Phase betreibt ihr „experimentelle Mathematik“, die nicht logisch fundiert sein muss.
-        \item Manchmal kann der Beweis auch „von hinten nach vorne“ durchgeführt werden. D.h. ihr beginnt mit der zu zeigenden Aussage und sucht nach Zwischenschritten, unter deren Annahme ihr die Aussage beweisen könnt\footnote{Für ein Beispiel siehe \cref{hintennachvorne}.}. Dann versucht ihr, diese Zwischenschritte zu beweisen, bis ihr irgendwann bei einer Aussage angekommen seid, die ihr schon an und für sich beweisen könnt. Ich markiere auf meinem Schmierblatt solche Gleichungen, die ich als Hypothesen verwende und die noch „zu zeigen“ sind, mit einem Ausrufezeichen wie etwa
+        \item In dieser Phase ist wirklich \emph{alles} erlaubt. Ihr könnt völlig ungerechtfertigt irgendwelche Vermutungen aufstellen und mit Hypothesen arbeiten, die euch zwar plausibel erschienen, über die ihr euch aber gar nicht hundertprozentig sicher seid. Ihr braucht euch hier an keinerlei Logikregeln halten und könnt jeden noch so fernliegenden Bullshit ausprobieren. In dieser Phase betreibt ihr „experimentelle Mathematik“, die nicht logisch fundiert sein muss.
+        \item Manchmal kann der Beweis auch „von hinten nach vorne“ durchgeführt werden. D.h. ihr beginnt mit der zu zeigenden Aussage und sucht nach Prämissen, unter deren Annahme ihr die Aussage beweisen könnt\footnote{Für ein Beispiel siehe \cref{hintennachvorne}.}. Dann versucht ihr, diese Prämissen zu beweisen, bis ihr irgendwann bei einer Aussage angekommen seid, die ihr schon an und für sich beweisen könnt. Ich markiere auf meinem Schmierblatt solche Gleichungen, die ich als Hypothesen verwende und die noch „zu zeigen“ sind, mit einem Ausrufezeichen wie etwa
         \begin{align*}
             a,b,c & \stackrel{!}{=} 0 && (\text{lies: „$a,b,c$ sollen gleich $0$ sein“})
         \end{align*}
-        Aber ihr dürft in euren Notizen natürlich auch jede andere Art von Kennzeichnung verwenden. Beachtet aber: Während ihr in Phase 2 von hinten nach vorne arbeiten dürft, müsst ihr in Phase 3, wenn es um das Aufschreiben des Beweises geht, so gut es geht „von vorne nach hinten“ arbeiten.
+        Beachtet aber: Während ihr in Phase 2 von hinten nach vorne arbeiten könnt, müsst ihr in Phase 3, wenn es um das Aufschreiben des Beweises geht, so gut es geht „von vorne nach hinten“ arbeiten.
         \item Haltet im Vorlesungsmaterial nach Aussagen ähnlicher Art wie die Aufgabenstellung Ausschau. Möglicherweise könnt ihr Beweistechniken aus der Vorlesung imitieren.
         \item In dieser Phase werdet ihr möglicherweise mehrere Schmierblätter mit für andere Leute völlig unsinnigen, unlesbaren Skizzen vollschreiben. Egal! Es geht hier um \emph{eure} Ideenfindung und erst in der nächsten Phase werdet ihr eure Gedanken für Andere verständlich machen müssen.
         \item Werd im ersten Semester nicht zum Einzelkämpfer! Tausche dich mit deinen Zettelpartnern oder anderen StudentInnen aus! In dieser Phase geht es darum, einen möglichst großen Vorrat an Ideen anzuhäufen, aus dem sich früher oder später die Lösung formen muss. Manchmal hat dein Zettelpartner den entscheidenden Gedanken, der noch fehlt, um deine Strategie aufgehen zu lassen und es wäre dumm und schade, wenn er ihn dir nicht mitteilte. Außerdem kann sich die Gedankenwelt deiner Partner fundamental von deiner eigenen unterscheiden und nur durch Austausch mit Anderen (einschließlich Lehrbücher und Internetseiten) kannst du ein vielseitiges Verständnis für mathematische Objekte gewinnen.
@@ -1650,6 +1650,8 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
     \end{array}\]
     Dieses lineare Gleichungssystem kann ich nun einerseits mit Schulwissen, andererseits mit dem in der LA-Vorlesung präsentierten „Gauß-Algorithmus“ lösen. \\[0.5em]
     Damit ist eine vielversprechende Beweisstrategie gefunden. Auf dem Schmierblatt vergewissere ich mich nun durch ein paar Umformungen, die für nicht-eingeweihte Leser keinen Sinn ergeben müssen, dass das Gleichunssystem tatsächlich auf $a=b=c=0$ führt:
+    \begingroup
+    \allowdisplaybreaks
     \begin{align*}
         \leadsto&&   c & = -2a \\
         \leadsto&& -a + b & = 0 \\
@@ -1658,12 +1660,13 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
         \leadsto&& a &= 0 \\
         \leadsto && c & = -2a=0
     \end{align*}
+    \endgroup
     Damit ist die Aufgabe im Prinzip gelöst. Jetzt muss die Lösung nur noch ordentlich aufgeschrieben werden.
 \end{de}
  
  
 \begin{de}[Phase 3: Aufschreiben]\label{beweisaufschreiben}
-    In dieser Phase geht es darum, einen gut lesbaren Beweistext zu formulieren, der allen Regeln der Kunst genügt. Oftmals werdet ihr in dieser Phase auf Schwächen im Beweis stoßen, die euch dazu zwingen, nochmal in Phase 2 zurückzugehen, um Reparaturen am Beweis durchzuführen.
+    In dieser Phase geht es darum, einen gut lesbaren Beweistext zu formulieren, der allen Regeln der Kunst genügt. Oftmals werdet ihr in dieser Phase auf Schwächen im Beweis stoßen, die euch dazu zwingen, nochmal in Phase 2 zurückzugehen, um Reparaturen am Beweis vorzunehmen.
     \begin{itemize}
         \item Macht euch die logische Struktur eures Beweises deutlich und überlegt euch eine Gliederung der Beweisschritte. Schreibt diese in der Reihenfolge der logischen Argumentationskette auf, nicht in der Reihenfolge der kreativen Ideenkette, die euch auf den Beweis geführt hat, auf. Sollte der Beweis kompliziert sein, solltet ihr aber, sofern es eurem Leser hilft, auch ein paar Meta-Bemerkungen darüber, welche Idee hinter dem aktuellen Beweisschritt steckt, einstreuen.
         \item Sorgt für ein ausgeglichenes Wechselspiel zwischen Formeln und Umgangssprache.
@@ -1674,7 +1677,7 @@ Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfang
         \item Sollte sich herausstellen, dass eure Lösung eine Lücke besitzt, für die euch einfach keine Lösung einfällt -- lasst sie stehen. Ein häufiger Erstsemesterfehler besteht darin, viel zu viel Zeit in die Bearbeitung der Übungszettel zu investieren -- Zeit, die deutlich nützlicher und nachhaltiger darin angelegt wäre, die Vorlesung zu reflektieren, Literatur zu lesen und Freundschaften aufzubauen.
         \item Sollte euer Beweis, wie gerade beschrieben, am Ende noch Lücken enthalten: Seid ehrlich zu euch selbst und eurem Tutor / eurer Tutorin! Ihr werdet mehr Anerkennung und Respekt dafür bekommen, dass ihr in einer kurzen Anmerkung darauf aufmerksam macht, an welcher Stelle noch eine Lücke besteht, und erläutert, woran genau es scheitert, als wenn ihr versucht, eure Lücke mit wirren Formulierungen und komplizierten Formeln zu verschleiern.
     \end{itemize}
-    Der letzte Punkt ist vielleicht der allerwichtigste: niemand erwartet, dass ihr von Anfang an perfekte Zettelabgaben produziert! Es ist der Job eures Profs,  eures Tutors und euer selbst, euch mathematisches Arbeiten beizubringen. Falls ihr methodisches oder inhaltliches Unverständnis habt, dürft ihr das nicht verschleiern oder gar euch dafür schämen! Vielmehr solltet ihr versuchen, dieses Unverständnis zu reflektieren und klar auszuformulieren. Das allein ist schon ein schwieriges Vorhaben, für dessen Gelingen ihr Stolz und Anerkennung verdient! \\[0.5em]
+    Der letzte Punkt ist vielleicht der allerwichtigste: Niemand erwartet, dass ihr von Anfang an perfekte Zettelabgaben produziert! Es ist der Job eures Profs,  eures Tutors und euer selbst, euch mathematisches Arbeiten beizubringen. Falls ihr methodisches oder inhaltliches Unverständnis habt, dürft ihr das nicht verschleiern oder gar euch dafür schämen! Vielmehr solltet ihr versuchen, dieses Unverständnis zu reflektieren und klar auszuformulieren. Das allein ist schon ein schwieriges Unterfangen, für dessen Gelingen ihr Stolz und Anerkennung verdient! \\[0.5em]
     Zu dem Beispiel mit der Basis im $\R^3$: Hier ist ein Beweis, den ich am Ende aufschreiben würde.
     \begin{bew}
         Aus der Vorlesung ist bekannt, dass, da der $\R^3$ ein dreidimensionaler Vektorraum ist, eine Familie dreier Vektoren im $\R^3$ genau dann eine Basis ist, wenn sie linear unabhängig ist. Demnach genügt es zu zeigen, dass $v_1,v_2,v_3$ linear unabhängig sind. \\[0.5em]
@@ -1710,7 +1713,7 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
 
 
 \begin{aufg}[(Un)Logische Schlussfolgerungen]
-    Seien $A,B,C$ drei beliebige Aussagen und $E,F,G$ drei Prädikate. Beurteilt die nachfolgenden Schlussfolgerungen danach, ob sie logisch haltbar sind:
+    Seien $A,B,C$ drei beliebige Aussagen und $E,F,G$ drei Eigenschaften. Beurteilt die nachfolgenden Schlussfolgerungen danach, ob sie logisch haltbar sind:
     \begin{align*}
         \text{a)}\quad &\begin{tabular}{l}
             Entweder ist der Butler oder der Koch der Mörder. \\
@@ -1732,8 +1735,7 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
             $A\to B$ \\
             $C\to \neg B$ \\ \hline
             $A\leftrightarrow \neg C$
-        \end{tabular} \\[1em]
-        \text{e)}\quad &\begin{tabular}{r}
+        \end{tabular} \qquad\qquad\qquad \text{e)}\quad \begin{tabular}{r}
             $\nexists x:\ F(x)\land G(x)$ \\
             $\forall x:\ E(x)\to F(x)$ \\ \hline 
             $\nexists x:\ E(x)\land G(x)$
@@ -1761,7 +1763,7 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
 \begin{aufg}[Fehlersuche II]
     Analysiert den folgenden Satz samt Beweis. Enthält der Beweis Fehler oder Lücken? Stimmt der Satz überhaupt?
     \begin{satz}
-        Für jede natürliche Zahl $n$ existiert eine natürliche Zahl $m$, sodass keine der Zahlen $m+1,m+2,\dots , m+n$ eine Primzahl ist. Mit anderen Worten: Es gibt beliebig große Primzahllücken. 
+        Für jede natürliche Zahl $n$ existiert eine natürliche Zahl $m$ derart, dass keine der Zahlen $m+1,m+2,\dots , m+n$ eine Primzahl ist. Mit anderen Worten: Es gibt beliebig große Primzahllücken.
     \end{satz}
     \begin{bew}
         Es sei $n$ eine beliebige natürliche Zahl. Setze 
@@ -1772,13 +1774,13 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
 
 
 \begin{aufg}[Das Dorf der Lügner]
-    % --- Der Aufgabentext enthält keine Rechtschreibfehler! ---
+    % --- Der Aufgabentext enthält keine Tippfehler! ---
     Im beschaulichen Dörfchen Lügenscheid im Sauerland leben genau siebzig Menschen. Jeder dieser Einwohner 
     \begin{itemize}
         \item sagt entweder immer die Wahrheit
         \item oder aber alles was er sagt ist immer gelogen.
     \end{itemize}
-    Fasziniert von dieser Begebenheit reist Beate Weiß, eine Mathematik-Doktorandin aus Wahrschau, deren Dissertation im Bereich der angewandten Logik seit Monaten von ihrer Fakultät ausgebremst wird, um sie solange es geht mit prekären befristeten Anstellungen bei der Stange zu halten, in das Dorf, um endlich einen Aufhänger für ihre Arbeit zu finden. Nachdem sie sich im Gasthaus eingerichtet hat, lädt sie alle siebzig Einwohner nacheinander zu einer Befragung ein, bei der sie nur eine einzige Frage stellt: „Wieviele Einwohner dieses Dorfs lügen immer?“
+    Fasziniert von dieser Begebenheit reist Beate Weiß, eine Mathematik-Postdoktorandin aus Wahrschau, deren Habilitation im Bereich der angewandten Logik seit Monaten von ihrer Fakultät ausgebremst wird, um sie solange es geht mit prekären befristeten Anstellungen bei der Stange zu halten, in das Dorf, um endlich einen Aufhänger für ihre Arbeit zu finden. Nachdem sie sich im Gasthaus eingerichtet hat, lädt sie alle siebzig Einwohner nacheinander zu einer Befragung ein, bei der sie nur eine einzige Frage stellt: „Wieviele Einwohner dieses Dorfs lügen immer?“
     
     Die erste Person, die zur Befragung erscheint, ein gutmütig aussehender, älterer Herr im Pullunder, sagt ihr, sie müsse sich keine Sorgen machen: im Dorf gebe es nur einen einzigen Lügner -- alle anderen Einwohner sagten dagegen immer die Wahrheit.
     
@@ -1790,9 +1792,8 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
     
     Frau Weiß ist zufrieden: innerhalb eines Tages ist es ihr gelungen, jeden einzelnen Einwohner des Dorfs zu befragen. Bei einem Bierchen in der Ortskneipe knobelt sie über dem Ergebnis ihrer Studie und versucht herauszufinden, wieviele Lügner es denn nun tatsächlich in Lügenscheid gibt.
     \begin{enumerate}
-        \item Findet heraus, wieviele Lügner es in Lügenscheid gibt.
-        \item Formuliert einen vollständigen Beweis für eure Behauptung, der keine Bedenken mehr an eurer Antwort übrig lässt.
-        \item Analysiert euren Beweis. Welche Techniken (z.B. direkter Beweis, indirekter Beweis, Widerspruchsbeweis, Fallunterscheidung) kommen in eurem Beweis zum Einsatz? Ist der Beweis vielleicht unnötig kompliziert und kann noch vereinfacht werden?
+        \item Findet heraus, wieviele Lügner es in Lügenscheid gibt, und formuliert einen Beweis für eure Behauptung.
+        \item Analysiert eure Argumentation. Welche Techniken (z.B. direkter Beweis, indirekter Beweis, Widerspruchsbeweis, Fallunterscheidung) kommen darin zum Einsatz? Kann der Beweis vielleicht noch vereinfacht werden?
     \end{enumerate}
 \end{aufg}
 
