@@ -1,6 +1,6 @@
 
 
-\setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
+\setchapterpreamble[c][.7\textwidth]{\itshape\color{gray}\small
     In diesem Vortrag werden grundlegende Eigenschaften und Operationen von Mengen vorgestellt. Ebenso werden Familien und Tupel eingeführt, da sie grundlegend für die Konzepte „Relation“, „Folge“ und „Verknüpfung“ in den späteren Vorträgen sind.
 \vspace{24pt}}
 
@@ -14,9 +14,9 @@
 Eine historische Definition des Mengenbegriffs durch Cantor wurde bereits im Logikkapitel in \cref{mengenimlogikkapitel} gegeben.
 
 
-\begin{de}[Menge] \label{def:menge} \index{Menge}
+\begin{defin}[Menge] \label{def:menge} \index{Menge}
     Eine \textbf{Menge} ist ein mathematisches Objekt, dem andere Objekte als ihre sogenannten \textbf{Elemente} angehören können.% Sie ist allein dadurch bestimmt, welche Elemente sie umfasst.
-\end{de}
+\end{defin}
 
 
 \begin{nota}[Elementzeichen]
@@ -41,17 +41,17 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 \end{axiom}
 
 
-\begin{de}[Extension einer Eigenschaft] \label{def:extension} \index{Extension (einer Eigenschaft)}
+\begin{defin}[Extension einer Eigenschaft] \label{def:extension} \index{Extension (einer Eigenschaft)}
     Sei $E(x)$ eine Eigenschaft. Die Menge aller Objekte mit der Eigenschaft $E$ ist wegen des Extensionalitätsaxioms \cref{mengengleich} eindeutig bestimmt. Sie heißt die \textbf{Extension}\footnote{vgl. \cref{extensionimlogikkapitel}} von $E$ und wird notiert durch
     \begin{align*}
         \{ x\mid E(x) \} && (\textnormal{lies: „Menge aller $x$, für die gilt: $E(x)$“})
     \end{align*}
-    Per Definition gilt:
+    In diesem Ausdruck fungiert das Zeichen „$x$“ als gebundene Variable im Sinne von \cref{gebundenevariable}. Per Definition gilt:
         \[ \forall a:\qquad a\in \{x\mid E(x)\} \ \leftrightarrow\ E(a) \]
     Für eine Menge $M$ von Objekten vom Typ der Variablen $x$ wird durch
         \[ \{ x\in M\mid E(x) \} := \{ x\mid x\in M\ \text{und}\ E(x)\} \]
     die Menge aller Elemente von $M$, die die Eigenschaft $E$ besitzen, notiert.
-\end{de}
+\end{defin}
 
 
 \begin{bsp} \label{bsp:extension}
@@ -121,7 +121,7 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 \section{Teilmengen}
 
 
-\begin{de}[Teilmenge] \label{def:teilmenge} \index{Teilmenge}
+\begin{defin}[Teilmenge] \label{def:teilmenge} \index{Teilmenge}
     Seien $M$ und $N$ zwei Mengen.
     \begin{itemize}
         \item $M$ heißt eine \textbf{Teilmenge} (manchmal auch: \textbf{Untermenge}) von $N$ (und $N$ eine \textbf{Obermenge} von $M$), falls jedes Element von $M$ auch ein Element von $N$ ist. Notation:
@@ -134,7 +134,7 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
             M\subsetneq N \qquad:\Leftrightarrow\qquad M\subseteq N\quad \land\quad \exists x\in N:\ x\notin M
         \end{align*}
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{figure}[ht]
@@ -203,7 +203,7 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 
 
 \begin{bem}[* Gleichheit von Mengen beweisen] \label{mengengleichbeweis}
-    Kombinieren von \cref{teilmengebeweisen} und \cref{teilmengeneig}c) liefert eine Methode, die Gleichheit zweier Mengen $M,N$ zu zeigen: Beweise nacheinander die Inklusion $M\subseteq N$ und die Inklusion $N\subseteq M$.
+    Kombinieren von \cref{teilmengebeweisen} und \cref{teilmengeneig} liefert eine Methode, die Gleichheit zweier Mengen $M,N$ zu zeigen: Beweise nacheinander die Inklusion $M\subseteq N$ und die Inklusion $N\subseteq M$.
     
     Aus beiden Inklusionen folgt dann mit \cref{teilmengeneig}c), dass $M=N$. In Beweisen solltest du die Abschnitte, die den einzelnen Inklusionen $M\subseteq N$ und $N\subseteq M$ gewidmet sind, durch Markierungen deutlich machen.
 \end{bem}
@@ -223,7 +223,7 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 
 
 \begin{bem} \label{mengenstrukturlos}
-    An diesem Beispiel wird deutlich, dass die Elemente einer Menge keiner Reihenfolge oder „Platzierung“ unterliegen. Eine Menge $M$ trägt von sich aus bis auf ihre Elemente keine weitere Struktur. Fragen wie „Wie genau / Wie oft / An welcher Stelle ist $x$ in $M$ enthalten?“ kann sie nicht beantworten, sondern nur „Ist $x$ in $M$ enthalten (oder nicht)?“.
+    An diesem Beispiel wird deutlich, dass die Elemente einer Menge keiner Reihenfolge oder „Platzierung“ unterliegen. Eine Menge $M$ trägt von sich aus bis auf ihre Elemente keine weitere Struktur. Fragen wie „Wie genau / Wie oft / An welcher Stelle ist $x$ in $M$ enthalten?“ kann sie nicht beantworten, sondern nur „Ist $x$ in $M$ enthalten (oder nicht)?“. Zwar lässt sich durchaus fragen, wie viele Objekte einer gewissen Sorte in $M$ enthalten sind -- beispielsweise wieviele gelbe M\&Ms in einem Päckchen enthalten sind -- aber eben nicht, wie oft ein- und dasselbe Objekt in $M$ liegt. Hinsichtlich der Dualität zwischen Syntax und Semantik (\cref{syntaxvssemantik}) entsprechen Mengen Eigenschaften. Und es lässt sich ja auch nicht fragen, „wie oft“ ein Objekt eine gewisse Eigenschaft besitzt, sondern nur, \emph{ob} es sie besitzt (oder nicht).
     
     Um den Elementen dennoch verschiedene „Plätze“ zuzuweisen, können „Familien“, die später in \cref{def:familie} eingeführt werden, verwendet werden. Ein weiteres Konzept, das die Elemente einer Menge in eine Art „Reihenfolge“ bringt, sind sogenannte „Ordnungsrelationen“, die im Relationenkapitel in \cref{def:ordnungsrelation} eingeführt werden.
 \end{bem}
@@ -235,14 +235,14 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 \section{Die leere Menge}
 
 
-\begin{de} \index{Leere Menge} \index{Einermenge}
+\begin{defin} \index{Leere Menge} \index{Einermenge}
     Eine Menge heißt
     \begin{itemize}
         \item \textbf{leer}, wenn sie gar keine Elemente enthält.
         \item \textbf{nichtleer}, wenn sie nicht leer ist.\footnote{Im Englischen nennt man eine Menge auch ``\href{https://en.wikipedia.org/wiki/Inhabited_set}{inhabited}'', wenn sie mindestens ein Element enthält.}
         \item eine \textbf{Einermenge} (englisch: ``singleton''), wenn sie genau ein Element enthält, also von der Form $\{x\}$ für irgendein Objekt $x$ ist.
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{satz} \label{leeremengeeind}
@@ -308,12 +308,12 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 \section{Die Potenzmenge}
 
 
-\begin{de}[Potenzmenge] \label{def:potenzmenge} \index{Potenzmenge}
+\begin{defin}[Potenzmenge] \label{def:potenzmenge} \index{Potenzmenge}
     Sei $M$ eine Menge. Die Menge aller Teilmengen von $M$ heißt die \textbf{Potenzmenge} von $M$ und wird mit „$\calP(M)$“ notiert:
     \begin{align*}
         \calP(M) := \{N \mid N \ \text{ist eine Teilmenge von $M$} \}
     \end{align*}
-\end{de}
+\end{defin}
 
 
 \begin{bem}
@@ -339,7 +339,7 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 \begin{vorschau}[* Mengen von Mengen von Mengen von \dots]
     Das Konzept der Menge ist iterativ. Eine Menge kann wiederum Element einer anderen Menge sein, die wiederum in einer Menge enthalten sein kann usw. Zum Beispiel ist $\N$ ein Element der Einermenge $\{\N\}$, die wiederum ein Element der dreielementigen Menge $\{ \{\N \}, 4, \Z\}$ ist.
 
-    Es ist $\emptyset$ eine Menge, die überhaupt keine Element enthält, wohingegen $\{\emptyset\}$ eine Einermenge ist, deren einziges Element das Objekt $\emptyset$ ist. Insbesondere ist $\{\emptyset\}$ eine nichtleere Menge, also $\{\emptyset\}\neq \emptyset$. Somit haben auch die beiden Einermengen $\{\{\emptyset\}\}$ und $\{\emptyset\}$ zwei verschiedene Elemente, sind also ebenfalls voneinander verschieden. Iterativ erhält man eine unendliche Folge paarweise verschiedener Mengen:
+    Es ist $\emptyset$ eine Menge, die überhaupt keine Elemente enthält, wohingegen $\{\emptyset\}$ eine Einermenge ist, deren einziges Element das Objekt $\emptyset$ ist. Insbesondere ist $\{\emptyset\}$ eine nichtleere Menge, also $\{\emptyset\}\neq \emptyset$. Somit haben auch die beiden Einermengen $\{\{\emptyset\}\}$ und $\{\emptyset\}$ zwei verschiedene Elemente, sind also ebenfalls voneinander verschieden. Iterativ erhält man eine unendliche Folge paarweise verschiedener Mengen:
         \[ \emptyset \ ,\quad \{\emptyset\} \ ,\quad \{\{\emptyset\}\} \ ,\quad \{\{\{\emptyset\}\}\} \ , \quad \{\{\{\{\emptyset\}\}\}\} \ ,\quad \dots \]
     welche auch \emph{Zermelo'sche Zahlreihe} genannt wird.
 
@@ -347,11 +347,11 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 \end{vorschau}
 
 
-\begin{de}[Mengensystem] \index{System von Mengen}
+\begin{defin}[Mengensystem] \index{System von Mengen} \index{Mengensystem}
     Eine Menge $\calM$ heißt ein \textbf{Mengensystem}, wenn jedes ihrer Elemente ebenfalls eine Menge ist.
 
     Ist $M$ irgendeine Menge, so ist beispielsweise jede Teilmenge $\calT\subseteq \calP(M)$ ein Mengensystem. Man nennt dann $\calT$ auch ein \textbf{System von Teilmengen von $M$}.
-\end{de}
+\end{defin}
 
 
 \begin{nota}[Sprechweisen bei $\in$ und $\subseteq$]
@@ -387,7 +387,7 @@ Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll
 Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätzliche Struktur verleihen: Statt uns nur zu merken, welche Objekte in unserer Sammlung enthalten sind (wie dies bei Mengen der Fall ist), unterscheiden wir nun verschiedene „Stellen“, an denen sich Objekte in der Sammlung befinden können. Realisiert wird das, indem wir die Objekte unserer Sammlung mit Indizes versehen und dann von dem „Objekt mit Index $i$ / an der Stelle $i$“ sprechen:
 
 
-\begin{de}[Familien] \label{def:familie} \index{Familie} \index{Indexmenge} \index{Einträge einer Familie}
+\begin{defin}[Familien] \label{def:familie} \index{Familie} \index{Indexmenge} \index{Einträge einer Familie}
     Eine \textbf{Familie} $a$ besteht aus
     \begin{itemize}
         \item Einer beliebigen Menge $I$, welche die \textbf{Indexmenge} der Familie genannt wird und deren Elemente die \textbf{Indizes} der Familie heißen.
@@ -398,7 +398,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
         (a_i)_{i\in I} && (\text{lies: „$a_i$, $i$ aus $I$“})
     \end{align*}
     Man spricht auch von einer \emph{Familie mit Indexmenge $I$} oder einer \textbf{durch $I$ indizierten Familie}.
-\end{de}
+\end{defin}
 
 
 \begin{axiom}[Gleichheit von Familien] \label{familiengleich}
@@ -436,13 +436,13 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \end{bsp}
 
 
-\begin{de}[Menge der Familien] \label{def:mengenpotenz}
+\begin{defin}[Menge der Familien] \label{def:mengenpotenz}
     Seien $I,M$ zwei beliebige Mengen und $(a_i)_{i\in I}$ eine durch $I$ indizierte Familie. Ist jedes der $a_i$'s ein Element von $M$, so nennt man die Familie $(a_i)_{i\in I}$ eine \textbf{(durch $I$ indizierte) Familie mit Einträgen aus $M$} oder auch eine \textbf{$M$-wertige Familie}.
     
     Die Menge aller Familien mit Indexmenge $I$ und Einträgen aus $M$ wird mit $M^I$ notiert:
         \[ M^I := \{ (a_i)_{i\in I} \mid \forall i\in I:\ a_i \in M \} \]
     $M^I$ heißt auch die „$I$-te Potenz von $M$“, was aber nicht mit der Potenzmenge aus \cref{def:potenzmenge} verwechselt werden sollte.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}[Folgen]
@@ -456,7 +456,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \end{bsp}
 
 
-\begin{de}[Tupel] \label{def:tupel} \index{Tupel}
+\begin{defin}[Tupel] \label{def:tupel} \index{Tupel}
     Sei $n\in \N$ eine natürliche Zahl. Familien $(a_i)_{i\in I}$ mit der Indexmenge $I=\{1,\dots,n\}$ heißen \textbf{$n$-Tupel} und werden notiert in der Gestalt
         \[ (a_1,\dots,a_n)  \]
     2-Tupel, also Objekte der Form $(a,b)$, heißen \textbf{(geordnete) Paare}, 3-Tupel werden auch \textbf{Tripel} genannt.
@@ -465,7 +465,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
         \[ A^n := \{ (a_1,\dots , a_n) \mid a_1,\dots , a_n \in A \} \]
     Gemäß \cref{familiengleich} stimmen zwei $n$-Tupel genau dann überein, wenn sie komponentenweise übereinstimmen:
 	\[ (a_1,\dots , a_n)=(b_1,\dots , b_n) \qquad\leftrightarrow\qquad a_1=b_1,\ \ldots\ ,\ a_n=b_n \]
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -475,13 +475,13 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
     \[\begin{pmatrix}
         x \\ y \\ z 
     \end{pmatrix} \]
-    Man spricht von „Vektoren“. Hier wird auch die Signifikanz des Tupelbegriffs deutlich: Beispielsweise sind $\begin{pmatrix} 2 \\ 0 \\ 3 \end{pmatrix}$ und $\begin{pmatrix} 2 \\ 3 \\ 0 \end{pmatrix}$ zwei verschiedene Vektoren, denn sie unterscheiden sich in ihrer zweiten und dritten Komponente. Dagegen sind die \emph{Mengen} $\{2,0,3\}$ und $\{0,3,2\}$ identisch\footnote{vgl. \cref{bsp:mengengleichbeweis}}. Bei einer bloßen Menge gibt es keinen „zweiten Eintrag“ oder dergleichen.
+    Man spricht von „Vektoren“. Hier wird auch die Signifikanz des Tupelbegriffs deutlich: Beispielsweise sind $\begin{pmatrix} 2 \\ 0 \\ 3 \end{pmatrix}$ und $\begin{pmatrix} 2 \\ 3 \\ 0 \end{pmatrix}$ zwei verschiedene Vektoren, denn sie unterscheiden sich in ihrer zweiten und dritten Komponente. Dagegen sind die \emph{Mengen} $\{2,0,3\}$ und $\{2,3,0\}$ identisch\footnote{vgl. \cref{bsp:mengengleichbeweis}}. Bei einer bloßen Menge gibt es keinen „zweiten Eintrag“ oder dergleichen.
 \end{bsp}
 
 
-\begin{de}[Leere Familie] \label{def:leerefam}
+\begin{defin}[Leere Familie] \label{def:leerefam}
     Es gibt genau eine Familie, deren Indexmenge die leere Menge ist. Weil diese Familie keine Indizes hat, besitzt sie auch keine Einträge. Man spricht von der \textbf{leeren Familie} und notiert sie, ebenso wie die leere Menge, mit dem Zeichen $\emptyset$.
-\end{de}
+\end{defin}
 
 
 \begin{bem}[* „Niedrige“ Potenzen]
@@ -502,7 +502,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \subsection*{Durchschnitt und Vereinigung}
 
 
-\begin{de} \index{Schnittmenge} \index{Durchschnitt von Mengen} \index{Vereinigungsmenge} \index{Differenzmenge} \index{Komplement} \label{def:capcup}
+\begin{defin} \index{Schnittmenge} \index{Durchschnitt von Mengen} \index{Vereinigungsmenge} \index{Differenzmenge} \index{Komplement} \label{def:capcup}
     Seien $M,N$ zwei Mengen.
     \begin{itemize}
         \item Der \textbf{Schnitt}\footnote{Die Bezeichnung kommt daher, dass der \emph{Schnitt}punkt zweier Geraden genau derjenige Punkt ist, der auf beiden Geraden zugleich liegt} (oder auch \textbf{Durchschnitt} oder die \textbf{Schnittmenge}) von $M$ und $N$ 
@@ -571,7 +571,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
             \caption{Komplement von $N$ in $M$}
         \end{minipage}
     \end{figure}
-\end{de}
+\end{defin}
 
 
 \begin{bsp} \quad
@@ -584,14 +584,14 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
             \[ n\Z := \{ m\in \Z \mid \exists k\in \Z:\ m=kn \} \]
         die Menge aller ganzzahligen Vielfachen von $n$, d.h. aller ganzen Zahlen, die durch $n$ teilbar sind. Dann wurde in \cref{bsp:hinruck} bewiesen, dass
             \[ 2\Z \cap 3\Z = 6\Z \]
-        Allgemein gilt für natürliche Zahlen $n,m\in \N$, dass $n\Z\cap m\Z = \kgV(n,m)\Z$, wobei „$\kgV(n,m)$“ das kleinste gemeinsame Vielfache von $n$ und $m$ bezeichnet.
+        Allgemein gilt für natürliche Zahlen $m,n\in \N$, dass $m\Z\cap n\Z = \kgV(m,n)\Z$, wobei „$\kgV(m,n)$“ das kleinste gemeinsame Vielfache von $m$ und $n$ bezeichnet.
     \end{enumerate}
 \end{bsp}
 
 
-\begin{de}[Mengenfamilie] \index{Mengenfamilie}
+\begin{defin}[Mengenfamilie] \index{Mengenfamilie}
     Eine \textbf{Mengenfamilie} (oder auch: \emph{Familie von Mengen}) ist eine Familie, deren Einträge allesamt Mengen sind.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -599,7 +599,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \end{bsp}
 
 
-\begin{de}[Schnitte und Vereinigungen beliebig vieler Mengen] \label{def:mehrfachcapcup}
+\begin{defin}[Schnitte und Vereinigungen beliebig vieler Mengen] \label{def:mehrfachcapcup}
     Sei $(M_i)_{i\in I}$ eine Familie von Mengen. Es heißen
     \begin{align*}
         \bigcap_{i\in I} M_i &:= \{x \mid \forall i\in I:\ x\in M_i\} & \bigcup_{i\in I}M_i &:= \{x \mid \exists i\in I:\ x\in M_i\}
@@ -611,14 +611,14 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
         \bigcap M & := \{ x \mid \forall m\in M:\ x\in m \} & \bigcup M & := \{x\mid \exists m\in M:\ x\in m \}
     \end{align*}
     der \emph{Durchschnitt} und die \emph{Vereinigung} von $M$.
-\end{de}
+\end{defin}
 
 
 \begin{nota} \label{alternativmehrfachcapcup}
     Ist die Indexmenge von der Form $I=\{1,2,\dots,n\}$ für eine natürliche Zahl $n\in \N$, so schreibt man alternativ:
     \begin{align*}
-        M_1\cap M_2\cap\ldots\cap M_n & := \bigcap_{i=1}^n M_i := \bigcap_{i\in \{1,\dots , n\}} M_i\\
-        M_1\cup M_2\cup\ldots\cup M_n & := \bigcup_{i=1}^n M_i := \bigcup_{i\in \{1,\dots , n\}} M_i
+        M_1\cap \ldots\cap M_n & := \bigcap_{i=1}^n M_i := \bigcap_{i\in \{1,\dots , n\}} M_i\\
+        M_1\cup \ldots\cup M_n & := \bigcup_{i=1}^n M_i := \bigcup_{i\in \{1,\dots , n\}} M_i
     \end{align*}
 \end{nota}
 
@@ -640,10 +640,10 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \subsection*{Produkt}
 
 
-\begin{de}[Produkte von Mengen] \index{Produkt von Mengen} \index{Kartesisches Produkt}
+\begin{defin}[Produkte von Mengen] \index{Produkt von Mengen} \index{Kartesisches Produkt}
     Sei $(M_i)_{i\in I}$ eine Familie von Mengen. Die Menge
         \[ \prod_{i\in I} M_i := \{ (a_i)_{i\in I} \mid \forall i\in I:\ a_i\in M_i \} \]
-    aller durch $I$ indizierten Familien, an deren $i$-ter Stelle jeweils ein Element aus $M_i$ steht, heißt das \textbf{(kartesische) Produkt} der $M_i$'s.
+    aller durch $I$ indizierten Familien, an deren $i$-ter Stelle jeweils ein Element aus $M_i$ steht (für jedes $i\in I$), heißt das \textbf{(kartesische) Produkt} der $M_i$'s.
 
     Ist die Indexmenge von der Gestalt $I=\{1,\dots , n\}$ für eine natürliche Zahl $n$, so schreibt man auch
         \[ M_1\times\ldots\times M_n := \prod_{i=1}^n M_i := \prod_{i\in \{1,\dots , n\}} M_i   \]
@@ -655,7 +655,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
         M \times N & = \left\{ (x,y) \mid x\in M\ \text{und}\ y\in N \right\}  && (\text{lies: „$M$ kreuz $N$“})
     \end{align*}
     die Menge aller geordneten Paare, deren erster Eintrag aus $M$ und deren zweiter Eintrag aus $N$ stammt. Man spricht vom \emph{(kartesischen) Produkt} von $M$ und $N$.
-\end{de}
+\end{defin}
 
 
 \begin{bsp} \quad
@@ -663,6 +663,14 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
         \item Es ist
             \[ \{2,3,4\}\times \{ \clubsuit,\heartsuit\} = \{ (2,\clubsuit), (3,\clubsuit), (4,\clubsuit), (2,\heartsuit), (3,\heartsuit), (4,\heartsuit) \}\]
         \item Es ist $\R\times \R=\R^2$ und die Elemente von $\R\times \R$ können als Koordinaten von Punkten in der Ebene interpretiert werden. Die Idee, Punkte mithilfe von Koordinatensystemen und geometrische Figuren als Lösungsmengen von Gleichungen zu beschreiben, wird traditionell Descartes\footnote{\href{https://de.wikipedia.org/wiki/Rene_Descartes}{René Descartes (1596-1650)}} (latinisiert: Cartesius) zugeschrieben. Daher spricht man auch vom \emph{kartesischen} Produkt.
+        \item Dagegen lässt sich $\N\times\N$ als zweidimensionales „Gitter“ veranschaulichen:
+            \[ \begin{matrix}
+                \vdots &&&& \\
+                (0,3) & \vdots &&& \\
+                (0,2) & (1,2) &&& \\
+                (0,1) & (1,1) & (2,1) & \cdots & \\
+                (0,0) & (1,0) & (2,0) & (3,0) & \cdots
+            \end{matrix} \]
     \end{enumerate}
 \end{bsp}
 
@@ -719,7 +727,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \subsection*{* Disjunkte Vereinigung}
 
 
-\begin{de}[Disjunktheit] \label{def:disjunkt} \index{disjunkte Mengen}
+\begin{defin}[Disjunktheit] \label{def:disjunkt} \index{disjunkte Mengen}
     Zwei Mengen $M,N$ heißen \textbf{disjunkt}, wenn sie keine gemeinsamen Elemente haben, also wenn $M\cap N=\emptyset$.
 
     Eine Familie von Mengen $(M_i)_{i\in I}$ heißt \textbf{paarweise disjunkt}, wenn je zwei der $M_i$'s disjunkt sind, d.h. wenn gilt:
@@ -736,7 +744,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
     \begin{align*}
         \dot{\bigcup_{i\in I}}\ M_i & := \bigcup_{i\in I} M_i && (\text{sofern die $M_i$'s paarweise disjunkt sind})
     \end{align*}
-\end{de}
+\end{defin}
 
 
 \begin{bsp} \label{bsp:disjunkt} \quad
@@ -753,7 +761,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 
 
 \begin{bem}
-    Die Vereinigung einer paarweise disjunkten Mengenfamilie kannst du dir als eine Art „Addition“ vorstellen. Beispielsweise lässt sich zeigen: sind $n,m\in \N$ und $M$ eine Menge mit $m$-vielen Elementen, $N$ eine zu $M$ disjunkte Menge mit $n$-vielen Elementen, so enthält die disjunkte Vereinigung $M\ \dot\cup\ N$ genau $(m+n)$-viele Elemente.
+    Die Vereinigung einer paarweise disjunkten Mengenfamilie kannst du dir als eine Art „Addition“ vorstellen. Beispielsweise lässt sich zeigen: sind $m,n\in \N$ und $M$ eine Menge mit $m$-vielen Elementen, $N$ eine zu $M$ disjunkte Menge mit $n$-vielen Elementen, so enthält die disjunkte Vereinigung $M\ \dot\cup\ N$ genau $(m+n)$-viele Elemente.
 
     Für nicht-disjunkte Vereinigungen gilt das aber nicht. Beispielsweise ist
         \[\{1,3,4\} \cup \{2,3\}= \{1,2,3,4\} \]
@@ -767,7 +775,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \end{bem}
 
 
-\begin{de}[Disjunkte Vereinigung] \label{def:disjunktcup} \index{Disjunkte Vereinigung}
+\begin{defin}[Disjunkte Vereinigung] \label{def:disjunktcup} \index{Disjunkte Vereinigung}
     Sei $(M_i)_{i\in I}$ eine Familie von Mengen. Die Menge
         \[ \bigsqcup_{i\in I} M_i := \bigcup_{i\in I} (\{i\}\times M_i) = \{(i,x) \mid i\in I,\ x\in M_i \}\]
     heißt die (äußere) \textbf{disjunkte Vereinigung} der $M_i$'s.
@@ -777,7 +785,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
     Insbesondere ist für zwei Mengen $M$ und $N$:
         \[ M\sqcup N = \{ (i,x)\mid i=1\ \text{und}\ x\in M\quad\text{oder}\quad i=2\ \text{und}\ x\in N\} \]
     Man spricht von der \emph{disjunkten Vereinigung von $M$ und $N$}.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -886,7 +894,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \end{aufg}
 
 
-\begin{aufg}[Produkte konkret]
+\begin{aufg}[Tupel als strings]
     Wir betrachten die Mengen $T := \{ \text{Dr.} \}, A := \{ \text{Herr, Frau} \}$, $V:= \{ \text{Anne, John} \}$ und $N := \{ \text{Hathaway, Sinclair, Wayne} \}$. Listet die Elemente der folgenden Mengen auf:
     \begin{enumerate}
 	\item $A \times N$

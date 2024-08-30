@@ -1,6 +1,6 @@
 
 
-\setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
+\setchapterpreamble[c][.7\textwidth]{\itshape\color{gray}\small
     In diesem Vortrag werden diejenigen sprachlichen Strukturen vorgestellt, die in der Mathematik verwendet werden, um Definitionen, Sätze und Beweise zu formulieren. 
 \vspace{24pt}}
     
@@ -11,127 +11,223 @@
 \section{Variablen und Terme}
 
 
-\begin{nota}[Zeichen mit einer konkreten Bedeutung versehen] \label{zeichendefinieren}
-    Gelegentlich ist es bequem, ein konkretes, kompliziert definiertes Objekt mit einem Zeichen zu bezeichnen. Beispielsweise lässt sich mit Methoden der Analysis\footnote{Genauer gesagt: der \emph{Differenzialrechnung}, die in der Erstsemestervorlesung „Analysis 1“ oder bereits in der Schule vermittelt wird. Siehe auch \cref{bsp:exverwendung}.} zeigen, dass die Gleichung $x^5=x+1$ genau eine Lösung in den reellen Zahlen besitzt, wohingegen sich mit Methoden der Algebra zeigen lässt, dass sich diese Lösung nicht mit den Operationen $+$, $-$, $\cdot$, $:$, $\sqrt{}$ konstruieren lässt\footnote{Algebraiker sagen: \emph{die Gleichung $x^5=x+1$ ist nicht auflösbar}. Mit der Auflösbarkeit von Gleichungen beschäftigt sich die sogenannte \emph{Galoistheorie}, die in Heidelberg typischerweise in der Drittsemestervorlesung „Algebra 1“ vermittelt wird.}. Möchte man nun mit dieser Lösung arbeiten, so ist es umständlich, immer wieder „die eindeutige reelle Lösung der Gleichung $x^5=x+1$“ zu schreiben und es ist bequemer, einen Buchstaben zu verwenden. Dafür benutzen Mathematiker einen Konjunktiv\footnote{Um genau zu sein, einen \emph{Jussiv}, der im Deutschen mit dem Konjunktiv ausgedrückt wird.}:
-    \begin{quote}
-        „Sei $\xi$ die eindeutige reelle Lösung der Gleichung $x^5=x+1$.“  
-    \end{quote}
-    Nun lassen sich komfortabel Aussagen wie etwa „Es ist $\xi>1$“ formulieren.
-    
-    Um formal ein Zeichen mit einer konkreten Bedeutung zu versehen, kannst du das Zeichen
-    \begin{align*}
-        := &&& (\text{lies: „ist definiert als“ oder „ist per Definition gleich“})
-    \end{align*}
-    verwenden. Beispielsweise wird im Ausdruck
-        \[ \alpha:= \pi + e\]
-    festgelegt, dass der Buchstabe $\alpha$ die Summe von $\pi$ (der Kreiszahl) und $e$ (der Eulerschen Zahl\footnote{\href{https://de.wikipedia.org/wiki/Leonhard_Euler}{Leonhard Euler (1707-1783)}}) bezeichnen soll. Näherungsweise ist $\alpha \approx 5{,}86$. Bis heute ist unbekannt, ob $\alpha$ eine rationale oder eine irrationale Zahl ist.
-    
-    Manchmal ist es deutlich lesbarer, Umgangssprache zu verwenden, als auf Teufel komm raus eine Formel mit dem Zeichen „$:=$“ hinzuschreiben. Zum Beispiel ist die folgende, in Analysis-Vorlesungen beliebte Definition der Kreiszahl $\pi$:
-    \begin{quote}
-        $\pi$ ist definiert als die kleinste positive Nullstelle der Sinus-Funktion.
-    \end{quote}
-    sicherlich für viele Leute schneller verständlich, als der formalisierte Ausdruck
-    \[ \pi := \min \{ x\in \R_{>0} \mid \sin(x)=0\} \]
-    Beachte, dass es gelegentlich einer Begründung dafür, dass ein mathematisches Objekt „wohldefiniert“ ist, bedarf. Beispielsweise sollte im Vorfeld der obigen Definition von $\pi$ sichergestellt werden, dass die Sinus-Funktion überhaupt eine positive Nullstelle besitzt.
-\end{nota}
+\begin{comment}
+\begin{defin}[Objekte und Typen]
+    Ein \textbf{mathematisches Objekt} ist, nun ja, ein Objekt mit dem sich Mathematiker beschäftigen. Der Begriff stammt aus der Philosophie der Mathematik und ist absichtlich nicht streng umrissen. Als wichtigste und grundlegende Objekte lassen sich nennen: Zahlen, Funktionen, Mengen. Ein mathematisches Objekt „existiert“ nicht wirklich in der Realität, aber es lassen sich Abbilder anfertigen. So lassen sich Zahlen mit Kugeln an einem Abakus darstellen, lassen sich Geraden und Kreise mit einer Zeichnung skizzieren und eine reelle Funktion mit einem Plot ihres Funktionsgraphen. Diese Abbilder helfen uns beim Auffinden und Beurteilen mathematischer Sätze und Beweise. Für weiterführende Bemerkungen siehe \cref{anhang:philosophie}.
+
+    In der \emph{Typentheorie} ist jedes Objekt von einem soganannten \textbf{Typ}. Insofern lässt sich ein Typ vorstellen als eine Art „Sorte“ von Objekten. Beim Begriff „Typ“ handelt es sich um einen Grundbegriff, der nicht auf noch grundlegenderen Begriffen aufbauend definiert wird.
+\end{defin}
 
 
-\begin{de}[Variable] \label{def:variable} \index{Variable} \index{Typ einer Variable}
+\begin{defin}[Variable] \label{def:variable} \index{Variable} \index{Typ einer Variable}
+    Eine \textbf{Variable} ist ein Zeichen, das als Platzhalter dient, an dessen Stelle Objekte eines gewissen Typs (man spricht vom \emph{Typ dieser Variable}) eingesetzt werden können.
+\end{defin}
+\end{comment}
+
+
+\begin{defin}[* Variable] \label{def:variable} \index{Variable} \index{Typ einer Variable}
     Eine \textbf{Variable} ist ein Zeichen, das als Platzhalter dient, an dessen Stelle Objekte von einer gewissen Sorte eingesetzt werden können. Die Sorte von Objekten, die für eine Variable eingesetzt werden können, heißt der \textbf{Typ} dieser Variable.
-\end{de}
+\end{defin}
 
 
 \begin{nota}
-    In modernen mathematischen Texten werden Variablen meistens als kursive Buchstaben gedruckt. Ansonsten ist aber alles erlaubt: Großbuchstaben, Kleinbuchstaben, griechische Buchstaben, Hiraganazeichen usw. Beispielsweise können die folgenden Zeichen alle als Variablen verwendet werden:
-        \[ A,B,m,n,\delta,\mu, x,y,\dots \]
-    Prinzipiell darfst du jedes Zeichen als Variable verwenden, solange du festlegst, für welche Sorte von Objekten es als Platzhalter dient (z.B. „Sei $q$ eine rationale Zahl“). Allerdings haben sich in der Mathematik diverse Variablen-Konventionen eingebürgert, die du befolgen solltest, um deinen Text für andere Mathematiker leichter lesbar zu machen. Zum Beispiel:
+    %Typische Typen wären beispielsweise: „Natürliche Zahl“, „reelle $(m\times n)$-Matrix“, „komplexes Polynom in der Variablen $X$“.
+    Anstatt zu schreiben: „Ich verwende das Zeichen $n$ als Variable vom Typ natürliche Zahl“, bedienen sich Mathematiker eines Konjunktivs\footnote{Um genau zu sein, eines \emph{Jussivs}, der im Deutschen mit dem Konjunktiv formuliert wird.} und schreiben schlicht:
+    \begin{quote}
+        „Sei $n$ eine natürliche Zahl.“
+    \end{quote}
+    In modernen mathematischen Texten werden Variablen meistens als kursive Buchstaben gedruckt. Ansonsten ist aber alles erlaubt: Großbuchstaben, Kleinbuchstaben, griechische Buchstaben usw. Beispielsweise können die folgenden Zeichen alle als Variablen verwendet werden:
+        \[ A,B,x,y,\gamma,\delta,\dots \]
+    Prinzipiell kannst du jedes Zeichen als Variable verwenden, solange du vorher seinen Typ festlegst (z.B. „Seien $x,y$ zwei reelle Zahlen“). Allerdings haben sich in der Mathematik Konventionen eingebürgert, die gewisse Zeichen mit gewissen Typen assoziieren, und die du befolgen solltest, um deinen Text für andere Mathematiker leichter lesbar zu machen. Zum Beispiel:
     \begin{itemize}
-        \item Natürliche Zahlen werden meist mit den Buchstaben $n,m,k,\dots$ bezeichnet.
+        \item Natürliche Zahlen werden meist mit den Buchstaben $m,n\dots$ bezeichnet.
         \item Reelle Zahlen mit den Buchstaben $x,y,\dots$.
-        \item Komplexe Zahlen mit den Buchstaben $z,w,\dots$.
-        \item Funktionen werden meist mit den Buchstaben $f,g,\dots$ bezeichnet.
-        \item Vektoren mit den Buchstaben $v,w,\dots$.
-        \item Aussagen\footnote{siehe \cref{def:aussage}} werden meist mit den Buchstaben $A,B,\dots$ bezeichnet. In der englischen Literatur sind dagegen die Buchstaben $P,Q,\dots$ gebräuchlich ($P$ wie ``proposition'').
-        \item In der mathematischen Logik kommt es sogar vor, dass „Metavariablen“ vom Typ „Variable“ auftauchen („Seien $x,y$ zwei Variablen“).
+        %\item Komplexe Zahlen mit den Buchstaben $z,w,\dots$.
+        \item Abbildungen mit den Buchstaben $f,g,\dots$.
+        \item Mengen werden meist mit Großbuchstaben notiert und deren Elemente mit naheliegenden Kleinbuchstaben („Sei $R$ eine Menge und seien $r,s\in R$“).
+        \item Aussagen (\cref{def:aussage}) werden meist mit den Buchstaben $A,B,\dots$ bezeichnet. In der englischen Literatur sind dagegen die Buchstaben $P,Q,\dots$ gebräuchlich ($P$ wie ``proposition'').
+        \item In der mathematischen Logik kommt es sogar vor, dass \emph{Metavariablen} vom Typ „Variable“ auftauchen („Seien $x,y$ zwei Variablen“).
     \end{itemize}
-    Das alles sind aber keine strikten Regeln und du solltest, wann immer du Variablen verwendest, klarstellen, von welchem Typ sie sind. Um die Festlegung eines Variablentyps sprachlich hervorzuheben, verwenden Mathematiker den Konjunktiv. Wie beispielsweise in „Seien $x,y$ zwei reelle Zahlen“ oder „Es bezeichne $n$ eine beliebige natürliche Zahl“.
+    Das alles sind aber keine strikten Regeln und du wirst mit der Zeit ein Gespür für guten Stil entwickeln.
 \end{nota}
 
 
-\begin{bem}[Variablen nie vom Himmel fallen lassen!]
-    Erstsemester vergessen nicht selten, ihre Variablen sachgemäß einzuführen. Wann immer du eine Variable wie „$x$“ oder „$A$“ verwendest, solltest du, z.B. mit einem „Sei\dots“-Satz, klarstellen, auf welche Sorte von Objekten sie sich bezieht. Es ist \emph{sehr} nervig und verwirrend, wenn in Texten plötzlich Buchstaben auftreten, für die nie klargestellt wurde, was sie zu bedeuten haben.
-\end{bem}
-
-
-\begin{bem}
-    Für das Einsetzen von Objekten für Variablen gelten folgende Grundsätze:
+\begin{bem} \quad
     \begin{itemize}
-        \item Gleiche Variablen bezeichnen gleiche Objekte. Bezeichnet beispielsweise $x$ eine reelle Zahl, so wird in
-            \[ 2x-x^2 \]
-        vorausgesetzt, dass an beiden Vorkommen von $x$ dasselbe Objekt eingesetzt wird. Zwei verschiedene Objekte einzusetzen, wie etwa „$2\cdot 7 - 3^2$“, wäre unzulässig.
-        \item Verschiedene Variablen dürfen dasselbe Objekt bezeichnen. Schreiben Mathematiker beispielsweise so etwas wie „Seien $n,m$ zwei natürliche Zahlen“, so schließt dies auch den Fall mit ein, dass $n$ und $m$ dieselbe Zahl sein können. Andernfalls schriebe man so etwas wie „Seien $n,m$ zwei \emph{verschiedene} natürliche Zahlen“.
+        \item Für das Einsetzen von Objekten für Variablen gelten folgende Grundsätze:
+        \begin{itemize}
+            \item Gleiche Variablen bezeichnen gleiche Objekte. Bezeichnet beispielsweise $x$ eine reelle Zahl, so wird in
+                \[ x^2-2x \]
+            vorausgesetzt, dass an beiden Vorkommen von $x$ dasselbe Objekt eingesetzt wird. Zwei verschiedene Objekte einzusetzen, wie etwa „$7^2-2\cdot 3$“, wäre unzulässig.
+            \item Verschiedene Variablen dürfen dasselbe Objekt bezeichnen. Schreiben Mathematiker so etwas wie „Seien $m,n$ zwei natürliche Zahlen“, so schließt dies auch den Fall mit ein, dass $m$ und $n$ dieselbe Zahl sein können. Andernfalls schriebe man so etwas wie „Seien $m,n$ zwei \emph{verschiedene} natürliche Zahlen“.
+        \end{itemize}
+        \item(Variablen nie vom Himmel fallen lassen!) Erstsemester vergessen nicht selten, ihre Variablen sachgemäß einzuführen. Wann immer du eine Variable wie „$x$“ oder „$A$“ verwendest, solltest du, z.B. mit einem „Sei\dots“-Satz, klarstellen, auf welche Sorte von Objekten sie sich bezieht. Für die Tutoren ist es \emph{sehr} nervig, wenn in Aufgabenlösungen plötzlich Buchstaben auftreten, für die nie klargestellt wurde, was sie zu bedeuten haben.
     \end{itemize}
 \end{bem}
 
 
-\begin{de}[Term] \index{Term}
-    Seien $n$ eine natürliche Zahl und $x_1,\dots , x_n$ ein paar Variablen. Ein \textbf{Term} in den Variablen $x_1,\dots , x_n$ ist ein sprachliches Gebilde $t$, das, setzt man für jede der Variablen $x_1,\dots ,x_n$ jeweils ein konkretes Objekt ein, selbst ein konkretes Objekt bezeichnet. Die Sorte dieses letzteren Objekts heißt der \textbf{Typ} des Terms $t$. Um hervorzuheben, dass $t$ ein Term in den Variablen $x_1,\dots , x_n$ ist, schreibt man auch
+\begin{comment}
+\begin{bem}[* Typenambivalenz]
+    Gelegentlich hat man eine „natürliche Entsprechung“ zwischen den Objekten des einen und denen eines anderen Typs (in der Kategorientheorie spricht man von einer \emph{natürlichen Bijektion}). Beispielsweise lässt sich ein Paar reeller Zahlen $x,y$ sowohl als Punkt im $\R^2$ als auch als Vektor auffassen. Die natürliche Entsprechung wäre hier die Identifikation eines Punkts mit seinem Ortsvektor.
+
+    Diese Ambivalenz führt bereits in der Schulmathematik zu Verwirrung. Manchmal ist es sinnvoll, differenzierende Notation einzuführen, etwa den Punkt mit „$P(x\mid y)$“ und den Vektor mit „$\left(\begin{smallmatrix} x \\ y\end{smallmatrix}\right)$“ oder dergleichen zu bezeichnen. Das kann aber auch schnell zu überbordender Notation führen und oft ist es sinnvoller, die Notation ambivalent zu halten und dem Leser die Aufgabe zu überlassen, den Überblick über die Typen zu bewahren. Dir sollte beim Umgang mit mathematischen Objekten so gut es geht klar sein, welchem Typ die Objekte angehören bzw. auf welche Weise welche Typen miteinander identifiziert werden, in diesem Fall also, ob $\left(\begin{smallmatrix} x \\ y\end{smallmatrix}\right)$ vom Typ „Punkt” oder vom Typ „Vektor“ ist oder ob mittels der Entsprechung „Ortvektor von\dots“ kein Unterschied zwischen beidem gemacht wird.
+
+    Eine lange Liste einiger grundlegender \emph{natürlicher Bijektionen} findest du am Ende von \cref{formelsammlung}. Eine rigorose Formalisierung der mathematischen Praxis, sich „entsprechende“ aber eigentlich ungleiche Objekte miteinander zu „identifizieren“, konnte bislang nicht etabliert werden.% In jüngerer Zeit liefert die sogenannte \emph{Homotopietypentheorie} einen Ansatz, der bislang aber nicht im Mainstream Fuß fassen konnte.
+\end{bem}
+\end{comment}
+
+
+\begin{defin}[Mengen] \label{mengenimlogikkapitel}
+    Die Einführung des Mengenbegriffs in die Mathematik erfolgte durch Georg Cantor\footnote{\href{https://de.wikipedia.org/wiki/Georg_Cantor}{Georg Cantor (1845-1918)}} in den 1870er Jahren. Cantor beschreibt seine Idee in \cite{Can95} wie folgt:
+    \begin{quote}
+        „Unter einer \textbf{Menge} $M$ verstehen wir jede Zusammenfassung von bestimmten wohlunterschiedenen Objekten $m$ unserer Anschauung oder unseres Denkens (welche die \textbf{Elemente} von $M$ genannt werden) zu einem Ganzen.“\footnote{Eine (möglicherweise fiktive) Anekdote aus \cite{Ded32}, S. 449 beschreibt folgende „Veranschaulichungen“ des Mengenbegriffs:
+    \begin{quote}
+        Dedekind äußerte, hinsichtlich des Begriffes der Menge: er stelle sich eine Menge vor wie einen geschlossenen Sack, der ganz bestimmte Dinge enthalte, die man aber nicht sähe, und von denen man nichts wisse, außer dass sie vorhanden und bestimmt seien. Einige Zeit später gab Cantor seine Vorstellung einer Menge zu erkennen: Er richtete seine kolossale Figur hoch auf, beschrieb mit erhobenem Arm eine großartige Geste und sagte mit einem ins Unbestimmte gerichteten Blick: „Eine Menge stelle ich mir vor wie einen Abgrund.“
+    \end{quote}
+    Dedekinds Vorstellung kommt der des Durchschnittsmathematikers wohl näher.}
+    \end{quote}
+    Eine Menge „enthält“ gewisse Objekte, welche dann ihre „Elemente“ heißen.
+
+    Die Formalisierung des Mengenbegriffs ist Aufgabe der \emph{Mengenlehre}. Dort ist der Begriff der Menge meist ein Grundbegriff, der nicht auf anderen Begriffen aufbauend definiert wird.
+\end{defin}
+
+
+\begin{nota}[Elementzeichen]
+    Sind $M$ eine Menge und $a$ ein Objekt, so schreibt man
+    \begin{align*}
+        a\in M\qquad&:\Leftrightarrow\qquad a\ \text{ist ein Element von}\ M \\
+        a\notin M\qquad&:\Leftrightarrow\qquad a\ \text{ist kein Element von}\ M
+    \end{align*}
+    %Insbesondere gilt für jedes Objekt $a$ und jedes Prädikat $E$:
+    %    \[ E(a) \qquad\leftrightarrow\qquad a\in \{x\mid E(x)\} \]
+\end{nota}
+
+
+\begin{bsp}[Zahlbereiche]
+    Beispielsweise notiert man mit
+    \begin{itemize}
+        \item $\N$ die Menge der ganzen Zahlen (manchmal mit Null, manchmal ohne).
+        \item $\Z$ die Menge der ganzen Zahlen.
+        \item $\Q$ die Menge der rationalen Zahlen.
+        \item $\R$ die Menge reellen Zahlen.
+        \item $\C$ die Menge der komplexen Zahlen.
+    \end{itemize}
+    Es gilt dann beispielsweise $-3\in \Z$ und $\frac{3}{2}\in\Q$, aber $-3\notin \N$ und $\frac{3}{2}\notin \Z$.
+\end{bsp}
+
+
+\begin{bem}[* Mengen vs. Typen]
+    In der \emph{Typentheorie} ist jedes Objekt von einem Typ, wobei es sich bei „Typ“ um einen Grundbegriff handelt, der nicht auf noch grundlegenderen Begriffen aufbauend definiert wird.
+
+    In der Mengenlehre ist dagegen jedes Objekt ein Element einer Menge. Die Mengenlehre ist in der Lage, gewisse Typentheorien zu emulieren, d.h. sie stellt ein Modell für den Begriff „Typ“ zur Verfügung. Man definiert dann schlicht: Ein Typ $T$ ist eine Menge und ein Objekt vom Typ $T$ ist ein Element der Menge $T$. Beispielsweise wird „$n$ ist ein Objekt vom Typ ganze Zahl“ im Mengen-Formalismus zu „$n\in\Z$“. Mathematiker bedienen sich dieser Sprache auch häufig beim Einführen von Variablen: Anstelle von „Sei $n$ eine ganze Zahl“ schreiben sie schlicht „Sei $n\in \Z$“; oder anstelle von „Sei $A$ eine reelle $(m\times n)$-Matrix“ schreiben sie schlicht „Sei $A\in \R^{m\times n}$“. Dies ist auch erst einmal die einzige Rolle, die Mengen in diesem Kapitel spielen werden. Eine tiefere Beschäftigung mit Mengen ist Inhalt des dritten Kapitels.
+
+    Umgekehrt ist die Typentheorie in der Lage, die Mengenlehre zu emulieren. Hier ist dann „Menge“ schlicht ein Typ unter vielen, der gewissen Regeln unterliegt. Während Mathematiker meist typentheoretisch \emph{denken}, dominiert im \emph{Geschriebenen} jedoch die $\in$-Sprache der Mengenlehre und auch dieses Skript wird dieser Sprache folgen.% Die meisten Programmiersprachen folgen dagegen einer typentheoretischen Paradigmatik, d.h. sie kommen mit einer Reihe von Grundtypen daher (z.B. ``string'' und ``integer''), aus denen sich dann weitere Typen konstruieren lassen.
+    %\TODO Es gibt auch noch weitere sprachliche Rahmen: in der \emph{Topostheorie} sind beispielsweise Mengen und Abbildungen die Grundobjekte und ein „Element“ einer Menge ist dann definiert als eine Abbildung bestimmter Art. Im Gebiet der "reverse mathematics" sind die natürlichen Zahlen die Grundobjekte und alle möglichen anderen mathmematischen Objekte wie Funktionen, reelle Zahlen, Vektorräume usw. sind schlicht natürliche Zahlen.
+    %Während ein solcher Reduktionismus philosophisch reizvoll sein mag, ist er für die mathematische Praxis meistens (aber nicht immer) irrelevant. Ob nun gilt: „alles ist eine Menge“, „alles ist eine Zahl“ oder\TODO
+\end{bem}
+
+
+\begin{defin}[Term] \label{def:term} \index{Term}
+    Seien $n\in \N$ und $x_1,\dots , x_n$ ein paar Variablen. Ein \textbf{Term} in den Variablen $x_1,\dots , x_n$ ist ein sprachliches Gebilde $t$, das, setzt man für jede der Variablen $x_1,\dots ,x_n$ jeweils ein konkretes Objekt ein, selbst ein konkretes Objekt bezeichnet. Der Typ dieses letzteren Objekts heißt der \emph{Typ des Terms $t$}. Um hervorzuheben, dass $t$ ein Term in den Variablen $x_1,\dots , x_n$ ist, schreibt man auch
     \begin{align*}
         t(x_1,\dots , x_n) && (\text{lies: „$t$ von $x_1,\dots , x_n$“})
     \end{align*}
-\end{de}
+
+\end{defin}
 
 
 \begin{bsp} \quad
     \begin{enumerate}
-        \item Bezeichnen $x,y$ zwei reelle Zahlen, so ist der Ausdruck
+        \item Für $x,y\in \R$ ist der Ausdruck
             \[ x^2+3xy-y^3 \]
         ein Term vom Typ „reelle Zahl“ in den Variablen $x$ und $y$. Setzt man beispielsweise für $x$ die Zahl $3$ und für $y$ die Zahl $2$ ein, erhält man den Zahlenwert $19$.
-        \item Steht die Variable $m$ für einen Menschen, so ist der Ausdruck „Das Geburtsjahr von $m$“ ein Term vom Typ „ganze Zahl“ in der Variable $m$. Setzt man für $m$ einen konkreten Menschen ein, bezeichnet dieser Ausdruck also eine bestimmte ganze Zahl.
-        \item Ein Term braucht nicht unbedingt Variablen enthalten. Beispielsweise sind die Ausdrücke
+        \item Steht die Variable $m$ für einen Menschen, so ist der Ausdruck „Das Geburtsjahr von $m$“ ein Term vom Typ „ganze Zahl“ in der Variable $m$. Denn setzt man für $m$ einen konkreten Menschen ein, erhält man mit dessen Geburtsjahr eine ganze Zahl.
+        \item In \cref{def:term} ist auch $n=0$ erlaubt, d.h. ein Term braucht nicht unbedingt Variablen enthalten. Beispielsweise sind die Ausdrücke
         \begin{align*}
              2+2 && 6{,}02\cdot 10^{23} && (\text{Die Quersumme von $420$})
         \end{align*}
-        drei Terme vom Typ „ganze Zahl“, in denen keine Variablen vorkommen. Sie bezeichnen daher von vornherein ein konkretes Objekt.
+        drei Terme vom Typ „reelle Zahl“, in denen keine Variablen vorkommen. Sie bezeichnen daher von vornherein eine konkrete reelle Zahl.
     \end{enumerate}
 \end{bsp}
 
 
-\begin{bem}
-    Sei $y$ ein Term in den Variablen $x_1,\dots , x_n$. Beachte, dass nicht jede der Variablen $x_1,\dots , x_n$ unbedingt in $y$ vorkommen muss. Beispielsweise ist $y(x_1,\dots , x_n):=3x_1$ auch ein „Term in den Variablen $x_1,\dots , x_n$“, obwohl außer $x_1$ gar keine weitere Variable darin vorkommt.
+\begin{bem}[*] \label{konstruktoren} \quad
+    \begin{itemize}
+        \item In einem Term in den Variablen $x_1,\dots , x_n$ braucht nicht unbedingt auch jede dieser Variablen vorkommen. Beispielsweise kann „$3x_1+x_2$“ auch als „Term in den Variablen $x_1,x_2,x_3$“ verstanden werden, obwohl die Variable $x_3$ gar nicht darin vorkommt.
+        \item Häufig lassen sich Terme iterativ über gewisse „Konstruktoren“ erzeugen, man spricht dann von einer \emph{Termalgebra}. Bespielsweise lassen sich auf den reellen Zahlen mit den Kontruktoren $+$ und $\cdot$ bereits beliebig komplizierte Verschachtelungen bilden wie zum Beispiel
+            \[ (x_1 +(x_2\cdot x_3))+(x_4+((x_5+x_6)\cdot (x_7+x_8)))\]
+        Die aussagenlogischen Junktoren aus \cref{section:aussagenlogik} fungieren als Konstruktoren für Aussagen.
+    \end{itemize}
 \end{bem}
 
 
-\begin{de}[* Variablensubstitution] \label{def:substitution}
-    Sei $t(x)$ ein Term in der Variablen $x$. Ist $y$ ein Objekt vom Typ der Variablen $x$ oder ein weiterer Term, dessen Typ mit demjenigen der Variable $x$ übereinstimmt, so kann $y$ für die Variable $x$ \textbf{eingesetzt} (oder auch: \textbf{substituiert}) werden. Der so entstandene Term wird meist notiert durch
+\begin{nota}[$:=$]
+    Komplizierte Terme möchte man nicht jedes Mal erneut aufschreiben und führt neue Zeichen ein, um diese Terme abzukürzen. Dabei bedient man sich des Zeichens
+    \begin{align*}
+        := &&& (\text{lies: „ist definiert als“ oder „ist per Definition gleich“})
+    \end{align*}
+    Beispielsweise wird mit dem Ausdruck
+        \[ y(x) := 2x^2-3x \]
+    festgelegt, dass das Zeichen „$y$“ fortan einen Term $y(x)$ bezeichne, nämlich „$2x^2-3$“.
+
+    Der Term $y$ braucht nicht unbedingt Variablen enthalten. Schreibt man beispielsweise
+        \[ \alpha:= \pi + e\]
+    so wird damit festgelegt, dass der Buchstabe $\alpha$ die Summe von $\pi$ (der Kreiszahl) und $e$ (der Eulerschen Zahl\footnote{\href{https://de.wikipedia.org/wiki/Leonhard_Euler}{Leonhard Euler (1707-1783)}}) bezeichnen soll. Näherungsweise ist $\alpha \approx 5{,}86$. Bis heute ist unbekannt, ob $\alpha$ eine rationale oder eine irrationale Zahl ist.
+\end{nota}
+
+
+\begin{defin}[* Variablensubstitution] \label{def:substitution}
+    Sei $t(x)$ ein Term in der Variablen $x$. Ist $y$ ein weiterer Term, dessen Typ mit demjenigen der Variable $x$ übereinstimmt, so kann $y$ für die Variable $x$ \textbf{eingesetzt} (oder auch: \textbf{substituiert}) werden. Der so entstandene Term wird meist notiert durch
     \begin{align*}
         t(y) && (\text{lies: „$t$ von $y$“})
     \end{align*}
-\end{de}
+\end{defin}
 
 
 \begin{bsp}[*] \quad \label{bsp:substitution}
     \begin{enumerate}
-        \item Steht $x$ für eine reelle Zahl, so sind $t(x):=x^2$ und $s(x):=x-1$ zwei Terme vom Typ „reelle Zahl“. Setzt man für die Variable $x$ im Term $s$ den Term $t$ ein, ergibt sich der Term $x^2-1$. Setzt man dagegen in $t$ den Term $s$ ein, ergibt sich $(x-1)^2$.
+        \item Für $x\in\R$ sind $t(x):=x^2$ und $s(x):=x-1$ zwei Terme vom Typ „reelle Zahl“. Setzt man für die Variable $x$ im Term $s$ den Term $t$ ein, ergibt sich der Term $x^2-1$. Setzt man dagegen in $t$ den Term $s$ ein, ergibt sich $(x-1)^2$.
         \item Substituieren wir im Term „Das Geburtsjahr von $m$“ die Variable $m$ durch den Term „die Mutter von $m$“, ergibt sich der Term „Das Geburtsjahr der Mutter von $m$“.
-        \item Bezeichnen $x$ eine reelle Zahl mit $-1<x<1$ und $\varphi$ eine beliebige reelle Zahl, so sind
-            \[ f(x):=\sqrt{1-x^2} \qquad\text{und}\qquad s:=\sin(\varphi) \]
-        zwei Terme vom Typ „reelle Zahl“, wobei $s$ sogar eine reelle Zahl zwischen $-1$ und $1$ bezeichnet. Substituieren wir im Term $t$ die Variable $x$ durch den Term $s$, ergibt sich
+        \item Für $x,\varphi\in \R$ mit $-1\le x\le 1$ sind
+            \[ y(x):=\sqrt{1-x^2} \qquad\text{und}\qquad s:=\sin(\varphi) \]
+        zwei Terme vom Typ „reelle Zahl“ mit $-1\le s\le 1$. Substituieren wir im Term $y$ die Variable $x$ durch den Term $s$, ergibt sich
             \[ \sqrt{1-\sin(\varphi)^2} \]
-        was gleichbedeutend zu $\vert \cos(\varphi)\vert$ ist. Substitutionen dieser Art sind dir vielleicht von der sogenannten \emph{Integration durch Substitution} aus der Schule vertraut.
+        was gleichwertig zu $\vert \cos(\varphi)\vert$ ist. Substitutionen dieser Art sind dir vielleicht von der \emph{Integration durch Substitution} aus der Schule vertraut.
     \end{enumerate}
 \end{bsp}
 
 
+\begin{bem}[* Parameter] \index{Parameter}
+    Manchmal enthält ein Term Variablen, die nicht dazu intendiert sind, Objekte an ihrer Stelle einzusetzen, oder die hinsichtlich Einsetzen von Objekten eine geringere Priorität als andere Variablen haben. Man spricht dann gelegentlich von \textbf{Parametern}. Schreibt man beispielsweise
+        \[ y(x):=x^2-ax \]
+    so wäre dies eigentlich ungenau, weil der Term $y(x)$ ja neben $x$ auch noch die Variable $a$ enthält. Stattdessen soll deren Unterdrückung in der Notation darauf hinweisen, dass sie als Parameter angesehen wird. Zur Präzisierung könnte man auch sowas wie „$y_a(x)$“ schreiben. In der Schule ist dir dieses Vorgehen bereits bei Funktionenscharen begegnet.
+\end{bem}
+
+
+\begin{nota}[* Gebundene Variablen] \label{gebundenevariable} \index{gebundene Variable} \index{freie Variable}
+    Betrachte einmal den Term
+        \[ y(x):=2x^2+3x+1 \]
+    Dies ist ein Term in der Variablen $x$, sodass für $x$ eine beliebige Zahl eingesetzt werden kann. Z.B. wäre $y(-2)=3$. Im Term
+        \[ \int_0^1 (2x^2+3x+1)\ dx\]
+    ist dies nicht mehr der Fall. Hier ergäbe es keinen Sinn mehr, für das Zeichen $x$ irgendein Objekt einzusetzen. Ein Ausdruck wie etwa „$\int_0^1 (2\cdot 4^2+3\cdot 4+1)\ d4$“ wäre syntaktisch unzulässig.
+
+    Obwohl man $x$ in diesem Kontext die Integrations\emph{variable} nennt, handelt es sich nicht um eine Variable im Sinne von \cref{def:variable}, sondern nur noch um ein „Dummy-Zeichen“, das darauf hinweist, über welche Variable integriert wird. Man nennt $x$ in dieser Situation eine \textbf{gebundene Variable}. Weitere Situationen, die solche Dummy-Variablen involvieren, sind die Laufvariablen unterm Summenzeichen (siehe \cref{mehrfachprodukt}), der Folgenindex bei einer Limesbildung (siehe \cref{def:konvergenz}), Variablen, die durch Anwendung eines Quantors gebunden werden (\cref{quantorbindung}), das „generische Element“ in der Extension einer Eigenschaft (\cref{def:extension}) oder in einer Abbildungsvorschrift (\cref{def:zuordnung}):
+        \[ \sum_{k=1}^m (k^2-2) \quad \lim_{n\to \infty} \frac{n}{n+1} \qquad \forall x\in\R: x^2\ge 0 \qquad \{p\in \N \mid p\ \text{ist eine Primzahl}\} \quad n\mapsto n+1 \]
+    Hier wären $k,n,x,p$ die gebundenen Variablen. Um gebundene Variablen von den eigentlichen Variablen im Sinne von \cref{def:variable} abzugrenzen, nennt man letztere auch \textbf{freie Variablen}. Ein Term kann durchaus mehrere gebundene und freie Variablen zugleich enthalten: Der Term $\sum_{k=1}^m(k^2-2)$ enthält neben der gebundenen Variable $k$ auch noch die freie Variable $m$ und der Term
+        \[ \int_0^z e^{-cx^2} dx \]
+    enthält neben einer gebundenen Variable $x$ auch noch die freien Variablen $z$ und $c$ (wobei letztere je nach Kontext als Parameter behandelt wird, worauf bereits der Buchstabe $c$ wie ``constant'' hinweist).% Weitere Beispiele für gebundene Variablen werden Extensionen von Mengen (\cref{extensionimlogikkapitel}) und die Quantoren der Prädikatenlogik liefern.
+\end{nota}
 
 
 
-\section{Bausteine der Aussagenlogik}
 
 
-\begin{de}[Aussage] \label{def:aussage}
-    Eine \textbf{Aussage} ist ein feststellender Satz, dem ein Wahrheitswert wie zum Beispiel „wahr“ oder „falsch“ zugeordnet werden kann.
-\end{de}
+\section{Bausteine der Aussagenlogik} \label{section:aussagenlogik}
+
+
+\begin{defin}[Aussage] \label{def:aussage}
+    Eine \textbf{Aussage} ist ein Satz, dem ein Wahrheitswert zugeordnet werden kann.
+\end{defin}
 	
 
 \begin{bsp}
@@ -152,21 +248,21 @@
 \end{bsp}
 
 
-\begin{de}[Junktor] \index{Junktor}
+\begin{defin}[Junktor] \index{Junktor}
     Eine systematische Operation, die aus einer Handvoll Aussagen eine neue Aussage hervorbringt, heißt \textbf{Junktor} oder auch \textbf{logischer Operator}.
-\end{de}
+\end{defin}
 
 
 Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 
-\begin{de}[Und-Verknüpfung] \index{Konjunktion}
+\begin{defin}[Und-Verknüpfung] \index{Konjunktion}
     Zwei Aussagen $A,B$ können zu ihrer \textbf{Konjunktion}
     \begin{align*}
         A\land B && (\text{lies: „$A$ und $B$“})
     \end{align*}
-    verknüpft werden, deren Bedeutung ist, dass sowohl $A$ als auch $B$ zutreffen.
-\end{de}
+    verknüpft werden, deren intendierte Bedeutung ist, dass sowohl $A$ als auch $B$ zutreffen.
+\end{defin}
 
 
 \begin{bsp}
@@ -180,13 +276,13 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 \end{bsp}
 	
 	
-\begin{de}[Oder-Verknüpfung] \index{Disjunktion}
+\begin{defin}[Oder-Verknüpfung] \index{Disjunktion}
     Zwei Aussagen $A,B$ können zu ihrer \textbf{Disjunktion}
     \begin{align*}
         A\lor B && (\text{lies: „$A$ oder $B$“})
     \end{align*}
-    verknüpft werden, deren Bedeutung ist, dass mindestens eine der Aussagen $A$ und $B$ zutrifft.
-\end{de}
+    verknüpft werden, deren intendierte Bedeutung ist, dass mindestens eine der Aussagen $A$ und $B$ zutrifft.
+\end{defin}
     
 
 \begin{bsp}
@@ -200,7 +296,7 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 		
 \begin{bem}[Fachbegriffe]
-    Du brauchst dir im Vorkurs nicht gleich alle Fachbegriffe zu merken. Sofern du weißt, dass es eine Und- und eine Oder-Verknüpfung gibt, brauchst du dir nicht merken, dass sie auch „Konjunktion“ und „Disjunktion“ genannt werden. In diesem und den folgenden Vorträgen werden wir dennoch oft mehrere Wörter für dasselbe Konzept nennen, um dir zu erleichtern, die Begriffe im Internet nachzuschlagen.
+    Du brauchst dir im Vorkurs nicht gleich alle Fachbegriffe zu merken. Sofern du weißt, dass es eine Und- und eine Oder-Verknüpfung gibt, brauchst du dir nicht merken, dass sie auch „Konjunktion“ und „Disjunktion“ genannt werden. In diesem und den folgenden Vorträgen werden wir dennoch oft mehrere Wörter für dasselbe Konzept nennen, um dir das Nachschlagen der Begriffe in Literatur und Internet zu erleichtern.
 \end{bem}
 
 	
@@ -228,19 +324,19 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
     \begin{quote}
         „Jeder Vorkursteilnehmer studiert entweder Mathematik oder Informatik.“
     \end{quote}
-    falsch ist, da es ja auch Vorkursteilnehmer gibt, die beides studieren.
+    falsch ist, da manche ja auch beides studieren.
 \end{bsp}
 
 
-\begin{de}[Negation] \index{Negation}
+\begin{defin}[Negation] \index{Negation}
     Für eine Aussage $A$ wird mit
     \begin{align*}
         \neg A   && (\text{lies: „nicht $A$“})
     \end{align*}
-    die \emph{Negation} von $A$ notiert. $\neg A$ ist die Verneinung von $A$, d.h. $\neg A$ besagt, dass $A$ nicht zutrifft.
+    die \emph{Negation} von $A$ notiert. $\neg A$ ist die Verneinung von $A$, d.h. $\neg A$ soll besagen, dass $A$ nicht zutrifft.
     
     Manchmal wird die Negation einer Aussage $A$ auch mit einem Oberstrich notiert: $\overline{A}$.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}    
@@ -255,12 +351,12 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 \end{bsp}
 
 
-\begin{de}[Implikationspfeil] \index{Implikation}
+\begin{defin}[Implikationspfeil] \index{Implikation}
     Zwei Aussagen $A,B$ können zur („materiellen“) \textbf{Implikation}
     \begin{align*}
         A\to B   && (\text{lies: „$A$ impliziert $B$“})
     \end{align*}
-    verknüpft werden: Deren Bedeutung ist, dass $B$ von $A$ impliziert wird. Weitere Lesarten sind:
+    verknüpft werden: Deren intendierte Bedeutung ist, dass $B$ von $A$ impliziert wird. Weitere Lesarten sind:
     \begin{itemize}
         \item „Wenn $A$ so auch $B$“
         \item „Falls $A$, dann $B$“
@@ -269,8 +365,8 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
         \item „$B$ ist eine Konsequenz von $A$“
         \item usw.
     \end{itemize}
-    Man nennt den Pfeil „$\to$“ auch den \textbf{Implikationspfeil} und die Aussage $A\to B$ auch ein \emph{Konditional}.
-\end{de}
+    Man nennt den Pfeil „$\to$“ auch den \textbf{Implikationspfeil} und die Aussage $A\to B$ ein \emph{Konditional}.
+\end{defin}
 
 
 \begin{bsp}
@@ -289,30 +385,30 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
         \item „Wenn heute Freitag ist, ist morgen Wochenende.“
         \item „Falls morgen Wochenende ist, ist heute Freitag.“
     \end{enumerate}
-    zwei erheblich verschiedene Aussagen. Aussage (1) ist korrekt, aber Aussage (2) ist falsch, da ja auch Samstag sein könnte.
+    zwei wesentlich verschiedene Aussagen. Aussage (1) ist korrekt, aber Aussage (2) ist falsch, da ja auch Samstag sein könnte.
 \end{bem}
 
 
-\begin{de}[Äquivalenz] \index{Aequivalenz (von Aussagen)@Äquivalenz (von Aussagen)}
+\begin{defin}[Äquivalenz] \index{Aequivalenz (von Aussagen)@Äquivalenz (von Aussagen)}
     Zwei Aussagen $A$ und $B$ lassen sich zur \textbf{Äquivalenz}
     \begin{align*}
-        A\leftrightarrow B  && (\text{lies: „$A$ ist äquivalent zu $B$“})
+        A\leftrightarrow B  && (\text{lies: „$A$ äquivalent zu $B$“})
     \end{align*}
-    verknüpfen, deren Bedeutung ist, dass sowohl $B$ von $A$ impliziert wird als auch $A$ von $B$ impliziert wird. Lesarten dafür sind:
+    verknüpfen, deren intendierte Bedeutung ist, dass sowohl $B$ von $A$ impliziert wird als auch $A$ von $B$ impliziert wird. Lesarten dafür sind:
     \begin{itemize}
         \item „$A$ genau dann wenn $B$“. Ist wenig Platz vorhanden, schreibt man abkürzend „$A$ gdw. $B$“. In der englischen Literatur schreibt man ``$A$ iff $B$''.
         \item „$A$ gilt dann und nur dann, wenn $B$“
     \end{itemize}
-    Man nennt den Doppelpfeil „$\leftrightarrow$“ einen \textbf{Äquivalenzpfeil} und die Aussage $A\leftrightarrow B$ auch ein \emph{Bikonditional}.
-\end{de}
+    Man nennt den Doppelpfeil „$\leftrightarrow$“ einen \textbf{Äquivalenzpfeil} und die Aussage $A\leftrightarrow B$ ein \emph{Bikonditional}.
+\end{defin}
 
     
 \begin{bsp}
     Beispiele für Äquivalenzaussagen sind:
     \begin{itemize}[labelindent=5.5em, labelwidth=\widthof{$B_1\leftrightarrow B_3 =$}, leftmargin=*]
-        \item[$B_1\leftrightarrow B_3=$] „Dass der Döner in Deutschland erfunden wurde, ist äquivalent dazu, dass es außerirdisches Leben gibt.“
         \item „Genau dann ist heute Mittwoch, wenn morgen Donnerstag ist.“
         \item „Eine reelle Zahl $x$ ist dann und nur dann eine negative reelle Zahl, wenn $-x$ eine positive reelle Zahl ist.“
+        \item[$B_1\leftrightarrow B_3=$] „Dass der Döner in Deutschland erfunden wurde, ist äquivalent dazu, dass es außerirdisches Leben gibt.“
     \end{itemize}
 \end{bsp}
 
@@ -320,9 +416,9 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 \begin{bem}[* Die Pfeile $\to$ und $\Leftrightarrow$]
     Für Implikation und Äquivalenz sind sowohl die einfachen Pfeile $\to$, $\leftrightarrow$ als auch die doppelten Pfeile $\Rightarrow$, $\Leftrightarrow$ gebräuchlich.
     
-    Gelegentlich werden verschachtelte Aussagen übersichtlicher, wenn die doppelten Pfeile zur Darstellung von Implikationen, die „eine Ebene höher“ liegen, verwendet werden, so mache ich es etwa in \cref{relgleich}.
+    Gelegentlich werden verschachtelte Aussagen übersichtlicher, wenn die doppelten Pfeile zur Darstellung von Implikationen, die „eine Ebene höher“ liegen, verwendet werden. So mache ich es etwa in \cref{relgleich}.
     
-    In der mathematischen Logik können beide Pfeilarten auch verwendet werden, um Implikationen auf der sogenannten „Objektebene“ von solchen auf der „Metaebene“ zu unterscheiden. Abseits der mathematischen Logik ist diese Unterscheidung aber überflüssig und die meisten Mathematiker wie auch dieses Skript verwenden die Implikationspfeile „$\to$“ und „$\Rightarrow$“ synonym. Benutze einfach den, der dir besser gefällt.
+    In der mathematischen Logik können beide Pfeilarten auch verwendet werden, um Implikationen auf der „Objektebene“ von solchen auf der „Metaebene“ zu unterscheiden. Abseits der Logik ist diese Unterscheidung aber überflüssig und es gibt keine eindeutige Vorschrift, wie „$\to$“ und „$\Rightarrow$“ zu unterscheiden seien. Benutze einfach den Pfeil, der dir besser gefällt.
 \end{bem}
 
 	
@@ -340,17 +436,17 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
         B_1\lor \neg B_2\quad &\to \quad B_3\land \neg B_5 \\[0.5em]
         B_1\quad  &\lor \quad \neg B_2 \to (B_3\land \neg B_5)
     \end{align*}
-    Es gibt auch Konventionen, die die „Erstausführung“ gewisser Junktoren vor anderen Junktoren regeln, ähnlich der Regel „Punkt- vor Strichrechnung“. Die solltest du aber nur dann stillschweigend verwenden, wenn du dir sicher bist, dass dein Leser dieselbe Konvention auch kennt und benutzt.
+    Es gibt auch Konventionen, die die „Erstausführung“ gewisser Junktoren vor anderen Junktoren regeln, ähnlich der Regel „Punkt- vor Strichrechnung“. Man legt dann z.B. fest, dass $\land$ „stärker binde“ als $\to$. Solche Konventionen solltest du nur dann stillschweigend verwenden, wenn du dir sicher bist, dass dein Leser dieselbe Konvention auch kennt und benutzt.
 \end{bem}
 
 	
 \begin{vorschau}[* weitere Junktoren]
-    Es gibt noch weitere Junktoren wie etwa:
+    Prinzipiell können unendlich viele weitere Junktoren definiert werden. Hinsichtlich der bivalenten Interpretationen aus \cref{def:interpretation} gibt es jedoch bis auf semantische Äquivalenz nur 16 zweistellige. Darunter:
     \begin{itemize}
-        \item Der Sheffer-Strich\footnote{\href{https://de.wikipedia.org/wiki/Henry_Maurice_Sheffer}{Henry Maurice Sheffer (1882-1964)}} „$A\mid B$“ („Nicht sowohl $A$ als auch $B$“). In der Informatik spricht man auch von der NAND-Verknüpfung.
-        \item Die Peirce-Funktion\footnote{\href{https://de.wikipedia.org/wiki/Charles_Sanders_Peirce}{Charles Sanders Peirce (1839-1914)}} „$A\downarrow B$“ („Weder $A$ noch $B$“). In der Informatik spricht man auch von der NOR-Verknüpfung.
+        \item Der Sheffer-Strich\footnote{\href{https://de.wikipedia.org/wiki/Henry_Maurice_Sheffer}{Henry Maurice Sheffer (1882-1964)}} „$A\mid B$“ („Nicht sowohl $A$ als auch $B$“). In der Informatik spricht man von der NAND-Verknüpfung.
+        \item Die Peirce-Funktion\footnote{\href{https://de.wikipedia.org/wiki/Charles_Sanders_Peirce}{Charles Sanders Peirce (1839-1914)}} „$A\downarrow B$“ („Weder $A$ noch $B$“). In der Informatik spricht man von der NOR-Verknüpfung.
     \end{itemize}
-    NAND und NOR besitzen die besondere Eigenschaft, dass sich in der Schaltalgebra jeder andere Junktor allein durch NAND's bzw. \href{https://de.wikipedia.org/wiki/NOR-Gatter#Logiksynthese}{allein durch NOR's} konstruieren lässt. In dieser Hinsicht sind sie für die technische Informatik von großer Bedeutung. Für die Mathematik sind sie dagegen irrelevant.
+    NAND und NOR besitzen die besondere Eigenschaft, dass sich in der Schaltalgebra jeder andere Junktor \href{https://en.wikipedia.org/wiki/NAND_logic}{allein durch NAND's} bzw. \href{https://en.wikipedia.org/wiki/NOR_logic}{allein durch NOR's} konstruieren lässt. In dieser Hinsicht sind sie für die technische Informatik von großer Bedeutung. Für die Mathematik sind sie dagegen irrelevant.
 \end{vorschau}
 
 
@@ -360,20 +456,20 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 \section{Bausteine der Prädikatenlogik}
 
 
-\begin{de}[Prädikat] \label{def:praedikat} \index{Praedikat@Prädikat} \index{Relation (Logik)}
-    Es sei $n$ eine natürliche Zahl. Ein \textbf{$n$-stelliges Prädikat}\footnote{Beachte, dass das Wort „Prädikat“ in der Logik eine andere Bedeutung als in der Grammatik, wo es das Verb in einem Satz bezeichnet, trägt. Es handelt sich also um ein Homonym, d.h. ein Wort, das mehrere Bedeutungen zugleich trägt.} ist ein Term vom Typ „Aussage“ in $n$-vielen Variablen.
+\begin{defin}[Prädikat] \label{def:praedikat} \index{Praedikat@Prädikat} \index{Relation (Logik)}
+    Sei $n\in \N$. Ein \textbf{$n$-stelliges Prädikat}\footnote{Beachte, dass das Wort „Prädikat“ in der Logik eine andere Bedeutung trägt als in der Grammatik, wo es das Verb in einem Satz bezeichnet. Es handelt sich also um ein Homonym, d.i. ein Wort, das mehrere Bedeutungen zugleich trägt.} ist ein Term vom Typ „Aussage“ in $n$-vielen Variablen.
     \begin{itemize}
         \item $1$-stellige Prädikate heißen auch \textbf{Eigenschaften}. Sprechen Mathematiker schlicht von „Prädikaten“, so meinen sie damit in der Regel einstellige Prädikate.
         \item Ist $n\ge 2$, so spricht man auch von \textbf{$n$-stelligen Relationen}. Sprechen Mathematiker einfach nur von „Relationen“, so meinen sie damit in der Regel zweistellige Relationen.
         \item Ein $0$-stelliges Prädikat ist schlicht eine Aussage.
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
     Beispiele für einstellige Prädikate, also für Eigenschaften, sind etwa:
     \begin{enumerate}
-        \item $E(m):\Leftrightarrow$ „$m$ ist eine gerade Zahl“, wobei $m$ eine Variable vom Typ „natürliche Zahl“ sei. Setzt man hier für die Variable $m$ beispielsweise die konkreten Zahlen $4$ und $5$ ein, erhält man die Aussagen „$4$ ist eine gerade Zahl“ bzw. „$5$ ist eine gerade Zahl“.
+        \item $E(m):\Leftrightarrow$ „$m$ ist eine gerade Zahl“, wobei $m$ für eine natürliche Zahl stehe. Setzt man hier für die Variable $m$ beispielsweise die konkreten Zahlen $4$ und $5$ ein, erhält man die Aussagen „$4$ ist eine gerade Zahl“ bzw. „$5$ ist eine gerade Zahl“.
         \item $D(X):\Leftrightarrow$ „$X$ wurde in Deutschland erfunden“, wobei sich die Variable $X$ auf kulinarische Errungenschaften beziehen soll. Setzt man hier für die Variable $X$ das Objekt „Der Döner“ ein, erhält man gerade die Aussage „Der Döner wurde in Deutschland erfunden“. Setzt man dagegen das Objekt „Die Pizza“ ein, erhielte man die Aussage „Die Pizza wurde in Deutschland erfunden“.
         \item $M(x):\Leftrightarrow $ „$x$ ist der größte Mathematiker“, wobei die Variable $x$ vom Typ „MathematikerIn“ sei. Setzt man hier für die Variable $x$ z.B. das Objekt „Alexander Grothendieck“ ein, erhält man die Aussage „Alexander Grothendieck ist der größte Mathematiker“. Dagegen ergäbe es keinen Sinn, für $x$ das Objekt „Der Döner“ einzusetzen.
     \end{enumerate}
@@ -384,74 +480,29 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 \begin{bsp}
     Zweistellige Prädikate sind zum Beispiel:
     \begin{enumerate}
-        \item „$x$ ist kleiner als $y$“, wobei $x,y$ zwei Variablen vom Typ „reelle Zahl“ seien. Diese Relation lässt sich auch kompakt als Formel „$x<y$“ notieren.
+        \item „$x$ ist kleiner als $y$“, wobei $x,y$ zwei Variablen vom Typ „reelle Zahl“ seien. Diese Relation lässt sich auch kompakt als Formel $x<y$ notieren.
         \item $A(X,Y):\Leftrightarrow$ „$X$ ist älter als $Y$“, wobei für die Variablen konkrete Menschen eingesetzt werden sollen.
         \item $L(X,Y):\Leftrightarrow$ „$X$ liebt $Y$“, wobei die Variablen vom Typ „Figur aus Mozarts `Die Hochzeit des Figaro'“ seien.
     \end{enumerate}
 \end{bsp}
 
 
-
-
-
-\subsection*{Mengen}
-
-
-Mengen werden das zentrale Thema im dritten Vortrag sein. Daher wird an dieser Stelle nur das Allernötigste eingeführt, um den Umgang mit Quantoren bequem zu machen.
-
-Die Einführung des Mengenbegriffs in die Mathematik erfolgte durch Georg Cantor\footnote{\href{https://de.wikipedia.org/wiki/Georg_Cantor}{Georg Cantor (1845-1918)}} in den 1870er Jahren. Cantor beschreibt seine Idee in \cite{Can95} mit den folgenden Worten:
-
-
-\begin{de}[Historische Mengendefinition von Cantor] \label{mengenimlogikkapitel}
-    „Unter einer \textbf{Menge} $M$ verstehen wir jede Zusammenfassung von bestimmten wohlunterschiedenen Objekten $m$ unserer Anschauung oder unseres Denkens (welche die \textbf{Elemente} von $M$ genannt werden) zu einem Ganzen.“
-\end{de}
-
-
-\begin{bem}
-    Eine (möglicherweise fiktive) Anekdote aus \cite{Ded32}, S. 449 beschreibt folgende „Veranschaulichungen“ des Mengenbegriffs:
-    \begin{quote}
-        Dedekind\footnote{\href{https://de.wikipedia.org/wiki/Richard_Dedekind}{Richard Dedekind (1831-1916)}} äußerte, hinsichtlich des Begriffes der Menge: er stelle sich eine Menge vor wie einen geschlossenen Sack, der ganz bestimmte Dinge enthalte, die man aber nicht sähe, und von denen man nichts wisse, außer dass sie vorhanden und bestimmt seien. Einige Zeit später gab Cantor seine Vorstellung einer Menge zu erkennen: Er richtete seine kolossale Figur hoch auf, beschrieb mit erhobenem Arm eine großartige Geste und sagte mit einem ins Unbestimmte gerichteten Blick: „Eine Menge stelle ich mir vor wie einen Abgrund.“
-    \end{quote}
-\end{bem}
-
-
-\begin{comment}
-\begin{de} \label{mengenimlogikkapitel} \index{Menge}
-    Eine \textbf{Menge} ist eine Gesamtheit von Dingen und als solche selbst wiederum eine Art Gegenstand. Sie ist allein dadurch bestimmt, welche Dinge ihr angehören. Diejenigen Objekte, die einer Menge angehören, werden ihre \textbf{Elemente} genannt. Für ein Objekt $a$ und eine Menge $M$ ergibt es nur Sinn, zu fragen, \emph{ob} $a$ ein Element von $M$ ist -- dagegen ergäbe es keinen Sinn, danach zu fragen, „an welcher Stelle“ oder „wie oft“ $a$ ein Element von $M$ wäre.
-\end{de}
-\end{comment}
-
-
-\begin{de}[Extension einer Eigenschaft] \label{extensionimlogikkapitel}
+\begin{nota}[Extension einer Eigenschaft] \label{extensionimlogikkapitel}
     Sei $E(x)$ eine Eigenschaft. Dann wird mit
         \[ \{ x\mid E(x) \} \qquad (\text{lies: „Menge aller $x$, für die gilt: $E(x)$“})\]
-    die Menge all derjenigen Objekte, die die Eigenschaft $E$ besitzen, bezeichnet. Sie heißt die \textbf{Extension} (oder auch „Umfang“ oder „Ausdehnung“) des Prädikats $E$. Manche Autoren schreiben anstelle des Querstrichs $\vert$ auch einen Doppelpunkt:
-        \[ \{x:\ E(x) \}\]
-\end{de}
-
-
-\begin{bsp}
-    Beispielsweise sind
-    \begin{enumerate}
-        \item $\{M\mid M\ \text{ist ein Mensch}\}$ die Menge aller Menschen.
-        \item $\Z:= \{n\mid n\ \text{ist eine ganze Zahl}\}$ die Menge der ganzen Zahlen.
-    \end{enumerate}
-\end{bsp}
-
-
-\begin{nota}[Elementzeichen]
-    Sind $M$ eine Menge und $a$ ein Objekt, so schreibt man
-    \begin{align*}
-        a\in M\qquad&:\Leftrightarrow\qquad a\ \text{ist ein Element von}\ M \\
-        a\notin M\qquad&:\Leftrightarrow\qquad a\ \text{ist kein Element von}\ M
-    \end{align*}
-    Insbesondere gilt für jedes Objekt $a$ und jedes Prädikat $E$:
-        \[ E(a) \qquad\leftrightarrow\qquad a\in \{x\mid E(x)\} \]
+    die Menge all derjenigen Objekte (vom Typ der Variablen $x$), die die Eigenschaft $E$ besitzen, bezeichnet. Sie heißt die \textbf{Extension} (oder auch „Umfang“ oder „Ausdehnung“) des Prädikats $E$. Manche Autoren schreiben anstelle des Querstrichs $\vert$ einen Doppelpunkt:
+        \[ \{x: E(x) \}\]
+    Das Zeichen $x$ wird hierbei zu einer gebundenen Variable im Sinne von \cref{gebundenevariable}.
 \end{nota}
 
 
-\begin{bem}[Mengen vs. Eigenschaften] \label{mengenvseig}
-Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimmt auch jede Menge eine Eigenschaft, nämlich die Eigenschaft, ein Element von ihr zu sein. Auf diese Weise hat man eine wechselseitige Beziehung zwischen Mengen und Eigenschaften.
+\begin{bsp}
+    Beispielsweise ist $\{M\mid M\ \text{ist ein Mensch}\}$ die Menge aller Menschen und $\{p\mid p\ \text{ist eine Primzahl}\}$ die Menge aller Primzahlen. Gelegentlich schreibt man auch nur so etwas wie „$\{\text{Primzahlen}\}$“ und verzichtet auf den Umweg über die gebundene Variable.
+\end{bsp}
+
+
+\begin{bem}[* Eigenschaften vs. Teilmengen] \label{mengenvseig}
+    Sei $E(x)$ eine Eigenschaft und $X$ die Menge aller Objekte vom Typ der Variablen $x$. Dann ist die Extension $M:=\{x\mid E(x)\}$ eine sogenannte \emph{Teilmenge}\footnote{siehe \cref{def:teilmenge}} von $X$, d.h. jedes Element der Menge $M$ ist auch ein Element der Menge $X$. Umgekehrt lässt sich für jede Teilmenge $N$ von $X$ die Eigenschaft $E(x)\ :\Leftrightarrow\ x\in N$ formulieren. Auf diese Weise hat man eine wechselseitige Beziehung zwischen Eigenschaften und Teilmengen. Es handelt sich hierbei um eine Instanz der Dualität zwischen Syntax und Semantik. Mehr dazu in \cref{syntaxvssemantik}.
 \end{bem}
 
 
@@ -461,14 +512,14 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \subsection*{Quantoren}
 
 
-\begin{de}[Allaussage] \label{def:allquant}
+\begin{defin}[Allaussage] \label{def:allquant}
     Sei $E(x)$ eine Eigenschaft. Dann lässt sich die \textbf{Allaussage}
     \begin{align*}
         \forall x &:\  E(x) && (\text{lies: „Für jedes $x$ gilt $E(x)$“})
     \end{align*}
-    bilden, deren Bedeutung ist, dass \emph{jedes} Objekt vom Typ der Variable $x$ die Eigenschaft $E$ besitzt.
+    bilden, deren intendierte Bedeutung ist, dass \emph{jedes} Objekt (vom Typ der Variable $x$) die Eigenschaft $E$ besitzt.
     
-    Ist $M$ eine Menge von Objekten des Typs der Variable $x$, so definiert man
+    Ist $M$ eine Menge von Objekten (vom Typ der Variable $x$), so definiert man
     \begin{align*}
         \forall x\in M:\ E(x) \qquad :& \Leftrightarrow\qquad \forall x:\ (x\in M\ \to\ E(x))  \\
         (\text{lies: „Für jedes $x$ aus $M$ gilt $E(x)$“}) &
@@ -476,7 +527,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
     Die Bedeutung dieser Aussage ist, dass jedes Element der Menge $M$ die Eigenschaft $E$ besitzt.
     
     Das Zeichen $\forall$ heißt \textbf{Allquantor}.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -488,14 +539,14 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \end{bsp}
 
 
-\begin{de}[Existenzaussage]\label{def:existquant}
+\begin{defin}[Existenzaussage]\label{def:existquant}
     Für eine Eigenschaft $E(x)$ lässt sich die \textbf{Existenzaussage}
     \begin{align*}
         \exists x &:\ E(x) && (\text{lies: „Es gibt ein $x$, für das $E(x)$ gilt“})
     \end{align*}
-    formulieren, deren Bedeutung ist, dass \emph{mindestens ein} Objekt vom Typ der Variable $x$ die Eigenschaft $E$ besitzt.
+    formulieren, deren intendierte Bedeutung ist, dass \emph{mindestens ein} Objekt (vom Typ der Variable $x$) die Eigenschaft $E$ besitzt.
     
-    Ist $M$ eine Menge von Objekten des Typs der Variable $x$, so definiert man
+    Ist $M$ eine Menge von Objekten (vom Typ der Variable $x$), so definiert man
     \begin{align*}
         \exists x\in M:\ E(x) \qquad :& \Leftrightarrow\qquad \exists x:\ (x\in M\ \land\ E(x))  \\
         (\text{lies: „Es gibt ein $x$ in $M$, für das $E(x)$ gilt“}) &
@@ -503,7 +554,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
     was bedeutet, dass mindestens ein Element der Menge $M$ die Eigenschaft $E$ besitzt.
     
     Das Zeichen $\exists$ heißt \textbf{Existenzquantor}.
-\end{de}
+\end{defin}
     
 
 \begin{bsp}
@@ -532,14 +583,14 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 
 
 \begin{bsp}[Syllogistik]
-    Die Prädikatenlogik ist in der Lage, die Satzformen der sogenannten Syllogistik, der vorherrschenden Logik im europäischen Mittelalter, zu formalisieren. Für ein Beispiel seien
+    Die Prädikatenlogik ist in der Lage, die Satzformen der \emph{Syllogistik}, der vorherrschenden Logik im europäischen Mittelalter, zu formalisieren. Für ein Beispiel seien
     \begin{align*}
         M & := \{ x\mid  \text{$x$ ist ein Mensch} \} \\
         G &  : = \{x\mid \text{$x$ ist ein Gott} \} \\
         H(x) & :\Leftrightarrow\ \text{„$x$ ist ein Grieche“} \\
         S(x) & :\Leftrightarrow\ \text{„$x$ ist sterblich“}
     \end{align*}
-    Damit lassen sich etwa folgende Aussagen bilden:
+    Damit lassen sich nun folgende Aussagen formulieren:
     \begin{align*}
         \forall x\in M& :\ S(x) && \text{„Alle Menschen sind sterblich“} \\
         \exists x \in M & :\ H(x)&& \text{„Einige Menschen sind Griechen“} \\
@@ -549,34 +600,16 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \end{bsp}
 
 
-\begin{bem}[* freie Variablen vs. gebundene Variablen] \label{gebundenevariable} \index{freie Variable} \index{gebundene Variable}
-    Im Ausdruck „$x$ ist eine negative Zahl“ kann für die Variable $x$ eine beliebige reelle Zahl eingesetzt werden. Ebenso z.B. in der Gleichung „$x(x+1)=2$“ (unter Umständen erhielte man falsche Aussagen). Um die Freiheit in der Belegung einer Variable zu betonen, spricht man auch von einer \textbf{freien Variable}. Dagegen ist der Buchstabe „$n$“ im Ausdruck „Für jede gerade natürliche Zahl $n$ ist auch $n^2$ eine gerade Zahl“ oder der Buchstabe „$x$“ in „$\exists x: x(x+1)=2$“ keine Variable mehr, da es keinen Sinn ergäbe, für sie ein konkretes Objekt einzusetzen, wie etwa
-    \begin{align*}
-        \exists 5:\ 5(5+1) = 2 && (\text{dieser Ausdruck ist syntaktisch unzulässig})
-    \end{align*}
-    Man sagt, „die Variable wird durch den Quantor gebunden“ und nennt das Zeichen „$x$“ in „$\forall x: x(x+1)=2$“ eine \textbf{gebundene Variable}. Es handelt sich nicht mehr um eine Variable im Sinn von \cref{def:variable}, sondern nur noch um ein „Dummy-Zeichen“, das in der Umgangssprache sogar oftmals vermieden werden kann. So würde man den Ausdruck
-        \[ \forall x:\ (x\ \text{ist ein Mensch})\to (x\ \text{ist sterblich}) \]
-    umgangssprachlich als „Alle Menschen sind sterblich“ lesen und nicht etwa als „Für jedes $x$ gilt: sofern $x$ ein Mensch ist, ist $x$ sterblich“.
-    
-    Gebundene Variablen kennst du auch schon aus der Schule: Beispielsweise sind die Variablen „$a,b,c,x$“ im Ausdruck „$ax^2 +bx+c$“ jeweils freie Variablen etwa vom Typ „reelle Zahl“, für die jede beliebige reelle Zahl eingesetzt werden kann. Im Ausdruck
-        \[ \int_0^1 (ax^2+bx+c)\ dx \]
-    ist das Zeichen „$x$“ dagegen eine gebundene Variable, ein Dummy-Zeichen, das nur noch deutlich machen soll, über welche Variable integriert wird (man spricht von der „Integrationsvariable“). Es ergäbe keinen Sinn, eine konkrete Zahl einzusetzen wie etwa
-    \begin{align*}
-        \int_0^1 (a4^2+b4+c)\ d4 && (\text{dieser Ausdruck ist syntaktisch unzulässig})
-    \end{align*}
-    Dagegen sind hier $a,b,c$ nachwievor freie Variablen, in die Zahlen eingesetzt werden können, wie zum Beispiel
-        \[ \int_0^1 (2x^2+3x+1)\ dx\]
-\end{bem}
+\begin{bem}[Variablen mit Quantoren binden] \label{quantorbindung}
+    In Formeln wie „$\exists x: x(x+1)=2$“ oder „$\forall x: x^2\ge 0$“ ist das Zeichen $x$ eine gebundene Variable im Sinne von \cref{gebundenevariable}. Man sagt auch, „die Variable wird durch den Quantor gebunden“.
 
-
-\begin{bem}[Variablenzahl mittels Quantoren reduzieren]
-    Bisher wurden die beiden Quantoren „$\forall$“ und „$\exists$“ verwendet, um aus Eigenschaften Aussagen zu erhalten. Allgemein können sie $n$-stellige Prädikate zu $(n-1)$-stelligen Prädikaten reduzieren. Beispielsweise wird das für reelle Zahlen $x,y$ formulierte zweistellige Prädikat
+    Es lassen sich nicht nur Eigenschaften zu Aussagen reduzieren, sondern allgemein $n$-stellige Prädikate zu $(n-1)$-stelligen Prädikaten. Die Anwendung eines Quantors reduziert die Anzahl der freien Variablen um Eins. Beispielsweise wird das für reelle Zahlen $x,y$ formulierte zweistellige Prädikat
         \[ x < y \]
     durch Binden der Variable $x$ zu
         \[ \exists x:\ x<y \]
-    Hierbei sind nun $x$ eine gebundene Variable und $y$ eine freie Variable, es liegt also ein einstelliges Prädikat vor. Dieses kann zu einer Aussage gemacht werden, indem man wahlweise für $y$ ein konkretes Objekt einsetzt, wie z.B. „$\exists x: x < 3$“, oder aber auch $y$ mit einem Quantor bindet, wie z.B.
+    Hierbei sind nun $x$ eine gebundene Variable und $y$ eine freie Variable, es liegt also ein einstelliges Prädikat vor. Dieses kann zu einer Aussage gemacht werden, indem man wahlweise für $y$ ein konkretes Objekt einsetzt, wie z.B. „$\exists x: x < 3$“, oder aber auch $y$ mit einem Quantor bindet, wie z.B. in
         \[ \forall y:\ \exists x:\ x < y \]
-    Ist $n$ eine natürliche Zahl, so kann jedes $n$-stellige Prädikat zu einer Aussage gemacht werden, indem jede der Variablen wahlweise durch ein konkretes Objekt ersetzt oder aber durch einen Quantor gebunden wird.
+    Für $n\in \N$ kann jedes $n$-stellige Prädikat zu einer Aussage gemacht werden, indem jede der Variablen wahlweise durch ein konkretes Objekt ersetzt oder aber durch einen Quantor gebunden wird.
 \end{bem}
  
  
@@ -600,20 +633,20 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
     Beachte, dass es bei Quantoren verschiedener Art auf die Reihenfolge ankommt. Für Menschen $x,y$ sei beispielsweise $M(x,y):\Leftrightarrow$ „$y$ ist (biologische) Mutter von $x$“. Dann sind
     \begin{enumerate}[(1)]
         \item $\forall x\ \exists y: M(x,y)$: „Für jeden Menschen $x$ gilt: es gibt einen Menschen $y$, der Mutter von $x$ ist“.
-        \item $\exists y\ \forall y: M(x,y)$: „Es gibt einen Menschen $y$ derart, dass für jeden Menschen $x$ gilt: $y$ ist Mutter von $x$“.
+        \item $\exists y\ \forall x: M(x,y)$: „Es gibt einen Menschen $y$ derart, dass für jeden Menschen $x$ gilt: $y$ ist Mutter von $x$“.
     \end{enumerate}
-    zwei grundlegend verschiedene Aussagen. (1) ist wahr, da jeder Mensch eine (biologische) Mutter hat; (2) ist dagegen falsch, weil ja nicht alle Menschen Geschwister sind.
+    zwei grundlegend verschiedene Aussagen. (1) ist wahr, da jeder Mensch eine (biologische) Mutter hat; (2) ist dagegen falsch, weil nicht alle Menschen dieselbe Mutter haben.
     
     Quantoren derselben Sorte dürfen dagegen miteinander vertauscht werden, siehe \cref{quantorentausch}.
 \end{bem}
 
 
-\begin{de}[Existenz-und-Eindeutigkeit-Aussage] \label{def:eindquant}
+\begin{defin}[Existenz-und-Eindeutigkeit-Aussage] \label{def:eindquant}
     Ist $E(x)$ eine Eigenschaft, so bezeichnet
     \begin{align*}
         \exists ! x& :\ E(x) && (\text{lies: „Es gibt genau ein $x$, für das $E(x)$ gilt“})
     \end{align*}
-    die Aussage, dass es \emph{genau ein} Objekt vom Typ der Variablen $x$ gibt, das die Eigenschaft $E$ besitzt. Ist $M$ eine Menge von Objekten des Typs der Variable $x$, so besagt die Formel
+    die Aussage, dass es \emph{genau ein} Objekt (vom Typ der Variablen $x$) gibt, das die Eigenschaft $E$ besitzt. Ist $M$ eine Menge von Objekten (vom Typ der Variable $x$), so besagt die Formel
     \begin{align*}
         \exists ! x\in M :\ E(x) \qquad &:\Leftrightarrow\qquad \exists ! x:\ (x\in M\ \land\ E(x)) \\
         (\text{lies: „Es gibt genau ein $x$ in $M$, für das $E(x)$ gilt“})
@@ -621,7 +654,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
     dass es genau ein Element von $M$ gibt, das die Eigenschaft $E$ besitzt (außerhalb von $M$ darf es aber auch andere solcher Objekte geben).
     
     Das Zeichen $\exists !$ heißt \textbf{Eindeutigkeitsquantor}.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -637,14 +670,48 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \begin{bem}[Definition von $\exists !$ über die anderen beiden Quantoren] \label{eindquantzerlegung}
     Mithilfe der Gleichheitsrelation „$=$“ kann der Eindeutigkeitsquantor aus den anderen beiden Quantoren zusammengesetzt werden:
         \[ \exists ! x:\ E(x)\quad :\Leftrightarrow\qquad\qquad \exists x: E(x) \quad \land\quad \forall y\ \forall z:\ (E(y)\land E(z)) \to y=z \]
-    Die erste Hälfte $\exists x: E(x)$ besagt, dass es \emph{mindestens} ein Objekt mit der Eigenschaft $E$ gibt, während die zweite Hälfte $\forall y\ \forall z:\dots$ besagt, dass es \emph{höchstens} ein Objekt mit der Eigenschaft $E$ gibt.
-    
-    Diese Definition von $\exists!$ wird wichtig, wenn es um das Beweisen von Existenz- und Eindeutigkeitaussagen geht, siehe \cref{eindbeweis}. 
+    Die erste Hälfte $\exists x: E(x)$ besagt, dass es \emph{mindestens} ein Objekt mit der Eigenschaft $E$ gibt, während die zweite Hälfte $\forall y\ \forall z:\dots$ besagt, dass es \emph{höchstens} ein Objekt mit der Eigenschaft $E$ gibt. Diese Definition von $\exists!$ wird wichtig, wenn es um das Beweisen von Existenz- und Eindeutigkeitaussagen geht, siehe \cref{eindbeweis}.
+
+    Eine weitere Möglichkeit zur Definition des Eindeutigkeitsquantors lautet:
+        \[ \exists ! x:\ E(x)\quad :\Leftrightarrow\qquad\qquad \exists x:\quad E(x)\ \land\ \forall y: (E(y)\ \to\ y=x) \]
+    Mit den Beweistechniken aus dem zweiten Kapitel lässt sich beweisen, dass beide Definitionen gleichwertig sind (was du dir aber auch einmal intuitiv überlegen solltest).
 \end{bem}
 
 
+\begin{nota}[Definition per Kennzeichnung] \label{kennzeichnung}
+    Sei $E(x)$ eine Eigenschaft, für die $\exists ! x: E(x)$ gilt, d.h. es gibt nur genau ein Objekt (vom Typ der Variablen $x$), das die Eigenschaft $E$ besitzt.\footnote{Man nennt $E$ dann auch eine \emph{(definite) Kennzeichnung}. Auf Englisch: ``(definite) description''} Ist dann $a$ ein Objekt, das die Eigenschaft $E$ besitzt, so ist es legitim, von $a$ mit einem bestimmten Artikel zu sprechen: $a$ ist nicht nur \emph{ein} Objekt mit der Eigenschaft $E$, sondern \emph{das} Objekt mit der Eigenschaft $E$. Die Eigenschaft $E$ lässt sich dadurch für eine Definition verwenden. Mit
+    \begin{quote}
+        „Sei $a$ dasjenige Objekt, das die Eigenschaft $E$ besitzt.“
+    \end{quote}
+    legt man fest, das das Zeichen „$a$“ fortan das (eindeutig bestimmte) Objekt mit der Eigenschaft $E$ bezeichne.
+    %Gelegentlich werden Definitionen per Kennzeichnung auch schon vorgenommen, wenn es zwar höchstens ein Objekt mit der Eigenschaft $E$ gibt, nicht aber auch mindestens eines.
+\end{nota}
+
+
+\begin{bsp} \label{zeichendefinieren} \quad
+    \begin{enumerate}
+        \item Eine in der Analysis beliebte Definition der Kreiszahl $\pi$ lautet
+        \begin{quote}
+            $\pi$ ist definiert als die kleinste positive Nullstelle der Sinus-Funktion.
+        \end{quote}
+        Beachte, dass es gelegentlich einer Begründung dafür, dass ein mathematisches Objekt „wohldefiniert“ ist, bedarf. Vor der obigen Definition von $\pi$ sollte erst einmal sichergestellt werden, dass die Sinus-Funktion überhaupt eine kleinste positive Nullstelle besitzt.
+        \item Mit Methoden der Kurvendiskussion lässt sich zeigen, dass die Gleichung $x^5=x+1$ genau eine Lösung in den reellen Zahlen besitzt (vgl. \cref{bsp:exverwendung}), wohingegen sich mit Methoden der Galoistheorie\footnote{\href{https://de.wikipedia.org/wiki/\%C3\%89variste_Galois}{Évariste Galois (1811-1832)}} zeigen lässt, dass sich diese Lösung nicht mit den Operationen $+$, $-$, $\cdot$, $:$, $\sqrt{}$ konstruieren lässt\footnote{Algebraiker sagen: \emph{die Gleichung $x^5=x+1$ ist nicht auflösbar}. Galoistheorie wird in Heidelberg typischerweise in der Drittsemestervorlesung „Algebra 1“ vermittelt.}. Möchte man nun komfortabel mit dieser Lösung arbeiten, ist eine Definition per Kennzeichnung ratsam:
+        \begin{quote}
+            „Sei $\xi$ die eindeutige reelle Lösung der Gleichung $x^5=x+1$.“
+        \end{quote}
+        Nun lassen sich bequem Aussagen wie etwa „Es ist $\xi>1$“ formulieren.
+        \item \emph{Rekursive Definitionen} lassen sich als Definitionen per Kennzeichnung verstehen. Beispielsweise lässt sich beweisen, dass es genau eine Zahlenfolge $a_0,a_1,a_2,a_3,\dots$ gibt, die die \emph{Rekursionsvorschrift}
+        \begin{align*}
+            a_0 & = 0 & a_1 & = 1 & a_{n+2} & = a_n+a_{n+1}  && \text{für alle}\ n\in \N_0
+        \end{align*}
+        erfüllt. Die Rekursionsvorschrift fungiert somit als kennzeichnende Eigenschaft. Die durch sie definierte Zahlenfolge heißt \emph{Fibonnaci-Folge}. Ihre ersten Folgenglieder sind $0,1,1,2,3,5,8,13,21,34,\dots$.
+        \item Weitere Beispiele für Definitionen per Kennzeichnung stellen die Konstruktion der inversen Abbildung im Beweis von \cref{bijektiviso} sowie die $x^\inv$-Schreibweise in \cref{dasinverse} dar.
+    \end{enumerate}
+\end{bsp}
+
+
 \begin{bem}[Mäßigung in der Verwendung von Formelsprache!]
-    Nach den ganzen Formeln aus diesem Abschnitt eine \textbf{Warnung}: Einige Mathe-Anfis gelangen zu der Meinung, in der Mathematik käme es darauf an, Aussagen möglichst formelhaft zu notieren und Quantoren und Junktoren möglichst nie in Umgangssprache, sondern so oft wie möglich als Formelzeichen aufzuschreiben. Manche schreiben auch grausige Hybride wie: „Daher $\exists$ eine Zahl $n$, die ein Teiler von $a$ $\land$ ein Teiler von $b$ ist.“
+    Nach den ganzen Formeln aus diesem Abschnitt eine \textbf{Warnung}: Einige Mathe-Anfis gelangen zu der Meinung, in der Mathematik käme es darauf an, Aussagen möglichst formelhaft zu notieren und Quantoren und Junktoren möglichst nie in Umgangssprache, sondern so oft wie möglich als Formelzeichen aufzuschreiben. Manche schreiben auch monströse Mutanten wie: „Daher $\exists$ eine Zahl $n$, die ein Teiler von $a$ $\land$ ein Teiler von $b$ ist.“
     
     Widerstehe dieser Idee! Mathematische Texte und Beweise sind zuallererst mal ein Akt der Kommunikation, in dem der Autor / die Autorin dem Leser eine Information übermitteln möchte. Die Effizienz dieser Informationsübermittlung muss für dich immer an erster Stelle stehen. Lass dich nicht von (unter Mathematikern recht verbreiteten) Formel-Neurosen unterwerfen! Die Einführung der Symbole $\land,\to,\neg,\forall,\exists$ usw. geschieht \textbf{nicht}, damit wir ab sofort alles in diesen Zeichen aufschreiben. Sondern sie dient uns dazu, die Strukturen mathematischer Aussagen und Argumente analysieren und in aller Allgemeinheit besprechen und reflektieren zu können.
 \end{bem}
@@ -664,7 +731,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
     
     Da sich ein Bit stets genau in einem der beiden Zustände $1$ oder $0$ befindet, besteht \emph{die} „Boolsche Algebra“ der Informatiker aus genau diesen beiden Wahrheitswerten, auch ``true'' und ``false'' genannt. Auch in diesem Vorkurs beschränken wir uns auf die zweielementige boolsche Algebra, die ausschließlich aus den beiden Wahrheitswerten „wahr“ und „falsch“ besteht. Diese Einschränkung heißt \emph{Prinzip der Zweiwertigkeit} oder \textbf{Bivalenzprinzip}\footnote{Philosophen sprechen hier auch vom „Satz vom ausgeschlossenen Dritten“. In der mathematischen Logik wird als „Satz vom ausgeschlossenen Dritten“ aber etwas Anderes bezeichnet, nämlich \cref{excludedmiddle}}.
     
-    Während das Bivalenzprinzip für die Informatik von grundlegender Bedeutung ist, ist es für die Mathematik eher unangemessen, siehe dazu \cref{bsp:faktormenge}. In manchen einführenden Texten wirst du finden, dass die Junktoren $\land,\lor,\neg$, etc. über Wahrheitswerte \emph{definiert} werden. Diese Vorgehensweise ist in meinen Augen irreführend, da sie die Junktoren von Anfang an der Möglichkeit beraubt, unabhängig von ihrer klassischen Semantik zu bestehen und dadurch für weitere Logiken, wie etwa konstruktive Logik (vgl. \cref{nichtkonstruktiv}) oder parakonsistente Logik (vgl. \cref{explosion}), verwendbar zu sein.
+    Während das Bivalenzprinzip für die Informatik von grundlegender Bedeutung ist, ist es für die Mathematik eher unangemessen, siehe dazu \cref{bsp:faktormenge}. In manchen einführenden Texten wirst du finden, dass die Junktoren $\land,\lor,\neg,\dots$ über Wahrheitswerte \emph{definiert} werden. Diese Vorgehensweise ist in meinen Augen irreführend, da sie die Syntax mit einer Semantik verschmilzt, die ihre Allgemeinheit nicht angemessen einfängt, und sie der Möglichkeit beraubt, für weitere Logiken, wie etwa konstruktive Logik (vgl. \cref{nichtkonstruktiv}) oder parakonsistente Logik (vgl. \cref{explosion}), verwendbar zu sein.
 \end{vorschau}
 
 
@@ -679,11 +746,11 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \end{comment}
  
 
-\begin{de}[Interpretation] \label{def:interpretation} \index{Interpretation (Logik)} \index{Wahrheitstafel}
+\begin{defin}[Interpretation] \label{def:interpretation} \index{Interpretation (Logik)} \index{Wahrheitstafel}
     Eine \textbf{(bivalente) Interpretation} einer Aussage $X$ ist die Zuweisung eines der beiden Wahrheitswerte „wahr“ oder „falsch“ zu $X$. Diese Zuweisung darf allerdings nicht vollkommen frei erfolgen, sondern muss den folgenden Regeln gehorchen:
     \begin{itemize}
         %\item Die Aussage „$\top$“ muss stets als wahr und die Aussage „$\bot$“ muss stets als falsch interpretiert werden.
-        \item  Ist $X$ eine Aussage, die sich mittels der Junktoren $\neg,\land,\lor,\to,\leftrightarrow$ aus anderen Aussagen $A,B$, denen ebenfalls ein Wahrheitswert zugewiesen wurde, zusammensetzt, so muss sich der Wahrheitswert von $X$ nach den folgenden Regeln aus den Wahrheitswerten von $A$ und $B$ ergeben:
+        \item  Ist $X$ eine Aussage, die sich mittels der Junktoren $\neg,\land,\lor,\to,\leftrightarrow$ aus anderen Aussagen $A,B$ zusammensetzt, so leitet sich der Wahrheitswert von $X$ nach den folgenden Regeln aus den Wahrheitswerten von $A$ und $B$ ab:
         \[\begin{tabular}{cc|cccc}
             $A$ & $B$  & $A\land B$ & $A\lor B$ & $A\to B$ & $A\leftrightarrow B$ \\
             \hline
@@ -697,11 +764,11 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
             w& f \\
             f& w
         \end{tabular}\]
-        Diese sogenannten \textbf{Wahrheitstafeln} sind folgendermaßen zu lesen: In den linken Spalten sind alle möglichen Kombinationen aufgelistet, wie $A$ und $B$ mit Wahrheitswerten belegt sein können. Für jede solche Kombination muss dann der Wahrheitswert von $A\land B$, $A\lor B$ etc. aus der jeweiligen Zeile übernommen werden. Beispielsweise darf die Aussage „$A\lor B$“ nur dann als falsch interpretiert werden, wenn sowohl $A$ als auch $B$ als falsch interpretiert wurden; in den anderen drei Fällen, also falls mindestens eine der beiden Aussagen $A,B$ als wahr verstanden wird, muss auch $A\lor B$ als wahr interpretiert werden.
-        \item Ist $E$ eine Eigenschaft, so ist die Allaussage $\forall x: E(x)$ als wahr zu interpretieren, falls für jedes Objekt $a$ vom Typ der Variable $x$ die Aussage $E(a)$ als wahr interpretiert ist. Wurde dagegen für ein Objekt $a$ vom Typ der Variablen $x$ die Aussage $E(a)$ als falsch interpretiert, so ist auch „$\forall x: E(x)$“ als falsch zu interpretieren.
-        \item Ist $E$ eine Eigenschaft, so ist die Existenzaussage $\exists x: E(x)$ als wahr zu interpretieren, falls es mindestens ein Objekt $a$ vom Typ der Variablen $x$ gibt, bei dem die Aussage $E(a)$ als wahr interpretiert ist. Wurde dagegen für jedes Objekt $a$ vom Typ der Variablen $x$ die Aussage $E(a)$ als falsch interpretiert, so ist auch „$\exists x: E(x)$“ als falsch zu interpretieren.
+        Diese \textbf{Wahrheitstafeln} sind folgendermaßen zu lesen: In den linken Spalten sind alle möglichen Kombinationen aufgelistet, wie $A$ und $B$ mit Wahrheitswerten belegt sein können. Für jede solche Kombination muss dann der Wahrheitswert von $A\land B$, $A\lor B$ etc. aus der jeweiligen Zeile übernommen werden. Beispielsweise darf die Aussage „$A\lor B$“ nur dann als falsch interpretiert werden, wenn sowohl $A$ als auch $B$ als falsch interpretiert wurden; in den anderen drei Fällen, also falls mindestens eine der beiden Aussagen $A,B$ als wahr verstanden wird, muss auch $A\lor B$ als wahr interpretiert werden.
+        \item Ist $E$ eine Eigenschaft, so ist die Allaussage $\forall x: E(x)$ als wahr zu interpretieren, falls für jedes Objekt $a$ (vom Typ der Variable $x$) die Aussage $E(a)$ als wahr interpretiert ist. Wurde dagegen für ein Objekt $a$ die Aussage $E(a)$ als falsch interpretiert, so ist auch „$\forall x: E(x)$“ als falsch zu interpretieren.
+        \item Ist $E$ eine Eigenschaft, so ist die Existenzaussage $\exists x: E(x)$ als wahr zu interpretieren, falls es mindestens ein Objekt $a$ (vom Typ der Variablen $x$) gibt, bei dem die Aussage $E(a)$ als wahr interpretiert ist. Wurde dagegen für jedes Objekt $a$ die Aussage $E(a)$ als falsch interpretiert, so ist auch „$\exists x: E(x)$“ als falsch zu interpretieren.
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -736,18 +803,18 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
         f&w& w\\
         f&f& w\\
     \end{tabular}\]
-    verwirrt Anfänger seit Jahrhunderten, weil sie in zweierlei Hinsicht nicht das umgangssprachliche Verständnis von „Wenn $A$, dann $B$“ wiedergibt:
+    verwirrt Anfänger seit Jahrhunderten, weil sie in zweierlei Hinsicht nicht das alltagssprachliche Verständnis von „Wenn $A$, dann $B$“ wiedergibt:
     \begin{enumerate}[1.]
         \item Die Implikation $A\to B$ sagt lediglich aus, dass im Fall von $A$ auch $B$ gelten muss. Über den Fall, dass $A$ falsch ist, gibt sie keine Auskunft. Beispielsweise ist die Aussage
         \begin{quote}
             „Falls ich verschlafe, komme ich zu spät zur Uni.“
         \end{quote}
-        in der Umgangssprache mehrdeutig und kann eine der beiden Aussagen
+        in der Alltagssprache mehrdeutig und kann eine der beiden Aussagen
         \begin{enumerate}[(i)]
             \item „Wenn ich verschlafe, komme ich zu spät zur Uni. Andernfalls komme ich pünktlich.“
             \item „Wenn ich verschlafe, komme ich zu spät. Wenn ich nicht verschlafe, komme ich vielleicht pünktlich, vielleicht aber auch trotzdem zu spät.“
         \end{enumerate}
-        bedeuten. In der Mathematik wird der Implikationspfeil ausschließlich im Sinne von (ii) aufgefasst.
+        bedeuten. In der Mathematik wird der Implikationspfeil ausschließlich im Sinne von (ii) gebraucht.
         \item Die Implikation $A\to B$ kann wahr oder falsch sein, selbst wenn $A$ mit $B$ gar nichts zu tun hat. Setzt man beispielsweise
         \begin{itemize}[labelindent=3em, leftmargin=!, labelwidth=\widthof{$B:=$}]
             \item[$A:=$] „Der Döner wurde in Deutschland erfunden“
@@ -766,14 +833,14 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \subsection*{Tautologien}
 
 
-\begin{de} \index{Tautologie}
+\begin{defin} \index{Tautologie}
     Eine Aussage heißt
     \begin{itemize}
         \item \textbf{Tautologie} oder auch \textbf{allgemeingültig}, falls sie unter jeder möglichen Interpretation eine wahre Aussage ist.
         \item \textbf{erfüllbar}, falls es mindestens eine Interpretation gibt, unter der sie eine wahre Aussage ist.
         \item \textbf{unerfüllbar}, falls sie unter keiner möglichen Interpretation eine wahre Aussage ist.
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -836,7 +903,7 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
             f & w & w\\
             f & f & w
         \end{tabular}\]
-        Dass $A\to B$ eine Tautologie ist, heißt, dass $A\to B$ unter keiner möglichen Interpretation falsch sein kann. Dies ist äquivalent dazu, dass der Fall, dass $A$ wahr und $B$ falsch ist, niemals auftreten kann. Und das heißt gerade, dass unter jeder Interpretation, unter der $A$ wahr ist, auch $B$ wahr sein muss. \qed
+        Dass $A\to B$ eine Tautologie ist, heißt, dass $A\to B$ unter jeder möglichen Interpretation wahr sein muss. Dies ist äquivalent dazu, dass der Fall, dass $A$ wahr und $B$ falsch ist, niemals auftreten kann. Und das heißt gerade, dass unter jeder Interpretation, unter der $A$ wahr ist, auch $B$ wahr sein muss. \qed
     \end{enumerate}
 \end{bew}
  
@@ -847,13 +914,14 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 
 
 \begin{vorschau}[* Entscheidbarkeit der Aussagenlogik] \label{entscheidbar}
-    Ist $A$ eine noch so kompliziert verschachtelte Aussage, die keine Prädikate und Quantoren enthält, sondern sich ausschließlich mittels der Junktoren aus elementaren Aussagen zusammensetzt, so lässt sich mithilfe von Wahrheitstafeln stets überprüfen ob $A$ eine Tautologie ist. Mit genügend Rechenkapazität kann mir mein Computer also einfach ausrechnen, ob eine Tautologie vorliegt oder nicht. Man sagt, die Aussagenlogik sei (algorithmisch) \textbf{entscheidbar}. Sobald Quantoren ins Spiel kommen, reichen Wahrheitstafeln aber nicht mehr aus: in der mathematischen Logik wird bewiesen, dass es keinen Algorithmus gibt, der für eine beliebige, mittels Junktoren und Quantoren aus Prädikaten und Aussagen zusammengesetzte Aussage entscheiden kann, ob es sich um eine Tautologie handelt oder nicht. Man spricht von der \textbf{Unentscheidbarkeit der Prädikatenlogik}. Das wäre auch zu schön, denn ein solcher Algorithmus wäre ein „mathematisches Orakel“, das für jede (in Prädikatenlogik formulierbare) mathematische Aussage ausrechnen könnte, ob sie allgemeingültig ist oder nicht. Gäbe es so etwas, müssten sich die meisten Mathematiker eine andere Arbeit suchen.
-    
-    Für ein Beispiel bezeichne $n$ eine natürliche Zahl und $E(n)$ das Prädikat „Wenn $n$ eine gerade Zahl und größer als drei ist, dann lässt sich $n$ als Summe zweier Primzahlen schreiben“. Die Aussage $\forall n:E(n)$ heißt \href{https://de.wikipedia.org/wiki/Goldbachsche_Vermutung}{\emph{Goldbachsche Vermutung}} und konnte bislang weder bewiesen noch widerlegt werden. Sie lässt sich als eine Art „unendliche Konjunktion“
-        \[E(1)\land  E(2)\land E(3)\land E(4)\land E(5) \land \dots \]
-    auffassen. Solche „unendlichen Konjunktionen“ entziehen sich aber aussagenlogischen Methoden und sind nicht mehr mit Wahrheitstafeln beherrschbar. Würde man die Konjunktionenkette ab einer bestimmten Zahl abbrechen
-        \[ E(1)\land E(2)\land\dots \land E(10^{30}) \]
-    so befände sich alles im Rahmen der Aussagenlogik und man müsste nur nacheinander prüfen, ob jede der Zahlen $1,\dots , 10^{30}$ die Eigenschaft $E$ besitzt (was mithilfe von Hochleistungsrechnern tatsächlich verifiziert werden konnte). Aber das reicht ja nicht aus, um die Aussage für \emph{alle} natürlichen Zahlen zu verifizieren. Dafür bräuchte der Rechner unendlich viel Zeit.
+    Ist $A$ eine noch so kompliziert verschachtelte Aussage, die keine Prädikate und Quantoren enthält, sondern sich ausschließlich mittels der Junktoren aus unzerlegbaren Aussagen zusammensetzt, so lässt sich mithilfe von Wahrheitstafeln stets überprüfen ob $A$ eine Tautologie ist. Mit genügend Rechenkapazität kann mir mein Computer also einfach ausrechnen, ob eine Tautologie vorliegt oder nicht. Man spricht von der (algorithmischen) \textbf{Entscheidbarkeit der Aussagenlogik}. Wie effizient ein solcher Entscheidungsalgorithmus sein kann, ist eine andere Frage. Das \emph{Erfüllbarkeitsproblem der Aussagenlogik} (kurz: SAT, für ``satisfiability'') ist \emph{NP-vollständig}: Sofern es einen Algorithmus gibt, der einen beliebigen aussagenlogischen Term in polynomialer Laufzeit darauf überprüfen kann, ob er eine Tautologie (hinsichtlich zweiwertiger Interpretationen) ist, wäre die berühmte \href{https://de.wikipedia.org/wiki/P-NP-Problem}{Frage nach P=NP} zu bejahen. Das Auffinden eines P-effizienten Entscheidungsalgorithmus könnte gravierende Konsequenzen für die Cybersicherheit mit sich bringen, da diverse Verschlüsselungsalgorithmen auf einem NP-Problem, der Berechnung der Primfaktorzerlegung, beruhen, für dessen Brechung es derzeit keinen effizienten Algorithmus gibt. Obwohl die Frage nach P=NP nachwievor offen ist, dominiert die Vermutung, dass sie zu verneinen bzw. höchstens nichtkonstruktiv bejahbar ist.
+
+    Sobald Quantoren ins Spiel kommen, reichen Wahrheitstafeln nicht mehr aus. In der Berechenbarkeitstheorie wird sogar bewiesen, dass es keinen Algorithmus geben kann, der für eine beliebige, mittels Junktoren und Quantoren aus Prädikaten und Aussagen zusammengesetzte Aussage entscheiden kann, ob eine Tautologie vorliegt. Man spricht von der \textbf{Unentscheidbarkeit der Prädikatenlogik}. Das wäre auch zu schön, denn ein solcher Algorithmus wäre ein „mathematisches Orakel“, das für jede (in Prädikatenlogik formulierbare) mathematische Aussage ausrechnen könnte, ob sie allgemeingültig ist oder nicht.% Gäbe es so etwas, würde die mathematische Forschung zu einer Art „Augurentum“ transformieren, Mathematiker würden in der möglichst nutzbringenden Befragung der KI ausgebildet werden.
+    %Für ein Beispiel bezeichne $n$ eine natürliche Zahl und $E(n)$ das Prädikat „Wenn $n$ eine gerade Zahl und größer als drei ist, dann lässt sich $n$ als Summe zweier Primzahlen schreiben“. Die Aussage $\forall n:E(n)$ heißt \href{https://de.wikipedia.org/wiki/Goldbachsche_Vermutung}{\emph{Goldbachsche Vermutung}} und konnte bislang weder bewiesen noch widerlegt werden. Sie lässt sich als eine Art „unendliche Konjunktion“
+     %   \[E(1)\land  E(2)\land E(3)\land E(4)\land E(5) \land \dots \]
+    %auffassen. Solche „unendlichen Konjunktionen“ entziehen sich aber aussagenlogischen Methoden und sind nicht mehr mit Wahrheitstafeln beherrschbar. Würde man die Konjunktionenkette ab einer bestimmten Zahl abbrechen
+     %   \[ E(1)\land E(2)\land\dots \land E(10^{30}) \]
+    %so befände sich alles im Rahmen der Aussagenlogik und man müsste nur nacheinander prüfen, ob jede der Zahlen $1,\dots , 10^{30}$ die Eigenschaft $E$ besitzt (was mithilfe von Hochleistungsrechnern tatsächlich verifiziert werden konnte). Aber das reicht ja nicht aus, um die Aussage für \emph{alle} natürlichen Zahlen zu verifizieren. Dafür bräuchte der Rechner unendlich viel Zeit.
 \end{vorschau}
 
 
@@ -865,15 +933,14 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 
 
 \begin{aufg}[Umgangssprache in Formeln übersetzen]
-    Zerlegt die folgenden Aussagen mithilfe der im Vortrag behandelten Junktoren und Quantoren in möglichst einfache Grundbausteine.
+    Zerlegt die folgenden Aussagen mithilfe der im Vortrag behandelten Junktoren und Quantoren in möglichst einfache Grundbausteine (es gibt hier nicht „die eine“ Lösung).
     \begin{enumerate}
-        \item Wenn ich entweder alle Prüfungen im ersten Versuch bestehe oder aber durch alle Prüfungen im ersten Versuch durchfalle, werde ich die ganze Nacht hindurch feiern.
-        \item Sofern er morgen Abend weder arbeiten muss noch Besuch von seiner Familie kriegt, würde er sich mit mir treffen.
-        \item Alle reellen Lösungen der Ungleichung $x^3-3x<3$ sind kleiner als $10$.
-        \item Nobody’s perfect.
+        \item Wird ein hartgekochtes Ei nicht mit kaltem Wasser abgeschreckt, so klebt die Schale am Eiweiß und das Ei lässt sich nicht gut schälen.
+        \item Sofern er morgen Abend weder arbeiten muss noch Besuch von seiner Schwester kriegt, würde er sich mit mir treffen.
+        \item Die Gleichung $x^5=x+1$ besitzt genau eine reelle Lösung.
+        \item(Goldbach-Vermutung) Jede gerade natürliche Zahl, die größer als $2$ ist, ist eine Summe zweier Primzahlen.
         \item Wenn es irgendjemand schafft, dann Henrik.
-        \item Wenn sogar Henrik es schafft, dann schafft es jeder.
-        \item Eine natürliche Zahl $p\neq 1$ ist genau dann eine Primzahl, falls gilt: für alle natürlichen Zahlen $a,b$ mit $p=ab$ ist $a=1$ oder $b=1$.
+        \item Wenn ich entweder alle Prüfungen im ersten Versuch bestehe oder aber durch alle Prüfungen im ersten Versuch durchfalle, werde ich die ganze Nacht hindurch feiern.
     \end{enumerate}
 \end{aufg}
 
@@ -881,18 +948,18 @@ Vermöge ihrer Extension bestimmt jede Eigenschaft eine Menge. Umgekehrt bestimm
 \begin{aufg}[Formeln in Umgangssprache übersetzen]
     Übersetzt die folgenden Aussagenformeln in Umgangssprache und beurteilt, ob es sich um wahre oder falsche Aussagen handelt:
     \begin{enumerate}
-        \item $\exists x\in \R\ \exists y\in \Z:\ x<y$
-        \item $\forall x\in \R\ \forall y\in \Z:\ x<y$
+        \item $\forall x,y\in \R:\ ((x>0)\land (y>0)\ \to\ xy>0)$
         \item $\forall x\in \R\ \exists y\in \Z:\ x<y$
         \item $\exists y\in \Z\ \forall x\in \R:\ x<y$
-        \item $\forall x\in \R:\ (x^2 -x=0\leftrightarrow(x=1\vee x=0))$
+        \item $\forall x\in \R:\ (x^2 =x\leftrightarrow(x=1\vee x=0))$
         \item $\exists! x\in \R\ \exists y\in \R:\ (y\neq0\ \land\ x\cdot y=0)$
+        \item $\forall x\in\N_0\ \exists a,b,c,d\in \N_0:\ x=a^2+b^2+c^2+d^2$ \quad (Vier-Quadrate-Satz)
     \end{enumerate}
 \end{aufg}
 	
 	
 \begin{aufg}[Wahrheitstafeln]
-    Seien $A,B$ zwei beliebige Aussagen. Entscheidet mithilfe von Wahrheitstafeln, unter welchen Umständen die folgenden Aussagen wahr sind:
+    Seien $A,B$ zwei beliebige Aussagen. Entscheidet mithilfe von Wahrheitstafeln, in welchen Fällen die folgenden Aussagen wahr sind:
     \begin{align*}
         \text{a)}&\qquad \neg A \land \neg B \\
         \text{b)}&\qquad \neg(A\lor B) \\
