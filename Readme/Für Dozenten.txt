@@ -1,6 +1,6 @@
 
-Dieses Readme-Dokument richtet sich an die Vorkurs-DozentInnen, die während der Vorkurswochen die mathematischen Vorträge halten.
-Obwohl das Dokument Vorkurs-„Skript“ heißt, handelt es sich nicht um ein Skript im Sinne von Vorlesungsnotizen. Die eigentliche Funktion des Texts habe ich ins Vorwort geschrieben, schaut da einmal rein.
+Dieses Readme richtet sich an die Vorkurs-DozentInnen, die während der Vorkurswochen die mathematischen Vorträge halten.
+Obwohl vom Vorkurs-„Skript“ die Rede ist, handelt es sich nicht um ein Skript im Sinne von Vorlesungsnotizen, sondern geradezu um ein Lehrbuch über mathematische Grundlagen. Die eigentliche Funktion des Texts habe ich ins Vorwort geschrieben, schaut da einmal rein.
 
 Das Skript enthält deutlich mehr Inhalt, als ihr in den Vorträgen behandeln könnt. Um zu entscheiden, welche Inhalte ihr im Vortrag besprechen sollt, folgende Kriterien:
 
@@ -8,9 +8,9 @@ Das Skript enthält deutlich mehr Inhalt, als ihr in den Vorträgen behandeln k�
     
     (2) Lest euch unbedingt einmal die Aufgabenvorschläge zu eurem Vortrag durch! Die Aufgaben kodieren das, was die Anfis meiner Ansicht nach aus den Vorträgen mitnehmen sollten. Primäres Ziel eures Vortrags sollte sein, den Anfis Wissen zu vermitteln, das sie die Aufgaben verstehen lässt.
     
-    (3) Inhalte, die ich für weniger relevant halte und auf die im Laufe des Vorkurses auch nicht in nachfolgenden Vorträgen zurückgegriffen wird, habe ich mit einem * markiert. Wenn euch diese Themen nicht besonders wichtig sind, würde ich die am ehesten im Vortrag weglassen.
+    (3) Inhalte, die ich für weniger relevant halte und auf die im Laufe des Vorkurses auch nicht in nachfolgenden Vorträgen zurückgegriffen wird, habe ich mit einem * markiert. Wenn euch diese Themen nicht besonders wichtig sind, würde ich sie am ehesten im Vortrag weglassen.
     
-Am meisten komprimieren muss diejenige Person, die den Beweise-Vortrag, dessen Skript-Kapitel doppelt so lang wie die übrigen Kapitel sind, hält. Schau vielleicht mal auf der MaMpf in meinen Vortrag aus dem Vorkurs 2021, um dir Inspiration zu holen.
+Am meisten komprimieren muss diejenige Person, die den Beweise-Vortrag hält. Schau vielleicht mal auf der MaMpf in meinen Vortrag aus dem Vorkurs 2021, um dir Inspiration zu holen.
     
 Solltet ihr erhebliche Teile des Kapitelinhalts nicht im Vortrag behandeln, benachrichtigt erstens die Tutoren darüber, damit sie Bescheid wissen und diese Teile nicht im Tutorium thematisieren, und zweitens die Dozenten der folgenden Vorträge, damit sie eventuell ihren eigenen Inhalt dahingehend anpassen, dass er nicht den von euch ausgelassenen Teil voraussetzt.
 
@@ -19,8 +19,12 @@ Noch ein paar Bemerkungen zur Vortragsgestaltung:
     (1) Nutzt die Möglichkeiten des Vortragformats! Beim Verfassen des Skripts war ich an die lineare Form eines Lehrbuchtexts gebunden; im Vortrag könnt ihr diese Form durchbrechen, indem ihr etwa Beispiele in Tabellenform auflistet, deutlich mehr Bilder malt als im Text vorhanden sind, euch die Aufmerksamkeit der Anfis mit kleinen Live-Quizzes sichert und sie allgemein stärker in den Vortrag einbindet.
     
     (2) Bedenkt, dass die Anfis keinerlei Erfahrung mit mathematischem Jargon and "Routineargumenten" haben. Eurer Sprache zu folgen, zu entscheiden, welche Formulierungen wichtig und welche nebensächlich sind, ist für sie mindestens genauso schwer wie das Verstehen des eigentlichen Vortragsinhalts. Sensibilisiert euch dafür! Sprecht langsam, baut kleine rhetorische Pausen ein, erklärt nicht nur mathematische Definitionen, sondern auch den Jargon (z.B. "induziert", "kanonisch", "gilt im Allgemeinen"), wenn ihr welchen benutzt.
+
+    (3) Ein fachdidaktisches Fettnäpfchen, in das selbst gestandene Professoren treten, besteht darin, in der Bemühung um Eindeutigkeit und Präzision alternative Definitionen, Konventionen, Terminologie und Wortbedeutungen zu unterdrücken. Manche Autoren definieren Begriff X so, manche machen diese Definition zum Theorem und definieren X stattdessen so. Schwört die Anfis bitte nicht auf eure spezifische Art, Mathematik zu betreiben, ein, sondern versucht den Stoff überparteiisch und ambiguitätstolerant zu vermitteln. Natürlich ohne formale Präzision einzubüßen, wo sie nötig und angemessen ist.
     
-    (3) Auch wenn ihr keinen der beiden Vorträge über Logik und Beweise habt, geht bei komplizierten Aussagen oder vor Beweisen auf die logische Struktur der Aussagen ein und wiederholt kurz, wie Aussagen dieser Form zu beweisen sind. Vor allem wenn ihr Allbeweise mit der Technik "Sei x ein beliebiges..." beweist, macht darauf ausdrücklich aufmerksam. Für die Anfis ist diese Sprechweise ja noch ganz ungewohnt.
+    (4) Auch wenn ihr keinen der beiden Vorträge über Logik und Beweise habt, geht bei komplizierten Aussagen oder vor Beweisen auf die logische Struktur der Aussagen ein und wiederholt kurz, wie Aussagen dieser Form zu beweisen sind. Vor allem wenn ihr Allbeweise mit der Technik "Sei x ein beliebiges..." beweist, macht darauf ausdrücklich aufmerksam. Für die Anfis ist diese Sprechweise ja noch ungewohnt.
+
+    (5) Möchtet ihr Erläuterungen zu bestimmten Stellen im Skript oder euch allgemein zur Vortragsgestaltung beraten lassen, schreibt mir gerne eine Email: lukathome@gmx.net
     
-    
+
 Luka, September 2022

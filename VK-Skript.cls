@@ -45,6 +45,7 @@
 \RequirePackage{mathtools}
     \mathtoolsset{centercolon}
 \RequirePackage{amsthm}
+\RequirePackage{thmtools}
 
 
 % Zeichenbibliotheken
@@ -120,11 +121,11 @@
         \patchcmd\Hy@EveryPageBoxHook{\Hy@EveryPageAnchor}{\Hy@hypertexnamestrue\Hy@EveryPageAnchor}{}{\fail}
     \makeatother
 \RequirePackage{bookmark}
-\RequirePackage{cleveref}
+\RequirePackage[ngerman]{cleveref}
 
 
 % ====================================================================
-% <<Steuerung von Abschnittsangaben und Kopfzeilen>>
+% <<Makros für Einleitung, Hauptteil, Anhang und Schlussteil>>
 % ====================================================================
 
 \let\oldfrontmatter\frontmatter
@@ -183,6 +184,10 @@
     \renewcommand{\sectionformat}{\thesection\quad}
     \hypersetup{bookmarksdepth=0} % Keine sections in den Pdf-bookmarks
     \pdfbookmark[-1]{Anhang}{anhang} % Eintrag im Pdf-Inhaltsverzeichnis hinzufügen
+    % Nummerierung der theorems am chapter ausrichten
+    \renewenvironment{aufg}{\begin{appendixaufg}}{\end{appendixaufg}}
+    \renewenvironment{bem}{\begin{appendixbem}}{\end{appendixbem}}
+    \renewenvironment{bew}{\begin{appendixbew}}{\end{appendixbew}}
 }
 
 \let\oldbackmatter\backmatter
@@ -202,26 +207,25 @@
 \definecolor{dgreen}{rgb}{0,0.4,0} % dunkelgrün
 \definecolor{dblue}{rgb}{0,0,0.6} % dunkelblau
 \definecolor{dgold}{rgb}{0.60,0.48,0.19} % hellbraun
-\definecolor{dbraun}{rgb}{0.54,0.27,0.07} % dunkelbraun
-\newcommand{\dgrau}{\color{gray}} % dunkelgrau
+\definecolor{dbrown}{rgb}{0.54,0.27,0.07} % dunkelbraun
 
 % Trennlinien einfärben
-\addtokomafont{headsepline}{\dgrau}
-\addtokomafont{footnoterule}{\dgrau}
+\addtokomafont{headsepline}{\color{gray}}
+\addtokomafont{footnoterule}{\color{gray}}
 
 % Abschnittsangaben grau einfärben
-\addtokomafont{chapter}{\dgrau}
-\addtokomafont{section}{\dgrau}
-\addtokomafont{subsection}{\dgrau}
-\addtokomafont{subsubsection}{\dgrau}
+\addtokomafont{chapter}{\color{gray}}
+\addtokomafont{section}{\color{gray}}
+\addtokomafont{subsection}{\color{gray}}
+\addtokomafont{subsubsection}{\color{gray}}
 
 % Objekte im Inhaltsverzeichnis grau färben
-\renewcommand{\cftchapleader}{\dgrau\cftdotfill{\cftsecdotsep}} % Kapitelpunkte
-\renewcommand{\cftsecleader}{\dgrau\cftdotfill{\cftsecdotsep}} % Sectionpunkte
-\renewcommand{\cftsubsecleader}{\dgrau\cftdotfill{\cftsubsecdotsep}} % Subsectionpunkte
-\renewcommand{\cftchappagefont}{\dgrau\bfseries} % Kapitel-Seitenzahl
-\renewcommand{\cftsecpagefont}{\dgrau} % Section-Seitenzahl
-\renewcommand{\cftsubsecpagefont}{\dgrau} % Subsection-Seitenzahl
+\renewcommand{\cftchapleader}{\color{gray}\cftdotfill{\cftsecdotsep}} % Kapitelpunkte
+\renewcommand{\cftsecleader}{\color{gray}\cftdotfill{\cftsecdotsep}} % Sectionpunkte
+\renewcommand{\cftsubsecleader}{\color{gray}\cftdotfill{\cftsubsecdotsep}} % Subsectionpunkte
+\renewcommand{\cftchappagefont}{\color{gray}} % Kapitel-Seitenzahl
+\renewcommand{\cftsecpagefont}{\color{gray}} % Section-Seitenzahl
+\renewcommand{\cftsubsecpagefont}{\color{gray}} % Subsection-Seitenzahl
 
 
 % ====================================================================
@@ -229,20 +233,20 @@
 % ====================================================================
 
 % Kopf- und Fußzeile für scrheadings
-\ohead[]{\dgrau\small\normalfont\rightmark}
-\ihead[]{\dgrau\small\normalfont\leftmark}
+\ohead[]{\color{gray}\upshape\small\rightmark}
+\ihead[]{\color{gray}\upshape\small\leftmark}
 \ofoot[]{\normalfont\thepage}
 \KOMAoption{headsepline}{.5pt}
 
 % Nur Kapitelname in der Kopfzeile, kein section-Name
 \newpagestyle{nosection}{
-    {\dgrau\small\normalfont\leftmark\hfill}
-    {\hfill\dgrau\small\normalfont\leftmark}
+    {\color{gray}\upshape\small\leftmark\hfill}
+    {\hfill\color{gray}\upshape\small\leftmark}
     {}
 }{
-    {\normalfont\thepage\hfill}
-    {\normalfont\hfill\thepage}
-    {\normalfont\hfill\thepage\hfill}
+    {\upshape\thepage\hfill}
+    {\upshape\hfill\thepage}
+    {\upshape\hfill\thepage\hfill}
 }
 
 % Keine Kopfzeile, nur Seitenzahl in der Fußzeile
@@ -252,9 +256,9 @@
     {}
     (\textwidth, 0pt)
 }{
-    {\normalfont\thepage\hfill}
-    {\normalfont\hfill\thepage}
-    {\normalfont\hfill\thepage\hfill}
+    {\upshape\thepage\hfill}
+    {\upshape\hfill\thepage}
+    {\upshape\hfill\thepage\hfill}
 }
 
 
@@ -263,207 +267,45 @@
 % ====================================================================
 
 \crefname{chapter}{Kapitel}{Kapitel}
-\crefformat{chapter}{#2{\rmfamily{\dgrau Kapitel} {#1}}#3}
+\crefformat{chapter}{#2{\rmfamily{\color{gray} Kapitel} {#1}}#3}
 
 \crefname{section}{Abschnitt}{Abschnitte}
-\crefformat{section}{#2{\rmfamily{\dgrau Abschnitt} {\dgrau\S}{#1}}#3}
+\crefformat{section}{#2{\rmfamily{\color{gray} Abschnitt} {\color{gray}\S}{#1}}#3}
 
 \crefname{appendix}{Anhang}{Anhänge}
-\crefformat{appendix}{#2{\rmfamily{\dgrau Anhang} {#1}}#3}
+\crefformat{appendix}{#2{\rmfamily{\color{gray} Anhang} {#1}}#3}
 
 % Die cleveref-Referenztypen für die amsthm-Umgebungen sind direkt bei der entsprechenden \newtheorem-Definition untergebracht
 
 
 % ====================================================================
-% <<Definitionen der theoremstyles>>
+% <<Einstellungen für die theoremstyles>>
 % ====================================================================
 
-% In diesem Abschnitt werden noch nicht die konkreten Umgebungen wie „Definition“ oder „Bemerkung“ eingerichtet, sondern nur die Style-Schablonen, die diese Umgebungen später nutzen werden.
-
-% Für Absätze vom Typ „Resultat“
-\newcommand{\colorres}{dred} 
-\newtheoremstyle{styres} % name
-    {1.1\topsep} % Space above
-    {\topsep} % Space below
-    {\normalfont\itshape} % Body font
-    {} % Indent amount (empty = no indent, \parindent = para indent)
-    {\color{\colorres}} % Thm head font
-    {.} % Punctuation after thm head
-    {.5em} % Space after thm head: " " = normal interword space; \newline = linebreak
-    {\llap{\footnotesize\dgrau\S \thmnumber{#2} }\thmname{\textbf{#1}}\thmnote{\textit{ \small(#3)}}} % Thm head spec (can be left empty, meaning `normal')
-  
-% Für Absätze vom Typ „Beweis“
 \renewcommand{\qedsymbol}{\scriptsize{\ensuremath{\blacksquare}}} % Schwarzes QED-Quadrat
-\newtheoremstyle{stybew}%
-    {0.5\topsep}
-    {1.1\topsep}
-    {\upshape}
-    {}
-    {\dgrau}
-    {.}
-    {.5em}
-    {\llap{\footnotesize\dgrau\S \thmnumber{#2} }\thmname{\textbf{#1}}\thmnote{ #3}}
-  
-% Für Absätze vom Typ „Definition“
-\newcommand{\colorde}{dblue}
-\newtheoremstyle{styde}
-    {1.1\topsep}
-    {\topsep}
-    {\normalfont\rmfamily}
-    {}
-    {\color{\colorde}}
-    {.}
-    {.5em}
-    {\llap{\footnotesize\dgrau\S \thmnumber{#2} }\thmname{\textbf{{#1}}}\thmnote{ \textit{\small(#3)}}}
 
-% Für Absätze vom Typ „Schreib- und Sprechweise“
-\newcommand{\colorsch}{dgold}
-\newtheoremstyle{stysch}
-    {1.1\topsep}
-    {\topsep}
-    {\normalfont\rmfamily}
-    {}
-    {\color{\colorsch}}
-    {.}
-    {.5em}
-    {\llap{\footnotesize\dgrau\S \thmnumber{#2} }\thmname{\textbf{{#1}}}\thmnote{ \textit{\small(#3)}}}
-    
-% Für Absätze vom Typ „Axiom“
-\newcommand{\coloraxiom}{dblue}
-\newtheoremstyle{styaxiom}
-    {1.1\topsep}
-    {\topsep}
-    {\normalfont\rmfamily}
-    {}
-    {\color{\coloraxiom}}
-    {.}
-    {.5em}
-    {\llap{\footnotesize\dgrau\S \thmnumber{#2} }\thmname{\textbf{{#1}}}\thmnote{ \textit{\small(#3)}}}
-  
-% Für Absätze vom Typ „Bemerkung“
-\newcommand{\colorbem}{dbraun}
-\newtheoremstyle{stybem}
-    {1.1\topsep}
-    {\topsep}
-    {\normalfont\rmfamily}
-    {}
-    {\color{\colorbem}}
-    {.}
-    {.5em}
-    {\llap{\footnotesize\dgrau\S \thmnumber{#2} }\thmname{\textbf{{#1}}}\thmnote{ \textit{\small(#3)}}}
-  
-% Für Absätze vom Typ „Beispiel“
-\newcommand{\colorbsp}{dgreen}
-\newtheoremstyle{stybsp}
-    {1.1\topsep}
-    {\topsep}
-    {\normalfont\rmfamily}
-    {}
-    {\color{\colorbsp}}
-    {.}
-    {.5em}
-    {\llap{\footnotesize\dgrau \S \thmnumber{#2} }\thmname{\textbf{{#1}}}\thmnote{ \textit{\small(#3)}}}
+% Farben für die verschiedenen theorem-Sorten
+\newcommand{\colorres}{\color{dred}} % für Resultate
+\newcommand{\colorbew}{\color{gray}} % für Beweise
+\newcommand{\colordefin}{\color{dblue}} % für Definitionen
+\newcommand{\colorsch}{\color{dgold}} % für Schreib- und Sprechweisen
+\newcommand{\coloraxiom}{\color{dblue}} % für Axiome
+\newcommand{\colorbem}{\color{dbrown}} % für Bemerkungen und Anmerkungen
+\newcommand{\colorbsp}{\color{dgreen}} % für Beispiele
+\newcommand{\coloraufg}{\color{dgreen}} % für Aufgaben
 
-% Für Absätze vom Typ „Aufgabe“
-\newcommand{\coloraufg}{dgreen}
-\newtheoremstyle{styaufg}
-    {1.1\topsep}
-    {2.0\topsep}
-    {\normalfont\rmfamily}
-    {}
-    {\color{\coloraufg}}
-    {.}
-    {.5em}
-    {\llap{\footnotesize\dgrau\S \thmnumber{#2} }\thmname{\textbf{{#1}}}\thmnote{ \textit{\small(#3)}}}
+% Makros für die theoremstyles
+\newcommand{\thmheadstyle}{\llap{\color{gray}\footnotesize\mdseries\S\NUMBER\ }\bfseries\NAME\small\mdseries\itshape\NOTE}
+\newlength{\refnumbertweakwidth} % Ad-hoc-Lösung, um die Platzierung des Paragraphenzeichens in \cref-Theoremnummern zu fixen
+\newcommand{\thmrefstyle}{\color{gray}\S\settowidth{\refnumbertweakwidth}{\space}\kern-\refnumbertweakwidth} % Theoremnummern in cref-Links
 
 
-% ====================================================================
-% <<Einrichten der einzelnen amsthm-Umgebungen>>
-% ====================================================================
+\input{theoremstyles} % Import der theorem-Umgebungen
 
-\theoremstyle{styres}\newtheorem{pro}{Proposition}[section]
-\crefname{pro}{Proposition}{Propositionen}
-\crefformat{pro}{#2{\rmfamily{\color{\colorres} Proposition} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{satz}{pro} % counter einrichten
-\theoremstyle{styres}\newtheorem{satz}[satz]{Satz} % \begin{satz}-Umgebung definieren
-\aliascntresetthe{satz} % counter auf Anfang setzen
-\crefname{satz}{Satz}{Sätze} % Referenzen einrichten
-\crefformat{satz}{#2{\rmfamily{\color{\colorres} Satz} {\dgrau\S}{#1}}#3} % Aussehen der Referenzen
-
-\newaliascnt{lem}{pro}
-\theoremstyle{styres}\newtheorem{lem}[lem]{Lemma}
-\aliascntresetthe{lem}
-\crefname{lem}{Lemma}{Lemmata}
-\crefformat{lem}{#2{\rmfamily{\color{\colorres} Lemma} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{kor}{pro}
-\theoremstyle{styres}\newtheorem{kor}[kor]{Korollar}
-\aliascntresetthe{kor}
-\crefname{kor}{Korollar}{Korollare}
-\crefformat{kor}{#2{\rmfamily{\color{\colorres} Korollar} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{bew}{pro}
-\theoremstyle{stybew}\newtheorem{bew}[bew]{Beweis}
-\aliascntresetthe{bew}
-\crefname{bew}{Beweis}{Beweise}
-\crefformat{bew}{#2{\rmfamily{\color{\colorres} Beweis} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{axiom}{pro}
-\theoremstyle{styaxiom}\newtheorem{axiom}[axiom]{Axiom}
-\aliascntresetthe{axiom}
-\crefname{axiom}{Axiom}{Axiome}
-\crefformat{axiom}{#2{\rmfamily{\color{\coloraxiom} Axiom} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{de}{pro}
-\theoremstyle{styde}\newtheorem{de}[de]{Definition}
-\aliascntresetthe{de}
-\crefname{de}{Definition}{Definitionen}
-\crefformat{de}{#2{\rmfamily{\color{\colorde} Definition} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{nota}{pro}
-\theoremstyle{stysch}\newtheorem{nota}[nota]{Notation}
-\aliascntresetthe{nota}
-\crefname{nota}{Notation}{Notation}
-\crefformat{nota}{#2{\rmfamily{\color{\colorsch} Notation} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{bem}{pro}
-\theoremstyle{stybem}\newtheorem{bem}[bem]{Bemerkung}
-\aliascntresetthe{bem}
-\crefname{bem}{Bemerkung}{Bemerkungen}
-\crefformat{bem}{#2{\rmfamily{\color{\colorbem} Bemerkung} {\dgrau\S}{#1}}#3} 
-
-\newaliascnt{anm}{pro}
-\theoremstyle{stybem}\newtheorem{anm}[anm]{Anmerkung}
-\aliascntresetthe{anm}
-\crefname{anm}{Anmerkung}{Anmerkungen}
-\crefformat{anm}{#2{\rmfamily{\color{\colorbem} Anmerkung} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{vorschau}{pro}
-\theoremstyle{stybem}\newtheorem{vorschau}[vorschau]{Vorschau}
-\aliascntresetthe{vorschau}
-\crefname{vorschau}{Vorschau}{Vorschauen}
-\crefformat{vorschau}{#2{\rmfamily{\color{\colorbem} Vorschau} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{bsp}{pro}
-\theoremstyle{stybsp}\newtheorem{bsp}[bsp]{Beispiel}
-\aliascntresetthe{bsp}
-\crefname{bsp}{Beispiel}{Beispiele}
-\crefformat{bsp}{#2{\rmfamily{\color{\colorbsp} Beispiel} {\dgrau\S}{#1}}#3}
-
-\newaliascnt{aufg}{pro}
-\theoremstyle{styaufg}\newtheorem{aufg}[aufg]{Aufgabe}
-\aliascntresetthe{aufg}
-\crefname{aufg}{Aufgabe}{Aufgaben}
-\crefformat{aufg}{#2{\rmfamily{\color{\coloraufg} Aufgabe} {\dgrau\S}{#1}}#3}
-
-
-% ====================================================================
-% <<Standard-enumerate-Listentypen für die amsthm-Umgebungen>>
-% ====================================================================
-
-\AtBeginEnvironment{satz}{\setlist[enumerate]{label={\textnormal{\alph*)}}}}
-\AtBeginEnvironment{bew}{\setlist[enumerate]{label={\alph*)}}}
-\AtBeginEnvironment{bsp}{\setlist[enumerate]{label={(\arabic*)}}}
-\AtBeginEnvironment{aufg}{\setlist[enumerate]{label={\alph*)}}}
-
+% Standard-enumerate-Listentypen für die amsthm-Umgebungen
+\AtBeginEnvironment{satz}{\setlist[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
+\AtBeginEnvironment{lem}{\setlist[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
+\AtBeginEnvironment{kor}{\setlist[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
+\AtBeginEnvironment{bew}{\setlist[enumerate]{label={\alph*)}}} % a),b),c),...
+\AtBeginEnvironment{bsp}{\setlist[enumerate]{label={(\arabic*)}}} % (1),(2),(3),...
+\AtBeginEnvironment{aufg}{\setlist[enumerate]{label={\alph*)}}} % a),b),c),...

@@ -1,0 +1,238 @@
+
+% ====================================================================
+% <<Definitionen der theoremstyles>>
+% ====================================================================
+
+% Für Absätze vom Typ „Resultat“
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\colorres\bfseries,
+    notefont=\itshape,
+    bodyfont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle % Gestalt der theorem-Titel (wird im classfile definiert)
+]{styres}
+
+% Für Absätze vom Typ „Beweis“
+\declaretheoremstyle[
+    %qed=\qedsymbol,
+    spaceabove=0.5\topsep,
+    spacebelow=\topsep,
+    headfont=\colorbew\bfseries,
+    notefont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle
+]{stybew}
+
+% Für Absätze vom Typ „Definition“
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\colordefin\bfseries,
+    notefont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle
+]{stydefin}
+
+% Für Absätze vom Typ „Schreib- und Sprechweise“
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\colorsch\bfseries,
+    notefont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle
+]{stysch}
+
+% Für Absätze vom Typ „Axiom“
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\coloraxiom\bfseries,
+    notefont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle
+]{styaxiom}
+
+% Für Absätze vom Typ „Bemerkung“
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\colorbem\bfseries,
+    notefont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle
+]{stybem}
+
+% Für Absätze vom Typ „Beispiel“
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=\topsep,
+    headfont=\colorbsp\bfseries,
+    notefont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle
+]{stybsp}
+
+% Für Absätze vom Typ „Aufgabe“
+\declaretheoremstyle[
+    spaceabove=\topsep,
+    spacebelow=2.0\topsep,
+    headfont=\coloraufg\bfseries,
+    notefont=\itshape,
+    postheadspace=0.5em,
+    headformat=\thmheadstyle
+]{styaufg}
+
+
+% ====================================================================
+% <<Einrichten der einzelnen amsthm-Umgebungen>>
+% ====================================================================
+
+% Proposition (Dummy-Umgebung, die den counter für alle anderen Umgebungen bereitstellt)
+\declaretheorem[
+    style=styres, % verwendeter theoremstyle
+    name=Proposition,
+    refname={\colorres Proposition \thmrefstyle}, % Anzeige in \cref-Referenzen. Das Makro \thmrefstyle wird im classfile definiert
+    parent=section % Nummerierung jede section erneut beginnen
+]{prop}
+
+% Satz
+\declaretheorem[
+    style=styres,
+    name=Satz,
+    refname={\colorres Satz \thmrefstyle},
+    sibling=prop % Nummerierung vom "prop"-Counter übernehmen
+]{satz}
+
+% Lemma
+\declaretheorem[
+    style=styres,
+    name=Lemma,
+    refname={\colorres Lemma \thmrefstyle},
+    sibling=prop
+]{lem}
+
+% Korollar
+\declaretheorem[
+    style=styres,
+    name=Korollar,
+    refname={\colorres Korollar \thmrefstyle},
+    sibling=prop
+]{kor}
+
+% Beweis
+\declaretheorem[
+    style=stybew,
+    name=Beweis,
+    refname={\colorbew Beweis \thmrefstyle},
+    sibling=prop
+]{bew}
+
+% Axiom
+\declaretheorem[
+    style=styaxiom,
+    name=Axiom,
+    refname={\coloraxiom Axiom \thmrefstyle},
+    sibling=prop
+]{axiom}
+
+% Definition
+\declaretheorem[
+    style=stydefin,
+    name=Definition,
+    refname={\colordefin Definition \thmrefstyle},
+    sibling=prop
+]{defin}
+
+% Notation
+\declaretheorem[
+    style=stysch,
+    name=Notation,
+    refname={\colorsch Notation \thmrefstyle},
+    sibling=prop
+]{nota}
+
+% Bemerkung
+\declaretheorem[
+    style=stybem,
+    name=Bemerkung,
+    refname={\colorbem Bemerkung \thmrefstyle},
+    sibling=prop
+]{bem}
+
+% Anmerkung
+\declaretheorem[
+    style=stybem,
+    name=Anmerkung,
+    refname={\colorbem Anmerkung \thmrefstyle},
+    sibling=prop
+]{anm}
+
+% Vorschau
+\declaretheorem[
+    style=stybem,
+    name=Vorschau,
+    refname={\colorbem Vorschau \thmrefstyle},
+    sibling=prop
+]{vorschau}
+
+% Beispiel
+\declaretheorem[
+    style=stybsp,
+    name=Beispiel,
+    refname={\colorbsp Beispiel \thmrefstyle},
+    sibling=prop
+]{bsp}
+
+% Aufgabe
+\declaretheorem[
+    style=styaufg,
+    name=Aufgabe,
+    refname={\coloraufg Aufgabe \thmrefstyle},
+    sibling=prop
+]{aufg}
+
+
+% ====================================================================
+% <<Umgebungen, die nur im Anhang verwendet werden>>
+% ====================================================================
+
+\declaretheorem[
+    style=styres, % verwendeter theoremstyle
+    name=Proposition,
+    refname={\colorres Proposition \thmrefstyle},
+    parent=chapter
+]{propchap} % Genau wie prop, nur mit kapitelweiser Nummerierung
+
+
+% Beweis
+\declaretheorem[
+    style=stybew,
+    name=Beweis,
+    refname={\colorbew Beweis \thmrefstyle},
+    sibling=propchap
+]{appendixbew}
+
+% Aufgabe
+\declaretheorem[
+    style=styaufg,
+    name=Aufgabe,
+    refname={\coloraufg Aufgabe \thmrefstyle},
+    sibling=propchap
+]{appendixaufg}
+
+% Bemerkung
+\declaretheorem[
+    style=stybem,
+    name=Bemerkung,
+    refname={\colorbem Bemerkung \thmrefstyle},
+    sibling=propchap
+]{appendixbem}
+
+
+% Einmalige theorems für den Abschnitt „Entstehungsprozess eines Beweises“
+\declaretheorem[style=stysch,sibling=propchap,name={\colorsch\bfseries Phase 1}]{phaseone}
+\declaretheorem[style=stysch,sibling=propchap,name={\colorsch\bfseries Phase 2}]{phasetwo}
+\declaretheorem[style=stysch,sibling=propchap,name={\colorsch\bfseries Phase 3}]{phasethree}

@@ -1,6 +1,6 @@
 
 
-\setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
+\setchapterpreamble[c][.7\textwidth]{\itshape\color{gray}\small
     In diesem Vortrag werden Grudbausteine der Analysis, wie Ungleichungen, Abstand, Umgebungen und Folgenkonvergenz, besprochen und mit Beispielen illustriert. Die Intuitionsbildung soll hier Vorrang vor Rigorosität haben.
 \vspace{24pt}}
 
@@ -12,7 +12,7 @@
 
 
 \begin{bem}[Buchtipp]
-    In diesem Vortrag soll ein Überblick über einige wichtige Konzepte der Analysis gegeben werden. Am wichtigsten ist mir hier die Konstruktion von Bildern und intuitiven Erklärungen, weshalb vergleichsweise viele Aussagen nicht bewiesen, sondern nur mit einer Erklärung plausibilisiert werden.
+    In diesem Vortrag soll ein Überblick über einige wichtige Konzepte der Analysis gegeben werden. Am wichtigsten ist mir hier die Vermittlung von Bildern und intuitiven Erklärungen, weshalb vergleichsweise viele Aussagen nicht bewiesen, sondern nur mit einer Erklärung plausibilisiert werden.
     
     Möchtest du es genau wissen, lege ich dir das Analysis-Lehrbuch \cite{AE06} ans Herz, mit dem auch ich als Erstsemester den Analysis-Stoff gelernt habe und das selbst nach sechs Jahren Studium zu den besten Mathe-Lehrbüchern gehört, die ich gelesen habe. Einige wenige Kritikpunkte sind für mich ihre eigenwillige Notation, die das Buch ungeeignet zum schnellen Nachschlagen macht, sowie die nachlassende Qualität der nachfolgenden Bände zu Ana2 und Ana3. Über den Link im Literaturverzeichnis kannst du dir das Buch kostenlos aus dem Uni-Netz herunterladen. Wirf mal einen Blick hinein und schau, ob es dich anspricht!
 \end{bem}
@@ -48,7 +48,7 @@
 
 
 \begin{bem} \label{ungleichungerklaerung}
-    Einige dieser Regeln werden gelegentlich als „Anordnungsaxiome“ bezeichnet. Ich werde hier auf einen Beweis verzichten\footnote{Beweise findest du z.B. in \cite{AE06}, Satz I.8.9.}.
+    Einige dieser Regeln werden gelegentlich als „Anordnungsaxiome“ bezeichnet. Ich werde hier auf einen Beweis verzichten.%\footnote{Beweise findest du z.B. in \cite{AE06}, Satz I.8.9.}.
     \begin{itemize}
         \item Die ersten beiden Regeln besagen, dass Addition und Subtraktion jeweils Äquivalenz\-umformungen für Ungleichungen darstellen. Man sagt auch, die Ordnungsrelation sei \emph{translationsinvariant}, weil sich Addition bzw. Subtraktion als „Verschiebung“ der Zahlengerade vorstellen lassen.
         \item Die nächsten beiden Regeln besagen, dass auch Multiplikation und Division jeweils Äquivalenzumformungen sind, sofern sie mit einer \emph{positiven} Zahl geschehen.
@@ -75,7 +75,7 @@
 \end{bsp}
 
 
-\begin{de}[* Die erweiterte Zahlengerade] \index{Erweiterte Zahlengerade}
+\begin{defin}[* Die erweiterte Zahlengerade] \index{Erweiterte Zahlengerade}
     Gelegentlich ist es praktisch, die reellen Zahlen um zwei weitere Elemente „$\infty$“ und „$-\infty$“ zu erweitern. Das ist alles andere als mysteriös: wir fassen „$\infty$“ und „$-\infty$“ schlicht als „Symbole“ auf, als zwei weitere Elemente, die wir der Menge $\R$ künstlich hinzufügen. Die durch diese Hinzufügung entstehende Menge wird manchmal \textbf{erweiterte Zahlengerade} genannt und mit
         \[ \bar\R := \R\cup \{-\infty,\infty\} \]
     notiert. Um den beiden neuen Elementen $\pm \infty$ ihren intendierten Platz hinsichtlich der Ordnung von $\R$ zuzuweisen, legen wir fest, dass
@@ -83,10 +83,10 @@
             -\infty \le  x \le \infty && (\text{für alle $x\in \bar \R$})
         \end{align*}
     d.h. „$-\infty$“ sei per Definition kleiner als jede reelle Zahl, „$\infty$“ dagegen größer als jede reelle Zahl. Es lässt sich zeigen, dass $(\bar \R,\le)$ auf diese Weise zu einer totalgeordneten Menge wird. Beachte, dass $\pm \infty$ keine reellen Zahlen sind und dass sich damit auch nur eingeschränkt rechnen lässt.
-\end{de}
+\end{defin}
 
 
-\begin{de}[Betrag und Signum] \index{Betrag} \index{Signum}
+\begin{defin}[Betrag und Signum] \index{Betrag} \index{Signum}
     Für eine reelle Zahl $a\in \R$ ist ihr \textbf{Betrag} definiert durch 
     \begin{align*}
         |a|:= \begin{cases}
@@ -113,7 +113,7 @@
         \centering \caption{Graph der Signumsfunktion}
     \end{minipage}
     \end{figure}
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -154,7 +154,7 @@
 \end{bem}
 
 
-\begin{de}[* Abstandsfunktion] \label{def:abstand} \index{Abstandsfunktion} \index{Metrischer Raum} \index{Punkt (in einem metrischen Raum)} \index{Dreiecksungleichung (in metrischen Räumen)}
+\begin{defin}[* Abstandsfunktion] \label{def:abstand} \index{Abstandsfunktion} \index{Metrischer Raum} \index{Punkt (in einem metrischen Raum)} \index{Dreiecksungleichung (in metrischen Räumen)}
     Sei $X$ eine beliebige Menge. Eine Funktion $d:X\times X\to \R_{\ge 0}$ heißt eine \textbf{Abstandsfunktion} oder auch \textbf{Metrik}, falls für alle $x,y,z\in X$ gilt:
     \begin{align*}
         d(x,z) \quad&\le\quad d(x,y)+d(y,z) && (\text{Dreiecksungleichung}) \\
@@ -162,7 +162,7 @@
         x=y \quad&\leftrightarrow\quad d(x,y)=0 && (\text{Definitheit})
     \end{align*}
     Ein \textbf{metrischer Raum} ist ein Paar $(X,d)$ bestehend aus einer Menge $X$ und einer Abstandsfunktion $d$ auf $X$. Die Elemente eines metrischen Raums werden auch \textbf{Punkte} genannt. Für Punkte $x,y\in X$ heißt $d(x,y)$ der \textbf{Abstand} von $x$ zu $y$. Ist die konkrete Abstandsfunktion im Kontext klar oder gleichgültig, spricht man schlicht von „dem metrischen Raum $X$“. Der Buchstabe $d$ für die Abstandsfunktion kommt von englisch ``distance''. 
-\end{de}
+\end{defin}
 
 
 \begin{bem}[zur Dreiecksungleichung]
@@ -181,11 +181,12 @@
 \end{bem}
 
 
-\begin{de}[Abstand in $\R$]
+\begin{defin}[Abstand in $\R$]
     Für reelle Zahlen $x,y\in \R$ ist der herkömmliche Abstand definiert durch
         \[ d(x,y) := \vert x -y\vert \]
-    Diesbezüglich wird $(\R,d)$ zu einem metrischen Raum, was hier ohne Beweis bleiben soll.\footnote{Einen Beweis findest du z.B. in \cite{AE06}, Satz I.11.4.} Ab sofort wird $\R$ stets mit dieser Abstandsfunktion ausgestattet, ohne dass dies noch einmal ausdrücklich erwähnt würde.
-\end{de}
+    Diesbezüglich wird $(\R,d)$ zu einem metrischen Raum, was hier ohne Beweis bleiben soll. %\footnote{Einen Beweis findest du z.B. in \cite{AE06}, Satz I.11.4.}
+    Ab sofort wird $\R$ stets mit dieser Abstandsfunktion ausgestattet, ohne dass dies noch einmal ausdrücklich erwähnt würde.
+\end{defin}
 
 
 \begin{bsp}
@@ -203,17 +204,18 @@
 
 \begin{bsp}[Weitere Metriken] \quad
     \begin{enumerate}
-        \item(ebene und räumliche Abstände) In der Ebene $\R^2$, im Raum $\R^3$ und allgemein im Hyperraum $\R^n$ (für ein $n\in \N$) ist der Abstand zweier Punkte gleich der Länge ihrer Verbindungsstrecke. Dies wird in den Analysis-Vorlesungen genauer definiert werden.\footnote{Mehr darüber findest du in \cite{AE06} in Kapitel II.3.} Ich gehe davon aus, dass dir intuitiv klar ist, wie der Abstand zwischen zwei Punkten in der Ebene oder im Raum zu verstehen ist, und werde es ab und zu in einem informellen Sinn nutzen, um mehrdimensionale Beispiele und Illustrationen beisteuern zu können.
+        \item(ebene und räumliche Abstände) In der Ebene $\R^2$, im Raum $\R^3$ und allgemein im Hyperraum $\R^n$ (für ein $n\in \N$) ist der Abstand zweier Punkte gleich der Länge ihrer Verbindungsstrecke. Dies wird in den Analysis-Vorlesungen genauer definiert werden. %\footnote{Mehr darüber findest du in \cite{AE06} in Kapitel II.3.}
+        Ich gehe davon aus, dass dir intuitiv klar ist, wie der Abstand zwischen zwei Punkten in der Ebene oder im Raum zu verstehen ist, und werde es ab und zu in einem informellen Sinn nutzen, um mehrdimensionale Beispiele und Illustrationen beisteuern zu können.
         \item(Topologische Datenanalyse) Nicht immer müssen die „Punkte“ eines metrischen Raums eine geometrische Bedeutung besitzen. Beispielsweise wäre ein metrischer Raum $X$ gegeben durch die Menge der Nutzer einer Dating-App, die bei ihrer Anmeldung verschiedene persönliche Vorlieben und Eigenschaften angegeben haben. Für zwei Nutzer $a,b\in X$ könnte dann der „Abstand“ $d(a,b)$ definiert sein als die Anzahl aller Kategorien, in denen $a$ und $b$ verschiedene Präferenzen angegeben haben. Nutzer mit vielen Gemeinsamkeiten wären sich bezüglich dieser Metrik also besonders „nahe“.
     \end{enumerate}
 \end{bsp}
 
 
-\begin{de}[offene Bälle] \label{def:ball} \index{offener Ball}
+\begin{defin}[offene Bälle] \label{def:ball} \index{offener Ball}
     Seien $X$ ein metrischer Raum und $a\in X$ ein Punkt. Für $r\in \R_{\ge 0}$ ist der \textbf{offene Ball um $a$ mit Radius $r$} definiert durch
         \[ \bbB_r(a) := \{ x\in X \mid d(a,x)< r\} \]
     $\bbB_r(a)$ ist also die Menge all denjenigen Punkte, deren Abstand zu $a$ strikt kleiner als $r$ ist.
-\end{de}
+\end{defin}
 
 
 \begin{figure}[ht]
@@ -230,7 +232,7 @@
 
 
 \begin{bsp}
-    In der Ebene $\R^2$ haben die offenen Bälle die Gestalt einer Kreisscheibe, im Raum $\R^3$ die Gestalt einer Kugel. Beachte, dass die offenen Bälle keinen „Rand“ haben. Denn $\bbB_r(a)$ besteht ja nur aus den Elementen, deren Abstand zu $a$ strikt kleiner als $r$ ist. Diejenigen Elemente, deren Abstand zu $a$ genau gleich $r$ ist (im Zweidimensionalen also genau die Punkte auf dem Kreisrand, im Dreidimensionalen die Punkte auf der Kugeloberfläche), sind nicht in $\bbB_r(a)$ enthalten.
+    In der Ebene $\R^2$ haben die offenen Bälle die Gestalt einer Kreisscheibe, im Raum $\R^3$ die Gestalt einer Kugel. Beachte, dass die offenen Bälle keinen „Rand“ haben. Denn $\bbB_r(a)$ besteht ja nur aus den Punkten, deren Abstand zu $a$ strikt kleiner als $r$ ist. Diejenigen Punkte, deren Abstand zu $a$ genau gleich $r$ ist (im Zweidimensionalen also genau die Punkte auf dem Kreisrand, im Dreidimensionalen die Punkte auf der Kugeloberfläche), sind nicht in $\bbB_r(a)$ enthalten.
 \end{bsp}
 
 
@@ -249,13 +251,13 @@
 \end{bsp}
 
 
-\begin{de}[Umgebung in einem metrischen Raum] \label{def:umgebung} \index{Umgebung (Metrische Räume)} \index{innerer Punkt}
+\begin{defin}[Umgebung in einem metrischen Raum] \label{def:umgebung} \index{Umgebung (Metrische Räume)} \index{innerer Punkt}
     Seien $X$ ein metrischer Raum, $U\subseteq X$ eine Teilmenge und $a\in U$ ein Punkt. $a$ heißt ein \textbf{innerer Punkt von $U$} und $U$ heißt eine \textbf{Umgebung von $a$}, wenn es ein (möglicherweise winzig kleines) $\varepsilon\in \R_{>0}$ gibt mit $\bbB_\varepsilon(a)\subseteq U$.
     \begin{figure}[ht!]
         \includegraphics[width=10.5cm]{./_img/Umgebung.jpeg}
         \centering \caption{Im metrischen Raum $X$ ist $U$ eine Umgebung des Punkts $a$, weil sie den $\varepsilon$-Ball $\bbB_\varepsilon(a)$ umfasst.}
     \end{figure}
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -295,13 +297,13 @@
 \end{bem}
 
 
-\begin{de}[Folge] \label{def:folge} \index{Folge}
-    Eine \textbf{Folge} ist eine Familie von Objekten $(a_n)_{n\in \N}$, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist. Ist $n\in \Z$ eine beliebige ganze Zahl, so spricht man manchmmal auch bei Familien, deren Indexmenge $\Z_{\ge n}$ ist, von Folgen. In diesem Fall starten die Indizes nicht bei Eins oder Null, sondern bei $n$. Der Begriff der Folge ist also nicht präzise umrissen, spricht man aber von „der beliebigen Folge $(a_n)$“ so ist damit gemeint, dass die Indexmenge gleich $\N$ (mit oder ohne Null) ist.
+\begin{defin}[Folge] \label{def:folge} \index{Folge}
+    Eine \textbf{Folge} ist eine Familie von Objekten $(a_n)_{n\in \N}$, deren Indexmenge die Menge $\N$ der natürlichen Zahlen ist. Ist $n\in \Z$ eine beliebige ganze Zahl, so spricht man manchmal auch bei Familien, deren Indexmenge $\Z_{\ge n}$ ist, von Folgen. In diesem Fall starten die Indizes nicht bei Eins oder Null, sondern bei $n$. Der Begriff der Folge ist also nicht präzise umrissen, spricht man aber von „der beliebigen Folge $(a_n)$“ so ist damit gemeint, dass die Indexmenge gleich $\N$ (mit oder ohne Null) ist.
     
     Sind $A$ eine Menge und $(a_n)_{n\in \N}$ eine Folge, deren Einträge allesamt in $A$ liegen, so spricht man von einer \emph{Folge von Elementen aus $A$} oder einer „$A$-wertigen Folge“. Nach \cref{def:mengenpotenz} bezeichnet
     \[ A^\N := \{ (a_n)_{n\in \N} \mid \forall n\in \N: a_n\in A \} \]
     die Menge aller Folgen mit Einträgen aus $A$. Im Spezialfall $A=\R$ spricht man von \textbf{reellen Zahlenfolgen} oder auch \textbf{reellwertigen Folgen}. Analog spricht man von rationalen Zahlenfolgen, Folgen ganzer Zahlen oder komplexen Zahlenfolgen, falls es sich um Elemente von $\Q^\N$, $\Z^\N$ oder $\C^\N$ handelt.
-\end{de}
+\end{defin}
 
 
 \begin{nota}
@@ -345,7 +347,7 @@
         \item Die „konstante Folge“ $(3)_{n\in \N}$. Also $3,3,3,3,3,\dots$.
         \item Für $q\in \R$ die Folge der $q$-Potenzen $(q^n)_{n\in \N_0}$ Im Fall $q=2$ erhielte man beispielsweise die Folge der Zweierpotenzen $1,2,4,8,16,\dots$.
     \end{enumerate}
-    In all diesen Beispielen gehorchen die Folgenglieder einer einfachen Regel. Dies muss aber nicht immer der Fall sein. Eine Folge darf auch völlig chaotisch sein und ihre Einträge brauchen keinem Muster zu gehorchen. Möglichst chaotische Folgen können mit einem Programm zur Berechnung von Zufallszahlen erzeugt werden.
+    In all diesen Beispielen gehorchen die Folgenglieder einer einfachen Regel. Dies muss aber nicht immer der Fall sein. Eine Folge darf auch völlig chaotisch sein und ihre Einträge brauchen keinem Muster zu gehorchen. Beispielsweise ist die Folge der Nachkommastellen von \href{https://de.wikipedia.org/wiki/Chaitinsche_Konstante}{Chaitins Konstante} so komplex, dass sie sich nicht mit einem konventionellen Computerprogramm ausrechnen lässt.
         
     Hier ist noch ein Beispiel für eine Folge, deren Einträge mal keine Zahlen sind:
     \begin{enumerate}[(9)]
@@ -357,7 +359,7 @@
 \end{bsp}
 
 
-\begin{de}[Beschränktheit] \index{beschränkte Folge}
+\begin{defin}[Beschränktheit] \index{beschränkte Folge}
     Eine reelle Zahlenfolge $(a_n)_{n\in \N}\in \R^\N$ heißt \textbf{nach oben beschränkt} bzw. \textbf{nach unten beschränkt}, falls die Menge ihrer Einträge $\{a_n\mid n\in \N\}$ eine nach oben bzw. nach unten beschränkte Teilmenge von $\R$ im Sinne von \cref{def:schranken} ist. Konkret ist die Folge $(a_n)_{n\in \N}$ also genau dann
     \begin{itemize}
         \item \textbf{nach oben beschränkt}, falls es eine Zahl $M\in \R$ gibt derart, dass $a_n\le M$ für alle $n\in \N$ ist. In diesem Fall heißt ein solches $M$ eine \textbf{obere Schranke} für $(a_n)_{n\in \N}$.
@@ -365,20 +367,20 @@
         \item \textbf{beschränkt}, falls sie sowohl nach oben als auch nach unten beschränkt ist.
         \item \textbf{unbeschränkt}, wenn sie nicht beschränkt ist.
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{bsp} Es gilt:
     \begin{enumerate}
         \item Die Folge $\left(\frac{n}{n+1}\right)_{n\in \N}$ ist nach unten durch $0$ und nach oben durch $1$ beschränkt.
-        \item Die Folge $2,3,5,7,11,\dots$ der Primzahlen ist nach oben unbeschränkt. Dies ist die Aussage des berühmten \emph{Satzes von Euklid} aus \cref{euklid}.
+        \item Die Folge der Primzahlen $2,3,5,7,11,\dots$ ist nach oben unbeschränkt. Dies ist die Aussage des berühmten \emph{Satzes von Euklid} aus \cref{euklid}.
         \item Die alternierende Folge $((-1)^n)_{n\in \N}$ ist beschränkt, da sie nach oben durch $1$ und nach unten durch $-1$ beschränkt ist.
     \end{enumerate}
     Da die Beschränktheit einer Folge allein von der Menge ihrer Einträge abhängt, ist sie unempfindlich gegenüber einer Änderung der Reihenfolge der Folgeneinträge.
 \end{bsp}
 
 
-\begin{de}[Monotonie] \index{Monotonie (von Folgen)} \index{wachsende Folge} \index{fallende Folge}
+\begin{defin}[Monotonie] \index{Monotonie (von Folgen)} \index{wachsende Folge} \index{fallende Folge}
     Eine Folge reeller Zahlen $(a_n)_{n\in \N}\in \R^\N$ heißt
     \begin{itemize}
         \item \textbf{(monoton) wachsend}, falls für jedes $n\in \N$ gilt, dass $a_{n+1}\ge a_n$.
@@ -386,7 +388,7 @@
         \item \textbf{monoton}, falls sie wachsend oder fallend ist.
     \end{itemize}
     Gilt sogar $a_{n+1}>a_n$ für alle $n\in \N$, so sagt man auch, die Folge sei \emph{strikt wachsend}. Ähnlich definiert man \emph{strikt fallend}.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -414,13 +416,13 @@ Es gilt:
 \end{bsp}
 
 
-\begin{de}[``eventually''] \label{def:eventually} \index{eventually (Folgenverhalten)}
+\begin{defin}[``eventually''] \label{def:eventually} \index{eventually (Folgenverhalten)}
     Seien $(a_n)_{n\in \N}$ eine Folge und $E$ eine Eigenschaft. Ich sage, die Folge $(a_n)_{n\in \N}$
     \begin{itemize}
         \item[] \textbf{besitzt die Eigenschaft $E$ für hinreichend große $n$}\footnote{Im Englischen ist die Sprechweise ``the sequence \href{https://en.wikipedia.org/wiki/Eventually_(mathematics)}{eventually} satisfies $E$'' üblich. Leider besitzt sie kein etabliertes Pendant im Deutschen.},
     \end{itemize}
     falls es ein $N\in \N$ gibt derart, dass die Folge $a_N,a_{N+1},a_{N+2},\dots$ die Eigenschaft $E$ besitzt. Salopp gesagt: „Es gibt einen Zeitpunkt $N$ derart, dass diejenige Folge, bei der erst zum Zeitpunkt $N$ eingestiegen wird, die Eigenschaft $E$ besitzt.“
-\end{de}
+\end{defin}
 
 
 \begin{bsp} \label{bsp:eventually} \quad
@@ -458,7 +460,7 @@ Es gilt:
 \end{bem}
 
 
-\begin{de}[Folgenkonvergenz] \label{def:konvergenz} \index{konvergente Folge} \index{Grenzwert} \index{divergente Folge} \index{Limes}
+\begin{defin}[Folgenkonvergenz] \label{def:konvergenz} \index{konvergente Folge} \index{Grenzwert} \index{divergente Folge} \index{Limes}
     Seien $X$ ein metrischer Raum, $(a_n)_{n\in \N}$ eine Folge in $X$ und $a\in X$ ein Punkt. Man sagt, die Folge $(a_n)_{n\in \N}$ \textbf{konvergiert} gegen $a$, falls eine der folgenden beiden äquivalenten Aussagen gilt:
     \begin{enumerate}[(i)]
         \item Für jede (noch so kleine) Umgebung $U$ von $a$ gilt: Für hinreichend große $n$ liegen alle $a_n$'s in $U$.
@@ -469,8 +471,10 @@ Es gilt:
     \end{enumerate}
     In diesem Fall heißt $a$ ein \textbf{Grenzwert} oder \textbf{Limes} der Folge $(a_n)_{n\in \N}$. Man schreibt
         \[ \lim_{n\to\infty}a_n=a \qquad\text{oder}\qquad a_n\xrightarrow[n\to \infty]{} a \]
+    In diesen Ausdrücken fungiert das Zeichen „$n$“ als gebundene Variable im Sinne von \cref{gebundenevariable}.
+
     Eine Folge, die einen Grenzwert besitzt, heißt \textbf{konvergent}. Andernfalls heißt sie \textbf{divergent}.
-\end{de}
+\end{defin}
 
 
 \begin{bew}[*]
@@ -482,7 +486,7 @@ Es gilt:
 \begin{bem}[„Sei $\varepsilon>0$“] \index{Epsilontik}
     Diese Grenzwertdefinition ist vergleichsweise jung: sie stammt aus dem 19. Jahrhundert und wurde durch Cauchy\footnote{\href{https://de.wikipedia.org/wiki/Augustin-Louis_Cauchy}{Augustin-Louis Cauchy (1789 - 1857)}} und Weierstraß\footnote{\href{https://de.wikipedia.org/wiki/Karl_Weierstra\%C3\%9F}{Karl Weierstraß (1815 - 1897)}} populär. Bis dahin herrschte in der Mathematik ein eher „intuitiver“ Umgang mit Grenzwerten vor.
     
-    Definition (i) ist prägnant, recht leicht zu merken und geeignet, um manche allgemeine Sätze zu beweisen. Dagegen ist das Logik-Monstrum (ii) diejenige Definition, die relevant wird, wenn du von einer konkreten Zahlenfolge ausrechnen willst, dass sie konvergiert.
+    Definition (i) ist prägnant, recht leicht zu merken und geeignet, um manche allgemeinen Sätze zu beweisen. Dagegen ist das Logik-Monstrum (ii) diejenige Definition, die relevant wird, wenn du von einer konkreten Zahlenfolge ausrechnen willst, dass sie konvergiert.
     
     In der Analysis hat es sich eingebürgert, in Definitionen und Beweisen jene Abstände, die „beliebig klein“ werden können, mit einem Epsilon $\varepsilon$ zu notieren. Aus diesem Grund spricht man bei Definitionen und Beweisen der Analysis, die exzessiven Gebrauch von $\varepsilon$'s machen, von „Epsilontik“.
 \end{bem}
@@ -565,9 +569,9 @@ Es gilt:
 
 
 \begin{vorschau}[* Ordnungstopologie]
-    Es ist möglich, Konvergenz reellwertiger Folgen rein ordnungstheoretisch zu definieren. Sind $a\in \R$ und $(a_n)_{n\in \N}$ eine Folge reeller Zahlen, so kann man definieren, dass die $a_n$'s gegen $a$ konvergieren genau dann, wenn für alle $x\in \R_{<a}$ und alle $y\in \R_{>a}$ gilt, dass die $a_n$'s für hinreichend große $n$ allesamt größer als $x$ und kleiner als $y$ sind. Auf dieser Weise lässt sich auch die Konvergenz von Folgen auf der erweiterten Zahlengerade $\bar \R$ definieren. Zum Beispiel gälte dann $\lim_{n\to\infty} n^2=\infty$.
+    Es ist möglich, Konvergenz reellwertiger Folgen rein ordnungstheoretisch zu definieren. Sind $a\in \R$ und $(a_n)_{n\in \N}$ eine Folge reeller Zahlen, so kann man definieren, dass die $a_n$'s gegen $a$ konvergieren genau dann, wenn für alle $x\in \R$ mit $x<a$ für hinreichend große $n$ auch $x<a_n$ ist und wenn für elle $y\in \R$ mit $a<y$ für hinreichend große $n$ auch $a_n<y$ ist. Auf diese Weise lässt sich auch die Konvergenz von Folgen auf der erweiterten Zahlengerade $\bar \R$ definieren. Zum Beispiel gälte dann $\lim_{n\to\infty} n^2=\infty$. Die alternierende Folge $((-1)^n\cdot n)_{n\in \N}$ würde dagegen auch in $\bar\R$ divergieren (man könnte sie aber per Übergang zur \emph{projektiven Gerade} konvergent machen).
     
-    Das dahinterliegende Prinzip heißt \href{https://de.wikipedia.org/wiki/Ordnungstopologie}{Ordnungstopologie} und erlaubt es, die Konzepte „Umgebung“ und „Konvergenz“ in beliebigen totalgeordneten Mengen zu definieren, ohne dass sie mit einer Abstandsfunktion ausgestattet sein müssen. Für viele „Räume“ in der Analysis wie z.B. $\C$ oder der $\R^3$ ist das Konzept des metrischen Raums aber wohl angebrachter.
+    Das dahinterliegende Prinzip heißt \href{https://de.wikipedia.org/wiki/Ordnungstopologie}{Ordnungstopologie} und erlaubt es, die Konzepte „Umgebung“ und „Konvergenz“ in beliebigen totalgeordneten Mengen zu definieren, ohne dass sie mit einer Abstandsfunktion ausgestattet sein müssen. Für viele „Räume“ in der Analysis wie z.B. $\C$ oder den $\R^3$ ist das Konzept des metrischen Raums aber wohl angebrachter.
 \end{vorschau}
 
 
@@ -589,7 +593,7 @@ Es gilt:
 
 
 \begin{bew}
-    Die Aussagen sollen hier ohne Beweis bleiben.\footnote{Beweise findest du etwa in \cite{AE06}, Satz II.2.2 und Satz II.2.4.}. \qed
+    Die Aussagen sollen hier ohne Beweis bleiben.%\footnote{Beweise findest du etwa in \cite{AE06}, Satz II.2.2 und Satz II.2.4.} \qed
 \end{bew}
 
 
@@ -662,8 +666,9 @@ Es gilt:
 \end{aufg}
 
 
-\begin{aufg}[Hausdorffeigenschaft\footnote{\href{https://de.wikipedia.org/wiki/Felix_Hausdorff}{Felix Hausdorff (1868-1942)}}]
-    Seien $X$ ein metrischer Raum, $a,b\in X$ zwei verschiedene Punkte und $D:=d(a,b)>0$.
+\begin{aufg}[Hausdorffeigenschaft\protect\footnotemark]
+    \footnotetext{\href{https://de.wikipedia.org/wiki/Felix_Hausdorff}{Felix Hausdorff (1868-1942)}}
+    Seien $X$ ein metrischer Raum, $a,b\in X$ zwei verschiedene Punkte und $D:=d(a,b)$.
     
     Beweist mithilfe der Dreiecksungleichung, dass $\bbB_{D/2}(a)\cap \bbB_{D/2}(b)=\emptyset$, und verdeutlicht die Situation mit einem Bild.
 \end{aufg}

@@ -1,6 +1,6 @@
 
 
-\setchapterpreamble[c][.7\textwidth]{\itshape\dgrau\small
+\setchapterpreamble[c][.7\textwidth]{\itshape\color{gray}\small
     Der Begriff der Abbildung verallgemeinert den Funktionenbegriff aus der Schule. In diesem Vortrag werden grundlegende Begriffe, Sprech- und Schreibweisen im Umfeld von Abbildungen besprochen und durch Beispiele illustriert.
 \vspace{24pt}}
 
@@ -14,7 +14,7 @@
 Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten beginnen. Falls dir das zu abstrakt anmutet, wirf schonmal einen Blick auf die Liste in \cref{bsp:abbildung}.
 
 
-\begin{de}[Abbildung] \label{def:abbildung} \index{Abbildung} \index{Funktion} \index{Definitionsbereich} \index{Wertebereich} \index{Graph (einer Abbildung)}
+\begin{defin}[Abbildung] \label{def:abbildung} \index{Abbildung} \index{Funktion} \index{Definitionsbereich} \index{Wertebereich} \index{Graph (einer Abbildung)}
     Seien $X,Y$ zwei Mengen. Eine \textbf{Abbildung von $X$ nach $Y$} (oder auch \textbf{Funktion von $X$ nach $Y$}\footnote{Manche Leute bevorzugen das Wort „Abbildung“ im Umfeld abstrakter Mengen und das Wort „Funktion“ im Umfeld von $\R$. Ich werde aber beide Wörter völlig synonym verwenden.}) ist ein mathematisches Objekt, das \emph{jedem} Element von $X$ \emph{genau ein} Element von $Y$ zuordnet.
 
     Sind $f$ eine Abbildung von $X$ nach $Y$ und $x\in X$, so heißt das eindeutig bestimmte Element von $Y$, das $f$ dem Element $x$ zuordnet, der \textbf{Funktionswert von $f$ an der Stelle $x$} oder auch das \textbf{Bild von $x$ unter der Abbildung $f$} und wird notiert mit
@@ -27,7 +27,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
         \item $Y$ der \textbf{Wertebereich} oder auch das \textbf{Ziel} von $f$ (englisch: ``codomain'' oder ``target''),
         \item die Menge $\{(x,y)\in X\times Y\mid y=f(x)\}$ der \textbf{Graph} von $f$.
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{axiom}[Gleichheit von Abbildungen] \label{abbgleich}
@@ -35,7 +35,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
         \[ f=g \qquad\Leftrightarrow\qquad \forall x\in X:\ f(x)=g(x) \]
     Dementsprechend sind $f$ und $g$ voneinander verschieden, wenn es mindestens ein Element von $X$ gibt, an dem $f$ und $g$ verschiedene Funktionswerte annehmen.
     
-    Zwei Abbildungen, die sich in ihrem Definitionsbereich oder ihrem Wertebereich unterscheiden, sind von vornherein voneinander verschieden.
+    Zwei Abbildungen, die sich in ihrem Definitionsbereich oder ihrem Wertebereich unterscheiden, denkt man sich als „Objekte verschiedenen Typs“. Sie seien von vornherein voneinander verschieden.
 \end{axiom}
 
 
@@ -52,18 +52,20 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 \end{nota}
 
 
-\begin{nota}[Eine Abbildung über eine Zuordnungsvorschrift definieren] \label{def:zuordnung} \index{Zuordnungsvorschrift} \index{Abbildungsvorschrift}
+\begin{nota}[Eine Abbildung über eine Zuordnungsvorschrift definieren] \label{def:zuordnung} \index{Zuordnungsvorschrift} \index{Abbildungsvorschrift} \index{Funktionsterm}
     Sei $t(a)$ ein Term in der Variablen $a$. Sind $X,Y$ zwei Mengen dergestalt, dass, setzt man für die Variable $a$ ein beliebiges Element aus $X$ ein, der Term $t$ stets ein Element von $Y$ ergibt, so heißt der Ausdruck
     \begin{align*}
         X \to Y \ &,\ x\mapsto t(x) && (\text{lies: „von $X$ nach $Y$, $x$ geht auf $t(x)$“})
     \end{align*}
-    eine \textbf{Zuordnungsvorschrift} oder auch \textbf{Abbildungsvorschrift} von $X$ nach $Y$. Sie ist zu interpretieren als „Zuordnung“, die jedem Element $x\in X$ das Element $t(x)\in Y$, das durch Einsetzen des Objekts $x$ anstelle der Variablen $a$ zustandekommt, „zuordnet“.
+    eine \textbf{Zuordnungsvorschrift} oder auch \textbf{Abbildungsvorschrift} von $X$ nach $Y$. Sie ist zu interpretieren als „Zuordnung“, die jedem Element $x\in X$ das Element $t(x)\in Y$, das durch Einsetzen des Objekts $x$ anstelle der Variablen $a$ zustandekommt, „zuordnet“. Der Term $t$ fungiert hier als sogenannter \textbf{Funktionsterm}.
     
     Jede solche Zuordnungsvorschrift definiert eine Abbildung $X\to Y$, deren Funktionswerte an Elementen $x\in X$ genau mit den Elementen $t(x)$ übereinstimmt. Möchte man diese Abbildung mit einer Variable bezeichnen, so schreibt man:
     \begin{align*}
         f : X\to Y \ & ,\ x\mapsto t(x) && (\text{lies: „$f$ von $X$ nach $Y$, $x$ geht auf $t(x)$“})
     \end{align*}
     Mit dieser Notation wird festgelegt, dass das Zeichen „$f$“ fortan diejenige Abbildung $X\to Y$ bezeichnen soll, die durch die Zuordnung $x\mapsto t(x)$ gegeben ist. Für jedes $x\in X$ gilt also $f(x)=t(x)$. Nach \cref{abbgleich} ist $f$ durch diese Eigenschaft eindeutig bestimmt.
+
+    Im Ausdruck „$x\mapsto t(x)$“ fungiert das Zeichen „$x$“ als gebundene Variable im Sinne von \cref{gebundenevariable}.\footnote{Im für die Informatik relevanten \emph{Lambda-Kalkül} sagt man: „Die Variable $x$ wird durch $\lambda$-Abstraktion gebunden“, und schreibt „$\lambda x.t(x)$“ anstelle von $x\mapsto t(x)$.}
 \end{nota}
 
 
@@ -137,7 +139,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
             \alpha: \R \to \R\ &,\ x \mapsto (x+1)\cdot (x-1) \\
             \beta: \R \to \R\ &,\ x \mapsto  x^2-1
         \end{align*}
-	so gilt für jede beliebige reelle Zahl $x\in \R$, dass
+        so gilt für jede beliebige reelle Zahl $x\in \R$, dass
             \[ \alpha(x) = (x+1)(x-1) = x^2-1 = \beta(x) \]
         Demnach ist $\alpha=\beta$.
     \end{enumerate}
@@ -145,7 +147,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 
 
 \begin{bem}[Zuordnungsvorschriften vs. Abbildungen] \label{zuordvsabb}
-    Jede Zuordnungsvorschrift kann zur Definition einer Abbildung verwendet werden. Beachte, dass Zuordnungsvorschriften und Abbildungen nicht ganz dasselbe sind. Eine Zuordnungsvorschrift ist ein sprachliches Gebilde, eine konkrete Vorschrift, wie Gegenständen vom Typ $X$ Gegenstände vom Typ $Y$ zuzuordnen seien, wohingegen der Abbildungsbegriff eine mathematische Abstraktion darstellt. Das Verhältnis ist ähnlich wie das zwischen Eigenschaften und Mengen (vgl. \cref{mengenvseig}):
+    Jede Zuordnungsvorschrift kann zur Definition einer Abbildung verwendet werden. Beachte, dass Zuordnungsvorschriften und Abbildungen nicht ganz dasselbe sind. Eine Zuordnungsvorschrift ist ein sprachliches Gebilde, eine konkrete Vorschrift, wie Gegenständen vom Typ $X$ Gegenstände vom Typ $Y$ zuzuordnen seien, wohingegen der Abbildungsbegriff eine mathematische Abstraktion darstellt. Das Verhältnis zwischen Termen und Abbildungen ist, genau wie das zwischen Eigenschaften und Mengen (vgl. \cref{mengenvseig}), ein Aspekt der Dualität zwischen Syntax und Semantik (siehe \cref{syntaxvssemantik}).
     \begin{itemize}
         \item Dieselbe Abbildung kann durch verschiedene Zuordnungsvorschriften zustandekommen. Beispielsweise sind
         \begin{align*}
@@ -153,7 +155,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
             \R \to \R \ &,\ x\mapsto (x+1)(x-1)
         \end{align*}
         zwei verschiedene Zuordnungsvorschriften, die aber nach \cref{bsp:abbgleich} dieselbe Abbildung darstellen.
-        \item Nicht jede Abbildung muss durch eine einfache Zuordnungsvorschrift definierbar sein. Abbildungsvorschriften können beliebig kompliziert sein und manche Abbildungen sind so chaotisch, dass sie gar keiner Abbildungsvorschrift gehorchen. Beispielsweise lässt sich mit metamathematischen Methoden beweisen, dass es Abbildungen $\N \to \{0,1\}$ (also Abfolgen von Nullen und Einsen) geben muss, die so chaotisch sind, dass sie nicht durch eine Abbildungsvorschrift beschreibbar sind. Ähnlich wird in der theoretischen Informatik gezeigt, dass es Funktionen $\N\to \{0,1\}$ gibt, die nicht Turing-berechenbar\footnote{\href{https://de.wikipedia.org/wiki/Alan_Turing}{Alan Turing (1912-1954)}} sind, d.h. die nicht durch ein konventionelles Computerprogramm ausgerechnet werden können.
+        \item Nicht jede Abbildung muss durch eine einfache Zuordnungsvorschrift definierbar sein. Abbildungsvorschriften können beliebig kompliziert sein und manche Abbildungen sind so chaotisch, dass sie gar keiner Abbildungsvorschrift gehorchen. Beispielsweise beweist man in der Berechenbarkeitstheorie, dass es Abbildungen $\N \to \{0,1\}$ (also Abfolgen von Nullen und Einsen) geben muss, die nicht Turing-berechenbar\footnote{\href{https://de.wikipedia.org/wiki/Alan_Turing}{Alan Turing (1912-1954)}} sind, d.h. die so chaotisch sind, dass es keinen konventionellen Algorithmus gibt, der nacheinander alle Folgenglieder auflistet.
         \item Definitions- und Wertebereich sind grundlegende Bestandteile einer Abbildung. Beispielsweise kann der Ausdruck
             \[ x\mapsto x^2 \]
         in verschiedenfacher Weise als Zuordnungsvorschrift interpretiert werden, z.B. als Zuordnung $\R\to \R$, $\Z\to \N_0$ oder $\C\to \C$. Die drei Abbildungen
@@ -182,7 +184,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 \section{Verketten von Abbildungen}
 
 
-\begin{de}[Verketten von Abbildungen]\label{def:verkettung} \index{Verkettung von Abbildungen}
+\begin{defin}[Verketten von Abbildungen]\label{def:verkettung} \index{Verkettung von Abbildungen}
     Seien $X,Y,Z$ drei Mengen und $X\xrightarrow{f} Y$, $Y \xrightarrow{g} Z$ zwei Abbildungen. Mit
     \begin{align*}
         g\circ f && (\text{lies: „$g$ nach $f$“ oder „$g$ kringel $f$“})
@@ -195,11 +197,14 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
     
     Insgesamt erhalten wir eine Abbildung
         \[ \circ : \Abb(Y,Z)\times \Abb(X,Y) \to \Abb(X,Z) \ ,\ (g,f) \mapsto g\circ f\]
-\end{de}
+\end{defin}
 
 
-\begin{bem}
-    Beachte, dass in der Notation „$g\circ f$“ diejenige Abbildung, die „zuerst“ ausgeführt wird, an rechter Stelle steht. Für ein Element $x \in X$ berechnet man $(g\circ f)(x)$, indem man zuerst $f(x)$ ausrechnet und darauf nun die Abbildung $g$ anwendet.
+\begin{bem} \quad
+    \begin{itemize}
+        \item Beachte, dass in der Notation „$g\circ f$“ diejenige Abbildung, die „zuerst“ ausgeführt wird, an rechter Stelle steht. Für ein Element $x \in X$ berechnet man $(g\circ f)(x)$, indem man zuerst $f(x)$ ausrechnet und darauf nun die Abbildung $g$ anwendet.
+        \item Sind zwei Abbildungen durch Funktionsterme gegeben, so erhält man ihre Verkettung durch Einsetzen des einen Terms in den anderen im Sinne von \cref{def:substitution}, siehe dazu die nachfolgenden Beispiele. Dies ist ein Aspekt der Dualität zwischen Syntax und Semantik (siehe \cref{syntaxvssemantik}).
+    \end{itemize}
 \end{bem}
 
 
@@ -219,12 +224,12 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
         f : \R \to \R \ &,\ x\mapsto x^2 \\
         g : \R \to \R \ &,\ x \mapsto x-1
     \end{align*}
-    Dann gilt für $x\in \R$:
+    Dann gilt für $x\in \R$:\footnote{vgl. \cref{bsp:substitution}}
     \begin{align*}
         (g\circ f)(x) & = g(f(x)) = g(x^2) = x^2-1 \\
         (f\circ g)(x) & = f(g(x)) = f(x-1) = (x-1)^2
     \end{align*}
-    Wegen $(g\circ f)(4)\neq (f\circ g)(4)$ ist $g\circ f\neq f\circ g$.\footnote{vgl. \cref{bsp:substitution}}
+    Wegen $(g\circ f)(4)\neq (f\circ g)(4)$ ist $g\circ f\neq f\circ g$.
 \end{bsp}
 
 
@@ -279,13 +284,13 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solange wir keine Informationen über die Elemente von $X$ haben, können wir ja schwerlich eine besondere Abbildungsvorschrift angeben. Dennoch gibt es stets eine Abbildung $X\to X$, deren Zuordnungsvorschrift so simpel ist, dass man sie schon wieder übersehen könnte:
 
 
-\begin{de}[Identitätsabbildung] \index{Identität}
+\begin{defin}[Identitätsabbildung] \index{Identität}
     Sei $X$ eine Menge. Die Abbildung
     \begin{align*}
         \id_X: X \to X \ ,\ x \mapsto x
     \end{align*}
     heißt die \textbf{Identität auf $X$}.
-\end{de}
+\end{defin}
 
 
 \begin{bem}
@@ -349,7 +354,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 \end{vorschau}
 
 
-\begin{de}[Inklusionsabbildung] \label{def:inklusion} \index{Inklusion (einer Teilmenge)}
+\begin{defin}[Inklusionsabbildung] \label{def:inklusion} \index{Inklusion (einer Teilmenge)}
     Seien $X$ eine Menge und $U\subseteq X$ eine Teilmenge. Die \textbf{Inklusionsabbildung} (oder auch kurz: \textbf{Inklusion}) von $U$ in $X$ ist die Abbildung
     \begin{align*}
         U \to X \ ,\ x \mapsto x
@@ -357,7 +362,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
     meist notiert mit dem griechischen Buchstaben $\iota$ (Iota) und einem Pfeil „$\hookrightarrow$“ mit Haken:
         \[ \iota_U : U \hookrightarrow X \]
     Gelegentlich spricht man auch von der \emph{natürlichen Inklusion} oder der \emph{kanonischen Inklusion}.
-\end{de}
+\end{defin}
 
 
 \begin{bem}
@@ -379,9 +384,9 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 \end{bem}
 
 
-\begin{de}[* Leere Abbildung] \index{Leere Abbildung}
+\begin{defin}[* Leere Abbildung] \index{Leere Abbildung}
     Sei $X$ eine beliebige Menge. Dann gibt es genau eine Abbildung $\emptyset\to X$, die sogenannte \textbf{leere Abbildung}. Es handelt sich genau um die natürliche Inklusion der Teilmenge $\emptyset\subseteq X$, vgl. \cref{leeremengeimmerdrin}.
-\end{de}
+\end{defin}
 
 
 
@@ -390,7 +395,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 \section{Bilder und Urbilder von Teilmengen}
 
 
-\begin{de}[Bild und Urbild von Teilmengen] \label{def:bildmenge} \index{Faser} \index{Bild} \index{Urbild}
+\begin{defin}[Bild und Urbild von Teilmengen] \label{def:bildmenge} \index{Faser} \index{Bild} \index{Urbild}
     Seien $X,Y$ Mengen und $X \xrightarrow{f} Y$ eine Abbildung.
     \begin{itemize}
         \item Für ein Element $y\in Y$ heißt die Menge
@@ -406,7 +411,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
             \[ f(A) := \{ y \in Y \mid \exists a\in A:\ f(a)=y \} \]
         die \textbf{Bildmenge von $A$} oder schlicht das \textbf{Bild von $A$} unter $f$. 
     \end{itemize}
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -441,15 +446,19 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 \end{bsp}
 
 
-\begin{de}[Konstante Abbildung] \index{konstante Abbildung}
-Seien $X,Y$ zwei Mengen. Eine Abbildung $X\xrightarrow{f} Y$ heißt \textbf{konstant}, wenn $\im(f)$ einelementig ist, d.h. wenn es ein $y\in Y$ gibt derart, dass $f(x)=y$ für alle $x\in X$.
-\end{de}
+\begin{defin}[Konstante Abbildung] \index{konstante Abbildung}
+    Seien $X,Y$ zwei Mengen. Eine Abbildung $X\xrightarrow{f} Y$ heißt \textbf{konstant}, wenn $\im(f)$ eine Einermenge ist, d.h. wenn es ein $y\in Y$ gibt derart, dass $f(x)=y$ für alle $x\in X$.
+\end{defin}
 
 
-\begin{bsp}
-Zum Beispiel ist
-\[ \R \to \R \ ,\ x\mapsto 4 \]
-die konstante Abbildung, die alles auf $4$ schickt. In der Analysis wird gezeigt, dass eine Abbildung $f : \R\to \R$ genau dann konstant ist, wenn sie differenzierbar ist und $f'=0$.
+\begin{bsp} \quad
+    \begin{enumerate}
+        \item Zum Beispiel ist
+            \[ \R \to \R \ ,\ x\mapsto 4 \]
+        die konstante Abbildung, die alles auf $4$ schickt. In der Analysis wird gezeigt, dass eine Abbildung $f : \R\to \R$ genau dann konstant ist, wenn sie differenzierbar ist und $f'=0$.
+        \item Allgemein geben Terme, die gar nicht von Variablen abhängen (siehe \cref{konstruktoren}), Anlass zu konstanten Abbildungen.
+        \item Für eine Menge $X$ ist die leere Abbildung $\emptyset\to X$ keine konstante Abbildung, da ihr Bild leer ist und damit nicht einelementig. Die Handhabung ist in der Literatur aber nicht eindeutig: bei manchen sind auch leere Abbilungen konstant und die meisten verlieren hierüber gar kein Wort.
+    \end{enumerate}
 \end{bsp}
 
 
@@ -462,7 +471,7 @@ die konstante Abbildung, die alles auf $4$ schickt. In der Analysis wird gezeigt
 In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 
 
-\begin{de}[Einschränken des Definitionsbereichs] \index{Restriktion}
+\begin{defin}[Einschränken des Definitionsbereichs] \index{Restriktion}
     Sei $A \subseteq X$ eine Teilmenge von $X$. Dann ist die \textbf{Einschränkung von $f$ auf $A$} oder auch \textbf{Restriktion von $f$ auf $A$} diejenige Abbildung $A\to Y$, die durch die Abbildungsvorschrift
     \begin{align*}
         A \to Y \ &,\ a \mapsto f(a)
@@ -474,21 +483,21 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
     Die Abbildung $f\vert_{A}$ funktioniert also genau wie $f$, mit dem einzigen Unterschied, dass der Definitionsbereich verkleinert wurde und $f\vert_{A}$ nur noch den Elementen aus $A$ etwas zuordnet. Insgesamt erhalten wir eine sogenannte \emph{Restriktionsabbildung}:
         \[ \res : \Abb(X,Y) \to \Abb(A,Y) \ ,\ f \mapsto f\vert_A \]
     Beachte: Im Fall $A\subsetneq X$ sind $f$ und $f\vert_A$ zwei verschiedene Abbildungen, da sie verschiedene Definitionsbereiche haben.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
     Betrachte die Abbildung
-        \[ f : \R \to \R \ ,\ x \mapsto x^2-2 \]
+        \[ f : \R \to \R \ ,\ x \mapsto x^2 \]
     Deren Einschränkung auf die Teilmenge $\Q\subseteq \R$ ist dann gegeben durch
-        \[ f\vert_{\Q} : \Q \to \R \ ,\ x\mapsto x^2-2 \]
-    Obwohl die Zuordnungsvorschrift ($x\mapsto x^2-2)$ dieselbe ist, handelt es sich um eine andere Funktion! Beispielsweise ist $0\in \im(f)$ wegen $f(\sqrt{2})=0$; dagegen ist $0\notin \im(f\vert_\Q)$ denn es gibt keine rationale Zahl $q\in \Q$, für die $q^2-2=0$ wäre.
+        \[ f\vert_{\Q} : \Q \to \R \ ,\ x\mapsto x^2 \]
+    Obwohl die Zuordnungsvorschrift ($x\mapsto x^2)$ dieselbe ist, handelt es sich um eine andere Funktion! Beispielsweise ist $2\in \im(f)$ wegen $f(\sqrt{2})=2$; dagegen ist $2\notin \im(f\vert_\Q)$ denn es gibt keine rationale Zahl $q\in \Q$, für die $q^2=2$ wäre.
 \end{bsp}
  
  
-\begin{de}[Einschränkung und Fortsetzung] \label{def:fortsetzung} \index{Einschränkung einer Abbildung} \index{Fortsetzung}
+\begin{defin}[Einschränkung und Fortsetzung] \label{def:fortsetzung} \index{Einschränkung einer Abbildung} \index{Fortsetzung}
     Seien $X,Y$ zwei Mengen, $A\subseteq X$ eine Teilmenge und $X\xrightarrow{F} Y$, $A\xrightarrow{f} Y$ zwei Abbildungen. Die Funktion $F$ heißt eine \textbf{Fortsetzung} von $f$ (und $f$ eine \textbf{Einschränkung} von $F$), wenn $F\vert_A=f$.
-\end{de}
+\end{defin}
 
 
 \begin{bsp} \quad
@@ -507,7 +516,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{bsp}
 
 
-\begin{de}[Einschränken des Wertebereichs]\label{def:zielschrank}
+\begin{defin}[Einschränken des Wertebereichs]\label{def:zielschrank}
     Sei $B\subseteq Y$ eine Teilmenge mit $\im(f) \subseteq B$. Dann ist die \textbf{Einschränkung von $f$ auf $B$} diejenige Abbildung $X \to B$, die durch die Abbildungsvorschrift
     \begin{align*}
         X \to B \ ,\ x \mapsto f(x)
@@ -517,7 +526,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         f\vert^B && (\text{lies: „$f$ eingeschränkt auf $B$“})
     \end{align*}
     Die Abbildung $f\vert^B$ funktioniert also genau wie $f$, mit dem einzigen Unterschied, dass der Wertebereich verkleinert wurde. Ist $x\in X$, so ist zwar $f\vert^B(x) = f(x)$, allerdings liegt bei $f$ die Betonung darauf, dass es sich um ein Element von $Y$ handelt, während bei $f\vert^{B}$ die Betonung darauf liegt, dass es sich um ein Element von $B$ handelt.
-\end{de}
+\end{defin}
 
 
 \begin{bsp}
@@ -529,7 +538,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{bsp}
 
 
-\begin{bem}
+\begin{bem} \label{einschraenkbarkeit}
     Beachte, dass sich der Wertebereich einer Funktion $f$ nur auf solche Teilmengen einschränken lässt, die $\im(f)$ umfassen. Ist beispielsweise
         \[ f : \Z \to \Z \ ,\ n \mapsto 2n-n^2 \]
     so ergäbe der Ausdruck „$f\vert^{\N}$“ keinen Sinn. Denn die Zuordnung $n\mapsto 2n-n^2$ definiert keine Abbildung $\Z\to \N$, weil beispielsweise $2\cdot 5 - 5^2$ gar kein Element von $\N$ ist.
@@ -544,7 +553,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \section{Injektiv, surjektiv, bijektiv}
 
 
-\begin{de}[Injektive Abbildung] \label{def:injektiv} \index{injektiv}
+\begin{defin}[Injektive Abbildung] \label{def:injektiv} \index{injektiv}
     Seien $X, Y$ zwei Mengen. Für eine Abbildung $X \xrightarrow{f} Y$ sind äquivalent:
     \begin{enumerate}[(i)]
         \item Für alle $a,b\in X$ gilt:
@@ -553,7 +562,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \item Für jedes $y\in Y$ gibt es höchstens ein $x\in X$ mit $f(x)=y$.
     \end{enumerate}
     Erfüllt $f$ eine (und damit alle) dieser drei äquivalenten Bedingungen, so heißt $f$ eine \textbf{injektive Abbildung} oder auch eine \textbf{Injektion}.
-\end{de}
+\end{defin}
 
 
 \begin{bew} \quad
@@ -578,14 +587,14 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{bsp}
 	
 
-\begin{de}[Surjektive Abbildung] \label{def:surjektiv} \index{surjektiv}
+\begin{defin}[Surjektive Abbildung] \label{def:surjektiv} \index{surjektiv}
     Seien $X,Y$ zwei Mengen und $X \xrightarrow{f} Y$ eine Abbildung. Dann sind äquivalent:
     \begin{enumerate}[(i)]
         \item Für jedes $y\in Y$ gibt es mindestens ein $x\in X$ mit $f(x)=y$.
         \item Es gilt $\im(f) = Y$, d.h. das Bild von $f$ stimmt mit dem Wertebereich von $f$ überein.
     \end{enumerate}
     Erfüllt $f$ eine (und damit jede) dieser beiden äquivalenten Bedingungen, so heißt $f$ eine \textbf{surjektive Abbildung} oder auch eine \textbf{Surjektion}.
-\end{de}
+\end{defin}
 
 
 \begin{bew}
@@ -615,14 +624,14 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{bsp}
 
 
-\begin{de}[Bijektive Abbildung] \label{def:bijektiv} \index{bijektiv}
+\begin{defin}[Bijektive Abbildung] \label{def:bijektiv} \index{bijektiv}
     Seien $X,Y$ zwei Mengen und $X\xrightarrow{f} Y$ eine Abbildung. Dann sind äquivalent:
     \begin{enumerate}[(i)]
         \item Für jedes $y\in Y$ gibt es \emph{genau ein} $x\in X$ mit $f(x)=y$.
         \item $f$ ist injektiv und surjektiv.
     \end{enumerate}
     Erfüllt $f$ eine (und damit beide) dieser Bedingungen, so heißt $f$ \textbf{bijektiv} oder eine \textbf{Bijektion}.
-\end{de}
+\end{defin}
 
 
 \begin{bew}
@@ -689,7 +698,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 
 
-\begin{de}[Umkehrabbildung] \label{def:umkehrabb} \index{Umkehrabbildung} \index{Inverse Funktion} \index{invertierbare Abbildung} \index{Retraktion}
+\begin{defin}[Umkehrabbildung] \label{def:umkehrabb} \index{Umkehrabbildung} \index{Inverse Funktion} \index{invertierbare Abbildung} \index{Retraktion}
     Eine Abbildung $g:Y \to X$ heißt 
     \begin{itemize}
         \item \textbf{linksinvers zu $f$} (oder auch: eine \textbf{Retraktion von $f$}), falls $g\circ f=\id_X$.
@@ -697,7 +706,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \item \textbf{invers zu $f$} (oder auch: eine \textbf{Umkehrabbildung von $f$} oder eine \textbf{Inverse zu $f$}), falls sie sowohl links- als auch rechtsinvers zu $f$ ist.
     \end{itemize}
     $f$ heißt eine \textbf{invertierbare Abbildung}, wenn sie eine Umkehrabbildung besitzt.
-\end{de}
+\end{defin}
 
 
 \begin{bsp} \label{bsp:umkehrabb} \qquad
@@ -720,6 +729,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
             f\vcentcolon & 0 \ar[r, bend left]& 1 \ar[r, bend left]& 2 \ar[r, bend left]& 3 \ar[r, bend left]& 4 \ar[r, bend left]& 5 \ar[r, bend left]& \dots \\
             g_0\vcentcolon & 0 \ar[loop, out=145, in=215, looseness=5] & 1 \ar[l, bend right] & 2 \ar[l, bend right] & 3 \ar[l, bend right] & 4  \ar[l, bend right] & 5  \ar[l, bend right] &  \ar[l, bend right]  \dots
         \end{tikzcd}\]
+        Von weiteren Abbildungen dieser Art handelt die Geschichte vom \href{https://en.wikipedia.org/wiki/Hilbert\%27s_paradox_of_the_Grand_Hotel}{Hilbert-Hotel}. Das Phänomen zweier Selbstabbildungen mit $g\circ f=\id$ aber $f\circ g\neq \id$ kann lediglich in unendlichen Mengen auftreten. Dedekind\footnote{\href{https://de.wikipedia.org/wiki/Richard_Dedekind}{Richard Dedekind (1831-1916)}} erhob eine ähnliche Aussage sogar zur Definition von Unendlichkeit: Eine Menge $X$ heißt \emph{Dedekind-unendlich}, wenn es eine injektive Abbildung $X\to X$ gibt, die nicht surjektiv ist.
         \item Die Abbildung
             \[ \Z\to \Z \ ,\ n\mapsto n+1 \]
         ist invertierbar, eine Inverse ist gegeben durch die Abbildung $n\mapsto n-1$.
@@ -815,10 +825,21 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{bew}
 
 
-\begin{bsp}
-    Nach \cref{bsp:injsur} ist die Abbildung
-        \[ \R_{\ge 0} \to \R_{\ge 0} \ ,\ x \mapsto x^2 \]
-    bijektiv. Ihre Inverse wird mit „$\sqrt{-}$” notiert. Für $y\in \R_{\ge 0}$ ist also „$\sqrt{y}$“ die eindeutig bestimmte nichtnegative reelle Zahl, die die Gleichung $(\sqrt{y})^2=y$ erfüllt.
+\begin{bsp} \quad
+    \begin{enumerate}
+        \item Nach \cref{bsp:injsur} ist die Abbildung
+            \[ \R_{\ge 0} \to \R_{\ge 0} \ ,\ x \mapsto x^2 \]
+        bijektiv. Ihre Inverse wird mit „$\sqrt{-}$” notiert. Für $y\in \R_{\ge 0}$ ist also „$\sqrt{y}$“ die eindeutig bestimmte nichtnegative reelle Zahl, die die Gleichung $(\sqrt{y})^2=y$ erfüllt. Ebenso gilt auch $\sqrt{x^2}=x$ für alle $x\in \R_{>0}$ (sogar schon für alle $x\in \R$).
+        \item Subtraktion, Division, Wurzel und Logarithmus sind jeweils invers zu Addition, Multiplikation und Potenz:\begin{longtable}{clll}
+            \phantom{Mengen} & Zuordnung: & ihre Inverse: & \phantom{Platzhalter}\\
+            \midrule
+            $\R\to \R$ & $x\mapsto x+a$ & $x\mapsto x-a$ & (für $a\in \R$)\\
+            $\R\to \R$ & $x\mapsto ax$ & $x\mapsto \frac{x}{a}$ & (für $a\in \R\setminus \{0\}$) \\
+            $\R_{> 0} \to \R_{> 0}$ & $x\mapsto x^a$ & $x\mapsto \sqrt[a]{x}$ & (für $a\in \R\setminus \{0\}$) \\
+            $\R_{>0} \to \R_{>0}$ & $x \mapsto a^x$ & $x \mapsto \log_a(x)$ & (für $a\in \R_{>0}$)
+        \end{longtable}
+        Du bist es ja aus der Schule gewohnt, Gleichungen, die Summen, Produkte und Potenzen enthalten, aufzulösen mittels Subtrahieren, Dividieren, Wurzelziehen und Logarithmieren.
+    \end{enumerate}
 \end{bsp}
 
 
@@ -865,7 +886,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \item $\R\to \R \ ,\ x\mapsto (3x+1)^3$
         \item Sei $A$ die Menge aller Leute im Tutorium. Betrachte die Abbildung $f:A\to \N \ ,\ a\mapsto$ (die Anzahl der Wörter im Erstlingswerk des Literaturnobelpreisträgers im Geburtsjahr von $a$).
         \item $\calP(\R) \to \calP(\Q) \ ,\ X \mapsto \Q \setminus (X^c\cap \Z)$
-        \item $\N \to \N \ ,\ n \mapsto 3^n + n$
+        %\item $\N \to \N \ ,\ n \mapsto 3^n + n$\quad(schwierig)
     \end{enumerate}
 \end{aufg}
 
@@ -889,10 +910,11 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \begin{aufg}[injektiv, surjektiv, bijektiv]
     Untersucht die folgenden Abbildungen darauf, ob sie injektiv, surjektiv oder bijektiv sind:
     \begin{align*}
-        & \text{a)} & \R \to \R\ &,\ x\mapsto 3x+1 \\[0.5em]
-        & \text{b)} & \Z \times \N_{\ge 1} \to \Q\ &,\ (z,n) \mapsto \frac{z}{n} \\[0.5em]
-        & \text{c)} & \calP(\R) \to \calP(\R) \ &,\ A \mapsto A^c \\[0.5em]
-        & \text{d)} & \Abb(\R,\R) \to \Abb(\Q,\R) \ &,\ f \mapsto f\vert_\Q
+        & \text{a)} & \R \to \R\ &,\ x\mapsto 3x+1 \\
+        & \text{b)} & \Z \to \Z\ &,\ n\mapsto 2n \\
+        & \text{c)} & \Z \times \N_{\ge 1} \to \Q\ &,\ (z,n) \mapsto \frac{z}{n} \\
+        & \text{d)} & X\xrightarrow{\id} X\ & && (\text{für eine beliebige Menge $X$}) \\
+        & \text{e)} & \calP(\R) \to \calP(\R) \ &,\ A \mapsto A^c
     \end{align*}
 \end{aufg}
 
