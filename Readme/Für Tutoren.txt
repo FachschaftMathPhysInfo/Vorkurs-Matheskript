@@ -33,11 +33,7 @@ Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
     -- Kapitel 4 Abbildungen:
         
         A4 (Vererbung von Injektivität und Surjektivität)
-            c) ist folgendermaßen intendiert: Sei f invertierbar mit Inverser g.
-                Wegen g°f=id und da id bijektiv ist, folgt aus a), dass f injektiv ist.
-                Wegen f°g=id und da id bijektiv ist, folgt aus b), dass f surjektiv ist.
-                Also ist f bijektiv.
-            Gebt den Anfis eventuell Tipps, dass sich A3d) hier einsetzen lässt.
+            Wenn keiner der Anfis drauf kommt, zeigt ihnen am Ende noch, wie c) aus a),b) und A3e) folgt.
             
 
 

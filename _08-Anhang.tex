@@ -1,10 +1,145 @@
 
 
-\chapter{Formelsammlung Logik und Mengen} \label{formelsammlung}
+\chapter{Entstehungsprozess eines Beweises} \label{anhang:entstehungsprozess}
+
+
+Das Schreiben eines mathematischen Beweises lässt sich grob in drei Phasen gliedern, die in diesem Abschnitt einmal durchgegangen werden. Parallel zu deren abstrakter Beschreibung wird ein ganz konkretes Beispiel aus der Linearen Algebra entwickelt:
+
+
+\begin{aufg}
+    Gegeben seien die drei Vektoren des $\R^3$:
+        \[ v_1:= \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix},\qquad  v_2:= \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix},\qquad v_3:= \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\]
+    Man beweise, dass $(v_1,v_2,v_3)$ eine Basis des $\R^3$ ist.
+\end{aufg}
+
+
+Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfangen können. Komm dann nochmal hierher zurück.
+
+
+\begin{phaseone}[Recherche]
+    In diesem Schritt stellt ihr sicher, euch auf dem Stand der Dinge zu befinden:
+    \begin{itemize}
+        \item Sofern ihr nicht die Bedeutung aller in der Aufgabenstellung vorkommenden Begriffe kennt, müsst ihr sie im Vorlesungsskript, in eurem Aufschrieb, in einem Lehrbuch oder im Internet nachschlagen. Solange ihr nicht genau wisst, was die Aufgabe besagt, könnt ihr sie nicht lösen.
+        \item Mit den Definitionen allein kommt ihr meist aber noch nicht weit. Denn in der Regel wurden in der Vorlesung bereits ein paar praktische Aussagen bewiesen, die ihr in eurem Beweis einsetzen könnt, um euch die Arbeit zu erleichtern. Erstsemestern passiert es nicht selten, dass sie keinen genauen Überblick darüber, was genau in der Vorlesung bewiesen wurde und was nicht, haben, und deshalb unnötige Mehrarbeit verrichten, indem sie unbeabsichtigt versuchen, bereits in der Vorlesung bewiesene Sätze noch einmal von Neuem zu beweisen.
+        \item Ein Problem, das vor allem das erste Studiensemester betrifft, ist, dass gewisse „offensichtliche“ oder bereits aus der Schule bekannte Aussagen für die Lösung der Übungszettel nicht verwendet werden sollen, weil sie noch nicht in der Vorlesung hergeleitet wurden. Leider ist im ersten Semester manchmal nicht ganz klar, was denn nun alles für bekannt vorausgesetzt werden darf und wobei es sich um „nichttriviale“ Aussagen, die eines Beweises bedürfen, handelt. Im Zweifelsfall solltet ihr bei eurem Tutor / eurer Tutorin nachfragen. Glücklicherweise löst sich diese Problematik spätestens im dritten Semester auf.
+    \end{itemize}
+    Zu dem Beispiel mit den Basisvektoren: Solange ich nicht genau weiß, was eine „Basis des $\R^3$“ ist, kann ich die Aufgabe nicht lösen. Ein Blick in den Vorlesungsaufschrieb verrät mir:
+    \begin{quote}
+        Das Tripel $(v_1,v_2,v_3)$ ist genau dann eine Basis des $\R^3$, wenn es für jeden Vektor $v\in \R^3$ eindeutig bestimmte reelle Zahlen $a,b,c\in \R$ gibt, für die $v=av_1+bv_2+cv_3$ gilt.
+    \end{quote}
+    An dieser Definition könnte ich nun meinen Beweisansatz orientieren. Damit würde ich aber unnötige Beweisarbeit verrichten, die bereits in der Vorlesung erledigt wurde. Denn dort wurde die folgende Aussage bewiesen:
+    \begin{quote}
+        Da der $\R^3$ dreidimensional ist, ist das Tripel $(v_1,v_2,v_3)$ schon dann eine Basis, wenn es linear unabhängig ist.
+    \end{quote}
+    Dies führt mich auf den Begriff „linear unabhängig“, dessen Bedeutung ich, sofern sie mir nicht klar ist, ebenfalls nachschlagen muss:
+    \begin{quote}
+        Die Vektoren $(v_1,v_2,v_3)$ heißen \emph{linear unabhängig}, falls für alle $a,b,c\in \R$ mit $av_1+bv_2+cv_3=0$ bereits gelten muss, dass $a=b=c=0$.
+    \end{quote}
+    Damit habe ich jetzt alle Definitionen beisammen und hoffe, dass ich keinen weiteren Satz aus der Vorlesung, der mir noch mehr Arbeit abnehmen könnte, übersehen habe\footnote{Später in der LA1-Vorlesung wird meist ein „Determinantenkriterium“ bewiesen, mit dessen Hilfe die Aufgabe nochmal erheblich vereinfacht würde.}. Beachte auch, wie mir das Nachschlagen des Vorlesungssatzes Arbeit abgenommen hat. Anfangs hätte ich beweisen müssen, dass es für jeden beliebigen Vektor $v\in \R^3$ eindeutig bestimmte Zahlen $a,b,c\in \R$ mit $v=av_1+bv_2+cv_3$ gibt. Nun muss ich dies nur noch für den Fall $v=0$ beweisen. Das ist eine erhebliche, unmittelbare Vereinfachung der Aufgabe!
+\end{phaseone}
+
+
+\begin{bem}
+    Die Recherchephase ist auch für die Spitzenforschung nicht zu unterschätzen. Probleme im Wissensaustausch sind vielleicht das größte Hindernis mathematischen Fortschritts. So schreibt Peter Johnstone in der Einführung seines Buchs \emph{Stone Spaces} (1982), einem Standardwerk der punktfreien Topologie:
+    \begin{quote}
+        The enormous increase in the number of practising mathematicians since the 1930s has inevitably produced a corresponding decrease in the range of mathematical knowledge that each one possesses on average, and the effect of this is easy to see: theorems and techniques which are commonplace in one field are laboriously and imperfectly rediscovered in adjacent ones.
+    \end{quote}
+    Gehöre also später nicht zu den Mathematikern, die ihre Zeit damit vergeuden, solche Sätze, die in Fachkreisen längst bewiesen wurden, unter großen Mühen und auch nur halbgar neu zu beweisen, nur weil sie zu schlecht informiert sind; oder zu den Programmierern, die eine Prozedur furchtbar kompliziert und ineffizient programmieren, nur weil ihnen die frei zugänglichen Bibliotheken unbekannt sind, in denen die Algorithmen bereits hocheffizient implementiert sind! Bei Unklarheit frag am besten bei einer dedizierten KI nach.
+\end{bem}
+
+
+\begin{phasetwo}[Rumprobieren]
+    Dies ist die kreativste Phase. Nachdem ihr euch möglichst alle Hilfsmittel, die euch die Vorlesung zum Thema bereitstellt, vergegenwärtigt habt, müsst ihr nun irgendwie einen Beweis aus dem Hut zaubern. Oft werden eure Überlegungen auch dazu führen, dass ihr nochmal zu Phase 1 zurückgeht und weitere Definitionen und Sätze nachschlagt.
+    \begin{itemize}
+        \item Beleuchtet das Problem von mehreren Seiten. Wenn eine Implikation $A\to B$ zu beweisen ist: seht euch die Kontraposition $\neg B\to \neg A$ an und schaut, ob ihr dadurch eher auf eine Beweisidee kommt. Oder nehmt an, dass sowohl $A$ als auch $\neg B$ gelten und schaut, ob daran irgendetwas faul ist.
+        \item In dieser Phase ist wirklich \emph{alles} erlaubt. Ihr könnt völlig ungerechtfertigt irgendwelche Vermutungen aufstellen und mit Hypothesen arbeiten, die euch zwar plausibel erschienen, über die ihr euch aber gar nicht hundertprozentig sicher seid. Ihr braucht euch hier an keinerlei Logikregeln halten und könnt jeden noch so fernliegenden Bullshit ausprobieren. In dieser Phase betreibt ihr „experimentelle Mathematik“, die nicht logisch fundiert sein muss.
+        \item Manchmal kann ein Beweis „von hinten nach vorne“ gefunden werden: ihr beginnt mit der zu zeigenden Aussage und sucht nach Prämissen, unter deren Annahme ihr die Aussage beweisen könnt\footnote{Für ein Beispiel siehe \cref{hintennachvorne}.}. Dann versucht ihr, diese Prämissen zu beweisen, bis ihr irgendwann bei einer Aussage angekommen seid, die ihr schon an und für sich beweisen könnt. Ich markiere auf meinem Schmierblatt solche Gleichungen, die ich als Hypothesen verwende und die noch „zu zeigen“ sind, mit einem Ausrufezeichen, und solche Hypothesen, die mir im Beweis helfen könnten, an deren Gültigkeit ich jedoch zweifle, mit einem Fragezeichen:
+        \begin{align*}
+            a,b,c & \stackrel{!}{=} 0 && (\text{lies: „$a,b,c$ sollen gleich Null sein“}) \\
+            \mathrm{Ext}^2_G(\calA,\Z/2\Z) & \stackrel{?}{=} 0 && (\text{lies: „Ist $\mathrm{Ext}^2_G(\calA,\Z/2\Z)$ wirklich Null?“})
+        \end{align*}
+        Beachtet aber: Während ihr in Phase 2 von hinten nach vorne arbeiten könnt, müsst ihr in Phase 3, wenn es um das Aufschreiben des Beweises geht, so gut es geht „von vorne nach hinten“ arbeiten.
+        \item Haltet im Vorlesungsmaterial nach Aussagen von ähnlicher Art wie die Aufgabenstellung Ausschau. Möglicherweise könnt ihr Beweistechniken aus der Vorlesung imitieren.
+        \item In dieser Phase werdet ihr möglicherweise mehrere Schmierblätter mit für andere Leute völlig unsinnigen, unlesbaren Skizzen vollschreiben. Egal! Es geht hier um \emph{eure} Ideenfindung und erst in der nächsten Phase werdet ihr eure Gedanken für Andere verständlich machen müssen.
+        \item Werd im ersten Semester nicht zum Einzelkämpfer! Tausche dich mit deinen Zettelpartnern oder anderen StudentInnen aus! In dieser Phase geht es darum, einen möglichst großen Vorrat an Ideen anzuhäufen, aus dem sich früher oder später die Lösung formen muss. Manchmal hat dein Zettelpartner den entscheidenden Gedanken, der noch fehlt, um deine Strategie aufgehen zu lassen und es wäre dumm und schade, wenn er ihn dir nicht mitteilte. Außerdem kann sich die Gedankenwelt deiner Partner fundamental von deiner eigenen unterscheiden und nur durch Austausch mit Anderen (einschließlich Lehrbücher und Internetseiten) kannst du ein vielseitiges Verständnis für mathematische Objekte gewinnen.
+    \end{itemize}
+    Diese Phase endet, sobald ihr einen Ansatz gefunden und weiterentwickelt habt, der sich als erfolgreich herausstellt, d.h. von dem ihr euch sicher seid, dass er sich in einen wasserdichten Beweis formulieren lässt. \\[0.5em]
+    Zu dem Beispiel mit der Basis im $\R^3$: Die Recherche hat ergeben, dass ich nur noch beweisen muss: Sind $a,b,c\in \R$ drei beliebige reelle Zahlen mit
+        \[ a\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
+    so muss bereits $a=b=c=0$ gelten. Da es sich um eine Gleichung im $\R^3$ handelt, kann ich sie in ein System dreier Gleichungen zerlegen:
+    \[\begin{array}{ccccccc}
+        a &+& 2b &+& c &=& 0 \\
+        a &+& b &+& c & =& 0 \\
+        2a && &+ &c & =& 0
+    \end{array}\]
+    Dieses lineare Gleichungssystem kann ich nun einerseits mit Schulwissen, andererseits mit dem in der LA-Vorlesung präsentierten „Gauß-Algorithmus“ lösen. \\[0.5em]
+    Damit ist eine vielversprechende Beweisstrategie gefunden. Auf dem Schmierblatt vergewissere ich mich nun durch ein paar Umformungen, die für nicht-eingeweihte Leser keinen Sinn ergeben müssen, dass das Gleichunssystem tatsächlich auf $a=b=c=0$ führt:
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \leadsto&&   c & = -2a &&& \\
+        \leadsto&& -a + b & = 0 &&& \\
+        \leadsto&& b& = a &&& \\
+        \leadsto&& a +2a-2a & = 0 &&& \\
+        \leadsto&& a &= 0 &&& \\
+        \leadsto && c & = -2a=0 &&&
+    \end{align*}
+    \endgroup
+    Damit ist die Aufgabe im Prinzip gelöst. Jetzt muss die Lösung nur noch ordentlich aufgeschrieben werden.
+\end{phasetwo}
+
+
+\begin{phasethree}[Aufschreiben]
+    In dieser Phase geht es darum, einen gut lesbaren Beweistext zu formulieren, der allen Regeln der Kunst gerecht wird. Oftmals werdet ihr in dieser Phase auf Schwächen im Beweis stoßen, die euch dazu zwingen, nochmal in Phase 2 zurückzugehen, um Reparaturen am Beweis vorzunehmen.
+    \begin{itemize}
+        \item Macht euch die logische Struktur eures Beweises deutlich und überlegt euch eine Gliederung der Beweisschritte. Schreibt diese in der Reihenfolge der logischen Argumentationskette auf, nicht in der Reihenfolge der kreativen Ideenkette, die euch auf den Beweis geführt hat, auf. Sollte der Beweis kompliziert sein, solltet ihr aber, sofern es eurem Leser hilft, auch ein paar Meta-Bemerkungen darüber, welche Idee hinter dem aktuellen Beweisschritt steckt, einstreuen.
+        \item Sorgt für ein ausgeglichenes Wechselspiel zwischen Formeln und Umgangssprache.
+        \item Stellt sicher, dass ihr jede Aussage, die ihr im Beweis verwendet und die nicht völlig naheliegend ist, begründet.
+        \item Wenn ihr euch spezielle Aussagen aus der Vorlesung zunutze macht, schreibt so etwas wie „Aus der Vorlesung ist bekannt“ oder „Nach Vorlesung gilt\dots“.
+        \item Definitionen aus der Vorlesung braucht ihr nicht noch einmal ausformulieren, sondern ihr könnt voraussetzen, dass euer Tutor / eure Tutorin alle Definitionen, die bislang in der Vorlesung drankamen, kennt. Ebenso könnt ihr alle Variablen, die in der Aufgabenstellung bereits eingeführt wurden, im Beweis verwenden ohne noch einmal neu definieren zu müssen, was sie bedeuten.
+        \item Zeige deinen Beweis deinen Zettelpartnern. Wenn sie ihn ohne Zusatzerklärungen nicht verstehen, muss er verbessert werden. Der Beweis muss am Ende selbsterklärend für deinen Tutor / deine Tutorin sein.
+        \item Sollte sich herausstellen, dass eure Lösung eine Lücke besitzt, für die euch einfach keine Lösung einfällt -- lasst sie stehen. Ein häufiger Erstsemesterfehler besteht darin, viel zu viel Zeit in die Bearbeitung der Übungszettel zu investieren -- Zeit, die deutlich nützlicher und nachhaltiger darin angelegt wäre, die Vorlesung zu reflektieren, Literatur zu studieren und Freundschaften aufzubauen.
+        \item Sollte euer Beweis, wie gerade beschrieben, am Ende noch Lücken enthalten: Seid ehrlich zu euch selbst und eurem Tutor! Ihr werdet mehr Anerkennung und Respekt erwerben, wenn ihr in einer kurzen Anmerkung darauf aufmerksam macht, an welcher Stelle noch eine Lücke besteht, und erläutert, woran genau es scheitert, als wenn ihr versucht, eure Lücke mit wirren Formulierungen und komplizierten Formeln zu verschleiern.
+    \end{itemize}
+    Der letzte Punkt ist vielleicht der allerwichtigste: Niemand erwartet, dass ihr von Anfang an perfekte Zettelabgaben produziert! Es ist der Job eures Profs,  eures Tutors und euer selbst, euch mathematisches Arbeiten beizubringen. Falls ihr methodisches oder inhaltliches Unverständnis habt, dürft ihr das nicht verschleiern oder gar euch dafür schämen! Vielmehr solltet ihr versuchen, dieses Unverständnis zu reflektieren und klar auszuformulieren. Das allein ist schon ein schwieriges Unterfangen, für dessen Gelingen euch Stolz und Anerkennung zusteht! \\[0.5em]
+    Zu dem Beispiel mit der Basis im $\R^3$: Hier ist ein Beweis, den ich am Ende aufschreiben würde.
+    \begin{proof}
+        Aus der Vorlesung ist bekannt, dass, da der $\R^3$ ein dreidimensionaler Vektorraum ist, eine Familie dreier Vektoren im $\R^3$ genau dann eine Basis ist, wenn sie linear unabhängig ist. Demnach genügt es zu zeigen, dass $v_1,v_2,v_3$ linear unabhängig sind. \\[0.5em]
+        Dazu seien $a,b,c\in \R$ drei beliebige reelle Zahlen mit
+            \[ a\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
+        Man erhält ein lineares Gleichungssystem
+        \[\begin{array}{rcccccccc}
+            \text{I} &&    a &+& 2b &+& c &=& 0 \\
+            \text{II} && a &+& b &+& c &=& 0 \\
+            \text{III} &&  2a && &+& c &=& 0
+        \end{array}\]
+        Nun gilt:
+        \begingroup
+        \allowdisplaybreaks
+        \begin{align*}
+            2a+c&=0 \quad \to\quad c = -2a \\
+            \xrightarrow[\text{in II einsetzen}]{c=-2a}\quad -a+b &=0 \quad\to\quad b=a \\[0.5em]
+            \xrightarrow[\text{in I einsetzen}]{b=a,\ c=-2a} \quad a+2a-2a &= 0 \quad\to\quad a= 0 \\
+            \xrightarrow{b=a}\quad b &= 0 \\
+            \xrightarrow[c=-2a]{a=0,} \quad c &= 0
+        \end{align*}
+        \endgroup
+        Also muss $a=b=c=0$ gelten. Da $a,b,c\in \R$ beliebig gewählt waren, ist damit gezeigt, dass $v_1,v_2,v_3$ linear unabhängig und somit eine Basis sind.
+    \end{proof}
+\end{phasethree}
+
+
+Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger lange Sätze schreiben und mehr mit Einrückungen und Ellipsen arbeiten. Beweise in Büchern sehen anders aus als handschriftlich aufgeschriebene Beweise.
+
+
+
+
+
+\chapter{Formelsammlung Logik und Mengen} \label{anhang:formelsammlung}
 
 
 \section{Einige aussagenlogische Tautologien}
-Dieser Abschnitt enthält eine Liste von logischen Tautologien. Versuche bloß nicht, sie auswendig zu lernen oder gar, sie mit Wahrheitstafeln zu verifizieren! -- das habe ich auch nie. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir intuitiv klarzumachen oder mithilfe der Beweistechniken aus dem zweiten Kapitel zu beweisen. Auf diese Weise trainierst du logisches Denken und den Umgang mit Junktoren und Quantoren. \\[0.5em]
+Dieser Abschnitt enthält eine Liste von logischen Tautologien. Versuche bloß nicht, sie auswendig zu lernen oder gar, sie mit Wahrheitstafeln zu verifizieren! -- das habe ich auch nie. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir intuitiv klarzumachen oder mithilfe der Beweistechniken aus \cref{kap:beweise} zu beweisen. Auf diese Weise trainierst du logisches Denken und den Umgang mit Junktoren und Quantoren. \\[0.5em]
 In den folgenden Formeln seien
 \begin{itemize}
     \item $A,B,C$ stets drei beliebige Aussagen.
@@ -81,27 +216,27 @@ Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es min
 \allowdisplaybreaks
 \begin{align*}
     \begin{split}
-        A \to (\forall x : E(x)) & \quad\leftrightarrow\quad \forall x : (A \to E(x)) \\
-        (\exists x : E(x)) \to A & \quad\leftrightarrow\quad \forall x : (E(x) \to A)
+        A \to (\forall x : E(x)) \quad & \leftrightarrow\quad \forall x : (A \to E(x)) \\
+        (\exists x : E(x)) \to A \quad & \leftrightarrow\quad \forall x : (E(x) \to A)
     \end{split} \\[1em]
     \begin{split}
-        \forall x\ \forall y:\ R(x,y) & \quad\leftrightarrow\quad \forall y\ \forall x:\ R(x,y) \\
-        \exists x\ \exists y:\ R(x,y) & \quad\leftrightarrow\quad \exists y\ \exists x:\ R(x,y) \\
-        \exists x\ \forall y:\ R(x,y) & \quad\to\quad \forall y\ \exists x:\ R(x,y)
+        \forall x\ \forall y:\ R(x,y) \quad & \leftrightarrow\quad \forall y\ \forall x:\ R(x,y) \\
+        \exists x\ \exists y:\ R(x,y) \quad & \leftrightarrow\quad \exists y\ \exists x:\ R(x,y) \\
+        \exists x\ \forall y:\ R(x,y) \quad & \to\quad \forall y\ \exists x:\ R(x,y)
     \end{split} && (\text{Vertauschen von Quantoren}) \\[1em]
-    (\forall x : E(x)) \land A &  \quad\leftrightarrow^*\quad  \forall x :(E(x) \land A) \\
-    (\exists x : E(x)) \lor A &  \quad\leftrightarrow^*\quad  \exists x : (E(x) \lor A) \\
-    (\exists x : E(x)) \land A &  \quad\leftrightarrow\quad  \exists x : (E(x) \land A) \\
-    (\forall x : E(x)) \lor A &  \quad\leftrightarrow\quad  \forall x :(E(x) \lor A) \\[1em] %nur in klassischer Logik
+    (\forall x : E(x)) \land A \quad & \leftrightarrow^*\quad  \forall x :(E(x) \land A) \\
+    (\exists x : E(x)) \lor A \quad & \leftrightarrow^*\quad  \exists x : (E(x) \lor A) \\
+    (\exists x : E(x)) \land A \quad & \leftrightarrow\quad  \exists x : (E(x) \land A) \\
+    (\forall x : E(x)) \lor A \quad & \leftrightarrow\quad  \forall x :(E(x) \lor A) \\[1em] %nur in klassischer Logik
     \begin{split}
-        \nexists x: E(x) & \quad\leftrightarrow\quad \forall x: \neg E(x) \\
-        \neg (\forall x: E(x)) & \quad\leftrightarrow\quad \exists x: \neg E(x) %nur in klassicher Logik
+        \nexists x: E(x) \quad & \leftrightarrow\quad \forall x: \neg E(x) \\
+        \neg (\forall x: E(x)) \quad & \leftrightarrow\quad \exists x: \neg E(x) %nur in klassicher Logik
     \end{split} && (\text{Quantorennegationsregeln}) \\[1em]
     \begin{split}
-        A \to( \exists x : E(x)) & \quad\leftrightarrow^*\quad \exists x : ( A\to E(x)) \\ %nur in klassischer Logik
-        (\forall x : E(x)) \to A & \quad\leftrightarrow^*\quad \exists x : (E(x) \to A) %nur in klassischer Logik
+        A \to( \exists x : E(x)) \quad & \leftrightarrow^*\quad \exists x : ( A\to E(x)) \\ %nur in klassischer Logik
+        (\forall x : E(x)) \to A \quad & \leftrightarrow^*\quad \exists x : (E(x) \to A) %nur in klassischer Logik
     \end{split} \\[1em]
-    \nexists x\ \forall y : (R(x,y) & \ \leftrightarrow\ \neg R(y,y)) && (\text{Russellsche Antinomie})
+    \nexists x\ \forall y : (R(x,y) \ &\leftrightarrow\ \neg R(y,y)) && (\text{Russellsche Antinomie})
 \end{align*}
 \endgroup
 
@@ -110,7 +245,7 @@ Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es min
 
 
 \section{Regeln für $\cap$, $\cup$ und Differenzen}
-Dieser Abschnitt enthält eine Menge mengentheoretischer Gleichungen. Versuche bloß nicht, sie auswendig zu lernen, das habe ich auch nie! Du wirst sie während der Vorlesungen auch eher selten benötigen. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir durch Bilder zu veranschaulichen und sie zu beweisen. Vergleiche die mengentheoretischen Formeln auch einmal mit den logischen Tautologien und halte nach Verwandtschaften Ausschau. Auf diese Weise trainierst du deine mengentheoretische Intuition und mengentheoretisches Argumentieren. Solltest du später einmal einige Formeln benötigen, wirst du sie dir dann schnell selbst herleiten können. \\[0.5em]
+Dieser Abschnitt enthält eine Menge mengentheoretischer Gleichungen. Versuche bloß nicht, sie auswendig zu lernen, das habe ich auch nie! Du wirst sie während der Vorlesungen auch eher selten benötigen und irgendwann tiefere Strukturen kennenlernen, aus denen sie sich als Nebenprodukt ergeben. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir durch Bilder zu veranschaulichen und sie zu beweisen. Vergleiche die mengentheoretischen Formeln auch einmal mit den logischen Tautologien und halte nach Verwandtschaften Ausschau. Auf diese Weise trainierst du deine mengentheoretische Intuition und mengentheoretisches Argumentieren. Solltest du später einmal einige Formeln benötigen, wirst du sie dir dann schnell selbst herleiten können. \\[0.5em]
 Für die nachfolgenden Formeln seien
 \begin{itemize}
     \item $X,Y,Z$ drei Mengen.
@@ -152,7 +287,8 @@ Es gilt:
     (X\cup Y)\setminus Z & \quad =\quad (X\setminus Z)\cup (Y\setminus Z) \\
         X \setminus (Y \cup Z) & \quad =\quad (X \setminus Y) \cap (X \setminus Z)\\
         X \setminus (Y \cap Z) & \quad =\quad (X \setminus Y) \cup (X \setminus Z) \\[1em]
-    (X \cup Y) \setminus (X \cap Y) & \quad =\quad (X \setminus Y) \ \dot\cup\ (Y \setminus X) && (\text{symmetrische Differenz})
+    (X \cup Y) \setminus (X \cap Y) & \quad =\quad (X \setminus Y) \ \dot\cup\ (Y \setminus X) && (\text{symmetrische Differenz}) \\
+    X\setminus Y \subseteq Z & \quad \leftrightarrow\quad X\subseteq Y\cup Z && (\text{„Monus“-Eigenschaft})
 \end{align*}
 \endgroup
 
@@ -160,13 +296,13 @@ Es gilt:
 
 
  
-\section{Regeln für $\bigcap_{i\in I}$ und $\bigcup_{i\in I}$}
+\section{Regeln für $\bigcap_i$ und $\bigcup_i$}
 In den folgenden Formeln seien
 \begin{itemize}
     \item $A$ eine beliebige Menge.
     \item $I,J,K$ drei weitere Mengen und $f:K\to I$ eine surjektive Abbildung.
     \item $(X_i)_{i\in I}$, $(Y_i)_{i\in I}$, $(M_{ij})_{(i,j)\in I\times J}$ drei Familien von Mengen.
-    \item Damit die Komplemente „$(-)^c$“ Sinn ergeben, sei außerdem eine gemeinsame Obermenge $V$ der $X_i$'s fixiert.
+    \item Damit die Komplemente „$(-)^c$“ Sinn ergeben, sei eine gemeinsame Obermenge $V$ der $X_i$'s fixiert.
 \end{itemize}
 Für die mit einem (*) markierten Gleichungen sei außerdem angenommen, dass $I\neq\emptyset$. Es gilt:
 \begingroup
@@ -328,14 +464,14 @@ Es gilt:
 
 
 
-\section{Einige natürliche Bijektionen}
+\section{Einige natürliche Bijektionen} \label{anhang:natuerlichebijektionen}
 Dieser Abschnitt enthält eine Liste von „natürlichen Entsprechungen“ von Mengen. Es handelt sich dabei nicht um Gleichungen im strikten Sinne, weshalb ich nicht das Zeichen „$=$“ benutze -- jedoch können die Elemente der einen Menge jeweils „natürlich“ mit den Elementen der anderen Menge „identifiziert“ werden, d.h. es gibt eine naheliegende Bijektion zwischen beiden Mengen. Dies notiere ich mit dem Zeichen „$\cong$“. Ich werde keine konkreten Bijektionen angeben, wenn du Lust hast, versuche selbst einmal herauszufinden, inwiefern die Elemente der einen Menge jeweils den Elementen der anderen „entsprechen“.
 
 Es seien
 \begin{itemize}
     \item $X,Y,Z$ drei Mengen.
     \item $I,J,K$ drei beliebige Mengen und $\sigma : K\to I$ eine bijektive Abbildung.
-    \item $(X_i)_{i\in I}$ und $(M_{ij})_{(i,j)\in I\times J}$ zwei Mengenfamilien.
+    \item $(X_i)_{i\in I}$, $(Y_i)_{i\in I}$ und $(M_{ij})_{(i,j)\in I\times J}$ drei Mengenfamilien.
     \item Die Zeichen „$0$“, „$1$“ und „$2$“ bezeichnen neben den Zahlen Null, Eins und Zwei auch jeweils eine beliebige null-, ein- bzw. zweielementige Menge.
 \end{itemize}
 Dann gibt es natürliche Bijektionen:
@@ -345,8 +481,8 @@ Dann gibt es natürliche Bijektionen:
     \Abb(X,Y) & \quad\cong\quad Y^X && (\text{Gleichwertigkeit von Abbildungen und Familien})
 \end{align*}
 \begin{align*}
-    \Abb(X,\prod_{i\in I} X_i) & \quad\cong\quad \prod_{i\in I} \Abb(X,X_i) && (\text{Universelle Eigenschaft des Produkts}) \\
-    \Abb(\bigsqcup_{i\in I} X_i,X) & \quad\cong\quad \prod_{i\in I} \Abb(X_i,X) && (\text{Universelle Eigenschaft des Koprodukts})
+    \Abb(X,\prod_{i\in I} Y_i) & \quad\cong\quad \prod_{i\in I} \Abb(X,Y_i) && (\text{Universelle Eigenschaft des Produkts}) \\
+    \Abb(\bigsqcup_{i\in I} X_i,Y) & \quad\cong\quad \prod_{i\in I} \Abb(X_i,Y) && (\text{Universelle Eigenschaft des Koprodukts})
 \end{align*}
 \begin{align*}
     \calP(X) & \quad\cong\quad \Abb(X,2) \quad\cong\quad 2^X \\
@@ -395,143 +531,12 @@ Dann gibt es natürliche Bijektionen:
 
 
 
-\chapter{Entstehungsprozess eines Beweises} \label{entstehungsprozess}
-
-
-Das Schreiben eines mathematischen Beweises lässt sich grob in drei Phasen gliedern, die in diesem Abschnitt einmal durchgegangen werden sollen. Parallel zu deren abstrakter Beschreibung wird ein ganz konkretes Beispiel aus der Linearen Algebra entwickelt:
-
-
-\begin{aufg}
-    Gegeben seien die drei Vektoren des $\R^3$:
-        \[ v_1:= \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix},\qquad  v_2:= \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix},\qquad v_3:= \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\]
-    Man beweise, dass $(v_1,v_2,v_3)$ eine Basis des $\R^3$ ist.
-\end{aufg}
-
-
-Möglicherweise wirst du mit diesem Beispiel erst in einigen Wochen etwas anfangen können. Komm dann nochmal hierher zurück.
-
-
-\begin{phaseone}[Recherche]
-    In diesem Schritt stellt ihr sicher, euch auf dem Stand der Dinge zu befinden:
-    \begin{itemize}
-        \item Sofern ihr nicht die Bedeutung aller in der Aufgabenstellung vorkommenden Begriffe kennt, müsst ihr sie im Vorlesungsskript, in eurem Aufschrieb, in einem Lehrbuch oder im Internet nachschlagen. Solange ihr nicht genau wisst, was die Aufgabe besagt, könnt ihr sie nicht lösen.
-        \item Mit den Definitionen allein kommt ihr meist aber noch nicht weit. Denn in der Regel wurden in der Vorlesung bereits ein paar praktische Aussagen bewiesen, die ihr euch für eure Lösung zunutze machen könnt. Auf diese Weise bekommt ihr Werkzeuge in die Hand, die ihr in eurem Beweis einsetzen könnt, um euch die Arbeit zu erleichtern. Erstsemestern passiert es nicht selten, dass sie keinen genauen Überblick darüber, was genau in der Vorlesung bewiesen wurde und was nicht, haben, und deshalb unnötige Mehrarbeit verrichten, indem sie unbeabsichtigt versuchen, bereits in der Vorlesung bewiesene Sätze noch einmal selbst zu beweisen.
-        \item Ein Problem, das vor allem das erste Studiensemester betrifft, ist, dass gewisse „offensichtliche“ oder bereits aus der Schule bekannte Aussagen für die Lösung der Übungszettel nicht verwendet werden sollen, weil sie noch nicht in der Vorlesung bewiesen wurden. Leider ist im ersten Semester manchmal nicht ganz klar, was man denn nun alles für bekannt voraussetzen darf und wobei es sich um „nichttriviale“ Aussagen, die eines Beweises bedürfen, handelt. Im Zweifelsfall solltet ihr bei eurem Tutor / eurer Tutorin nachfragen. Glücklicherweise hört diese Problematik spätestens im dritten Semester auf.
-    \end{itemize}
-    Zu dem Beispiel mit den Basisvektoren: Solange ich nicht genau weiß, was eine „Basis des $\R^3$“ ist, kann ich die Aufgabe nicht lösen. Ein Blick in den Vorlesungsaufschrieb verrät mir:
-    \begin{quote}
-        Das Tripel $(v_1,v_2,v_3)$ ist genau dann eine Basis des $\R^3$, wenn es für jeden Vektor $v\in \R^3$ eindeutig bestimmte reelle Zahlen $a,b,c\in \R$ gibt, für die $v=av_1+bv_2+cv_3$ gilt.
-    \end{quote}
-    An dieser Definition könnte ich nun meinen Beweisansatz orientieren. Damit würde ich aber unnötige Beweisarbeit verrichten, die bereits in der Vorlesung erledigt wurde. Denn dort wurde die folgende Aussage bewiesen:
-    \begin{quote}
-        Da der $\R^3$ dreidimensional ist, ist das Tripel $(v_1,v_2,v_3)$ schon dann eine Basis, wenn es linear unabhängig ist.
-    \end{quote}
-    Dies führt mich auf den Begriff „linear unabhängig“, dessen Bedeutung ich, sofern sie mir nicht absolut klar ist, ebenfalls nachschlagen muss:
-    \begin{quote}
-        Die Vektoren $(v_1,v_2,v_3)$ heißen \emph{linear unabhängig}, falls für alle $a,b,c\in \R$ mit $av_1+bv_2+cv_3=0$ bereits gelten muss, dass $a=b=c=0$.
-    \end{quote}
-    Damit habe ich jetzt alle Definitionen beisammen und hoffe, dass ich keinen weiteren Satz aus der Vorlesung, der mir noch mehr Arbeit abnehmen könnte, übersehen habe\footnote{Später in der LA1-Vorlesung wird meist ein „Determinantenkriterium“ bewiesen, mit dessen Hilfe die Aufgabe nochmal erheblich vereinfacht würde.}. Beachte auch, wie mir das Nachschlagen des Vorlesungssatzes Arbeit abgenommen hat. Anfangs hätte ich beweisen müssen, dass es für jeden beliebigen Vektor $v\in \R^3$ eindeutig bestimmte Zahlen $a,b,c\in \R$ mit $v=av_1+bv_2+cv_3$ gibt. Nun muss ich nur noch beweisen, dass diese Zahlen im Fall $v=0$ eindeutig bestimmt sind. Das ist eine erhebliche, unmittelbare Vereinfachung der Aufgabe!
-\end{phaseone}
-
-
-\begin{bem}
-    Die Recherchephase ist auch für die Spitzenforschung nicht zu unterschätzen. Probleme im Wissensaustausch sind vielleicht das größte Hindernis mathematischen Fortschritts. So schreibt Peter Johnstone in der Einführung seines Buchs \emph{Stone Spaces} (1982), einem Standardwerk der punktfreien Topologie:
-    \begin{quote}
-        The enormous increase in the number of practising mathematicians since the 1930s has inevitably produced a corresponding decrease in the range of mathematical knowledge that each one possesses on average, and the effect of this is easy to see: theorems and techniques which are commonplace in one field are laboriously and imperfectly rediscovered in adjacent ones.
-    \end{quote}
-    Gehöre also später nicht zu den Mathematikern, die ihre Zeit damit vergeuden, solche Sätze, die in Fachkreisen längst bewiesen wurden, unter großen Mühen und auch nur halbgar neu zu beweisen, nur weil sie zu schlecht informiert sind; oder zu den Programmierern, die eine Prozedur furchtbar kompliziert und ineffizient programmieren, nur weil ihnen die frei zugänglichen Bibliotheken unbekannt sind, in denen die Algorithmen bereits hocheffizient implementiert sind! Bei Unklarheit frag am besten bei einer dedizierten KI nach.
-\end{bem}
-
-
-\begin{phasetwo}[Rumprobieren] \label{rumprobieren}
-    Der zweite Schritt ist die kreativste Phase. Nachdem ihr euch möglichst alle Hilfsmittel, die euch die Vorlesung zum Thema bereitstellt, vergegenwärtigt habt, müsst ihr nun irgendwie einen Beweis aus dem Hut zaubern. Oft werden eure Überlegungen auch dazu führen, dass ihr nochmal zu Phase 1 zurückgeht und weitere Definitionen und Sätze nachschlagt.
-    \begin{itemize}
-        \item Beleuchtet das Problem von mehreren Seiten. Wenn eine Implikation $A\to B$ zu beweisen ist: seht euch die Kontraposition $\neg B\to \neg A$ an und schaut, ob ihr dadurch eher auf eine Beweisidee kommt. Oder nehmt an, dass sowohl $A$ als auch $\neg B$ gelten und schaut, ob daran irgendetwas faul ist.
-        \item In dieser Phase ist wirklich \emph{alles} erlaubt. Ihr könnt völlig ungerechtfertigt irgendwelche Vermutungen aufstellen und mit Hypothesen arbeiten, die euch zwar plausibel erschienen, über die ihr euch aber gar nicht hundertprozentig sicher seid. Ihr braucht euch hier an keinerlei Logikregeln halten und könnt jeden noch so fernliegenden Bullshit ausprobieren. In dieser Phase betreibt ihr „experimentelle Mathematik“, die nicht logisch fundiert sein muss.
-        \item Manchmal kann der Beweis auch „von hinten nach vorne“ durchgeführt werden. D.h. ihr beginnt mit der zu zeigenden Aussage und sucht nach Prämissen, unter deren Annahme ihr die Aussage beweisen könnt\footnote{Für ein Beispiel siehe \cref{hintennachvorne}.}. Dann versucht ihr, diese Prämissen zu beweisen, bis ihr irgendwann bei einer Aussage angekommen seid, die ihr schon an und für sich beweisen könnt. Ich markiere auf meinem Schmierblatt solche Gleichungen, die ich als Hypothesen verwende und die noch „zu zeigen“ sind, mit einem Ausrufezeichen wie etwa
-        \begin{align*}
-            a,b,c & \stackrel{!}{=} 0 && (\text{lies: „$a,b,c$ sollen gleich $0$ sein“})
-        \end{align*}
-        Beachtet aber: Während ihr in Phase 2 von hinten nach vorne arbeiten könnt, müsst ihr in Phase 3, wenn es um das Aufschreiben des Beweises geht, so gut es geht „von vorne nach hinten“ arbeiten.
-        \item Haltet im Vorlesungsmaterial nach Aussagen ähnlicher Art wie die Aufgabenstellung Ausschau. Möglicherweise könnt ihr Beweistechniken aus der Vorlesung imitieren.
-        \item In dieser Phase werdet ihr möglicherweise mehrere Schmierblätter mit für andere Leute völlig unsinnigen, unlesbaren Skizzen vollschreiben. Egal! Es geht hier um \emph{eure} Ideenfindung und erst in der nächsten Phase werdet ihr eure Gedanken für Andere verständlich machen müssen.
-        \item Werd im ersten Semester nicht zum Einzelkämpfer! Tausche dich mit deinen Zettelpartnern oder anderen StudentInnen aus! In dieser Phase geht es darum, einen möglichst großen Vorrat an Ideen anzuhäufen, aus dem sich früher oder später die Lösung formen muss. Manchmal hat dein Zettelpartner den entscheidenden Gedanken, der noch fehlt, um deine Strategie aufgehen zu lassen und es wäre dumm und schade, wenn er ihn dir nicht mitteilte. Außerdem kann sich die Gedankenwelt deiner Partner fundamental von deiner eigenen unterscheiden und nur durch Austausch mit Anderen (einschließlich Lehrbücher und Internetseiten) kannst du ein vielseitiges Verständnis für mathematische Objekte gewinnen.
-    \end{itemize}
-    Diese Phase endet, sobald ihr einen Ansatz gefunden und weiterentwickelt habt, der sich als erfolgreich herausstellt, d.h. von dem ihr euch sicher seid, dass er sich in einen wasserdichten Beweis formulieren lässt. \\[0.5em]
-    Zu dem Beispiel mit der Basis im $\R^3$: Die Recherche hat ergeben, dass ich nur noch beweisen muss: Sind $a,b,c\in \R$ drei beliebige reelle Zahlen mit
-        \[ a\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
-    so muss bereits $a=b=c=0$ gelten. Da es sich um eine Gleichung im $\R^3$ handelt, kann ich sie in ein System dreier Gleichungen zerlegen:
-    \[\begin{array}{ccccccc}
-        a &+& 2b &+& c &=& 0 \\
-        a &+& b &+& c & =& 0 \\
-        2a && &+ &c & =& 0
-    \end{array}\]
-    Dieses lineare Gleichungssystem kann ich nun einerseits mit Schulwissen, andererseits mit dem in der LA-Vorlesung präsentierten „Gauß-Algorithmus“ lösen. \\[0.5em]
-    Damit ist eine vielversprechende Beweisstrategie gefunden. Auf dem Schmierblatt vergewissere ich mich nun durch ein paar Umformungen, die für nicht-eingeweihte Leser keinen Sinn ergeben müssen, dass das Gleichunssystem tatsächlich auf $a=b=c=0$ führt:
-    \begingroup
-    \allowdisplaybreaks
-    \begin{align*}
-        \leadsto&&   c & = -2a \\
-        \leadsto&& -a + b & = 0 \\
-        \leadsto&& b& = a \\
-        \leadsto&& a +2a-2a & = 0 \\
-        \leadsto&& a &= 0 \\
-        \leadsto && c & = -2a=0
-    \end{align*}
-    \endgroup
-    Damit ist die Aufgabe im Prinzip gelöst. Jetzt muss die Lösung nur noch ordentlich aufgeschrieben werden.
-\end{phasetwo}
-
-
-\begin{phasethree}[Aufschreiben]\label{beweisaufschreiben}
-    In dieser Phase geht es darum, einen gut lesbaren Beweistext zu formulieren, der allen Regeln der Kunst genügt. Oftmals werdet ihr in dieser Phase auf Schwächen im Beweis stoßen, die euch dazu zwingen, nochmal in Phase 2 zurückzugehen, um Reparaturen am Beweis vorzunehmen.
-    \begin{itemize}
-        \item Macht euch die logische Struktur eures Beweises deutlich und überlegt euch eine Gliederung der Beweisschritte. Schreibt diese in der Reihenfolge der logischen Argumentationskette auf, nicht in der Reihenfolge der kreativen Ideenkette, die euch auf den Beweis geführt hat, auf. Sollte der Beweis kompliziert sein, solltet ihr aber, sofern es eurem Leser hilft, auch ein paar Meta-Bemerkungen darüber, welche Idee hinter dem aktuellen Beweisschritt steckt, einstreuen.
-        \item Sorgt für ein ausgeglichenes Wechselspiel zwischen Formeln und Umgangssprache.
-        \item Stellt sicher, dass ihr jede Aussage, die ihr im Beweis verwendet und die nicht völlig naheliegend ist, begründet.
-        \item Wenn ihr euch spezielle Aussagen aus der Vorlesung zunutze macht, schreibe so etwas wie „Aus der Vorlesung ist bekannt“ oder „Nach Vorlesung gilt\dots“.
-        \item Definitionen aus der Vorlesung braucht ihr nicht noch einmal ausformulieren, sondern ihr könnt voraussetzen, dass euer Tutor / eure Tutorin alle Definitionen, die bislang in der Vorlesung drankamen, kennt. Ebenso könnt ihr alle Variablen, die in der Aufgabenstellung bereits eingeführt wurden, im Beweis verwenden ohne noch einmal neu definieren zu müssen, was sie bedeuten.
-        \item Zeige deinen Beweis deinen Zettelpartnern. Wenn sie ihn ohne Zusatzerklärungen nicht verstehen, muss er verbessert werden. Der Beweis muss am Ende selbsterklärend für deinen Tutor / deine Tutorin sein.
-        \item Sollte sich herausstellen, dass eure Lösung eine Lücke besitzt, für die euch einfach keine Lösung einfällt -- lasst sie stehen. Ein häufiger Erstsemesterfehler besteht darin, viel zu viel Zeit in die Bearbeitung der Übungszettel zu investieren -- Zeit, die deutlich nützlicher und nachhaltiger darin angelegt wäre, die Vorlesung zu reflektieren, Literatur zu lesen und Freundschaften aufzubauen.
-        \item Sollte euer Beweis, wie gerade beschrieben, am Ende noch Lücken enthalten: Seid ehrlich zu euch selbst und eurem Tutor / eurer Tutorin! Ihr werdet mehr Anerkennung und Respekt dafür bekommen, dass ihr in einer kurzen Anmerkung darauf aufmerksam macht, an welcher Stelle noch eine Lücke besteht, und erläutert, woran genau es scheitert, als wenn ihr versucht, eure Lücke mit wirren Formulierungen und komplizierten Formeln zu verschleiern.
-    \end{itemize}
-    Der letzte Punkt ist vielleicht der allerwichtigste: Niemand erwartet, dass ihr von Anfang an perfekte Zettelabgaben produziert! Es ist der Job eures Profs,  eures Tutors und euer selbst, euch mathematisches Arbeiten beizubringen. Falls ihr methodisches oder inhaltliches Unverständnis habt, dürft ihr das nicht verschleiern oder gar euch dafür schämen! Vielmehr solltet ihr versuchen, dieses Unverständnis zu reflektieren und klar auszuformulieren. Das allein ist schon ein schwieriges Unterfangen, für dessen Gelingen ihr Stolz und Anerkennung verdient! \\[0.5em]
-    Zu dem Beispiel mit der Basis im $\R^3$: Hier ist ein Beweis, den ich am Ende aufschreiben würde.
-    \begin{bew}
-        Aus der Vorlesung ist bekannt, dass, da der $\R^3$ ein dreidimensionaler Vektorraum ist, eine Familie dreier Vektoren im $\R^3$ genau dann eine Basis ist, wenn sie linear unabhängig ist. Demnach genügt es zu zeigen, dass $v_1,v_2,v_3$ linear unabhängig sind. \\[0.5em]
-        Dazu seien $a,b,c\in \R$ drei beliebige reelle Zahlen mit
-            \[ a\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}+c \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0  \]
-        Man erhält ein lineares Gleichungssystem
-        \[\begin{array}{rcccccccc}
-            \text{I} &&    a &+& 2b &+& c &=& 0 \\
-            \text{II}&& a &+& b &+& c & =& 0 \\
-            \text{III} &&  2a && &+ &c & =& 0
-        \end{array}\]
-        Nun gilt:
-        \begin{align*}
-            2a+c&=0 \quad \to\quad c = -2a \\
-            \xrightarrow[\text{in II einsetzen}]{c=-2a}\quad -a+b &=0 \quad\to\quad b=a \\[0.5em]
-            \xrightarrow[\text{in I einsetzen}]{b=a,\ c=-2a} \quad a+2a-2a &= 0 \quad\to\quad a= 0 \\
-            \xrightarrow{b=a}\quad b &= 0 \\
-            \xrightarrow[c=-2a]{a=0,} \quad c &= 0
-        \end{align*}
-        Also muss $a=b=c=0$ gelten. Da $a,b,c\in \R$ beliebig gewählt waren, ist damit gezeigt, dass $v_1,v_2,v_3$ linear unabhängig und somit eine Basis sind. \qed
-    \end{bew}
-\end{phasethree}
-
-
-Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger lange Sätze schreiben und mehr mit Einrückungen und Ellipsen arbeiten. Dies lässt sich aber nicht gut in einem gedruckten Text wiedergeben. Beweise in Büchern sehen anders aus als handschriftlich aufgeschriebene Beweise.
-
-
-
-
-
 \chapter{Mathematischer Jargon}
 
 
 \begin{description}[labelindent=0pt, leftmargin=0pt]
 
-    \item[abuse of notation:] Um die Übersichtlichkeit mathematischer Formelsprache zu wahren, wird gelegentlich ein Zeichen mit mehreren verschiedenen Bedeutungen zugleich oder einer inkorrekten Syntax verwendet. Ist beispielsweise $(G,*)$ eine Gruppe, so spricht man meist von „der Gruppe $G$“ und geht unterschwellig davon aus, dass die Verknüpfung $*$ vom Leser mitgedacht wird. Diese Notation ist manchmal leicht missbräuchlich, um ihrer besseren Lesbarkeit aber vorzuziehen.
+    \item[abuse of notation:] Um die Übersichtlichkeit mathematischer Formelsprache zu wahren, wird gelegentlich ein Zeichen mit mehreren verschiedenen Bedeutungen zugleich oder einer inkorrekten Syntax verwendet. Ist beispielsweise $(G,*)$ eine Gruppe, so spricht man meist von „der Gruppe $G$“ und geht unterschwellig davon aus, dass die Verknüpfung $*$ vom Leser mitgedacht wird. Diese Notation ist zwar missbräuchlich, um ihrer besseren Lesbarkeit aber vorzuziehen.
 
     \item[Ansatz:] Herangehensweise, einen Beweis zu führen, ein Problem zu lösen oder ein Objekt zu definieren. Beispielsweise ist die \href{https://en.wikipedia.org/wiki/Completing_the_square}{quadratische Ergänzung} ein Ansatz zum Lösen quadratischer Gleichungen. 
     
@@ -539,23 +544,23 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
 
     \item[Beliebig:] Markiert die Formulierung einer Allaussage. In einem Beweis läutet die Fixierung eines „beliebigen Objekts“ den Beweis einer Allaussage ein.
 
-    \item[Charakterisierung:] Äquivalente Beschreibung eines Objekts.
+    \item[Charakterisierung:] Äquivalente Beschreibung eines Objekts. Beispielsweise lassen sich gleichseitige Dreiecke darüber charakterisieren, dass alle Innenwinkel 60° betragen.
 
     \item[Echt:] wahlweise von der Bedeutung „strikt“ oder „nichttrivial“. Beispielsweise sind die \emph{echten Teiler} einer natürlichen Zahl $n$ alle Teiler von $n$ ausgenommen den „trivialen Teiler“ $n$ selbst. Die \emph{echten Teilmengen} einer Menge $M$ sind alle Teilmengen von $M$ mit Ausnahme der „trivialen Teilmenge“ $M$ (und eventuell $\emptyset$).
 
-    \item[Eindeutig bestimmt:] Ein mathematisches Objekt ist durch eine Eigenschaft eindeutig bestimmt, falls es kein anderes Objekt mit derselben Eigenschaft gibt. Beispielsweise ist der Mittelpunkt eines Kreises eindeutig bestimmt durch die Eigenschaft, dass er zu jedem Punkt auf dem Kreis denselben Abstand hat. Dagegen ist etwa die komplexe Quadratwurzel von $-1$ nicht eindeutig bestimmt, weil sowohl die komplexe Zahl $i$ als auch die Zahl $-i$ jeweils Quadratwurzeln von $-1$ sind.
+    \item[Eindeutig bestimmt:] Markiert das Vorliegen einer Kennzeichnung im Sinne von \cref{kennzeichnung}. Ein mathematisches Objekt ist durch eine Eigenschaft eindeutig bestimmt, falls es kein anderes Objekt mit derselben Eigenschaft gibt. Beispielsweise ist der Mittelpunkt eines Kreises eindeutig bestimmt durch die Eigenschaft, dass er zu jedem Punkt auf dem Kreis denselben Abstand hat. Dagegen ist etwa die komplexe Quadratwurzel von $-1$ nicht eindeutig bestimmt, weil sowohl die komplexe Zahl $i$ als auch die Zahl $-i$ jeweils Quadratwurzeln von $-1$ sind.
     
     \item[Elementar:] Eine mathematische Aussage ist elementar, wenn ihr Beweis wenig Vorarbeit und Definitionen benötigt und auf wenige andere Sätze angewiesen ist . Andernfalls spricht man von einer \textbf{tiefen} Aussage. Werden im Laufe der Zeit neue Beweise gefunden, kann eine vormals tiefe Aussage elementar werden.
 
-    \item[Fast alle:] Alle Elemente einer Menge mit Ausnahme einer im Kontext vernachlässigbaren Teilmenge. Hat in der Algebra oft die Bedeutung „alle bis auf endlich viele“.
+    \item[Fast alle:] Alle Elemente einer Menge mit Ausnahme einer im Kontext „kleinen“ Teilmenge. Hat in der Algebra oft die Bedeutung „alle bis auf endlich viele“.
 
     \item[Gegenbeispiel:] Ein Objekt, das eine Allaussage widerlegt, indem es dieser Aussage widerspricht. Beispielsweise ist die Aussage, dass jede reelle Zahl eine reelle Quadratwurzel besitzt, falsch und wird durch das Gegenbeispiel $-1$ (und ebensogut jede andere negative Zahl) widerlegt.
 
-    \item[Im Allgemeinen nicht:] Eine Aussage gilt „im Allgemeinen nicht“, wenn sie nicht immer wahr ist. Beispielsweise besitzt eine ganze Zahl im Allgemeinen keine ganzzahlige Quadratwurzel.
+    \item[Im Allgemeinen nicht:] Eine Aussage gilt „im Allgemeinen nicht“, wenn sie nicht immer wahr ist. Beispielsweise besitzt eine reelle Zahlenfolge im Allgemeinen keinen Limes.
     
     \item[Induzieren:] \index{induzieren} Sofern irgendein mathematisches Objekt $a$ automatisch bereits die Existenz eines weiteren mathematischen Objekts $b$ mit sich bringt, so sagt man auch, das Objekt $b$ werde vom Objekt $a$ „induziert“.
 
-    Sind beispielsweise $X,Y$ zwei Mengen und $X\xrightarrow{f} Y$ eine Abbildung, so \emph{induziert} $f$ zwei Abbildungen zwischen den Potenzmengen:
+    Sind beispielsweise $X,Y$ zwei Mengen und $X\xrightarrow{f} Y$ eine Abbildung, so \emph{induziert} $f$ gemäß \cref{def:bildmenge} zwei Abbildungen zwischen den Potenzmengen:
     \begin{align*}
         \calP(X) \to \calP(Y) \ & , \ A\mapsto f(A) \\
             \calP(Y) \to \calP(X) \ & , \ B\mapsto f^{-1}(B)
@@ -564,7 +569,7 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
     
     \item[Kanonisch:] \index{kanonisch} Ein Objekt ist kanonisch, wenn es sich um ein Standard-Beispiel handelt, wenn es als Standard-Struktur eines anderen Objekts angesehen wird oder wenn es \emph{natürlich} (siehe unten) ist. Andernfalls heißt es \textbf{unkanonisch}. Beispielsweise besitzt der $\R^n$ eine kanonische Basis, die sogenannte Standardbasis, wohingegen der Folgenraum $\R^\N$ keine kanonische Basis besitzt, die Wahl einer Basis daher unkanonisch wäre. Noch ein Beispiel: die „kanonische“ Gruppenstruktur auf $\Z$ besteht aus der Addition. Schreiben Mathematiker von „der Gruppe $\Z$“, so ist damit so gut wie immer die Gruppe $(\Z,+)$ gemeint.
 
-    \item[Konstruktiv:] Ein Beweis oder eine Theorie sind „konstruktiv“, wenn jede ihrer Existenzaussagen durch ein Beispiel belegt werden kann. Andernfalls sind sie \textbf{nichtkonstruktiv}. Beispielsweise ist die Aussage „Jede surjektive Abbildung besitzt eine Rechtsinverse“ nichtkonstruktiv.
+    \item[Konstruktiv:] Ein Beweis oder eine Theorie sind „konstruktiv“, wenn jede ihrer Existenzaussagen durch ein Beispiel belegt wird. Andernfalls sind sie \textbf{nichtkonstruktiv}. Beispielsweise ist die Aussage „Jede surjektive Abbildung besitzt eine Rechtsinverse“ nichtkonstruktiv.
     
     \item[Korollar:] Folgerung aus einem größeren mathematischen Satz.
 
@@ -572,71 +577,36 @@ Zugegebenermaßen würde ich in einem handschriftlichen Beweisaufschrieb weniger
 
     \item[Mathematischer Komparativ:] Schreiben Mathematiker so etwas wie „$a$ ist größer als $b$“, so ist darin oft auch der Fall mit eingeschlossen, dass $a$ und $b$ die Eigenschaft in genau demselben Grad aufweisen, also „$a$ ist größergleich $b$“. Möchte man diesen Fall explizit ausschließen, kann man so etwas wie „$a$ ist \emph{strikt} größer als $b$“ schreiben.
     
-    \item[Modulo:] \index{modulo} Das Arbeiten mit Faktormengen. Der Begriff wird auch im übertragenen Sinne verwendet, wenn Objekte nicht vollständig, aber bis auf „vernachlässigbare“ Unterschiede voneinander unterschieden werden. Beispielsweise ist die Lösung der Gleichung $x^2=2$ „eindeutig bis auf (\glq modulo\grq) Vorzeichen“.
+    \item[Modulo:] \index{modulo} Das Arbeiten mit Faktormengen. Der Begriff wird auch im übertragenen Sinne verwendet, wenn Objekte nicht vollständig, aber bis auf „vernachlässigbare“ Unterschiede voneinander unterschieden werden. Beispielsweise ist die Lösung der Gleichung $x^2=4$ in $\Z$ „eindeutig bis auf (\glq modulo\grq) Vorzeichen“.
 
-    \item[Natürlich:] Eine mathematische Konstruktion wird \emph{natürlich} genannt, wenn sie besonders naheliegend ist, nicht auf willkürliche Wahlen angewiesen ist, aus den Definitionen „in natürlicher Weise“, quasi wie von selbst emergiert oder sich in einem „universellen“, allgemeinen Kontext definieren lässt. Andernfalls heißt sie \textbf{unnatürlich}. Im Gegensatz zum informellen mathematischen Jargon besitzt das Wort „natürlich“ in der \href{https://ncatlab.org/nlab/show/category+theory}{Kategorientheorie} eine präzise mathematische Bedeutung, wo es das Vorliegen gewisser Gleichungen in Form von \emph{kommutativen Diagrammen} beschreibt.
+    \item[Natürlich:] Eine mathematische Konstruktion wird \emph{natürlich} genannt, wenn sie besonders naheliegend ist, nicht auf willkürliche Wahlen angewiesen ist, aus den Definitionen „in natürlicher Weise“, quasi wie von selbst emergiert oder sich in einem „universellen“, allgemeinen Kontext definieren lässt. Andernfalls heißt sie \textbf{unnatürlich}.
 
-    \item[Ohne Beschränkung der Allgemeinheit (OBdA):] \index{OBdA} Eine Annahme in einem Beweis geschieht „ohne Beschränkung der Allgemeinheit“ (oder auch: „ohne Einschränkung“), wenn sie streng genommen zwar nicht jeden von der zu beweisenden Aussage eingeschlossenen Fall abdeckt, der Verlust an Allgemeinheit aber nur oberflächlich ist, indem sich der allgemeine Fall leicht aus dem spezielleren ableiten lässt oder so naheliegend zu beweisen ist, dass er nicht der Rede wert ist. Sind beispielsweise $m,n$ zwei natürliche Zahlen, so kann \emph{oBdA} angenommen werden, dass $m\le n$, da eine der beiden Zahlen größergleich die andere sein muss und im Fall $m\ge n$ die Variablen schlicht umbenannt werden könnten.
+    \item[Ohne Beschränkung der Allgemeinheit (OBdA):] \index{OBdA} Eine Annahme in einem Beweis geschieht „ohne Beschränkung der Allgemeinheit“ (oder auch: „ohne Einschränkung“), wenn sie streng genommen zwar nicht jeden von der zu beweisenden Aussage eingeschlossenen Fall abdeckt, der Verlust an Allgemeinheit aber nur oberflächlich ist, indem sich der allgemeine Fall leicht aus dem spezielleren ableiten lässt oder so naheliegend zu beweisen ist, dass er nicht der Rede wert ist. Sind beispielsweise $m,n$ zwei natürliche Zahlen, so kann \emph{oBdA} angenommen werden, dass $m\le n$. Denn eine der beiden Zahlen wird kleinergleich die andere sein und im Fall $n\le m$ können die Variablen schlicht umbenannt werden.
 
-    \item[Pathologisch:] Ein mathematisches Objekt verhält sich \emph{pathologisch}, wenn es in sich Eigenschaften vereint, die kontraintuitiv oder unerwünscht sind. Pathologien dienen oft als Gegenbeispiele um zu beweisen, dass eine Eigenschaft eine andere Eigenschaft nicht impliziert. Beispielsweise braucht eine stetige Funktion an keiner Stelle differenzierbar sein, wie die pathologische \href{https://de.wikipedia.org/wiki/Weierstrass-Funktion}{Weierstraß-Funktion} demonstriert. Das Gegenteil von „pathologisch“ ist \textbf{regulär}. In einzelnen Disziplinen besitzt das Wort „regulär“ allerdings häufig eine präzise festgelegte Bedeutung, die oftmals überaltert ist, aus kommunikativen Gründen aber dennoch beibehalten wird.
+    \item[Pathologisch:] Ein mathematisches Objekt verhält sich \emph{pathologisch}, wenn es in sich Eigenschaften vereint, die kontraintuitiv oder unerwünscht sind. Pathologien dienen oft als Gegenbeispiele um zu beweisen, dass eine Eigenschaft eine andere Eigenschaft nicht impliziert. Beispielsweise braucht eine stetige Funktion an keiner Stelle differenzierbar sein, wie die pathologische \href{https://de.wikipedia.org/wiki/Weierstrass-Funktion}{Weierstraß-Funktion} demonstriert. Das Gegenteil von „pathologisch“ ist \textbf{regulär}. In vielen Fachbereichen besitzt das Wort „regulär“ jedoch eine präzise festgelegte Bedeutung, die meist überaltert ist, aus Gründen der Kommunikation aber dennoch beibehalten wird.
 
     \item[QED:] Latein für „quod erat demonstrandum“ -- „was zu beweisen war“. Wurde früher ans Ende eines mathematischen Beweises geschrieben. Heutzutage sind kleine Symbole wie $\square$, $\blacksquare$ oder $\lozenge$ zur Markierung des Beweisendes üblich.
     
-    \item[Rigoros:] Ein Beweis ist \emph{rigoros}, wenn er logische Schlüsse präzise und ausführlich beschreibt. Ein nicht-rigoroser Beweis weicht gelegentlich auf ungenaue Plausibilitätsargumente aus, begründet die Gültigkeit gewisser Hypothesen nicht oder vernachlässigt Spezialfälle. Beispielsweise kann die Kommutativität der Multiplikation natürlicher Zahlen
+    \item[Rigoros:] Ein Beweis oder eine Definition ist \emph{rigoros}, wenn er logische Schlüsse präzise und ausführlich beschreibt. Ein nicht-rigoroser Beweis weicht gelegentlich auf ungenaue Plausibilitätsargumente aus, begründet die Gültigkeit gewisser Hypothesen nicht oder vernachlässigt Spezialfälle. Eine nicht-rigorose Definition bedient sich ungenauer Formulierungen mit der Intention, irgendwie werde dem Leser schon klar, was gemeint ist. Beispielsweise werden Potenzen in \cref{def:potenz} definiert durch
     \begin{align*}
-        m \cdot n & = n \cdot m && \text{für alle}\ m,n\in \N
+        a^n & := \underbrace{a \cdot \ldots \cdot a}_{n\text{-mal}}
     \end{align*}
-    mithilfe visueller Plausibilitätsargumente erklärt werden oder aber rigoros per Induktion bewiesen werden.
+    was allerdings ungenau ist, weil nicht erklärt wird, was die Pünktchen $\dots$ und der Ausdruck „$n$-mal“ bedeuten sollen. Eine rigorose Definition geschähe rekursiv, wobei im Vorfeld erst einmal bewiesen werden müsste, dass rekursive Definitionen wohldefiniert sind.
 
-    \item[Trivial:] Eine mathematische Aussage heißt trivial, wenn sie sich unmittelbar aus den Definitionn der in ihr vorkommenden Begriffe ergibt. Andernfalls heißt sie \textbf{nichttrivial}. Beispielsweise ist die Aussage „Eine Abbildung $X\xrightarrow{f} Y$ ist genau dann surjektiv, wenn $\im(f)=Y$“ trivial, wohingegen die Aussage „Eine Menge $M$ ist genau dann endlich, wenn jede injektive Abbildung $M\to M$ auch surjektiv ist“ eher nichttrivial ist.
+    \item[Trivial:] Eine mathematische Aussage heißt trivial, wenn sie sich unmittelbar aus den Definitionn der in ihr vorkommenden Begriffe ergibt. Andernfalls heißt sie \textbf{nichttrivial}. Beispielsweise ist die Aussage „Eine Abbildung $X\xrightarrow{f} Y$ ist genau dann surjektiv, wenn $\im(f)=Y$“ trivial, wohingegen die Aussage „Eine Menge $M$ ist genau dann endlich, wenn jede injektive Abbildung $M\to M$ auch surjektiv ist“ eher nichttrivial ist. Mit der Zeit werden dir immer mehr Aussagen trivial erscheinen.
     
     Ein mathematisches Objekt heißt trivial, wenn es simpel konstruierbar und auf den ersten Blick nicht von größerem Interesse ist. Beispielsweise ist $(\{0\},+)$ eine „triviale Gruppe“. 
 
-    \item[Verallgemeinerung:] Ein mathematischer Satz $A$ ist eine Verallgemeinerung eines Satzes $B$, wenn er den Satz $B$ in sich einschließt oder wenn $B$ aus $A$ abgeleitet werden kann. Eine solche Ableitung kann allerdings alles andere als naheliegend oder einfach sein. Das Gegenteil ist der Begriff des \textbf{Spezialfalls}. Beispielsweise ist der sogenannte \emph{Struktursatz für endlich erzeugte Moduln über Dedekindringen} eine Verallgemeinerung des Satzes aus der LA1, dass jeder endlich erzeugte Vektorraum eine Basis besitzt, der umgekehrt ein Spezialfall des Struktursatzes ist.
+    \item[Verallgemeinerung:] Ein mathematischer Satz $A$ ist eine Verallgemeinerung eines Satzes $B$, wenn er den Satz $B$ in sich einschließt oder wenn $B$ aus $A$ abgeleitet werden kann. Eine solche Ableitung kann allerdings alles andere als naheliegend oder einfach sein. Das Gegenteil ist der Begriff des \textbf{Spezialfalls} oder der \textbf{Instanz}. Beispielsweise ist der sogenannte \emph{Struktursatz für endlich erzeugte Moduln über Dedekindringen} eine Verallgemeinerung des Basisexistenzsatzes aus der LA1, demzufolge jeder endlich erzeugte Vektorraum eine Basis besitzt.
     
     \item[Vertreterabhängig:] \index{vertreterunabhaengig@vertreterunabhängig} Eine Konstruktion ist (vordergründig) \emph{vertreterabhängig}, wenn sie es mit Objekten zu tun hat, die auf verschiedenerlei Weise dargestellt werden können, allerdings erst nach Fixierung einer solchen Darstellung anwendbar ist. Beispielsweise kann jede rationale Zahl als Bruch der Gestalt $\frac{p}{q}$ mit $p\in \Z$, $q\in \N_{>0}$ dargestellt werden, aber diese Darstellung ist nicht eindeutig, da beispielsweise $\frac{1}{2}=\frac{2}{4}$. Ein einzelner Bruch ist also nur einer von vielen Repräsentanten für ein und dieselbe Zahl. Die Ausdrücke
     \begin{align*}
         &\text{(i)} & \Q\setminus \{0\} \to \Q \ & ,\ \frac{p}{q} \mapsto \frac{q}{p} \\
         &\text{(ii)} & \Q \to \Q \ & ,\ \frac{p}{q} \mapsto p+q
     \end{align*}
-    sind erst einmal vertreterabhängig, da sie Funktionswerte ausgehend von einer konkreten Repräsentation als Bruch berechnen. Oft ist es nötig zu zeigen, dass eine vordergründig vertreterabhängige Konstruktion in Wahrheit vertreterunabhängig ist, d.h. dass sie unabhängig von der konkreten Wahl einer Darstellung stets dasselbe Objekt liefert. Beispielsweise ist die Vorschrift aus (i) vertreterunabhängig und liefert daher eine wohldefinierte Abbildung $\Q\setminus \{0\}\to \Q$. Dagegen ist die Vorschrift aus (ii) vertreterabhängig, da beispielsweise $\frac{2}{3}=\frac{4}{6}$ aber $2+3\neq 4+6$. Daher ist durch (ii) keine wohldefinierte Abbildung gegeben, durch (i) dagegen schon.
+    sind erst einmal vertreterabhängig, da sie Funktionswerte ausgehend von einer konkreten Repräsentation als Bruch vorschreiben. Oft ist es nötig zu zeigen, dass eine vordergründig vertreterabhängige Konstruktion in Wahrheit vertreterunabhängig ist, d.h. dass sie unabhängig von der Wahl eines Repräsentanten stets dasselbe Objekt liefert. Beispielsweise ist die Vorschrift aus (i) vertreterunabhängig und liefert daher eine wohldefinierte Abbildung $\Q\setminus \{0\}\to \Q$. Dagegen ist die Vorschrift aus (ii) vertreterabhängig, da beispielsweise $\frac{2}{3}=\frac{4}{6}$ aber $2+3\neq 4+6$. Daher ist durch (ii) keine wohldefinierte Abbildung gegeben, durch (i) dagegen schon.
     
-    \item[Wohldefiniert:] \index{wohldefiniert} Ein Objekt ist wohldefiniert, wenn es tatsächlich die Anforderungen an diejenige Sorte von Dingen, der angehörig es per Definition sein soll, erfüllt. Diese Forderung schwingt in einer mathematischen „Definition“ immer unausgesprochen mit, ist unter Umständen aber mehr oder weniger offensichtlich erfüllt. Beispielsweise sind die „Funktionen“ aus \cref{aufg:wohldef} allesamt nicht wohldefiniert, es liegen also gar keine Funktionen vor, sondern nur Terme, die den Anschein erwecken, als würden sie Funktionen definieren (und die eventuell nach geringfügiger Modifikation auch wohldefinierte Funktionen ergäben).
+    \item[Wohldefiniert:] \index{wohldefiniert} Ein Objekt ist wohldefiniert, wenn es tatsächlich die Anforderungen an diejenige Sorte von Dingen, der angehörig es per Definition sein soll, erfüllt. Diese Forderung schwingt in einer mathematischen „Definition“ immer unausgesprochen mit, ist unter Umständen jedoch nur mehr oder weniger offensichtlich erfüllt. Beispielsweise sind die „Funktionen“ aus \cref{aufg:wohldef} allesamt nicht wohldefiniert, es liegen also gar keine Funktionen vor, sondern nur Terme, die den Anschein erwecken, als würden sie Funktionen definieren (und die eventuell nach geringfügiger Modifikation auch wohldefinierte Funktionen ergäben).
     
 \end{description}
 
-
-
-
-\begin{comment}
-\chapter{Einige metamathematische Bemerkungen} \label{philosohpie}
-
-
-Ich konnte der Versuchung nicht widerstehen, hier einige abschweifende persönliche Gedanken zu hinterlassen.
-
-Mathematisches Arbeiten geschieht meiner Ansicht nach auf drei Ebenen. Deren erste beiden sind:
-\begin{enumerate}[1.]
-    \item Die sprachliche Ebene. Mathematiker schreiben Ausdrücke wie z.B. „$2x=6\implies x=3$“ oder „$V/\ker(f)\cong \im(f)$“ aufs Papier und verfallen über manche davon in tiefes Grübeln oder freuen sich ein Loch in den Bauch, nachdem sie irgendeinen wohl sehr bedeutsamen Ausdruck niedergeschrieben haben. Einem Außerirdischen, dessen unsagbar fremde Gedankenwelt völlig inkompatibel mit der menschlichen Weise, Mathematik zu betreiben, ist, wäre einzig diese Ebene unserer Mathematik zugänglich. Auch eine Rechenmaschine kann diese Ebene erfassen, selbst wenn wir ihr die Fähigkeit, mathematisch zu „denken“, absprechen. Für die philosophische Strömung des \emph{mathematischen Formalismus} ist dies die einzige Ebene, auf der Mathematik „existiert“.
-
-    \item Die Vorstellungsebene. Ich habe gewisse Vorstellungen von Zahlen und geometrischen Figuren und sehe ein mathematisches Theorem, wie z.B. dass jede Gerade, die durch den Mittelpunkt eines Kreises verläuft, den Kreis in genau zwei Punkten schneidet, als eine Art „Wahrheit“ über diese Vorstellungen an. Diese Ebene ist rein subjektiv und ist, aus einer radikal solipsistischen Perspektive, nur mir selbst zugänglich. Die Strömung des \emph{mathematischen Platonismus} vertritt die Ansicht, dass die gedanklichen Vorstellungen in gewisser Weise objektiv sind, also dass die „Idee des Kreises“ auch unabhängig von meiner Gedankenwelt irgendwie „existiert“ und mathematische Theoreme gewissermaßen „ewige Wahrheiten“ über diese Ideen sind.
-\end{enumerate}
-Von gedanklichen Vorstellungen lassen sich sprachliche Abbilder anfertigen. So können wir Zahlen im Dezimalsystem aufschreiben und Zeichnungen von Geraden und Kreisen anfertigen. Die Wechselwirkung von Gedankenobjekten und ihren sprachlichen Bildern erweist sich fruchtbar sowohl für das Auffinden als auch das Überprüfen mathematischer „Wahrheiten“. So lernen wir bereits in der Grundschule eine Methode der schriftlichen Addition, die es uns ermöglicht, dreistellige Zahlen aufeinander zu addieren, von denen wir keine visuelle Vorstellung mehr haben. Umgekehrt wird ein Mathematiker, der ein geometrisches Theorem liest, dieses zuallerersteinmal mit seiner eigenen Gedankenwelt abgleichen.
-
-In der späten Schulmathematik und in der Universitätsmathematik tritt nun eine dritte Ebene hinzu:
-\begin{enumerate}
-    \item[3.] Die formalisierte Ebene. Um meine Vorstellung präzisem mathematischen Schlussfolgern zugänglich, und damit zu einem \emph{mathematischen Objekt} zu machen, \textbf{formalisiere} ich sie. Dies kann auf zweierlei Arten geschehen:
-    \begin{enumerate}
-        \item(Bereitstellen eines Modells) Ich beschreibe in etablierten mathematischen Begriffen, was mein Objekt „ist“. So könnte man eine natürliche Zahl beispielsweise definieren als eine reelle Zahl, die sich ausgehend von der Null durch wiederholte Addition von Einsen erreichen lässt. Dies setzt voraus, dass bereits bekannt ist, was eine „reelle Zahl“ sein soll. Im Modell lassen sich nun Sätze über natürliche Zahlen beweisen, zum Beispiel, dass das Produkt zweier natürlicher Zahlen wieder eine natürliche Zahl ist und das Distributivgesetz erfüllt. Objekte, die im ersten Semester typischerweise per Modell eingeführt werden, sind: Komplexe Zahlen, Polynomringe, Faktorräume von Vektorräumen.
-
-        Der Zugang über ein Modell ist in dem Sinne \textbf{analytisch}, dass bereits alle wahren und falschen Aussagen über mein Objekt durch das Modell vorgegeben sind. Eine Herleitung solcher Aussagen geschieht in demjenigen formalen Rahmen, der auch bereits das Modell bereitstellt. Werden etwa die komplexen Zahlen über ein konkretes Modell definiert, so sind nach und nach die herkömmlichen Rechenoperationen zu konstruieren und die für sie geltenden Rechenregeln herzuleiten. Der Vorteil der analytischen Herangehensweise besteht in einer gewissen „onthologischen Grundierung“. Indem von vornherein gesagt wird, was eine komplexe Zahl \emph{ist}, fällt es uns vielleicht einfacher, sich mit deren Existenz abzufinden, als den Generationen von Mathematikern zwischen dem 16. und 19. Jahrhundert, denen die „imaginären Zahlen“ als Mysterium erschienen.
-
-        \item(Die axiomatische Methode) Anstatt zu sagen, was mein Objekt \emph{ist}, gebe ich lediglich an, wie es sich \emph{verhält}, d.h. ich gebe eine Reihe von Aussagen, sogenannte \textbf{Axiome}, an, die das Objekt meiner gedanklichen Vorstellung zufolge erfüllen soll. Axiomatische Definitionen der natürlichen Zahlen liefern zum Beispiel die berühmten Peano-Axiome oder die "natural numbers objects" aus der Topostheorie. Die axiomatische Methode bringt den Vorteil mit sich, dass man, ohne zuerst einen mathematischen Rahmen zur Bereitstellung eines Modells formulieren zu müssen, praktisch „aus dem Nichts“ damit beginnen kann, Mathematik zu betreiben, Aussagen herzuleiten, weiterführende Begriffe definieren usw. Der Nachteil ist jedoch, dass die axiomatische Methode an sich keine „ontologische Substanz“ liefert. Es ist erst einmal nicht klar, ob Objekte, die die Axiome erfüllen, überhaupt existieren. Ja, selbst für natürliche Zahlen ist dies schon fraglich: wenn es nur etwa $10^{80}$ Atome im beobachtbaren Universum gibt, inwiefern „existieren“ Zahlen wie $10^{90}$ überhaupt noch und inwiefern ist die mathematische Beschäftigung mit solchen Zahlen sinnvoll?
-
-        Ein bekannter Witz unter Mathematikern ist die \emph{Legende vom antimetrischen Raum} (siehe \cref{???}), die von einem Doktoranden handelt, der seine Doktorarbeit über eine Klasse von „Räumen“ verfasst hat, die alle möglichen wünschenswerten Eigenschaften besitzen. Bei seiner Vertreidigungsrede fragt ihn schließlich einer der Prüfer nach einem Beispiel für einen solchen „antimetrischen Raum“. Der Doktorand gerät in Erklärungsnot und schließlich wird klar, dass es gar keine nichttrivialen Räume gibt, die seinem Antimetrik-Axiom genügen, die ganze Doktorarbeit also von einer Klasse völlig nutzloser Räume handelt.
-
-        Objekte, die im ersten Semester typischerweise mittels Axiomen eingeführt werden, sind: Reelle Zahlen, die Determinante, \TODO
-        \end{enumerate}
-    In der Praxis verschwimmen beide Methoden, da die Modelle auf Begriffen beruhen, die wiederum axiomatisch eingeführt wurden, andererseits die Axiome sich Begriffe zunutze machen, die über ein Modell definiert sind.
-\end{enumerate}
-    \TODO
-\end{comment}

@@ -51,7 +51,7 @@ Erklärungen zur Dokumentstruktur:
         \begin{satz} für Sätze.
         \begin{lem} für Lemmata. (Kommt bislang nicht im Skript zum Einsatz)
         \begin{kor} für Korollare. (Kommt bislang nicht im Skript zum Einsatz)
-        \begin{bew} für Beweise. Beachtet, dass bislang kein automatisches qed-Quadrat platziert wird, am Beweisende müsst ihr selbst ein \qed ergänzen. Solltet ihr ein automatisches qed-Quadrat wünschen, könnt ihr dies in der Definition von "stybew" einstellen. Beachtet allerdings, dass dann das gesamte Skript darauf umgeschrieben werden muss.
+        \begin{proof} für Beweise. Die Standard-proof-Umgebung ist umdefiniert auf eine Beweis-Umgebung, die in der theoremstyles.tex definiert wird.
         \begin{axiom} für Axiome.
         \begin{de} für Definitionen.
         \begin{nota} für Notationssachen.
@@ -64,7 +64,7 @@ Erklärungen zur Dokumentstruktur:
     
     (Das Labeling-System) Das Referenzieren innerhalb des Dokuments geschieht durch \cref{...}. Verseht bitte nicht einfach jeden Absatz mit einem Label, sondern nur solche, die ihr auch an anderer Stelle referenziert. Das Labeling im Dokument unterliegt folgendem System:
     
-        A) Sätze, Bermerkungen, Notationen, Axiome werden mit einem prägnanten Wort gelabelt, das auf den Inhalt zugeschnitten ist. Bitte auf keinen Fall Nummerierungen innerhalb der Labels ("\label{satz5}") verwenden! - Das führt nur zu Verwirrung, wenn sich später die Textstruktur nochmal verändern sollte. Die labels enthalten keine Großschreibung (also auch kein CamelCase) und keine Getrenntschreibung. Ebenso sollten sie keine Spezialbuchstaben wie ä,ö,ü enthalten.
+        A) Sätze, Bemerkungen, Notationen, Axiome werden mit einem prägnanten Wort gelabelt, das auf den Inhalt zugeschnitten ist. Bitte auf keinen Fall Nummerierungen innerhalb der Labels ("\label{satz5}") verwenden! - Das führt nur zu Verwirrung, wenn sich später die Textstruktur nochmal verändern sollte. Die labels enthalten keine Großschreibung (also auch kein CamelCase) und keine Getrenntschreibung. Ebenso sollten sie keine Spezialbuchstaben wie ä,ö,ü enthalten.
         
         B) Labels von Definitionen beginnen mit "def:", von Beispielen mit "bsp:" und von Aufgaben mit "aufg:". Zum Beispiel so etwas wie "def:teilmenge". Definitionen und Beispiele treten meist in Paaren auf, in diesem Fall teilen sich Beispiele und Definitionen dieselbe Labelbezeichnung, also beispielsweise "def:disjunkt" bei der Definition disjunkter Mengen und "bsp:disjunkt" bei den Beispielen für disjunkte Mengen.
         
