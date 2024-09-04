@@ -12,7 +12,8 @@
     DIV=15,
     BCOR=1cm,
     headings=small,
-    chapterprefix
+    chapterprefix,
+    numbers=noenddot
 }
 
 
@@ -78,8 +79,8 @@
 
 
 % Inhaltsverzeichnis
-\RequirePackage[titles]{tocloft}
-    \setlength{\cftbeforechapskip}{1em plus 0.3em minus 0.1em} % Hübscherer Seitenumbruch im Inhaltsverzeichnis
+\RequirePackage{tocbasic}
+    \DeclareTOCStyleEntry[beforeskip=1.5em plus 3pt]{tocline}{chapter} % schlecht platzierten Seitenumbruch im Inhaltsverzeichnis vermeiden
 
 % Literaturverzeichnis
 \RequirePackage[backend=biber, style=alphabetic, sorting=ynt]{biblatex}
@@ -121,7 +122,7 @@
         \patchcmd\Hy@EveryPageBoxHook{\Hy@EveryPageAnchor}{\Hy@hypertexnamestrue\Hy@EveryPageAnchor}{}{\fail}
     \makeatother
 \RequirePackage{bookmark}
-\RequirePackage[ngerman]{cleveref}
+\RequirePackage[ngerman, nameinlink]{cleveref}
 
 
 % ====================================================================
@@ -131,7 +132,11 @@
 \let\oldfrontmatter\frontmatter
 \renewcommand{\frontmatter}{
     \oldfrontmatter
-    \addtocontents{toc}{\protect\cftpagenumbersoff{chapter}} % Keine Seitenzahlen für Kapitel im Inhaltxverzeichnis
+    \addtocontents{toc}{
+        \protect\vspace*{0.5em}
+        \protect\KOMAoptions{toc=chapterentrywithoutdots} % Trennpunkte verbergen
+        \protect\DeclareTOCStyleEntries[pagenumberformat=\color{white}]{tocline}{chapter, section} % Seitenzahlen verbergen
+    }
     \pagestyle{scrplain}
 }
 
@@ -149,10 +154,13 @@
     \cleardoublepage
     \renewcommand{\chapterpagestyle}{onlypagenumber}
     \pagestyle{scrheadings}
-    % Anpassungen im Inhaltsverzeichnis
     \addtocontents{toc}{
-        \protect\renewcommand{\protect\cftsecnumwidth}{3em}
-        \protect\renewcommand{\protect\cftsecpresnum}{\S} % Vor der Abschnitt-Nummer das Paragraph-Zeichen
+        \protect\RedeclareSectionCommand[toclinefill=\color{gray}\TOCLineLeaderFill]{section} % Trennpunkte für sections aktivieren
+        \protect\DeclareTOCStyleEntry[
+            numwidth=3em,
+            entrynumberformat=\S, % Vor der Abschnitt-Nummer das Paragraph-Zeichen
+            pagenumberformat=\color{gray} % Seitenzahlen aktivieren
+        ]{tocline}{section}
     }
     % Kapitel und Abschnitt, wie sie in der Kopfzeile dargestellt werden
     \renewcommand{\chaptermark}[1]{\markleft{Kapitel \thechapter\hspace{.5em}\relax##1}}
@@ -167,14 +175,17 @@
     \oldappendix
     \cleardoublepage
     \pagestyle{nosection}
-    % Anpassungen im Inhaltsverzeichnis
     \addtocontents{toc}{
         \protect\setcounter{tocdepth}{0} % Keine sections anzeigen
-        \protect\cftpagenumberson{chapter} % Seitenzahlen für Kapitel wieder aktivieren
-        \protect\renewcommand{\protect\cftsecpresnum}{a} % Kein Paragraphenzeichen mehr für sections
+        \protect\DeclareTOCStyleEntry[entrynumberformat={}]{tocline}{section} % Kein Paragraphenzeichen mehr für sections
         % Kapitelformat der Gestalt „Anhang X“ einrichten
-        \protect\setlength{\protect\cftchapnumwidth}{6em}
-        \protect\renewcommand{\protect\cftchappresnum}{Anhang }
+        \protect\RedeclareSectionCommand[toclinefill=\color{gray}\TOCLineLeaderFill]{chapter} % Trennpunkte für chapters aktivieren
+        \protect\DeclareTOCStyleEntry[
+            beforeskip=1em, % Vertikalen Abstand zwischen Kapiteln auf Normalgröße zurücksetzen
+            entrynumberformat={Anhang\ },
+            numwidth=6em,
+            pagenumberformat=\color{gray}
+        ]{tocline}{chapter}
     }
     % Kapitel und Abschnitt, wie sie in der Kopfzeile dargestellt werden
     \renewcommand{\chaptermark}[1]{\markleft{Anhang \thechapter\hspace{0.5em}\relax##1}}
@@ -187,7 +198,7 @@
     % Nummerierung der theorems am chapter ausrichten
     \renewenvironment{aufg}{\begin{appendixaufg}}{\end{appendixaufg}}
     \renewenvironment{bem}{\begin{appendixbem}}{\end{appendixbem}}
-    \renewenvironment{bew}{\begin{appendixbew}}{\end{appendixbew}}
+    \renewenvironment{proof}{\begin{appendixbew}}{\end{appendixbew}}
 }
 
 \let\oldbackmatter\backmatter
@@ -209,23 +220,17 @@
 \definecolor{dgold}{rgb}{0.60,0.48,0.19} % hellbraun
 \definecolor{dbrown}{rgb}{0.54,0.27,0.07} % dunkelbraun
 
-% Trennlinien einfärben
+% Trennlinien grau färben
 \addtokomafont{headsepline}{\color{gray}}
 \addtokomafont{footnoterule}{\color{gray}}
 
-% Abschnittsangaben grau einfärben
+% Abschnittsangaben grau färben
 \addtokomafont{chapter}{\color{gray}}
 \addtokomafont{section}{\color{gray}}
 \addtokomafont{subsection}{\color{gray}}
 \addtokomafont{subsubsection}{\color{gray}}
 
-% Objekte im Inhaltsverzeichnis grau färben
-\renewcommand{\cftchapleader}{\color{gray}\cftdotfill{\cftsecdotsep}} % Kapitelpunkte
-\renewcommand{\cftsecleader}{\color{gray}\cftdotfill{\cftsecdotsep}} % Sectionpunkte
-\renewcommand{\cftsubsecleader}{\color{gray}\cftdotfill{\cftsubsecdotsep}} % Subsectionpunkte
-\renewcommand{\cftchappagefont}{\color{gray}} % Kapitel-Seitenzahl
-\renewcommand{\cftsecpagefont}{\color{gray}} % Section-Seitenzahl
-\renewcommand{\cftsubsecpagefont}{\color{gray}} % Subsection-Seitenzahl
+\DeclareTOCStyleEntry[pagenumberformat=\color{gray}]{tocline}{section} % Seitenzahlen im Inhaltsverzeichnigs grau färben
 
 
 % ====================================================================
@@ -275,13 +280,12 @@
 \crefname{appendix}{Anhang}{Anhänge}
 \crefformat{appendix}{#2{\rmfamily{\color{gray} Anhang} {#1}}#3}
 
-% Die cleveref-Referenztypen für die amsthm-Umgebungen sind direkt bei der entsprechenden \newtheorem-Definition untergebracht
-
 
 % ====================================================================
 % <<Einstellungen für die theoremstyles>>
 % ====================================================================
 
+\renewenvironment{proof}{\begin{bew}}{\end{bew}} % Beweis-Umgebung aus der theoremstyles.tex verwenden
 \renewcommand{\qedsymbol}{\scriptsize{\ensuremath{\blacksquare}}} % Schwarzes QED-Quadrat
 
 % Farben für die verschiedenen theorem-Sorten
@@ -294,13 +298,8 @@
 \newcommand{\colorbsp}{\color{dgreen}} % für Beispiele
 \newcommand{\coloraufg}{\color{dgreen}} % für Aufgaben
 
-% Makros für die theoremstyles
-\newcommand{\thmheadstyle}{\llap{\color{gray}\footnotesize\mdseries\S\NUMBER\ }\bfseries\NAME\small\mdseries\itshape\NOTE}
-\newlength{\refnumbertweakwidth} % Ad-hoc-Lösung, um die Platzierung des Paragraphenzeichens in \cref-Theoremnummern zu fixen
-\newcommand{\thmrefstyle}{\color{gray}\S\settowidth{\refnumbertweakwidth}{\space}\kern-\refnumbertweakwidth} % Theoremnummern in cref-Links
 
-
-\input{theoremstyles} % Import der theorem-Umgebungen
+\input{theoremstyles} % Import der amsthm-Umgebungen
 
 % Standard-enumerate-Listentypen für die amsthm-Umgebungen
 \AtBeginEnvironment{satz}{\setlist[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...

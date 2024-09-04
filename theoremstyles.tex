@@ -1,4 +1,11 @@
 
+
+% Makros für die theoremstyles
+\newcommand{\thmheadstyle}{\llap{\color{gray}\footnotesize\mdseries\S\NUMBER\ }\bfseries\NAME\small\mdseries\itshape\NOTE}
+\newlength{\thmrefnumbertweakwidth} % Ad-hoc-Lösung, um die Platzierung des Paragraphenzeichens in \cref-Theoremnummern zu fixen
+\newcommand{\thmrefstyle}{\color{gray}\S\settowidth{\thmrefnumbertweakwidth}{\space}\kern-\thmrefnumbertweakwidth} % Anzeige der Theoremnummern in cref-Links
+
+
 % ====================================================================
 % <<Definitionen der theoremstyles>>
 % ====================================================================
@@ -16,7 +23,7 @@
 
 % Für Absätze vom Typ „Beweis“
 \declaretheoremstyle[
-    %qed=\qedsymbol,
+    qed=\qedsymbol,
     spaceabove=0.5\topsep,
     spacebelow=\topsep,
     headfont=\colorbew\bfseries,
@@ -87,7 +94,7 @@
 
 
 % ====================================================================
-% <<Einrichten der einzelnen amsthm-Umgebungen>>
+% <<Einrichtung der einzelnen amsthm-Umgebungen>>
 % ====================================================================
 
 % Proposition (Dummy-Umgebung, die den counter für alle anderen Umgebungen bereitstellt)
