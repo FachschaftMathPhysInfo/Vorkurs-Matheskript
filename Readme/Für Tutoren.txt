@@ -15,13 +15,6 @@ Tipps zum Tutorieren:
 
 Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
 
-    -- Kapitel 1 Logik:
-    
-        A3 (Wahrheitstafeln) Weil ich 2021 erlebte, wie ein Tutor hier Fehler produzierte, hier ein Kommentar:
-            b) ist dann und nur dann wahr, wenn A und B beide falsch sind. Nach der De Morganschen Regel muss es ja äquivalent zu a) sein.
-            c) ist dann und nur dann wahr, wenn A und B denselben Wahrheitswert haben, also beide wahr oder beide falsch sind.
-            d) ist eine Tautologie.
-            
     -- Kapitel 2 Beweise:
     
         A3 (Fehlersuche II) Der Satz ist wahr und der Beweis ist an sich auch zulässig, enthält aber allerlei Ungenauigkeiten. Lasst die Anfis selbst ihre Probleme mit dem Beweis äußern, am Ende könnt ihr eventuell die folgenden Punkte ansprechen:

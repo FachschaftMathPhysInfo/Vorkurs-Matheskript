@@ -18,7 +18,7 @@
     notefont=\itshape,
     bodyfont=\itshape,
     postheadspace=0.5em,
-    headformat=\thmheadstyle % Gestalt der theorem-Titel (wird im classfile definiert)
+    headformat=\thmheadstyle
 ]{styres}
 
 % Für Absätze vom Typ „Beweis“
@@ -101,7 +101,7 @@
 \declaretheorem[
     style=styres, % verwendeter theoremstyle
     name=Proposition,
-    refname={\colorres Proposition \thmrefstyle}, % Anzeige in \cref-Referenzen. Das Makro \thmrefstyle wird im classfile definiert
+    refname={\colorres Proposition \thmrefstyle}, % Anzeige in \cref-Referenzen.
     parent=section % Nummerierung jede section erneut beginnen
 ]{prop}
 

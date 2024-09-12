@@ -22,9 +22,9 @@
 % ====================================================================
 
 % Sprache und Kodierung
-\RequirePackage[ngerman]{babel} 
-\RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman]{babel}
 \RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
     
     
 % Schriftarten
@@ -42,7 +42,7 @@
     
 
 % Mathe
-\RequirePackage[fleqn]{amsmath}
+\RequirePackage[fleqn]{amsmath} % fleqn für die Linksbündigkeit des displaymode
 \RequirePackage{mathtools}
     \mathtoolsset{centercolon}
 \RequirePackage{amsthm}
@@ -66,24 +66,18 @@
 
 
 % Sonstiges
-\RequirePackage{verbatim} % \begin{comment}-Umgebung für längere Kommentare im Code
-\RequirePackage{etoolbox}
+\RequirePackage{verbatim} % Wörtliche Wiedergabe von Code und \begin{comment}-Umgebung für längere Kommentare im Code
 \RequirePackage{xcolor} % Umgang mit Farben
 \RequirePackage{graphicx} % Zum Laden von Bildern
-\RequirePackage{aliascnt} % counter
 \RequirePackage{tikz} % Zeichnen von Vektorgrafiken
     \usetikzlibrary{babel}
     \usetikzlibrary{cd} % Kommutative Diagramme
 \RequirePackage[babel]{microtype} % Typographisches Feintuning
-\RequirePackage[autostyle]{csquotes}
+\RequirePackage[autostyle]{csquotes} % biblatex zufriedenstellen: https://tex.stackexchange.com/a/229653
 
-
-% Inhaltsverzeichnis
-\RequirePackage{tocbasic}
-    \DeclareTOCStyleEntry[beforeskip=1.5em plus 3pt]{tocline}{chapter} % schlecht platzierten Seitenumbruch im Inhaltsverzeichnis vermeiden
 
 % Literaturverzeichnis
-\RequirePackage[backend=biber, style=alphabetic, sorting=ynt]{biblatex}
+\RequirePackage[style=alphabetic, sorting=ynt]{biblatex} % ynt für chronologische Sortierung (default wäre alphabetische Sortierung)
     \addbibresource{Literaturverzeichnis.bib}
     
 % Symbolverzeichnis
@@ -121,8 +115,8 @@
     \makeatletter
         \patchcmd\Hy@EveryPageBoxHook{\Hy@EveryPageAnchor}{\Hy@hypertexnamestrue\Hy@EveryPageAnchor}{}{\fail}
     \makeatother
-\RequirePackage{bookmark}
-\RequirePackage[ngerman, nameinlink]{cleveref}
+\RequirePackage{bookmark} % Verwaltung der Pdf-bookmarks
+\RequirePackage[ngerman, nameinlink]{cleveref} % nameinlink, damit nicht nur die Nummern anklickbar sind
 
 
 % ====================================================================
@@ -134,6 +128,7 @@
     \oldfrontmatter
     \addtocontents{toc}{
         \protect\vspace*{0.5em}
+        \protect\DeclareTOCStyleEntry[beforeskip=1.5em plus 3pt]{tocline}{chapter} % Schlecht platzierten Seitenumbruch im Inhaltsverzeichnis vermeiden
         \protect\KOMAoptions{toc=chapterentrywithoutdots} % Trennpunkte verbergen
         \protect\DeclareTOCStyleEntries[pagenumberformat=\color{white}]{tocline}{chapter, section} % Seitenzahlen verbergen
     }
@@ -230,8 +225,6 @@
 \addtokomafont{subsection}{\color{gray}}
 \addtokomafont{subsubsection}{\color{gray}}
 
-\DeclareTOCStyleEntry[pagenumberformat=\color{gray}]{tocline}{section} % Seitenzahlen im Inhaltsverzeichnigs grau färben
-
 
 % ====================================================================
 % <<Kopf- und Fußzeilen>>
@@ -308,3 +301,7 @@
 \AtBeginEnvironment{bew}{\setlist[enumerate]{label={\alph*)}}} % a),b),c),...
 \AtBeginEnvironment{bsp}{\setlist[enumerate]{label={(\arabic*)}}} % (1),(2),(3),...
 \AtBeginEnvironment{aufg}{\setlist[enumerate]{label={\alph*)}}} % a),b),c),...
+
+% Ungünstige Seitenumbrüche vermeiden (besonders, wenn Abschnitte direkt mit Listen beginnen)
+\AtBeginEnvironment{bsp}{\setlist[enumerate]{beginpenalty=10000}}
+\AtBeginEnvironment{bem}{\setlist[itemize]{beginpenalty=10000}}

@@ -1,0 +1,588 @@
+% ====================================================================
+%                                                                 
+%
+%	Skript Statistik 1
+%
+% %%ts latex start%%[2019-02-14 Thu 15:13]%%ts latex end%%
+% ====================================================================
+
+\documentclass[12pt,BCOR1cm,ngerman,DIV15,fleqn,chapterprefix,headings=small]{ST1-book}
+\synctex=1
+
+% ====================================================================
+% <<Seitenlayout>>
+% ====================================================================
+
+% Titel und aktuelles Datum in den Seitenkopf setzen
+\ohead[]{\dgrau\small\normalfont\bfseries \leftmark}
+\ihead[]{\dgrau\small\normalfont  \rightmark}
+\ofoot[]{\small\dgrau \thepage}
+\ifoot[]{\dgrau\small  Mathematischer Vorkurs WS 2021/22}
+\setheadsepline{.5pt}[\dgrau]
+\setfootsepline{.4pt}[\dgrau]
+\renewcommand*{\partformat}{\dgrau\partname~\thepart}
+\renewcommand\sectionmark[1]{\markright{\MakeMarkcase {\S \thesection\hskip .5em\relax#1}}}
+\addtokomafont{part}{\dgrau}
+\addtokomafont{chapter}{\dgrau}
+\addtokomafont{section}{\dgrau} %\slshape
+\addtokomafont{subsection}{\dgrau}
+\addtokomafont{subsubsection}{\dgrau}
+\addtokomafont{paragraph}{\dgrau}
+
+\defpagestyle{first}{{}{\parbox{160mm}{%
+\parbox{120mm}{\hfill\\\mbox{\Large\normalfont\rmfamily {Ruprecht-Karls-Universität  Heidelberg}}\\ {\large\normalfont\rmfamily Fachschaft MathPhysInfo}\\[1ex]
+  { }}
+\parbox{35mm}{\center\includegraphics[scale=.75]{./_src/UniHei_Logo_4C_small.eps}
+  \\[.5ex]}\\[4pt]
+ \hspace*{-.1\textwidth}\rule{1.2\textwidth}{.5pt}}}{}}{(\textwidth,0pt){}{\parbox{160mm}{%
+\center\cmssfamily\small M$\Lambda$THEM$\Lambda$TIKON, Im Neuenheimer Feld 205, 69120 Heidelberg\\[.25em]
+ \cmssfamily Telefon: +49 6221 54.14.999\ --  Fax: +49 6221 54.161.14.999\\[.25em]
+   \cmssfamily  eMail: 
+   \href{mailto:fachschaft@mathphys.stura.uni-heidelberg.de}{fachschaft@mathphys.stura.uni-heidelberg.de}\\[.25em]
+   \cmssfamily  Webseite: \href{https://mathphys.stura.uni-heidelberg.de/w/}{https://mathphys.stura.uni-heidelberg.de}}}{}}
+
+\defpagestyle{chapter}{{}{}{}(\textwidth,0pt)}{{\small\dgrau\thepage\hfill Mathematischer Vorkurs}{\small\dgrau Mathematischer Vorkurs\hfill\thepage}{\hfill\small\dgrau\thepage\hfill}}
+\renewcommand*{\chapterpagestyle}{chapter}
+
+\defpagestyle{tablematiere}{{\dgrau\small\normalfont\bfseries
+    Inhaltsverzeichnis\hfill}{\hfill\dgrau\small\normalfont\bfseries
+    Inhaltsverzeichnis}{}}{{\small\dgrau\thepage\hfill Mathematischer Vorkurs}{\small\dgrau Mathematischer Vorkurs\hfill\thepage}{\hfill\small\dgrau\thepage\hfill}}
+
+\defpagestyle{intro}{{\dgrau\small\normalfont\bfseries
+    Einleitung\hfill}{\hfill\dgrau\small\normalfont\bfseries Einleitung}{}}{{\small\dgrau\thepage\hfill  Mathematischer Vorkurs}{\small\dgrau Mathematischer Vorkurs\hfill\thepage}{\hfill\small\dgrau\thepage\hfill}}
+
+%%%% Index
+\usepackage{makeidx} % Indexpaket laden
+\makeindex
+  
+
+
+\usepackage{ST1-abrev-package}
+\usepackage{float}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\DeclareMathOperator{\iden}{id}
+\DeclareMathOperator{\im}{im}
+
+
+
+% ====================================================================
+% <<MetaPost-Spiele>>
+% ====================================================================
+\usepackage{ifpdf}
+\usepackage{array}
+\newcolumntype{L}{>{$}l<{$}}
+\usepackage{graphicx}
+\ifpdf
+\DeclareGraphicsRule{*}{mps}{*}{}
+\else
+\fi
+
+
+% ====================================================================
+% <<Schalter-Skizze>>
+% ====================================================================
+% 
+\usepackage{environ}
+\newtoggle{SK}
+%\togglefalse{SK} % ohne Skizzen
+\toggletrue{SK} % mit Skizzen
+\NewEnviron{envSK}{%
+  \iftoggle{SK}%
+    {\BODY}%
+    {\kwdsch{Skizzen werden hier eingfügt}}%
+}
+\NewEnviron{testSK}{%
+  \iftoggle{SK}
+    {\kwdsch{Skizzen werden hier eingfügt}}%
+    {\BODY}%
+}
+\newtoggle{BiVL}
+\togglefalse{BiVL} % ohne Beweis
+%\toggletrue{BiVL} % mit Beweis
+\NewEnviron{BiVL}[3][In der Vorlesung.]{%
+\begin{bew}[von \cref{#2}]\label{#3}
+\iftoggle{BiVL}%
+{\BODY}%
+{#1}%
+\bewEnd
+\end{bew}%
+}
+
+% ====================================================================
+% Abstände im Inhaltsverzeichnis manipulieren
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{3}
+\makeatletter
+\def\tableofcontents{
+\vspace{-2em}
+\chapter*{\dgrau Inhaltsverzeichnis}
+\vspace*{-2em}
+\@starttoc{toc}
+}
+\makeatother
+
+\usepackage[titles]{tocloft}
+\newcommand*\toccolor{\dgrau}
+\renewcommand{\cftsecleader}{\toccolor\cftdotfill{\cftsecdotsep}} %Sectionpunkte  einfaerben
+\renewcommand{\cftsubsecleader}{\toccolor\cftdotfill{\cftsubsecdotsep}} % Subsectionpunkte  einfaerben
+\renewcommand{\cftsubsubsecleader}{\toccolor\cftdotfill{\cftsubsubsecdotsep}} %Subsubsectionpunkte  einfaerben
+\renewcommand*\cftpartpagefont{\toccolor\bfseries} %Partie einfaerben
+\renewcommand*\cftchappagefont{\toccolor\bfseries} %Kapitel einfaerben
+\renewcommand*\cftsecpagefont{\toccolor} % Section einfaerben
+\renewcommand*\cftsubsecpagefont{\toccolor} % Subsection einfaerben
+\renewcommand*\cftsubsubsecpagefont{\toccolor} % Subsection einfaerben
+\renewcommand{\cftsecpresnum}{\S }%Vor der Nummer das Paragraph Zeichen
+
+\usepackage{natbib} 
+% BIBLIOGRAPHY 
+\renewcommand{\cite}{\citet} 
+\bibliographystyle{abbrvnat} 
+
+% Change manually label in list and allows reference 
+\makeatletter
+\newcommand{\mylabel}[2]{#2\def\@currentlabel{#2}\label{#1}}
+\makeatother
+
+
+% change equation label
+\makeatletter
+\def\tagform@#1{\maketag@@@{\dgrau(\ignorespaces{#1}\unskip\@@italiccorr)}}
+\makeatother
+
+
+\makeatletter
+%\renewcommand{\thesection}{\two@digits{\value{section}}}
+% Section mit führender Null
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+% Section mit führendem Paragraphzeichen
+\renewcommand\sectionformat{\S \thesection\xspace}%
+
+\renewcommand{\thechapter}{\arabic{chapter}} 
+\renewcommand{\thesat}{\thesection.\two@digits{\value{sat}}}   
+\renewcommand{\thekor}{\thesection.\two@digits{\value{kor}}}   
+\renewcommand{\thepro}{\thesection.\two@digits{\value{pro}}}
+\renewcommand{\thelem}{\thesection.\two@digits{\value{lem}}} 
+\renewcommand{\theaxi}{\thesection.\two@digits{\value{axi}}}% von Janne  
+\renewcommand{\thede}{\thesection.\two@digits{\value{de}}}   
+\renewcommand{\thesch}{\thesection.\two@digits{\value{sch}}} 
+\renewcommand{\thenotion}{\thesection.\two@digits{\value{notion}}} % von Janne
+\renewcommand{\theschn}{\thesection.\two@digits{\value{schn}}}   
+\renewcommand{\thespr}{\thesection.\two@digits{\value{spr}}}   
+\renewcommand{\thesprn}{\thesection.\two@digits{\value{sprn}}}   
+\renewcommand{\thebem}{\thesection.\two@digits{\value{bem}}}
+\renewcommand{\theobem}{\thesection.\two@digits{\value{obem}}}   
+\renewcommand{\thebsp}{\thesection.\two@digits{\value{bsp}}}   
+\renewcommand{\thebspe}{\thesection.\two@digits{\value{bspe}}}   
+\renewcommand{\thebew}{\thesection.\two@digits{\value{bew}}}
+\renewcommand{\theaufg}{\thesection.\two@digits{\value{aufg}}}  
+\renewcommand{\theski}{\thesection.\two@digits{\value{ski}}}   
+\makeatother
+    
+
+\usepackage{chngcntr}
+\counterwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%
+%%%%%% hyperref ganz zum Schluss laden mit options: hypertexnames=TRUE ,pdfpagelabels=TRUE scheint nicht noetig zu sein
+%%%%%%%%%%%%%%%%%%
+\usepackage[pdfpagemode=UseOutlines ,plainpages=false,
+hypertexnames=false,pdfpagelabels=TRUE,
+hyperindex=true,colorlinks=true]{hyperref}
+	\makeatletter
+	\Hy@breaklinkstrue
+	\makeatother
+\hypersetup{colorlinks ,linkcolor=gray ,filecolor=darkgreen
+,urlcolor=darkblue ,citecolor=black}
+
+%%%%%%%%%%%%%%%%%%
+%%%% cleverref muss ans ende
+\usepackage{cleveref}
+
+\crefname{axi}{Axiom}{Axiome}% von Janne
+\crefformat{axi}{#2{\rmfamily{\color{\colorres} Axiom} {\dgrau\S}{#1}}#3}
+\crefname{pro}{Proposition}{Propositionen}
+\crefformat{pro}
+{#2{\rmfamily{\color{\colorres} Proposition} {\dgrau\S}{#1}}#3}
+
+\crefname{sprache}{Sprache}{Propositionen} % von Luka
+\crefformat{sprache}{#2{\rmfamily{\color{\colorres} Sprache}{\dgrau\S}{#1}}#3}
+
+\crefname{kor}{Korollar}{Korollare}
+\crefformat{kor}{#2{\rmfamily{\color{\colorres} Korollar} {\dgrau\S}{#1}}#3}
+\crefname{sat}{Satz}{Sätze}
+\crefformat{sat}{#2{\rmfamily{\color{\colorres} Satz} {\dgrau\S}{#1}}#3}
+\crefname{lem}{Lemma}{Lemmata}
+\crefformat{lem}{#2{\rmfamily{\color{\colorres} Lemma} {\dgrau\S}{#1}}#3}
+\crefname{eig}{Eigenschaft}{Eigenschaften}
+\crefformat{eig}{#2{\rmfamily{\color{\colorres} Eigenschaft} {\dgrau\S}{#1}}#3}
+\crefname{eign}{Eigenschaft}{Eigenschaften}
+\crefformat{eign}{#2{\rmfamily{\color{\colorres} Eigenschaften} {\dgrau\S}{#1}}#3}
+
+\crefname{de}{Definition}{Definitionen}
+\crefformat{de}{#2{\rmfamily{\color{\colorde} Definition} {\dgrau\S}{#1}}#3}
+\crefname{notion}{Notation}{Notation}
+\crefformat{notion}{#2{\rmfamily{\color{\colorsch} Notation} {\dgrau\S}{#1}}#3} % von Janne
+\crefname{sch}{Schreibweise}{Schreibweisen}
+\crefformat{sch}{#2{\rmfamily{\color{\colorsch} Schreibweise} {\dgrau\S}{#1}}#3}
+\crefname{spr}{Sprechweise}{Sprechweisen}
+\crefformat{spr}{#2{\rmfamily{\color{\colorsch} Sprechweise} {\dgrau\S}{#1}}#3}
+\crefname{sprn}{Sprechweisen}{Sprechweisen}
+\crefformat{sprn}{#2{\rmfamily{\color{\colorsch} Sprechweisen} {\dgrau\S}{#1}}#3}
+\crefname{sch-spr}{Schreib- und Sprechweise}{Schreib- und Sprechweisen}
+\crefformat{sprn}{#2{\rmfamily{\color{\colorsch} Sprechweisen} {\dgrau\S}{#1}}#3}
+\crefname{schn-sprn}{Schreib- und Sprechweisen}{Schreib- und Sprechweisen}
+\crefformat{sprn}{#2{\rmfamily{\color{\colorsch} Sprechweisen} {\dgrau\S}{#1}}#3}
+
+\crefname{ann}{Annahme}{Annahmen}
+\crefformat{ann}{#2{\rmfamily{\color{\colorde} Annahme} {\dgrau\S}{#1}}#3}
+
+\crefname{bem}{Bemerkung}{Bemerkungen}
+\crefformat{bem}{#2{\rmfamily{\color{\colorbem} Bemerkung} {\dgrau\S}{#1}}#3} 
+
+\crefname{obem}{Bemerkung}{Bemerkungen}
+\crefformat{obem}{#2{\rmfamily{\color{\colorbem} Bemerkung} {\dgrau\S}{#1}}#3} 
+
+\crefname{anm}{Anmerkung}{Anmerkung}
+\crefformat{anm}{#2{\rmfamily{\color{\colorbem} Anmerkung} {\dgrau\S}{#1}}#3}
+
+\crefname{bsp}{Beispiel}{Beispiele}
+\crefformat{bsp}{#2{\rmfamily{\color{\colorbsp} Beispiel} {\dgrau\S}{#1}}#3}
+\crefname{bspe}{Beispiele}{Beispiele}
+\crefformat{bspe}{#2{\rmfamily{\color{\colorbsp} Beispiele} {\dgrau\S}{#1}}#3}
+\crefname{obsp}{Beispiel}{Beispiele}
+\crefformat{obsp}{#2{\rmfamily{\color{\colorbsp} Beispiel} {\dgrau\S}{#1}}#3}
+\crefname{ill}{Illustration}{Illustrationen}
+\crefformat{ill}{#2{\rmfamily{\color{\colorbsp} Illustration} {\dgrau\S}{#1}}#3}
+\crefname{illn}{Illustrationen}{Illustrationen}
+\crefformat{illn}{#2{\rmfamily{\color{\colorbsp} Illustrationen} {\dgrau\S}{#1}}#3}
+
+
+\crefname{bew}{Beweis}{Beweise}
+\crefformat{bew}{#2{\rmfamily{\color{\colorres} Beweis} {\dgrau\S}{#1}}#3}
+
+
+\crefname{aufg}{Aufgabe}{Aufgaben}
+\crefformat{aufg}{#2{\rmfamily{\color{\coloraufg} Aufgabe} {\dgrau\S}{#1}}#3}
+
+\crefname{section}{Abschnitt}{Abschnitte}
+\crefformat{section}{#2{\rmfamily{\dgrau Abschnitt} {\dgrau\S}{#1}}#3}
+
+\crefname{chapter}{Kapitel}{Kapitel}
+\crefformat{chapter}{#2{\rmfamily{\dgrau Kapitel} {#1}}#3}
+
+\newcommand{\myref}[1]{{\normalfont\rmfamily{\dgrau\S}\ref{#1}}}
+\newcommand{\mycref}[1]{\cref{#1}}
+\newcommand{\myrefi}[2]{{\dgrau\S}\ref{#1}\,{\dgrau#2}}
+
+
+
+
+\renewcommand{\qedsymbol}{\scriptsize{\ensuremath{\blacksquare}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[right]{showlabels}
+% \renewcommand{\showlabelfont}{\dr\normalfont\tiny\ttfamily}
+\begin{document}
+\frontmatter
+\renewcommand{\thepage}{\roman{page}}
+\thispagestyle{first}
+\vspace*{5cm}
+\begin{center}
+{\large\normalfont\itshape  Skript zum}\\[3ex]
+{\huge\normalfont\scshape  Mathematischen Vorkurs}\\[5ex]
+{\large\normalfont\itshape  Wintersemester 2021/22}\end{center}
+ \vfill
+\centerline{{\normalfont\itshape Fassung Stand \today}}\hfill\\[1ex]
+\centerline{{\db\small Habt ihr Fragen, Wünsche, Anregungen? Schreibt uns einfach eine}}  
+\centerline{{\db\small  Mail:
+\href{fachschaft@mathphys.stura.uni-heidelberg.de}{fachschaft@mathphys.stura.uni-heidelberg.de}
+mit.}}
+\cleardoublepage
+\setcounter{page}{1}
+\pagestyle{tablematiere}
+\tableofcontents
+\mainmatter
+
+% ====================================================================
+% <<Inhalt>>
+% ====================================================================
+\pagestyle{scrheadings}
+
+% ====================================================================
+% <<Einleitung>>
+% ====================================================================
+\pagestyle{intro}
+\noindent Das Skript zum mathematischen Vorkurs wurde zum Wintersemester 2021/2022 von Luka Thomé, Matthis Scholz, Nikolaus Betker, Maximilian Bur und Luna Cielibak grundlegend überarbeitet. Autoren der einzelnen Kapitel sind:
+\begin{itemize}
+ \item Kapitel 1 Logik -- Luka Thomé
+ \item Kapitel 2 Beweise -- Luka Thomé
+ \item Kapitel 3 Mengen und Familien -- Matthis Scholz
+ \item Kapitel 4 Abbildungen -- Nikolaus Betker, Luka Thomé
+  \item Kapitel 5 Relationen -- Matthis Scholz
+ \item Kapitel 6 Folgen, Abstand und Grenzwerte -- Maximilian Bur, Luka Thomé
+ \item Kapitel 7 Verknüpfungen -- Luka Thomé
+\end{itemize}
+
+\noindent Wir wünschen euch zwei schöne Vorkurswochen, einen guten Start ins Studentenleben und hoffen, euch mit diesem Skript einen ersten Einblick in die Uni-Mathematik bieten zu können, der neugierig auf mehr macht. \\
+
+Nikolaus, Max, Luna, Matthis, Luka 
+
+% ====================================================================
+% 1. Vortrag <<Logik>>
+% ====================================================================
+\setchapterpreamble[c][.7\textwidth]{%
+  \itshape\dgrau\small  In diesem Vortrag werden diejenigen sprachlichen Strukturen vorgestellt, die in der Mathematik verwendet werden, um Definitionen, Sätze und Beweise zu formulieren. 
+  \vspace{24pt}%
+}
+\chapter{Logik}
+\input{_01-Logik}
+
+% ====================================================================
+% 2. Vortrag <<Beweismethoden>>
+% ====================================================================
+
+\setchapterpreamble[c][.7\textwidth]{%
+  \itshape\dgrau\small  In diesem Vortrag werden die grundlegenden logischen Schlussregeln und Beweistechniken erklärt und anhand von Beispielbeweisen vorgestellt. Außerdem werden vorherrschende Normen für das Schreiben schöner und gut lesbarer Beweise besprochen.
+  \vspace{24pt}%
+}
+
+\chapter{Beweise}
+\input{_02-Beweise}
+
+% ====================================================================
+% 3. Vortrag  <<Mengen, natürliche Zahlen, Induktion>>
+% ====================================================================
+
+\setchapterpreamble[c][.7\textwidth]{%
+  \itshape\dgrau\small Die Menge ist der Grundbaustein so gut wie aller mathematischer Strukturen. Die aussagenlogischen Junktoren geben Anlass zu Mengenoperationen, die mithilfe des Begriffs der Familie verallgemeinert werden können.
+  \vspace{24pt}%
+}
+
+\chapter{Mengen und Familien}
+\input{_03-Mengen}
+
+
+% ====================================================================
+% 4. Vortrag <<Abbildungen>>
+% ====================================================================
+
+\setchapterpreamble[c][.7\textwidth]{%
+  \itshape\dgrau\small Der Begriff der Abbildung verallgemeinert den Funktionenbegriff aus der Schule. In diesem Vortrag werden grundlegende Werkzeuge im Umgang mit Abbildungen anhand von Beispielen besprochen.
+  \vspace{24pt}%
+}
+
+\chapter{Abbildungen}
+\input{_04-Abbildungen}
+
+% ====================================================================
+% 5. Vortrag <<Relationen>>
+% ====================================================================
+
+\setchapterpreamble[c][.7\textwidth]{%
+  \itshape\dgrau\small Relationen drücken Beziehungen zwischen Elementen einer Menge aus. Von besonderer Bedeutung sind Ordnungs- und Äquivalenzrelationen, deren grundlegende Eigenschaften in diesem Vortrag besprochen werden.
+  \vspace{24pt}%
+}
+
+\chapter{Relationen}
+\input{_05-Relationen}
+
+% ====================================================================
+% 6. Vortrag <<Folgen>>
+% ====================================================================
+\setchapterpreamble[c][.7\textwidth]{%
+  \itshape\dgrau\small In diesem Vortrag werden einige Eigenschaften und Beispiele für Folgen vorgestellt. In Form von Abstand und Folgenkonvergenz werden grundlegende Begriffe der Analysis thematisiert.
+  \vspace{24pt}%
+}
+\chapter{Folgen, Abstand und Grenzwerte}
+\input{_06-Folgen}
+
+% ====================================================================
+% 7. Vortrag <<Gruppen>>
+% ====================================================================
+\setchapterpreamble[c][.7\textwidth]{%
+  \itshape\dgrau\small Der Begriff der Verknüpfung verallgemeinert die aus der Schule bekannten Rechenoperationen. In diesem Vortrag werden grundlegende Eigenschaften von Verknüpfungen untersucht und ein paar Konsequenzen daraus abgeleitet.
+  \vspace{24pt}%
+}
+\chapter{Verknüpfungen}
+\input{_07-Verknuepfungen}
+
+
+\backmatter
+\cleardoublepage
+\appendix
+\chapter{Anhang}
+
+
+\section*{Einige wichtige Mengen}
+\begin{itemize}
+ \item $\Nz= \{ (0,) 1,2,3,4,\dots \}$. Menge der natürlichen Zahlen. Ob die Null dazugehört oder nicht, hängt vom Autor ab.
+ \item $\Zz= \{0,1,2,3,\dots , -1,-2,-3,\dots \}$. Menge der ganzen Zahlen.
+\item $\Qz = \left\{\frac{p}{q} \mid p, q\in \Zz,\ q\neq 0\right\}$. Menge der rationalen Zahlen.
+\item $\Rz$. Menge der reellen Zahlen, d.h. aller Zahlen, die sich als Kommazahl (mit möglicherweise unendlich vielen Nachkommastellen) schreiben lassen.
+\item $\Cz= \{a+bi \mid a,b\in \Rz\}$. Menge der komplexen Zahlen.
+\item $\emptyset$. Leere Menge. Manche Autoren schreiben auch $\{ \}$.
+\end{itemize}
+
+
+
+
+
+\section*{Aussagenlogische Tautologien}
+ Seien $A,B,C$ drei beliebige Aussagen. Hier ist eine Liste aussagenlogischer Tautologien. Versuche besser nicht, für jede einzelne Formel eine Wahrheitstafel aufzustellen. Wenn du Lust hast, kannst du
+ \begin{itemize}
+  \item versuchen, dir für die ein oder andere Formel intuitiv klarzumachen, dass es sich um eine Tautologie handeln muss. So kannst du ein besseres Verständnis für die Junktoren erwerben.
+  \item mithilfe der Beweistechniken aus dem zweiten Vortrag versuchen, die eine oder andere dieser Formeln zu beweisen.
+ \end{itemize}
+ \begingroup
+\allowdisplaybreaks
+ \begin{align*}
+% \begin{split}
+%  A & \to (B \to A) \\
+%  (A\to (B\to C)) & \to ((A\to B) \to (A\to C))
+%  \end{split} && (\text{$\to$-Axiome}) \\[1em]
+ %(A\to B) & \to ((B\to C) \to (A\to C)) && (\text{Syllogismusaxiom}) \\[1em]
+ %   \begin{split}(A\land B) & \to A \\
+ % (A \land B) & \to B\end{split} \\[1em] %&& (\text{$\land$-Elimination}) \\[1em]
+ %     \begin{split}A & \to (A \lor B) \\
+ % B & \to (A \lor B)\end{split} \\[1em] %&& (\text{$\lor$-Einführung}) \\[1em]
+%   \begin{split}
+%(A \to C) & \to ((B \to C) \to ((A \lor B) \to C)) \\
+%     (C \to A) & \to ((C \to B) \to (C \to (A \land B)))
+%  \end{split} \\[1em] %&& (\text{Fallunterscheidungsaxiome}) \\[1em]
+%  (A\to B) & \to (\neg B\to \neg A) && (\text{Kontrapositionsformel})
+%A& \to \top  \\
+%    \bot & \to A  \\
+%     & \top \\[1em]
+%      (A \to B) & \to (\neg B \to \neg A)  && (\text{Kontrapositionsformel}) \\[1em]
+ %      A & \leftrightarrow ( \top \to A)  \\
+%\neg A  & \leftrightarrow (A\to \bot) &&\\[1em]
+%    \neg (A & \land \neg A) && (\text{Satz vom Widerspruch}) \\
+%  A & \lor \neg A && (\text{Satz vom ausgeschlossenen Dritten}) \\[1em]
+         (A \leftrightarrow B)     & \leftrightarrow ((A \to B) \land (B \to A) ) \\[1em] %\\[1em]
+     A & \to (B \to (A \land B)) \\[1em] % && (\text{$\land$-Einführungsformel}) \\[1em]
+(A \to (B \to C)) & \leftrightarrow ((A \land B) \to C) && (\text{Import-/Exportformel}) \\[1em]
+    \begin{split} ((A\to C) \land (B\to C)) & \leftrightarrow ((A\lor B) \to C) \\
+    ((C\to A) \land (C\to B)) & \leftrightarrow (C\to (A\land B))
+    \end{split} && (\text{Fallunterscheidungsformeln}) \\[1em]
+    ((A\to B) \land A) & \to B && (\text{Modus-ponens-Formel}) \\[1em]
+   (A \to (B \to C)) & \leftrightarrow (B \to (A \to C))  && ( \text{Umordnung der Prämissen}) \\[1em]
+    ((A \to B) \land (B \to C)) & \to (A \to C) && \\ % (\text{Syllogismusformel}) \\
+ ((A\leftrightarrow B)\land (B\leftrightarrow C)) & \to (A\leftrightarrow C) \\[1em]
+ %   A& \to A \\
+ %            A & \leftrightarrow A \\[1em]
+    (A\leftrightarrow (A\to B)) & \to B && (\text{Curry-Paradoxon}) \\[1em]
+  \begin{split} ((A \land B) \land C) & \leftrightarrow (A \land (B \land C)) \\
+  ((A \lor B) \lor C) & \leftrightarrow (A \lor (B \lor C)) \end{split} && (\text{Assoziativgesetze}) \\[1em]
+  \begin{split} (A \land B) & \leftrightarrow (B \land A) \\
+  (A \lor B) & \leftrightarrow (B \lor A) \\
+  (A\leftrightarrow B) & \leftrightarrow (B \leftrightarrow A) \end{split} && ( \text{Kommuativgesetze}) \\[1em]
+    \begin{split} (A \lor (A \land B)) & \leftrightarrow A \\
+  (A \land (A \lor B)) & \leftrightarrow A \end{split} && ( \text{Absorptionsgesetze}) \\[1em]
+  \begin{split}
+   (A \land A) & \leftrightarrow A \\
+   (A \lor A) & \leftrightarrow A
+  \end{split} && (\text{Idempotenzgesetze}) \\[1em]
+  \begin{split} (A \land (B \lor C)) & \leftrightarrow ((A \land B) \lor (A \land C)) \\
+   (A \lor (B \land C)) & \leftrightarrow ((A \lor B) \land (A \lor C)) \end{split} && ( \text{Distributivgesetze}) \\[1em]
+  \begin{split} (A \to B) & \leftrightarrow ((A \land B) \leftrightarrow A) \\
+(A \to B) & \leftrightarrow ((A \lor B) \leftrightarrow B)
+    \end{split} &&  \\[1em]
+  \begin{split}         (A \land B) & \leftrightarrow (A \leftrightarrow (A\to B)) \\
+    (A \lor B) & \leftrightarrow (B \leftrightarrow (A\to B))
+    \end{split} &&  \\[1em]
+ %   (A \leftrightarrow B) & \to (\neg A \leftrightarrow \neg B) \\
+%         (A\leftrightarrow B) & \leftrightarrow ((A\lor B) \to (A\land B)) \\[1em]
+ %   (A\land \neg A)&\to \neg \top \\[1em]
+ %  (A\to \neg B) & \leftrightarrow (B\to \neg A)\\% && (\text{Adjunktionsformel}) \\
+ %          A & \to \neg \neg A  \\
+ %   (A\to(B\land \neg B)) &\leftrightarrow \neg A \\[1em]  %&&(\text{Reductio ad absurdum})  \\[1em]
+                (A\land \neg A) & \to B \\ %&& (\text{Ex contradictione quodlibet}) \\
+    ((A\lor B) \land \neg A) & \to B && (\text{Modus-tollendo-ponens-Formel})\\[1em]
+ %    (A\to B) & \leftrightarrow (\neg B\to \neg A)\\
+ %   A & \leftrightarrow \neg\neg A && (\text{Regel der doppelten Verneinung}) \\[1em]
+  (A\to B) & \leftrightarrow (\neg A \lor B) \\
+  \neg (A\to B) & \leftrightarrow (A \land \neg B) \\[1em]
+       \begin{split} ( \neg A \land \neg B) & \leftrightarrow \neg (A \lor B) \\
+  (\neg A \lor \neg B) & \leftrightarrow \neg(A \land B) 
+  \end{split} && (\text{Regeln von De Morgan}) \\[1em]
+      (A\to B) & \lor (B\to C) \\
+      ((A\to B)\to A) & \to A && (\text{Peirce’sche Regel}) \\
+    (A \to(A\land B)) & \lor (B\to (A\land B)) &&  (\text{Aussagenlogisches }``\text{Drinker paradox}")
+ \end{align*}
+ \endgroup
+
+ 
+ 
+
+ \section*{Prädikatenlogische Tautologien}
+  Seien $A$ eine Aussage, $\varphi,\psi$ zwei einstellige Prädikate und $\chi$ ein zweistelliges Prädikat. Bei den folgenden Aussagen handelt es sich um Tautologien. Wenn du Lust hast, kannst du
+ \begin{itemize}
+  \item versuchen, dir für die ein oder andere Formel intuitiv klarzumachen, dass es sich um eine Tautologie handeln muss. So kannst du deine Intuition für die Quantoren trainieren.
+  \item mithilfe der Beweistechniken aus dem zweiten Vortrag versuchen, die eine oder andere dieser Formeln zu beweisen.
+ \end{itemize}
+ \begingroup
+ \allowdisplaybreaks
+   \begin{align*}
+  \begin{split} (\forall x : \varphi(x)) & \leftrightarrow (\forall y : \varphi(y)) \\
+  (\exists x : \varphi(x)) & \leftrightarrow (\exists y : \varphi(y)) \end{split} &  \begin{split}
+  (\text{Austauschbarkeit der} \\
+  \text{gebundenen Variable})
+  \end{split}  \\[1em]
+  \begin{split} (\forall x,y : \chi(x,y)) & \to (\forall x : \chi(x,x)) \\
+    (\exists x : \chi(x,x)) & \to (\exists x, y: \chi(x,y)) \end{split} \\[1em]
+      \begin{split} ((\forall x : \varphi(x)) \land A) & \leftrightarrow (\forall x :(\varphi(x) \land A)) \\
+           ((\forall x : \varphi(x)) \land (\forall y : \psi(y))) & \leftrightarrow (\forall x,y : (\varphi(x) \land \psi(y)))\\
+     ((\forall x : \varphi(x)) \land (\forall y : \psi(y))) & \leftrightarrow (\forall x : (\varphi(x) \land \psi(x))) 
+     \end{split} && (\text{$\land$ und $\forall$}) \\[1em]
+              \begin{split}
+((\exists x : \varphi(x)) \lor A) & \leftrightarrow (\exists x : (\varphi(x) \lor A)) \\
+      ((\exists x : \varphi(x)) \lor (\exists y : \psi(y))) & \leftrightarrow (\exists x,y : (\varphi(x) \lor \psi(y))) \\
+      ((\exists x : \varphi(x)) \lor (\exists y : \psi(y))) & \leftrightarrow (\exists x : (\varphi(x) \lor \psi(x)))
+      \end{split} && (\text{$\lor$ und $\exists$}) \\[1em]
+          \begin{split}
+((\exists x : \varphi(x)) \land A) & \leftrightarrow (\exists x : (\varphi(x) \land A)) \\
+   ((\exists x : \varphi(x)) \land (\exists y : \psi(y))) & \leftrightarrow (\exists x,y:(\varphi(x)\land \psi(y))) \\
+      ((\exists x : \varphi(x)) \land (\exists y : \psi(y))) & \leftarrow (\exists x : (\varphi(x) \land \psi(x)))
+      \end{split} && (\text{$\land$ und $\exists$}) \\[1em]
+  \begin{split} ((\forall x : \varphi(x)) \lor A) & \leftrightarrow (\forall x :(\varphi(x) \lor A)) \\ %nur in klassischer Logik
+      ((\forall x : \varphi(x)) \lor (\forall y : \psi(y))) & \leftrightarrow (\forall x,y : (\varphi(x)\lor \psi(y))) \\%nur in klassischer Logik
+     ((\forall x : \varphi(x)) \lor (\forall y : \psi(y))) & \to (\forall x : (\varphi(x) \lor \psi(x)))
+     \end{split} && (\text{$\lor$ und $\forall$}) \\[1em]
+     \begin{split}
+ (\forall x : (\varphi(x) \to A)) & \leftrightarrow ((\exists x : \varphi(x)) \to A) \\
+  (\forall x : (A \to \varphi(x))) & \leftrightarrow (A \to (\forall x : \varphi(x))) \\
+  (\forall x : (\varphi(x) \to \psi(x))) & \leftarrow ((\exists x : \varphi(x)) \to (\forall x : \psi(x)))
+\end{split} && (\text{$\to$ und $\forall$}) \\[1em]
+\begin{split}
+( \exists x : (\varphi(x) \to A)) & \leftrightarrow ((\forall x : \varphi(x)) \to A) \\ %nur in klassischer Logik
+( \exists x : ( A\to \varphi(x))) & \leftrightarrow (A \to( \exists x : \varphi(x))) \\ %nur in klassischer Logik
+(\exists x : (\varphi(x)\to \psi(x))) & \leftrightarrow ((\forall x : \varphi(x)) \to (\exists x : \psi(x)))
+\end{split} && (\text{$\to$ und $\exists$}) \\[1em] %nur in klassischer Logik
+\forall x\ \exists y: (\varphi(x) & \to \varphi(y)) \\
+\exists x\ \forall y : (\varphi(x) & \to \varphi(y)) && (``\text{\href{https://en.wikipedia.org/wiki/Drinker_paradox}{Drinker paradox}}")%\\nur in klassischer Logik
+%\nexists x \ \forall y : (\chi(x,y) & \leftrightarrow \neg \chi(y,y)) && (\text{Russellsche Antinomie})\\[1em]
+%\forall x : (x & = x) && (\text{Identitätsaxiom}) \\
+%\forall x,y : (x=y & \to (\varphi(x) \leftrightarrow \varphi(y))) && (\text{Ununterscheidbarkeitsaxiom}) \\
+%\forall x,y : (x=y & \leftrightarrow y=x) && (\text{Symmetrie von $=$}) \\
+%\forall x,y,z : ((x=y \land y=z) & \to x=z) && (\text{Transitivität von $=$})
+ \end{align*}
+ \endgroup
+%Ist das Diskursuniversum die Menge der Leute in einer Bar und ist $\varphi(x):\Leftrightarrow$ „$x$ trinkt“, so besagt das \href{https://en.wikipedia.org/wiki/Drinker_paradox}{Drinker paradox}: „Es gibt eine Person $x$, für die gilt: Falls $x$ trinkt, dann trinkt jede Person $y$ in der Bar.“ Es lässt sich nicht in konstruktiver Logik beweisen.
+
+
+%\section*{A.1 Normalverteilung}\label{Ztable}
+%\begin{center}
+%\includegraphics[scale=1]{./_img/Ztable.pdf}
+%\end{center}
+
+\cleardoublepage
+\bibliography{_src/Skript-ST1}
+  \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\cleardoublepage
+\printindex
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

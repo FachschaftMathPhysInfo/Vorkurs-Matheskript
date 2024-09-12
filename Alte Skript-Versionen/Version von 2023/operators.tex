@@ -1,0 +1,161 @@
+% ====================================================================
+% <<Zahlbereiche>>
+% ====================================================================
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+
+% ====================================================================
+% <<Abkürzungen>>
+% ====================================================================
+
+\newcommand{\id}{\mathrm{id}} % Identität
+\newcommand{\inv}{\mathrm{inv}} % invers
+\newcommand{\ev}{\mathrm{ev}} % evaluate
+\newcommand{\op}{\mathrm{op}} % opposite
+
+
+\DeclareMathOperator{\Abb}{Abb} % Menge der Abbildungen
+\DeclareMathOperator{\Ch}{Ch} % Komplexe
+\DeclareMathOperator{\codom}{codom} % Wertebereich
+\DeclareMathOperator{\coim}{coim} % Kobild
+\DeclareMathOperator{\dom}{dom} % Definitionsbereich
+\DeclareMathOperator{\ggT}{ggT} % größter gemeinsamer Teiler
+\DeclareMathOperator{\graph}{graph} % Graph einer Funktion
+\DeclareMathOperator{\im}{im} % Bild
+\DeclareMathOperator{\kgV}{kgV} % kleinstes gemeinsames Vielfaches
+\DeclareMathOperator{\Rel}{Rel} % Relationen
+\DeclareMathOperator{\res}{res} % Restriktion
+\DeclareMathOperator{\sgn}{sgn} % Signum
+\DeclareMathOperator{\Sh}{Sh} % Garben
+
+
+\newcommand{\TODO}{\colorbox{cyan}{\textup{TODO}}} % Todo-Kürzel
+
+% ====================================================================
+% <<Kategorien>>
+% ====================================================================
+
+\newcommand{\Grp}{\mathsf{Grp}} % Gruppen
+\newcommand{\Mon}{\mathsf{Mon}} % Monoide
+\newcommand{\Pos}{\mathsf{Pos}} % Posets (= geordnete Mengen)
+\newcommand{\Set}{\mathsf{Set}} % Mengen
+
+% ====================================================================
+% <<Alphabete>>
+% ====================================================================
+
+% \mathcal alphabet capital
+\newcommand{\calA}{\mathcal A}
+\newcommand{\calB}{\mathcal B}
+\newcommand{\calC}{\mathcal C}
+\newcommand{\calD}{\mathcal D}
+\newcommand{\calE}{\mathcal E}
+\newcommand{\calF}{\mathcal F}
+\newcommand{\calG}{\mathcal G}
+\newcommand{\calH}{\mathcal H}
+\newcommand{\calI}{\mathcal I}
+\newcommand{\calJ}{\mathcal J}
+\newcommand{\calK}{\mathcal K}
+\newcommand{\calL}{\mathcal L}
+\newcommand{\calM}{\mathcal M}
+\newcommand{\calN}{\mathcal N}
+\newcommand{\calO}{\mathcal O}
+\newcommand{\calP}{\mathcal P}
+\newcommand{\calQ}{\mathcal Q}
+\newcommand{\calR}{\mathcal R}
+\newcommand{\calS}{\mathcal S}
+\newcommand{\calT}{\mathcal T}
+\newcommand{\calU}{\mathcal U}
+\newcommand{\calV}{\mathcal V}
+\newcommand{\calW}{\mathcal W}
+\newcommand{\calX}{\mathcal X}
+\newcommand{\calY}{\mathcal Y}
+\newcommand{\calZ}{\mathcal Z}
+
+% \mathbb alphabet capital
+\newcommand{\bbA}{\mathbb A}
+\newcommand{\bbB}{\mathbb B}
+\newcommand{\bbC}{\mathbb C}
+\newcommand{\bbD}{\mathbb D}
+\newcommand{\bbE}{\mathbb E}
+\newcommand{\bbF}{\mathbb F}
+\newcommand{\bbG}{\mathbb G}
+\newcommand{\bbH}{\mathbb H}
+\newcommand{\bbI}{\mathbb I}
+\newcommand{\bbJ}{\mathbb J}
+\newcommand{\bbK}{\mathbb K}
+\newcommand{\bbL}{\mathbb L}
+\newcommand{\bbM}{\mathbb M}
+\newcommand{\bbN}{\mathbb N}
+\newcommand{\bbO}{\mathbb O}
+\newcommand{\bbP}{\mathbb P}
+\newcommand{\bbQ}{\mathbb Q}
+\newcommand{\bbR}{\mathbb R}
+\newcommand{\bbS}{\mathbb S}
+\newcommand{\bbT}{\mathbb T}
+\newcommand{\bbU}{\mathbb U}
+\newcommand{\bbV}{\mathbb V}
+\newcommand{\bbW}{\mathbb W}
+\newcommand{\bbX}{\mathbb X}
+\newcommand{\bbY}{\mathbb Y}
+\newcommand{\bbZ}{\mathbb Z}
+
+% \mathfrak alphabet 
+\newcommand{\fraka}{\mathfrak a}
+\newcommand{\frakb}{\mathfrak b}
+\newcommand{\frakc}{\mathfrak c}
+\newcommand{\frakd}{\mathfrak d}
+\newcommand{\frake}{\mathfrak e}
+\newcommand{\frakf}{\mathfrak f}
+\newcommand{\frakg}{\mathfrak g}
+\newcommand{\frakh}{\mathfrak h}
+\newcommand{\fraki}{\mathfrak i}
+\newcommand{\frakj}{\mathfrak j}
+\newcommand{\frakk}{\mathfrak k}
+\newcommand{\frakl}{\mathfrak l}
+\newcommand{\frakm}{\mathfrak m}
+\newcommand{\frakn}{\mathfrak n}
+\newcommand{\frako}{\mathfrak o}
+\newcommand{\frakp}{\mathfrak p}
+\newcommand{\frakq}{\mathfrak q}
+\newcommand{\frakr}{\mathfrak r}
+\newcommand{\fraks}{\mathfrak s}
+\newcommand{\frakt}{\mathfrak t}
+\newcommand{\fraku}{\mathfrak u}
+\newcommand{\frakv}{\mathfrak v}
+\newcommand{\frakw}{\mathfrak w}
+\newcommand{\frakx}{\mathfrak x}
+\newcommand{\fraky}{\mathfrak y}
+\newcommand{\frakz}{\mathfrak z}
+
+% \mathfrak alphabet capital
+\newcommand{\frakA}{\mathfrak A}
+\newcommand{\frakB}{\mathfrak B}
+\newcommand{\frakC}{\mathfrak C}
+\newcommand{\frakD}{\mathfrak D}
+\newcommand{\frakE}{\mathfrak E}
+\newcommand{\frakF}{\mathfrak F}
+\newcommand{\frakG}{\mathfrak G}
+\newcommand{\frakH}{\mathfrak H}
+\newcommand{\frakI}{\mathfrak I}
+\newcommand{\frakJ}{\mathfrak J}
+\newcommand{\frakK}{\mathfrak K}
+\newcommand{\frakL}{\mathfrak L}
+\newcommand{\frakM}{\mathfrak M}
+\newcommand{\frakN}{\mathfrak N}
+\newcommand{\frakO}{\mathfrak O}
+\newcommand{\frakP}{\mathfrak P}
+\newcommand{\frakQ}{\mathfrak Q}
+\newcommand{\frakR}{\mathfrak R}
+\newcommand{\frakS}{\mathfrak S}
+\newcommand{\frakT}{\mathfrak T}
+\newcommand{\frakU}{\mathfrak U}
+\newcommand{\frakV}{\mathfrak V}
+\newcommand{\frakW}{\mathfrak W}
+\newcommand{\frakX}{\mathfrak X}
+\newcommand{\frakY}{\mathfrak Y}
+\newcommand{\frakZ}{\mathfrak Z}
