@@ -1,0 +1,109 @@
+ 
+% ====================================================================
+% <<Titelei>>
+% ====================================================================
+
+% Kopf- und Fußzeile für die Titelseite
+\newpagestyle{first}{
+    {}
+    {\hspace{10mm} \parbox{70mm}{
+            \hfill \\[0.5em]
+            \Large\normalfont\rmfamily{Universität Heidelberg}\\
+            \Large\normalfont\rmfamily{Fachschaft MathPhysInfo}\\
+            \large\normalfont\rmfamily{Luka Thomé}
+        } \hfill \parbox{80mm}{
+            \center\includegraphics[height=20mm]{./_img/mathphysinfo-logo_4c.pdf}
+        } \\[0.5em]
+    }
+    {}
+}{
+    {}
+    {\begin{center}
+        \itshape Habt ihr Fragen, Wünsche, Anregungen? Schreibt uns einfach eine\\
+        E-Mail: \normalfont\href{mailto:fachschaft@mathphys.stura.uni-heidelberg.de}{fachschaft@mathphys.stura.uni-heidelberg.de}
+    \end{center}}
+    {}
+}
+
+\newcommand{\firstpage}{
+    \thispagestyle{first}
+    \newgeometry{centering, text={1.3\textwidth, \paperheight}} % Seitenlayout für die Titelseite
+    \setlength{\headheight}{50mm} % Kopfzeile vergrößern
+    \setlength{\footheight}{90mm} % Fußzeile vergrößern
+    \vspace*{25mm}
+    \begin{center}
+        {\large\itshape Skript zum}\\[3ex]
+        {\huge\scshape Mathematischen Vorkurs}\\[5ex]
+        {\large\itshape Wintersemester 2023/24}
+    \end{center}
+    \recalctypearea % zurück zum Standard-Seitenlayout
+    
+    \vspace*{1em}
+    {\small
+        \noindent Fassung Stand \today \\[1.5em]
+        2. Auflage 2022 \\[0.5em]
+        Autor der zweiten Auflage: Luka Thomé \\[0.5em]
+        Besonderen Dank an Florian Frauen \\[1.5em]
+        1. Auflage 2021 \\[0.5em]
+        Autoren der ersten Auflage: \\[0.25em]
+        Matthis Scholz \\
+        Nikolaus Betker \\
+        Maximilian Bur \\
+        Luna Cielibak \\
+        Luka Thomé (Koordination) \\[1.5em]
+        {\textcopyright} Fachschaft MathPhysInfo \\
+        Im Neuenheimer Feld 205 (Mathematikon), Raum 01.301\\
+        69120 Heidelberg \\
+        Telefon: +49 6221 54 14 999 \\
+        Fax: +49 6221 54 161 14 999 \\
+        E-Mail: \href{mailto:fachschaft@mathphys.stura.uni-heidelberg.de}{fachschaft@mathphys.stura.uni-heidelberg.de}\\
+        Webseite: \href{https://mathphys.stura.uni-heidelberg.de}{https://mathphys.stura.uni-heidelberg.de}
+    }
+}
+
+
+% ====================================================================
+% <<Rückseite>>
+% ====================================================================
+
+\newcommand{\lastpage}{
+    % Sicherstellen, dass die letzte Seite geradzahlig ist.
+    \clearpage
+    \ifodd\value{page}\hbox{}\newpage\fi
+    % Letzte Seite zentrieren und ohne Seitenzahl
+    \thispagestyle{scrplain}
+    \newgeometry{centering}
+    
+    \pdfbookmark[-1]{Griechisches Alphabet}{alphabet}
+    \centering{\dgrau\sffamily\Large\textbf{Griechisches Alphabet}}
+    \vspace*{15mm}
+    \large
+    \begin{longtable}{lcccc}
+        & Majuskel & Minuskel & Deutsches Pendant \\
+        \midrule
+        Alpha & A & $\alpha$ & A & \\
+        Beta & B & $\beta$ & B & \\
+        Gamma & $\Gamma$ & $\gamma$ & G & \\
+        Delta & $\Delta$ & $\delta$ & D & \\
+        Epsilon & E & $ \varepsilon$, $\epsilon$ & E \\
+        Zeta & Z & $\zeta$ & Z & \\
+        Eta & H & $\eta$ & E \\
+        Theta & $\Theta$ & $\vartheta$, $\theta$ & Th \\
+        Iota & I & $\iota$ & I & \\
+        Kappa & K & $\kappa$ & K & \\
+        Lambda & $\Lambda$ & $\lambda$ & L & \\
+        My & M & $\mu$ & M & \\
+        Ny & N & $\nu$ & N & \\
+        Xi & $\Xi$ &$\xi$ & X & \\
+        Omikron & O & $o$ & O \\
+        Pi & $\Pi$ & $\pi$, $\varpi$ & P & \\
+        Rho & P & $\varrho$, $\rho$ & R & \\
+        Sigma & $\Sigma$ & $\sigma$, $\varsigma$  & S \\
+        Tau & T & $\tau$ & T & \\
+        Ypsilon & $\Upsilon$ & $\upsilon$ & Y & \\
+        Phi & $\Phi$ & $\varphi$, $\phi$ & Ph & \\
+        Chi & X & $\chi$ & Ch \\
+        Psi & $\Psi$ & $\psi$ & Ps \\
+        Omega & $\Omega$ & $\omega$ & O
+    \end{longtable}
+}

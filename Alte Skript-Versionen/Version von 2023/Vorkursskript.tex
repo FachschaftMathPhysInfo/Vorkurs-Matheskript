@@ -1,0 +1,58 @@
+% Dieses texfile sollte folgendermaßen kompiliert werden:
+%   1. pdflatex
+%   2. biber
+%   3. makeindex
+%   4. makeglossaries
+%   5. pdflatex
+
+% An zukünftige Editoren: Wenn bei der Bearbeitung des Skripts Schwierigkeiten oder Fragen auftreten, wendet euch gerne an mich per Email: lukathome@gmx.net
+% Bitte schaut einmal im Readme-Ordner in die "Für Skript-Editoren.txt". Darin findet ihr Bemerkungen zur Dokumentstruktur und Tipps zum TeXen.
+
+\documentclass{VK-Skript}
+
+% Pdf-Metadaten
+\hypersetup{
+    pdftitle={Skript zum Mathematischen Vorkurs},
+    pdfauthor={Fachschaft MathPhysInfo Heidelberg}
+}
+
+\input{operators} % Kürzel für Mathe
+\input{Symbolverzeichnis} % Einträge des Symbolverzeichnisses
+\input{cover} % Titelei und Rückseite
+
+
+\begin{document}
+
+\frontmatter
+
+\firstpage
+
+\tableofcontents
+
+\input{_00-Einleitung}
+
+\mainmatter
+
+\input{_01-Logik}
+\input{_02-Beweise}
+\input{_03-Mengen}
+\input{_04-Abbildungen}
+\input{_05-Relationen}
+\input{_06-Verknuepfungen}
+\input{_07-Analysis}
+
+\appendix
+
+\input{_08-Anhang}
+
+\backmatter
+
+\printbibliography[heading=bibintoc, title={Literaturverzeichnis}]
+
+\printglossary[type=\acronymtype, title={Symbolverzeichnis}, style=super]
+
+\printindex
+
+\lastpage
+
+\end{document}

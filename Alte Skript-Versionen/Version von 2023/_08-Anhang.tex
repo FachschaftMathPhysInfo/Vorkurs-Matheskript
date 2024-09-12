@@ -1,0 +1,475 @@
+
+
+\chapter{Formelsammlung Logik und Mengen} \label{formelsammlung}
+
+
+\section{Einige aussagenlogische Tautologien}
+Dieser Abschnitt enthält eine Liste von logischen Tautologien. Versuche bloß nicht, sie auswendig zu lernen oder gar, sie mit Wahrheitstafeln zu verifizieren! -- das habe ich auch nie. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir intuitiv klarzumachen oder mithilfe der Beweistechniken aus dem zweiten Kapitel zu beweisen. Auf diese Weise trainierst du logisches Denken und den Umgang mit Junktoren und Quantoren. \\[0.5em]
+In den folgenden Formeln seien
+\begin{itemize}
+    \item $A,B,C$ stets drei beliebige Aussagen.
+    \item $\top$ eine wahre Aussage.
+    \item $\bot$ eine falsche Aussage.
+\end{itemize}
+Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    \begin{split}
+        C\to (A\land B) & \quad\leftrightarrow\quad (C\to A) \land (C\to B) \\
+        (A\lor B) \to C & \quad\leftrightarrow\quad (A\to C) \land (B\to C)
+    \end{split} \\[1em]
+    (A \to B) \land (B \to C) & \quad \to\quad A \to C \\ 
+    (A \to B) \land (B \to A) & \quad\leftrightarrow\quad A \leftrightarrow B \\
+    (A\leftrightarrow B)\land (B\leftrightarrow C) & \quad \to\quad A\leftrightarrow C \\[1em]
+    (A \land B) \to C & \quad\leftrightarrow\quad A \to (B \to C) \\
+    A \to (B \to C) & \quad\leftrightarrow\quad  B \to (A \to C) && ( \text{Umordnung der Prämissen}) \\[1em]
+    \begin{split}
+        (A \land B) \land C & \quad\leftrightarrow\quad A \land (B \land C) \\
+        (A \lor B) \lor C & \quad\leftrightarrow\quad  A \lor (B \lor C)
+    \end{split} && (\text{Assoziativgesetze}) \\[1em]
+    \begin{split}
+        A \land B & \quad\leftrightarrow\quad  B \land A \\
+        A \lor B & \quad\leftrightarrow\quad  B \lor A \\
+        A\leftrightarrow B &\quad\leftrightarrow\quad  B \leftrightarrow A
+    \end{split} && ( \text{Kommutativgesetze}) \\[1em]
+    \begin{split} A \land (B \lor C) & \quad\leftrightarrow\quad  (A \land B) \lor (A \land C) \\
+        A \lor (B \land C) & \quad\leftrightarrow\quad  (A \lor B) \land (A \lor C)
+    \end{split} && ( \text{Distributivgesetze}) \\[1em]
+    \begin{split}
+        A \to B & \quad\leftrightarrow\quad (A \land B) \leftrightarrow A \\
+        A \to B & \quad\leftrightarrow\quad (A \lor B) \leftrightarrow B
+    \end{split} \\[1em]
+    A & \quad\to\quad \top && (\text{Wahres folgt aus Beliebigem}) \\
+    \bot & \quad\to\quad A && (\text{ex falso quodlibet}) \\[1em]
+    \begin{split}
+        A \land \neg A & \quad\leftrightarrow\quad \bot \\
+        A \lor \neg A & \quad\leftrightarrow\quad \top
+    \end{split}
+\end{align*}
+\begin{align*}
+    A \to B & \quad \leftrightarrow\quad \neg B \to \neg A \\
+    A & \quad\leftrightarrow\quad \neg\neg A && (\text{Regel der doppelten Verneinung}) \\[1em]
+    \begin{split}
+        \neg (A \lor B) & \quad\leftrightarrow\quad \neg A \land \neg B\\
+        \neg(A \land B) & \quad\leftrightarrow\quad \neg A \lor \neg B  %nur in klassischer Logik
+    \end{split} && (\text{Regeln von De Morgan}) \\[1em]
+    A\to B & \quad\leftrightarrow\quad  \neg A \lor B \\
+    \neg (A\to B) & \quad\leftrightarrow\quad  A \land \neg B \\[1em]
+    \begin{split}
+        (A\land B) \to C & \quad\leftrightarrow\quad (A\to C) \lor (B\to C) \\ %nur in klassischer Logik
+        A \to (B\lor C) & \quad\leftrightarrow\quad (A\to B) \lor (A\to C) %nur in klassischer Logik
+    \end{split} \\[1em]
+    (A\to B)\to A &\quad \to\quad A && (\text{Peirce’sche Regel}) \\
+    A\to B & \quad \lor\quad B\to C
+\end{align*}
+\endgroup
+
+ 
+ 
+ 
+ 
+\section{Einige prädikatenlogische Tautologien}
+In den folgenden Formeln seien
+\begin{itemize}
+    \item $A$ eine Aussage.
+    \item $E,F$ zwei Eigenschaften.
+    \item $R$ eine zweistellige Relation.
+\end{itemize}
+Für die mit einem (*) markierten Aussagen sei außerdem angenommen, dass es mindestens ein Objekt vom Typ der Variablen $x$ gibt. Bei der Russellschen Antinomie sei außerdem angenommen, dass beide Variablen von $R$ vom selben Typ sind. Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    \begin{split}
+        A \to (\forall x : E(x)) & \quad\leftrightarrow\quad \forall x : (A \to E(x)) \\
+        (\exists x : E(x)) \to A & \quad\leftrightarrow\quad \forall x : (E(x) \to A)
+    \end{split} \\[1em]
+    \begin{split}
+        \forall x\ \forall y:\ R(x,y) & \quad\leftrightarrow\quad \forall y\ \forall x:\ R(x,y) \\
+        \exists x\ \exists y:\ R(x,y) & \quad\leftrightarrow\quad \exists y\ \exists x:\ R(x,y) \\
+        \exists x\ \forall y:\ R(x,y) & \quad\to\quad \forall y\ \exists x:\ R(x,y)
+    \end{split} && (\text{Vertauschen von Quantoren}) \\[1em]
+    (\forall x : E(x)) \land A &  \quad\leftrightarrow^*\quad  \forall x :(E(x) \land A) \\
+    (\exists x : E(x)) \lor A &  \quad\leftrightarrow^*\quad  \exists x : (E(x) \lor A) \\
+    (\exists x : E(x)) \land A &  \quad\leftrightarrow\quad  \exists x : (E(x) \land A) \\
+    (\forall x : E(x)) \lor A &  \quad\leftrightarrow\quad  \forall x :(E(x) \lor A) \\[1em] %nur in klassischer Logik
+    \begin{split}
+        \nexists x: E(x) & \quad\leftrightarrow\quad \forall x: \neg E(x) \\
+        \neg (\forall x: E(x)) & \quad\leftrightarrow\quad \exists x: \neg E(x) %nur in klassicher Logik
+    \end{split} && (\text{Quantorennegationsregeln}) \\[1em]
+    \begin{split}
+        A \to( \exists x : E(x)) & \quad\leftrightarrow^*\quad \exists x : ( A\to E(x)) \\ %nur in klassischer Logik
+        (\forall x : E(x)) \to A & \quad\leftrightarrow^*\quad \exists x : (E(x) \to A) %nur in klassischer Logik
+    \end{split} \\[1em]
+    \nexists x\ \forall y : (R(x,y) & \ \leftrightarrow\ \neg R(y,y)) && (\text{Russellsche Antinomie})
+\end{align*}
+\endgroup
+
+
+
+
+
+\section{Regeln für $\cap$, $\cup$ und Differenzen}
+Dieser Abschnitt enthält eine Menge mengentheoretischer Gleichungen. Versuche bloß nicht, sie auswendig zu lernen, das habe ich auch nie! Du wirst sie während der Vorlesungen auch eher selten benötigen. Stattdessen empfehle ich, dass du dir, wenn du einmal in der Stimmung bist, eine Handvoll Formeln herauspickst und versuchst, sie dir durch Bilder zu veranschaulichen und sie zu beweisen. Vergleiche die mengentheoretischen Formeln auch einmal mit den logischen Tautologien und halte nach Verwandtschaften Ausschau. Auf diese Weise trainierst du deine mengentheoretische Intuition und mengentheoretisches Argumentieren. Solltest du später einmal einige Formeln benötigen, wirst du sie dir dann schnell selbst herleiten können. \\[0.5em]
+Für die nachfolgenden Formeln seien
+\begin{itemize}
+    \item $X,Y,Z$ drei Mengen.
+    \item Um die Komplemente „$(-)^c$“ zu interpretieren, sei außerdem eine gemeinsame Obermenge $V$ von $X,Y,Z$ fixiert.
+\end{itemize}
+Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    (X\subseteq Z) \ \text{und}\ (Y\subseteq Z)  & \quad \leftrightarrow\quad X\cup Y \subseteq Z  \\
+    (Z\subseteq X) \ \text{und}\ (Z\subseteq Y) & \quad \leftrightarrow\quad Z \subseteq X\cap Y  \\[1em]
+    \begin{split}
+        (X \cap Y) \cap Z &  \quad = \quad  X \cap (Y \cap Z) \\
+        (X \cup Y) \cup Z &  \quad = \quad  X \cup (Y \cup Z)
+    \end{split} && (\text{Assoziativgesetze}) \\[1em]
+    \begin{split}
+        X \cap Y &  \quad = \quad  Y\cap X \\
+        X \cup Y &  \quad = \quad  Y\cup X
+    \end{split} && ( \text{Kommutativgesetze}) \\[1em]
+    \begin{split}
+        X \cap (Y \cup Z) &  \quad = \quad  (X\cap Y) \cup (X\cap Z) \\
+        X \cup (Y\cap Z) &  \quad = \quad  (X\cup Y) \cap (X\cup Z)
+    \end{split} && ( \text{Distributivgesetze}) \\[1em]
+    X \subseteq Y & \quad \leftrightarrow\quad X\cap Y  =  X \\
+    X \subseteq Y & \quad \leftrightarrow\quad X\cup Y = Y \\[1em]
+    \begin{split}
+        X \cap X^c & \quad = \quad  \emptyset \\
+        X \cup X^c & \quad = \quad  V
+    \end{split} && (\text{Komplementgleichungen}) \\[1em]
+    X \subseteq Y & \quad \leftrightarrow\quad Y^c \subseteq X^c \\
+    X^{cc} &  \quad = \quad  X \\[1em]
+    \begin{split}
+        (X\cup Y)^c &  \quad = \quad  X^c \cap Y^c \\
+        (X\cap Y)^c &  \quad = \quad X^c \cup Y^c
+    \end{split} && (\text{Regeln von De Morgan}) \\[1em]
+    X \subseteq Y & \quad \leftrightarrow\quad X^c \cup Y = V \\
+    X \nsubseteq Y & \quad \leftrightarrow\quad X\cap Y^c \neq \emptyset \\[1em]
+    (X \cap Y) \setminus Z & \quad =\quad(X\setminus Z)\cap (Y\setminus Z) \\
+    (X\cup Y)\setminus Z & \quad =\quad (X\setminus Z)\cup (Y\setminus Z) \\
+        X \setminus (Y \cup Z) & \quad =\quad (X \setminus Y) \cap (X \setminus Z)\\
+        X \setminus (Y \cap Z) & \quad =\quad (X \setminus Y) \cup (X \setminus Z) \\[1em]
+    (X \cup Y) \setminus (X \cap Y) & \quad =\quad (X \setminus Y) \ \dot\cup\ (Y \setminus X) && (\text{symmetrische Differenz})
+\end{align*}
+\endgroup
+
+
+
+
+ 
+\section{Regeln für $\bigcap_{i\in I}$ und $\bigcup_{i\in I}$}
+In den folgenden Formeln seien
+\begin{itemize}
+    \item $A$ eine beliebige Menge.
+    \item $I,J,K$ drei weitere Mengen und $f:K\to I$ eine surjektive Abbildung.
+    \item $(X_i)_{i\in I}$, $(Y_i)_{i\in I}$, $(M_{ij})_{(i,j)\in I\times J}$ drei Familien von Mengen.
+    \item Damit die Komplemente „$(-)^c$“ Sinn ergeben, sei außerdem eine gemeinsame Obermenge $V$ der $X_i$'s fixiert.
+\end{itemize}
+Für die mit einem (*) markierten Gleichungen sei außerdem angenommen, dass $I\neq\emptyset$. Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    (\forall i\in I : X_i \subseteq A) & \quad\leftrightarrow\quad \bigcup_{i\in I} X_i \subseteq A \\
+    (\forall i\in I : A\subseteq X_i) & \quad\leftrightarrow\quad A \subseteq \bigcap_{i\in I} X_i \\[1em]
+    \begin{split}
+    \bigcap_{i\in I} \bigcap_{j\in J} M_{ij} & \quad =\quad \bigcap_{j\in J}\bigcap_{i\in I} M_{ij} \\
+    \bigcup_{i\in I} \bigcup_{j\in J} M_{ij} & \quad =\quad \bigcup_{j\in J}\bigcup_{i\in I} M_{ij} \\
+    \bigcup_{i\in I}\bigcap_{j\in J} M_{ij} & \quad\subseteq\quad \bigcap_{j\in J}\bigcup_{i\in I} M_{ij}
+    \end{split} && \\[1em]
+    (\bigcap_{i\in I} X_i) \cap A & \quad =^* \quad \bigcap_{i \in I} (X_i \cap A) \\
+    (\bigcup_{i\in I} X_i) \cup A & \quad =^* \quad \bigcup_{i\in I} (X_i \cup A) \\
+    (\bigcup_{i\in I} X_i) \cap A & \quad =\quad \bigcup_{i\in I} (X_i \cap A) \\
+    (\bigcap_{i\in I} X_i) \cup A & \quad =\quad \bigcap_{i\in I} (X_i \cup A) %nur in klassischer Logik
+\end{align*}
+\begin{align*}
+    \{ M\in A\mid M\ \text{ist eine Menge und}\ M\notin M \} & \notin A && (\text{Russellsche Antinomie})
+\end{align*}
+\begin{align*}
+    \begin{split}
+        \bigcap_{i\in I} X_i & \quad =\quad \bigcap_{k\in K} X_{f(k)} \\
+        \bigcup_{i\in I} X_i & \quad =\quad \bigcup_{k\in K} X_{f(k)}
+    \end{split} && (\text{Kommutativgesetze}) \\[1em]
+    \begin{split}
+        \bigcup_{i \in I} \bigcap_{j \in J} M_{ij} & \quad =\quad \bigcap_{g \in \Abb(I,J)}\ \bigcup_{i \in I} M_{ig(i)} \\ %nur mit Auswahlaxiom
+        \bigcap_{i \in I} \bigcup_{j \in J} M_{ij} & \quad =\quad \bigcup_{g \in \Abb(I,J)}\ \bigcap_{i \in I} M_{ig(i)} %nur mit Auswahlaxiom
+    \end{split} && (\text{Distributivgesetze}) \\[1em]
+    \begin{split}
+    (\bigcup_{i\in I} X_i)^c & \quad =\quad \bigcap_{i\in I} X_i^c \\
+    (\bigcap_{i\in I} X_i)^c & \quad =\quad \bigcup_{i\in I} X_i^c
+    \end{split} && (\text{Regeln von De Morgan}) \\[1em]
+    (\bigcap_{i\in I} X_i) \setminus A & \quad =^* \quad \bigcap_{i\in I} (X_i \setminus A)  \\
+    (\bigcup_{i\in I} X_i) \setminus A & \quad =\quad \bigcup_{i\in I} (X_i \setminus A) \\
+    A \setminus (\bigcap_{i\in I} X_i) & \quad =\quad \bigcup_{i\in I}(A \setminus X_i) \\
+    A \setminus (\bigcup_{i\in I} X_i) & \quad =^* \quad \bigcap_{i\in I}(A \setminus X_i)
+\end{align*}
+
+
+
+
+
+\section{Regeln für Produkte}
+Für die nachfolgenden Formeln seien
+\begin{itemize}
+    \item $A,B,C,D$ vier Mengen.
+    \item $(X_i)_{i\in I}$, $(Y_i)_{i\in I}$, und $(M_{ij})_{(i,j)\in I\times J}$ drei Mengenfamilien.
+\end{itemize}
+Für die mit einem (*) markierten Gleichungen sei außerdem angenommen, dass $I\neq\emptyset$. Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    A\subseteq C\ \text{und}\ B\subseteq D & \quad\to\quad A\times B\subseteq C\times D \\
+    \forall i\in I:\ X_i\subseteq Y_i & \quad\to\quad \prod_{i\in I} X_i \subseteq \prod_{i\in I} Y_i \\[1em]
+    A\times B \neq \emptyset & \quad \leftrightarrow\quad A\neq \emptyset \ \text{und}\ B\neq \emptyset \\[1em]
+    \begin{split}
+        (\bigcap_{i\in I} X_i ) \times A & \quad =^* \quad \bigcap_{i\in I} ( X_i \times A )  \\
+        (\bigcup_{i\in I} X_i ) \times A & \quad = \quad \bigcup_{i\in I} ( X_i \times A)
+    \end{split} \\[1em]
+    \begin{split}
+        \prod_{j \in J} \bigcap_{i \in I} M_{ij} & \quad =^* \quad \bigcap_{i\in I} \prod_{j\in J} M_{ij} \\
+        \prod_{j \in J} \bigcup_{i\in I} M_{ij} & \quad\supseteq\quad \bigcup_{i\in I} \prod_{j\in J} M_{ij}
+    \end{split} \\[1em]
+    \prod_{i \in I} \bigcup_{j \in J} M_{ij} & \quad =\quad \bigcup_{g \in \Abb(I,J)}\ \prod_{i \in I} M_{ig(i)} %nur mit Auswahlaxiom
+\end{align*}
+\begin{align*}
+    (A \setminus B) \times C & \quad = \quad (A \times C) \setminus (B \times C) \\
+    (A \times B) \setminus (C \times D) & \quad = \quad ((A \setminus C) \times B) \ \dot\cup\ (C \times (B \setminus D)) \\ %nur in klassischer Logik
+    (A \times B) \cup (C \times D) & \quad = \quad ((A \setminus C) \times B)  \ \dot\cup\ ((A \cap C) \times (B \cup D)) \ \dot\cup\ ((C \setminus A) \times D) %nur in klassischer Logik
+\end{align*}
+\endgroup
+ 
+
+\begin{comment}
+\section{Regeln für disjunkte Vereinigungen}
+Seien $A,B,C,D$ vier Mengen, $I,J$ zwei Indexmengen und $(X_i)_{i\in I}$, $(Y_j)_{j\in J}$, $(Z_i)_{i\in I}$ drei Familien von Mengen. Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    \begin{split}
+        A \sqcup (C \cap D) & = (A \sqcup C) \cap (A \sqcup D) \\
+        (A \cap B) \sqcup C & = (A \sqcup C) \cap (B \sqcup C)
+    \end{split} && (\text{Distributivität über $\cap$})\\[1em]
+    \begin{split}
+        A \sqcup (C \cup D) & = (A \sqcup C) \cup (A \sqcup D) \\
+        (A \cup B) \sqcup C & = (A \sqcup C) \cup (B \sqcup C)
+    \end{split} && (\text{Distributivität über $\cup$})\\[1em]
+    \begin{split}
+        A \sqcup (C \setminus D) & = (A \sqcup C) \setminus (A \sqcup D) \\
+        (A \setminus B) \sqcup C & = (A \sqcup C) \setminus (B \sqcup C)
+    \end{split} && (\text{Distributivität über $\setminus$}) \\[1em]
+    (A \sqcup B) \setminus (C \sqcup D) & = (A\setminus C)\sqcup (B\setminus D) \\[1em]
+    \begin{split}
+        A \sqcup \bigcap_{i\in I} X_i & = \bigcap_{i\in I} ( A \sqcup X_i ) \qquad \text{falls}\ I\neq \emptyset \\
+        (\bigcap_{i\in I} X_i ) \sqcup A & = \bigcap_{i\in I} ( X_i \sqcup A ) \qquad \text{falls}\ I\neq \emptyset \\
+    \end{split} && (\text{Distributivität über $\bigcap_i$})\\[1em]
+    \begin{split}
+        A \sqcup (\bigcup_{i\in I} X_i) & = \bigcup_{i\in I} ( A \sqcup X_i ) \qquad \text{falls}\ I\neq \emptyset\\
+        (\bigcup_{i\in I} X_i ) \sqcup A & = \bigcup_{i\in I} ( X_i \sqcup A ) \qquad \text{falls}\ I\neq \emptyset\\
+    \end{split} && (\text{Distributivität über $\bigcup_i$})\\[1em]
+    \bigcap_{i\in I} (X_i \sqcup Z_i) & = (\bigcap_{i\in I} X_i ) \sqcup (\bigcap_{i\in I} Z_i) \qquad \text{falls}\ I\neq \emptyset  \\
+    \bigcup_{i\in I} (X_i \sqcup Z_i) & = (\bigcup_{i\in I} X_i ) \sqcup (\bigcup_{i\in I} Z_i)
+\end{align*}
+\endgroup
+
+
+Es seien $I,J$ zwei Indexmengen und $(X_i)_{i\in I}$, $(Y_i)_{i\in I}$, $(Z_{ij})_{(i,j) \in I \times J}$ drei Familien von Mengen. Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    (\bigsqcup_{i \in I} X_i) \cap (\bigsqcup_{i \in I} Y_i) & = \bigsqcup_{i \in I} (X_i \cap Y_i) \\
+    (\bigsqcup_{i \in I} X_i) \cup (\bigsqcup_{i \in I} Y_i) & = \bigsqcup_{i \in I} (X_i \cup Y_i) \\[1em]
+    (\bigsqcup_{i\in I} Y_i) \setminus (\bigsqcup_{i\in I} X_i) & = \bigsqcup_{i\in I} (Y_i \setminus X_i) \\[1em]
+    \bigsqcup_{i \in I} \bigcap_{j \in J} Z_{ij} & = \bigcap_{j \in J} \bigsqcup_{i \in I} Z_{ij} \qquad \text{falls}\ J\neq \emptyset \\
+    \bigsqcup_{i \in I} \bigcup_{j \in J} Z_{ij} & = \bigcup_{j \in J} \bigsqcup_{i \in I} Z_{ij}
+\end{align*}
+\endgroup
+\end{comment}
+
+
+
+
+
+\section{Regeln für Bilder und Urbilder}
+In den folgenden Formeln seien
+\begin{itemize}
+    \item $X,Y,Z$ drei Mengen.
+    \item $\begin{tikzcd}[cramped] X \ar[r, "f"] &  Y\ar[r, "g"] & Z \end{tikzcd}$ zwei Abbildungen.
+    \item $(X_i)_{i\in I}$ eine Familie von Teilmengen von $X$ und $(Y_i)_{i\in I}$ eine Familie von Teilmengen von $Y$.
+    \item $A,U,V\subseteq X$ und $B,S,T\subseteq Y$ und $C\subseteq Z$ weitere Teilmengen.
+\end{itemize}
+Es gilt:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    \begin{split}
+    (g\circ f)(A) & \quad=\quad g(f(A)) \\
+    (g\circ f)^{-1}(C) & \quad=\quad f^{-1}(g^{-1}(C))
+    \end{split} && (\text{Funktorialität}) \\[1em]
+    \begin{split}
+        U\subseteq V & \quad \to\quad f(U) \subseteq f(V) \\
+        S\subseteq T & \quad \to\quad f^{-1}(S)\subseteq f^{-1}(T)
+    \end{split} && (\text{$f$ und $f^{-1}$ sind inklusionserhaltend}) \\[1em]
+    \begin{split}
+        f(A) \subseteq B & \quad \leftrightarrow\quad A \subseteq f^{-1}(B) \\
+        A & \quad \subseteq\quad f^{-1}(f(A)) \\
+        f(f^{-1}(B)) & \quad=\quad B\cap \im(f)
+    \end{split} \\[1em]
+    f^{-1}(\bigcap_{i \in I} Y_i) & \quad=\quad \bigcap_{i \in I} f^{-1}(Y_i) \\
+    f^{-1} (\bigcup_{i \in I} Y_i) & \quad=\quad \bigcup_{i \in I} f^{-1}(Y_i) \\[1em]
+    f(\bigcup_{i \in I} X_i) & \quad=\quad \bigcup_{i \in I} f(X_i) \\
+    f(\bigcap_{i \in I} X_i) & \quad \subseteq\quad \bigcap_{i \in I} f(X_i) \\[1em]
+    f^{-1}(S\setminus T) & \quad=\quad f^{-1}(S)\setminus f^{-1}(T) \\
+    f(U\setminus V) & \quad \supseteq\quad f(U)\setminus f(V)
+\end{align*}
+\endgroup
+
+
+
+
+\section{Einige natürliche Bijektionen}
+Dieser Abschnitt enthält eine Liste von „natürlichen Entsprechungen“ von Mengen. Es handelt sich dabei nicht um Gleichungen im strikten Sinne, weshalb ich nicht das Zeichen „$=$“ benutze -- jedoch können die Elemente der einen Menge jeweils „natürlich“ mit den Elementen der anderen Menge „identifiziert“ werden, d.h. es gibt eine naheliegende Bijektion zwischen beiden Mengen. Dies notiere ich mit dem Zeichen „$\cong$“. Ich werde keine konkreten Bijektionen angeben, wenn du Lust hast, versuche selbst einmal herauszufinden, inwiefern die Elemente der einen Menge jeweils den Elementen der anderen „entsprechen“.
+
+Es seien
+\begin{itemize}
+    \item $X,Y,Z$ drei Mengen.
+    \item $I,J,K$ drei beliebige Mengen und $\sigma : K\to I$ eine bijektive Abbildung.
+    \item $(X_i)_{i\in I}$ und $(M_{ij})_{(i,j)\in I\times J}$ zwei Mengenfamilien.
+    \item Die Zeichen „$0$“, „$1$“ und „$2$“ bezeichnen neben den Zahlen Null, Eins und Zwei auch jeweils eine beliebige null-, ein- bzw. zweielementige Menge.
+\end{itemize}
+Dann gibt es natürliche Bijektionen:
+\begingroup
+\allowdisplaybreaks
+\begin{align*}
+    \Abb(X,Y) & \quad\cong\quad Y^X && (\text{Gleichwertigkeit von Abbildungen und Familien})
+\end{align*}
+\begin{align*}
+    \Abb(X,\prod_{i\in I} X_i) & \quad\cong\quad \prod_{i\in I} \Abb(X,X_i) && (\text{Universelle Eigenschaft des Produkts}) \\
+    \Abb(\bigsqcup_{i\in I} X_i,X) & \quad\cong\quad \prod_{i\in I} \Abb(X_i,X) && (\text{Universelle Eigenschaft des Koprodukts})
+\end{align*}
+\begin{align*}
+    \calP(X) & \quad\cong\quad \Abb(X,2) \quad\cong\quad 2^X \\
+    \calP(X\times Y) & \quad\cong\quad \Abb(X,\calP(Y)) \\
+    \Abb(X\times Y,Z) & \quad\cong\quad \Abb(X,\Abb(Y,Z)) && (\text{Currying}) \\[1em]
+    \begin{split}
+        1 \times X & \quad\cong\quad X \\
+        X\times (Y\times Z) & \quad\cong\quad (X\times Y) \times Z \\
+        X\times Y & \quad\cong\quad Y\times X
+    \end{split} \\[1em]
+    \begin{split}
+        X\sqcup 0 & \quad\cong\quad X \\
+        X \sqcup ( Y\sqcup Z) & \quad\cong\quad (X\sqcup Y)\sqcup Z \\
+        X \sqcup Y & \quad\cong\quad Y\sqcup X
+    \end{split} \\[1em]
+        0 \times X & \quad\cong\quad 0 && (\text{Absorbierende Null}) \\
+        X \times (Y\sqcup Z) & \quad\cong\quad (X\times Y)\sqcup (X\times Z) && (\text{Distributivgesetz}) \\[1em]
+    \begin{split}
+        (X\times Y)^Z & \quad\cong\quad X^Z \times Y^Z \\
+        X^{Y\sqcup Z} & \quad\cong\quad X^Y \times X^Z \\
+        X^{Y\times Z} & \quad\cong\quad (X^Y)^Z \\
+        1^X & \quad\cong\quad 1 \\
+        X^1 & \quad\cong\quad X \\
+        X^0 & \quad\cong\quad 1
+    \end{split} \\[1em]
+    \begin{split}
+        \prod_{i\in I} \prod_{j\in J} M_{ij} & \quad\cong\quad \prod_{j\in J} \prod_{i\in I} M_{ij} \\
+        \bigsqcup_{i\in I} \bigsqcup_{j\in J} M_{ij} & \quad\cong\quad \bigsqcup_{j\in J} \bigsqcup_{i\in I} M_{ij}
+    \end{split} \\[1em]
+    \begin{split}
+    \prod_{i\in I} X_i & \quad\cong\quad \prod_{k\in K} X_{\sigma(k)} \\
+    \bigsqcup_{i\in I} X_i & \quad\cong\quad \bigsqcup_{k\in K} X_{\sigma(k)}
+    \end{split} \\[1em]
+    \begin{split}
+        X \times (\bigsqcup_{i\in I} Y_i) & \quad\cong\quad \bigsqcup_{i\in I} (X\times Y_i) \\
+        \prod_{i\in I} \bigsqcup_{j\in J} X_{ij} & \quad\cong\quad \bigsqcup_{g\in \Abb(I,J)}\ \prod_{i\in I} X_{ig(i)}
+    \end{split} \\[1em]
+    \begin{split}
+        (\prod_{i\in I} X_i)^Y & \quad\cong\quad \prod_{i\in I} X_i^Y \\
+        X^{\bigsqcup_{i\in I} Y_i} & \quad\cong\quad \prod_{i\in I} X^{Y_i}
+    \end{split}
+\end{align*}
+\endgroup
+
+
+
+
+
+\chapter{Mathematischer Jargon}
+
+
+\begin{description}[labelindent=0pt, leftmargin=0pt]
+
+    \item[abuse of notation:] Um die Übersichtlichkeit mathematischer Formelsprache zu wahren, wird gelegentlich ein Zeichen mit mehreren verschiedenen Bedeutungen zugleich oder einer inkorrekten Syntax verwendet. Ist beispielsweise $(G,*)$ eine Gruppe, so spricht man meist von „der Gruppe $G$“ und geht unterschwellig davon aus, dass die Verknüpfung $*$ vom Leser mitgedacht wird. Diese Notation ist manchmal leicht missbräuchlich, um ihrer besseren Lesbarkeit aber vorzuziehen.
+
+    \item[Ansatz:] Herangehensweise, einen Beweis zu führen, ein Problem zu lösen oder ein Objekt zu definieren. Beispielsweise ist die \href{https://en.wikipedia.org/wiki/Completing_the_square}{quadratische Ergänzung} ein Ansatz zum Lösen quadratischer Gleichungen. 
+    
+    \item[Ausgeartet:] Ein Objekt, das gewisse für die Formulierung der Theorie zuvorkommende Eigenschaften nicht besitzt. Das Gegenteil ist ein \textbf{nicht-ausgeartetes} Objekt. Beispielsweise ist ein Dreieck ausgeartet, wenn alle seine drei Eckpunkte auf einer gemeinsamen Geraden liegen.
+
+    \item[Beliebig:] Markiert die Formulierung einer Allaussage. In einem Beweis läutet die Fixierung eines „beliebigen Objekts“ den Beweis einer Allaussage ein.
+
+    \item[Charakterisierung:] Äquivalente Beschreibung eines Objekts.
+
+    \item[Echt:] wahlweise von der Bedeutung „strikt“ oder „nichttrivial“. Beispielsweise sind die \emph{echten Teiler} einer natürlichen Zahl $n$ alle Teiler von $n$ ausgenommen den „trivialen Teiler“ $n$ selbst. Die \emph{echten Teilmengen} einer Menge $M$ sind alle Teilmengen von $M$ mit Ausnahme der „trivialen Teilmenge“ $M$ (und eventuell $\emptyset$).
+
+    \item[Eindeutig bestimmt:] Ein mathematisches Objekt ist durch eine Eigenschaft eindeutig bestimmt, falls es kein anderes Objekt mit derselben Eigenschaft gibt. Beispielsweise ist der Mittelpunkt eines Kreises eindeutig bestimmt durch die Eigenschaft, dass er zu jedem Punkt auf dem Kreis denselben Abstand hat. Dagegen ist etwa die komplexe Quadratwurzel von $-1$ nicht eindeutig bestimmt, weil sowohl die komplexe Zahl $i$ als auch die Zahl $-i$ jeweils Quadratwurzeln von $-1$ sind.
+    
+    \item[Elementar:] Eine mathematische Aussage ist elementar, wenn ihr Beweis wenig Vorarbeit und Definitionen benötigt und auf wenige andere Sätze angewiesen ist . Andernfalls spricht man von einer \textbf{tiefen} Aussage. Werden im Laufe der Zeit neue Beweise gefunden, kann eine vormals tiefe Aussage elementar werden.
+
+    \item[Fast alle:] Alle Elemente einer Menge mit Ausnahme einer im Kontext vernachlässigbaren Teilmenge. Hat in der Algebra oft die Bedeutung „alle bis auf endlich viele“.
+
+    \item[Gegenbeispiel:] Ein Objekt, das eine Allaussage widerlegt, indem es dieser Aussage widerspricht. Beispielsweise ist die Aussage, dass jede reelle Zahl eine reelle Quadratwurzel besitzt, falsch und wird durch das Gegenbeispiel $-1$ (und ebensogut jede andere negative Zahl) widerlegt.
+
+    \item[Im Allgemeinen nicht:] Eine Aussage gilt „im Allgemeinen nicht“, wenn sie nicht immer wahr ist. Beispielsweise besitzt eine ganze Zahl im Allgemeinen keine ganzzahlige Quadratwurzel.
+    
+    \item[Induzieren:] Sofern irgendein mathematisches Objekt $a$ automatisch bereits die Existenz eines weiteren mathematischen Objekts $b$ mit sich bringt, so sagt man auch, das Objekt $b$ werde vom Objekt $a$ „induziert“.
+
+    Sind beispielsweise $X,Y$ zwei Mengen und $X\xrightarrow{f} Y$ eine Abbildung, so \emph{induziert} $f$ zwei Abbildungen zwischen den Potenzmengen:
+    \begin{align*}
+        \calP(X) \to \calP(Y) \ & , \ A\mapsto f(A) \\
+            \calP(Y) \to \calP(X) \ & , \ B\mapsto f^{-1}(B)
+    \end{align*}
+    die einer Teilmenge jeweils ihre Bildmenge bzw. ihre Urbildmenge zuordnen.
+    
+    \item[Kanonisch:] Ein Objekt ist kanonisch, wenn es sich um ein Standard-Beispiel handelt, wenn es als Standard-Struktur eines anderen Objekts angesehen wird oder wenn es \emph{natürlich} (siehe unten) ist. Andernfalls heißt es \textbf{unkanonisch}. Beispielsweise besitzt der $\R^n$ eine kanonische Basis, die sogenannte Standardbasis, wohingegen der Folgenraum $\R^\N$ keine kanonische Basis besitzt, die Wahl einer Basis daher unkanonisch wäre. Noch ein Beispiel: die „kanonische“ Gruppenstruktur auf $\Z$ besteht aus der Addition. Schreiben Mathematiker von „der Gruppe $\Z$“, so ist damit so gut wie immer die Gruppe $(\Z,+)$ gemeint.
+
+    \item[Konstruktiv:] Ein Beweis oder eine Theorie sind „konstruktiv“, wenn jede ihrer Existenzaussagen durch ein Beispiel belegt werden kann. Andernfalls sind sie \textbf{nichtkonstruktiv}. Beispielsweise ist die Aussage „Jede surjektive Abbildung besitzt eine Rechtsinverse“ nichtkonstruktiv.
+    
+    \item[Korollar:] Folgerung aus einem größeren mathematischen Satz.
+
+    \item[Lemma:] Hilfssatz, der an und für sich von geringerem Interesse ist, oftmals aber wichtige und technische Beweisarbeit einschließt, auf die später im Beweis eines bedeutsamen Satzes zurückgegriffen wird.
+
+    \item[Mathematischer Komparativ:] Schreiben Mathematiker so etwas wie „$a$ ist größer als $b$“, so ist darin oft auch der Fall mit eingeschlossen, dass $a$ und $b$ die Eigenschaft in genau demselben Grad aufweisen, also „$a$ ist größergleich $b$“. Möchte man diesen Fall explizit ausschließen, kann man so etwas wie „$a$ ist \emph{strikt} größer als $b$“ schreiben.
+    
+    \item[Modulo:] Das Arbeiten mit Äquivalenzklassen. Der Begriff wird auch im übertragenen Sinne verwendet, wenn Objekte nicht vollständig, aber bis auf „vernachlässigbare“ Unterschiede voneinander unterschieden werden. Beispielsweise ist die Lösung der Gleichung $x^2=2$ „eindeutig bis auf (\glq modulo\grq) Vorzeichen“.
+
+    \item[Natürlich:] Eine mathematische Konstruktion wird \emph{natürlich} genannt, wenn sie besonders naheliegend ist, nicht auf willkürliche Wahlen angewiesen ist, aus den Definitionen „in natürlicher Weise“, quasi wie von selbst emergiert oder sich in einem „universellen“, allgemeinen Kontext definieren lässt. Andernfalls heißt sie \textbf{unnatürlich}. Im Gegensatz zum informellen mathematischen Jargon besitzt das Wort „natürlich“ in der \href{https://ncatlab.org/nlab/show/category+theory}{Kategorientheorie} eine präzise mathematische Bedeutung, wo es das Vorliegen gewisser Gleichungen in Form von \emph{kommutativen Diagrammen} beschreibt.
+
+    \item[Ohne Beschränkung der Allgemeinheit (OBdA):] Eine Annahme in einem Beweis geschieht „ohne Beschränkung der Allgemeinheit“ (oder auch: „ohne Einschränkung“), wenn sie streng genommen zwar nicht jeden von der zu beweisenden Aussage eingeschlossenen Fall abdeckt, der Verlust an Allgemeinheit aber nur oberflächlich ist, indem sich der allgemeine Fall leicht aus dem spezielleren ableiten lässt oder so naheliegend zu beweisen ist, dass er nicht der Rede wert ist. Sind beispielsweise $n,m$ zwei natürliche Zahlen, so kann \emph{oBdA} angenommen werden, dass $n\le m$, da eine der beiden Zahlen größergleich die andere sein muss und im Fall $n\ge m$ die Variablen schlicht umbenannt werden könnten.
+
+    \item[Pathologisch:] Ein mathematisches Objekt verhält sich \emph{pathologisch}, wenn es in sich Eigenschaften vereint, die kontraintuitiv oder unerwünscht sind. Pathologien dienen oft als Gegenbeispiele um zu beweisen, dass eine Eigenschaft eine andere Eigenschaft nicht impliziert. Beispielsweise braucht eine stetige Funktion an keiner Stelle differenzierbar sein, wie die pathologische \href{https://de.wikipedia.org/wiki/Weierstrass-Funktion}{Weierstraß-Funktion} demonstriert. Das Gegenteil von „pathologisch“ ist \textbf{regulär}. In einzelnen Disziplinen besitzt das Wort „regulär“ allerdings häufig eine präzise festgelegte Bedeutung, die oftmals überaltert ist, aus kommunikativen Gründen aber dennoch beibehalten wird.
+
+    \item[QED:] Latein für „quod erat demonstrandum“ -- „was zu beweisen war“. Wurde früher ans Ende eines mathematischen Beweises geschrieben. Heutzutage sind kleine Symbole wie $\square$, $\blacksquare$ oder $\lozenge$ zur Markierung des Beweisendes üblich.
+    
+    \item[Rigoros:] Ein Beweis ist \emph{rigoros}, wenn er logische Schlüsse präzise und ausführlich beschreibt. Ein nicht-rigoroser Beweis weicht gelegentlich auf ungenaue Plausibilitätsargumente aus, begründet die Gültigkeit gewisser Hypothesen nicht oder vernachlässigt Spezialfälle. Beispielsweise kann die Kommutativität der Multiplikation natürlicher Zahlen
+    \begin{align*}
+        n \cdot m & = m \cdot n && \text{für alle}\ n,m\in \N
+    \end{align*}
+    mithilfe visueller Plausibilitätsargumente erklärt werden oder aber rigoros per Induktion bewiesen werden.
+
+    \item[Trivial:] Eine mathematische Aussage heißt trivial, wenn sie sich unmittelbar aus den Definitionn der in ihr vorkommenden Begriffe ergibt. Andernfalls heißt sie \textbf{nichttrivial}. Beispielsweise ist die Aussage „Eine Abbildung $X\xrightarrow{f} Y$ ist genau dann surjektiv, wenn $\im(f)=Y$“ trivial, wohingegen die Aussage „Eine Menge $M$ ist genau dann endlich, wenn jede injektive Abbildung $M\to M$ auch surjektiv ist“ eher nichttrivial ist.
+    
+    Ein mathematisches Objekt heißt trivial, wenn es simpel konstruierbar und auf den ersten Blick nicht von größerem Interesse ist. Beispielsweise ist $(\{0\},+)$ eine „triviale Gruppe“. 
+
+    \item[Verallgemeinerung:] Ein mathematischer Satz $A$ ist eine Verallgemeinerung eines Satzes $B$, wenn er den Satz $B$ in sich einschließt oder wenn $B$ aus $A$ abgeleitet werden kann. Eine solche Ableitung kann allerdings alles andere als naheliegend oder einfach sein. Das Gegenteil ist der Begriff des \textbf{Spezialfalls}. Beispielsweise ist der sogenannte \emph{Struktursatz für endlich erzeugte Moduln über Dedekindringen} eine Verallgemeinerung des Satzes aus der LA1, dass jeder endlich erzeugte Vektorraum eine Basis besitzt, der umgekehrt ein Spezialfall des Struktursatzes ist.
+    
+    \item[Vertreterabhängig:] Eine Konstruktion ist (vordergründig) \emph{vertreterabhängig}, wenn sie es mit Objekten zu tun hat, die auf verschiedenerlei Weise dargestellt werden können, allerdings erst nach Fixierung einer solchen Darstellung anwendbar ist. Beispielsweise kann jede rationale Zahl als Bruch der Gestalt $\frac{p}{q}$ mit $p\in \Z$, $q\in \N_{>0}$ dargestellt werden, aber diese Darstellung ist nicht eindeutig, da beispielsweise $\frac{1}{2}=\frac{2}{4}$. Ein einzelner Bruch ist also nur einer von vielen Repräsentanten für ein und dieselbe Zahl. Die Ausdrücke
+    \begin{align*}
+        &\text{(i)} & \Q\setminus \{0\} \to \Q \ & ,\ \frac{p}{q} \mapsto \frac{q}{p} \\
+        &\text{(ii)} & \Q \to \Q \ & ,\ \frac{p}{q} \mapsto p+q
+    \end{align*}
+    sind erst einmal vertreterabhängig, da sie Funktionswerte ausgehend von einer konkreten Repräsentation als Bruch berechnen. Oft ist es nötig zu zeigen, dass eine vordergründig vertreterabhängige Konstruktion in Wahrheit vertreterunabhängig ist, d.h. dass sie unabhängig von der konkreten Wahl einer Darstellung stets dasselbe Objekt liefert. Beispielsweise ist die Vorschrift aus (i) vertreterunabhängig und liefert daher eine wohldefinierte Abbildung $\Q\setminus \{0\}\to \Q$. Dagegen ist die Vorschrift aus (ii) vertreterabhängig, da beispielsweise $\frac{2}{3}=\frac{4}{6}$ aber $2+3\neq 4+6$. Daher ist durch (ii) keine wohldefinierte Abbildung gegeben, durch (i) dagegen schon.
+    
+    \item[Wohldefiniert:] Ein Objekt ist wohldefiniert, wenn es tatsächlich die Anforderungen an diejenige Sorte von Dingen, der angehörig es per Definition sein soll, erfüllt. Diese Forderung schwingt in einer mathematischen „Definition“ immer unausgesprochen mit, ist unter Umständen aber mehr oder weniger offensichtlich erfüllt. Beispielsweise sind die „Funktionen“ aus \cref{aufg:wohldef} allesamt nicht wohldefiniert, es liegen also gar keine Funktionen vor, sondern nur Terme, die den Anschein erwecken, als würden sie Funktionen definieren (und die eventuell nach geringfügiger Modifikation auch wohldefinierte Funktionen ergäben).
+    
+\end{description}

@@ -1,0 +1,51 @@
+
+Dieses Readme-Dokument richtet sich an die Vorkurs-TutorInnen, die während der Vorkurswochen die Übungsgruppen zur Besprechung der mathematischen Vorträge leiten.
+
+Tipps zum Tutorieren:
+
+    (1) Am allerwichtigten: Bedenkt, dass die Leute in eurem Tut absolute Anfänger sind, die unter Umständen noch nie Kontakt zur Uni-Mathematik hatten. Ihre Verständnisprobleme werden sich weniger auf die Eigenarten der mathematischen Objekte selbst, als auf das Vokabular und die Notation beziehen. Achtet auf die Wörter und den Jargon ("induziert", "gilt im Allgemeinen nicht"), den ihr verwendet.
+    
+    (2) Bleibt im Dialog mit euren Tutlingen. Vermeidet rhetorische Figuren, die Distanz zwischen euch und den Anfis aufbauen. Erzeugt ein Umfeld, in dem es selbstverständlich ist, dass einige Dinge aus dem Vortrag oder eurem Tutorium unverständlich sein können und in dem die Anfis keine Scheu haben, nachzufragen und kritisch zu sein.
+    
+    (3) Bei den Aufgabenvorschlägen im Skript handelt es sich lediglich um Vorschläge. Setzt es euch nicht zum primären Ziel, alle Aufgaben im Tutorium durchzugehen.
+    
+    (4) Vielmehr versucht zu identifizieren, welche Stellen im Vortrag unverständlich waren und nochmal besprochen werden sollten. Für mich hat es sich bewährt, das Tutorium mit einer 15-minütigen Diskussionsrunde zu beginnen, in der ich selbst keinerlei Inhalt einbringe und stattdessen die Anfis dabei moderiere, selbst miteinander über ihr Verständnis des Vortrags und die Unstimmigkeiten, die sich bei ihnen ergeben haben, zu reden. Macht euch währenddessen Notizen und passt euer Tutorium und die Aufgaben, die ihr mit den Anfis durchgeht, daran an.
+    
+***********************************************************************************
+
+Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
+
+    -- Kapitel 1 Logik:
+    
+        A3 (Wahrheitstafeln) Weil ich 2021 erlebt habe, wie ein Tutor hier Bullshit verzapft hat, hier ein Kommentar:
+            b) ist dann und nur dann wahr, wenn A und B beide falsch sind. Nach der De Morganschen Regel muss es ja äquivalent zu a) sein.
+            c) ist dann und nur dann wahr, wenn A und B denselben Wahrheitswert haben, also beide wahr oder beide falsch sind.
+            d) ist eine Tautologie.
+            
+    -- Kapitel 2 Beweise:
+    
+        A3 (Fehlersuche II) Der Satz ist wahr und der Beweis ist an sich auch korrekt, enthält aber allerlei Ungenauigkeiten. Lasst die Anfis selbst ihre Probleme mit dem Beweis äußern, am Ende könnt ihr eventuell die folgenden Punkte ansprechen:
+            (1) Es wurde nie definiert, was die Pünktchen "..." in der Definition von m bedeuten sollen. Insbesondere im Fall, dass n<3 ist, kann diese Schreibweise zu Verwirrung führen.
+            (2) Es wurde nicht begründet, warum m+1 durch 2 teilbar, m+2 durch 3 teilbar ist usw.
+            (3) Im Fall n=1 ist m+2 gar nicht durch 3 teilbar. Der Beweis ist unvorteilhaft geschrieben, weil er die Fälle n=1,2 nicht gut einschließt.
+            (4) Die Schlussfolgerung, dass m+1,...,m+n keine Primzahlen sind, ist ungenau. Nur weil m+2 durch 3 teilbar ist, könnte ja dennoch m+2 eine Primzahl, nämlich m=3 sein. Hier wird die Information weggelassen, dass m+k > k+1 ist.
+
+    -- Kapitel 4 Abbildungen:
+
+        A1 (Zerlegen von Abbildungen)
+            d) erfordert einen Trick. Teilt den Leuten deshalb mit, ihre Zeit erstmal nur auf a),b),c) zu verwenden. Eine mögliche Lösung für d) wäre:
+                f1 : N  --> N² , n --> (n,n)
+                f2 : N² --> N² , (m,n) --> (3^m,n)
+                f3 : N² --> N , (m,n) --> m+n
+            Dann ist f3°f2°f1 eine Faktorisierung der Abbildung aus der Aufgabenstellung.
+        
+        A4 (Vererbung von Injektivität und Surjektivität)
+            c) ist folgendermaßen intendiert: Sei f invertierbar mit Inverser g.
+                Wegen g°f=id und da id bijektiv ist, folgt aus a), dass f injektiv ist.
+                Wegen f°g=id und da id bijektiv ist, folgt aus b), dass f surjektiv ist.
+                Also ist f bijektiv.
+            Gebt den Anfis eventuell Tipps, indem ihr vielleicht erstmal besprecht, dass id eine Bijektion ist.
+            
+
+
+Luka, September 2022

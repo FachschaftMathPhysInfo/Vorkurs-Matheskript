@@ -1,0 +1,52 @@
+
+Dieses Readme-Dokument richtet sich an die Vorkurs-TutorInnen, die während der Vorkurswochen die Übungsgruppen zur Besprechung der mathematischen Vorträge leiten.
+
+Tipps zum Tutorieren:
+
+    (1) Am allerwichtigten: Bedenkt, dass die Leute in eurem Tut absolute Anfänger sind, die unter Umständen noch nie Kontakt zur Uni-Mathematik haben. Ihre Verständnisprobleme werden sich weniger auf die Eigenarten der mathematischen Objekte selbst, sondern auf das Vokabular und die Notation beziehen. Achtet auf die Wörter und den Jargon ("induziert", "gilt im Allgemeinen nicht"), den ihr verwendet.
+    
+    (2) Bleibt im Dialog mit den Leuten. Vermeidet rhetorische Figuren, die Distanz zwischen euch und den Anfis aufbauen. Erzeugt ein Umfeld, in dem es selbstverständlich ist, dass einige Dinge aus dem Vortrag oder eurem Tutorium unverständlich sein können und in dem die Anfis keine Scheu haben, nachzufragen und kritisch zu sein.
+    
+    (3) Bei den Aufgabenvorschlägen im Skript handelt es sich lediglich um Vorschläge. Setzt es euch nicht zum primären Ziel, alle Aufgaben im Tutorium durchzugehen.
+    
+    (4) Vielmehr versucht zu identifizieren, welche Stellen im Vortrag unverständlich waren und nochmal besprochen werden sollten. Für mich hat es sich bewährt, das Tutorium mit einer 15-minütigen Diskussionsrunde zu beginnen, in der ich selbst keinerlei Inhalt einbringe und stattdessen die Anfis dabei moderiere, selbst miteinander über ihr Verständnis des Vortrags und die Unstimmigkeiten, die sich bei ihnen ergeben haben, zu reden. Macht euch währenddessen Notizen und passt euer Tutorium und die Aufgaben, die ihr mit den Anfis durchgeht, daran an.
+    
+***********************************************************************************
+
+Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
+
+    -- Kapitel 1 Logik:
+    
+        A3 (Wahrheitstafeln) Weil ich 2021 erlebt habe, wie ein Tutor hier Bullshit verzapft hat, hier die Lösung:
+            a) ist eine Tautologie, nämlich eine der DeMorganschen Regeln, also in jedem Fall wahr.
+            b) ist ebenfalls eine Tautologie, die sogenannte Import-/Exportformel. Für Kenner: Es handelt sich hierbei um eine Adjunktion im Sinner der Kategorientheorie.
+            c) ist keine Tautologie und nur in den Fällen wahr, in denen A und B denselben Wahrheitswert haben.
+            
+    -- Kapitel 2 Beweise:
+    
+        A3 (Fehlersuche II) Der Satz ist wahr und der Beweis ist an sich auch korrekt, enthält aber allerlei Ungenauigkeiten. Lasst die Anfis selbst ihre Probleme mit dem Beweis äußern, am Ende könnt ihr eventuell die folgenden Punkte ansprechen:
+            (1) Es wurde nie definiert, was die Pünktchen "..." in der Definition von m bedeuten sollen. Insbesondere im Fall, dass n<3 ist, kann diese Schreibweise zu Verwirrung führen.
+            (2) Es wurde nicht begründet, warum m+1 durch 2 teilbar, m+2 durch 3 teilbar ist usw.
+            (3) Im Fall n=1 ist m+2 gar nicht durch 3 teilbar. Der Beweis ist unvorteilhaft geschrieben, weil er die Fälle n=1,2 nicht gut einschließt.
+            (4) Die Schlussfolgerung, dass m+1,...,m+n keine Primzahlen sind, ist ungenau. Nur weil m+2 durch 3 teilbar ist, könnte ja dennoch m+2 eine Primzahl, nämlich m=3 sein. Hier wird die Information weggelassen, dass m+k > k+1 ist.
+            
+    -- Kapitel 4 Abbildungen:
+    
+        A1 (Zerlegen von Abbildungen)
+            c) ist vermutlich für die meisten zu schwierig. Teilt das den Leuten mit, damit sie ihre Zeit eher mit a) und b) verbringen. Eine mögliche Lösung für c) wäre:
+                f1 : R  --> R² , x --> (x,x)
+                f2 : R² --> R x R\{0} , (x,y) --> (sin(x), y²)
+                f3 : R x R\{0} --> R x R\{0} , (x,y) --> (x, y+3)
+                f4 : R x R\{0} --> R  , (x,y) --> x/y
+            Dann ist f4°f3°f2°f1 eine Faktorisierung der Abbildung aus der Aufgabenstellung.
+        
+        A4 (Vererbung von Injektivität und Surjektivität)
+            c) ist so folgendermaßen intendiert: Sei f invertierbar mit Inverser g.
+                Wegen g°f=id und da id bijektiv ist, folgt aus a), dass f injektiv ist.
+                Wegen f°g=id und da id bijektiv ist, folgt aus b), dass f surjektiv ist.
+                Also ist f bijektiv.
+            Gebt den Anfis eventuell Tipps, indem ihr vielleicht besprecht, dass id eine Bijektion ist.
+            
+
+
+Luka, September 2022

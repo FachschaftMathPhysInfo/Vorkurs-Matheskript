@@ -12,27 +12,6 @@ Der gesamte LaTeX-Code erstreckt sich über:
     7. Die "Symbolverzeichnis.tex", in der die Einträge fürs Symbolverzeichnis definiert werden.
     8. Das BibLaTeX-file "Literaturverzeichnis.bib", in dem die Einträge des Literaturverzeichnisses definiert werden.
     9. Die Shell-Datei "make.sh", die eine Prozedur enthält, um das Skript in einem Rutsch zu kompilieren, sofern noch keine auxiliary-files angelegt wurden.
-
-***********************************************************************************
-
-Tipps zum guten TeXen:
-
-    (1) Seid sparsam mit dem Erstellen neuer Befehle und verwendet soweit es geht die gewöhnliche LaTeX-Syntax. So bleibt der Code auch für diejenigen, die nach euch dran arbeiten, gut verständlich. Solltet ihr rein kosmetische Änderungen vornehmen wollen, zieht in Betracht, die Standard-Syntax per renewcommand zu überschreiben. Dies sollte aber nur kosmetische, nicht semantische Änderungen betreffen.
-    
-    (2) Mathematische Kürzel und Operatoren werden definiert in der operators.tex, verschafft euch dort einmal einen Überblick über die bereits definierten Befehle. Nutzt diese Befehle soweit es geht, damit bei einer eventuellen globalen Änderung nur ein paar Zeilen in der operators.tex geändert werden müssen und nicht der ganze restliche Code durchforstet werden muss. Dies betrifft insbesondere die in der operators.tex definierten Kürzel für die \mathbb- und \mathcal-Alphabete und die Abkürzungen \N,\Z,\Q,\R,\C für die Zahlbereiche.
-    
-    (3) Wenn ihr neue Operatoren definiert, sollte der Befehl so „sprechend“ und selbsterklärend wie möglich sein. Am besten sollte er genau aus denselben Zeichen wie der Operator selbst bestehen, also etwa \Abb für die Menge der Abbildungen und \kgV fürs kleinste gemeinsame Vielfache. Die Befehle sollten auch für eure Nachfolger unmittelbar einsichtig und gut zu merken sein.
-    
-        In einer älteren Version war beispielsweise jemand mit dem üblichen \lim-Befehl nicht einverstanden und hatte sich per
-            \newcommand{\limm}[1]{\lim\limits_{#1}}
-        einen eigenen Limes-Befehl definiert, der sich vom Standard-Limes lediglich dadurch unterschied, dass auch im inline-mathmode die Zeile "n \to infty" nicht neben das Limes-Zeichen, sondern darunter platziert wird. Hierdurch wurde
-            1. ein unnötiger Befehl für einen Operator, der eigentlich standardmäßig schon definiert war, erstellt.
-            2. Der Befehl war nicht selbsterklärend. Wer rechnet damit, dass „limm“ für einen gewöhnlichen Limes steht? Warum das doppelte m?
-            3. Der Befehl durchbricht die durchaus sinnvolle LaTeX-Regelung, im inline-mathmode keine \limits-Indizes zu platzieren. Sollte sowas wirklich einmal erwünscht sein, ist es vielleicht besser, an der Stelle halt das aufwendigere "\lim\limits_{n\to \infty}" zu texen, auch um anderen Editoren mitzuteilen, dass eine Ausnahme der Regel vorkommt. Ich habe das beispielsweise im Symbolverzeichnis in den Einträgen von \sum und \prod so gehandhabt.
-        Bitte vermeidet so etwas! Solltet ihr mit den Standard-Befehlen unzufrieden sein, zieht notfalls in Betracht, sie direkt zu überschreiben, also etwa den Standard-\lim-Befehl durch den Neuen komplett zu ersetzen. Dies sollte aber ausschließlich kosmetische Änderungen betreffen, die Befehle sollten nachwievor das ergeben, was man intuitiv von ihnen erwartet.
-    
-    (4) In die tex-Files zu den einzelnen Kapiteln gehört ausschließlich mathematischer Inhalt, der keine weiteren Effekte über das Kapitel hinaus bewirkt! Kürzel werden in der operators.tex definiert, andere \renewcommand's, Formatoptionen oder Ähnliches gehören in die Präambel oder ins classfile.
-    
   
 ***********************************************************************************
 
@@ -67,6 +46,8 @@ Erklärungen zur Dokumentstruktur:
         A) Sätze, Bemerkungen, Notationen, Axiome werden mit einem prägnanten Wort gelabelt, das auf den Inhalt zugeschnitten ist. Bitte auf keinen Fall Nummerierungen innerhalb der Labels ("\label{satz5}") verwenden! - Das führt nur zu Verwirrung, wenn sich später die Textstruktur nochmal verändern sollte. Die labels enthalten keine Großschreibung (also auch kein CamelCase) und keine Getrenntschreibung. Ebenso sollten sie keine Spezialbuchstaben wie ä,ö,ü enthalten.
         
         B) Labels von Definitionen beginnen mit "def:", von Beispielen mit "bsp:" und von Aufgaben mit "aufg:". Zum Beispiel so etwas wie "def:teilmenge". Definitionen und Beispiele treten meist in Paaren auf, in diesem Fall teilen sich Beispiele und Definitionen dieselbe Labelbezeichnung, also beispielsweise "def:disjunkt" bei der Definition disjunkter Mengen und "bsp:disjunkt" bei den Beispielen für disjunkte Mengen.
+
+        C): Labels von chapters beginnen mit "chap:", von sections mit "sec:" und von allen chapters, secitons usf. im Anhang mit "anhang:". Labels von figures beginnen mit "fig:".
         
     Der Grund dafür, dass ich nicht auch so etwas wie "satz:" oder "bem:" bei Sätzen und Bemerkungen verwende, liegt darin, dass die Rollen von Bemerkungen und Sätzen stärker austauschbar sind, d.h. im Schreibprozess wird etwas, das vorher ein Satz war, plötzlich zum Axiom erhoben oder zur Bemerkung degradiert. Bedenkt, dass jede Änderung der labels umständlich ist, weil dann ja auch alle über den Code verteilten \cref{}-Instanzen geändert werden müssen. Die labels sollten wirklich "für die Ewigkeit" sein und nach ihrer Definition nicht mehr verändert werden.
     
@@ -77,7 +58,27 @@ Erklärungen zur Dokumentstruktur:
 
     (Druckbarkeit) Das Skript ist grundsätzlich so geschrieben, dass es sich in doppelseitiger Buchansicht lesen lässt. Dies wird deutlich beispielsweise daran, dass das Layout doppelseitig ist (auf ungeraden Seiten steht der Text weiter links, auf geraden Seiten weiter rechts) neue Kapitel stehts auf einer ungeraden Seite (im Buch rechts) beginnen und das Skript stets auf einer geraden Seite mit dem griechischen Alphabet endet (sodass sich das Alphabet im gedruckten Buch schnell ganz hinten nachschlagen lässt).
     
-Ich habe das classfile im August 2022 von Grund auf neugeschrieben und verstehe es dementsprechend gut. Wenn bei der Bearbeitung des Skripts Schwierigkeiten oder Fragen auftreten, wendet euch gerne an mich per Email: lukathome@gmx.net
+Ich habe das classfile im August 2022 von Grund auf neugeschrieben und verstehe es dementsprechend gut. Wenn bei der Bearbeitung des Skripts Schwierigkeiten oder Fragen auftreten, wendet euch gerne an mich per Email.
+
+***********************************************************************************
+
+Tipps zum guten TeXen:
+
+    (1) Seid sparsam mit dem Erstellen neuer Befehle und verwendet soweit es geht die gewöhnliche LaTeX-Syntax. So bleibt der Code auch für diejenigen, die nach euch dran arbeiten, gut verständlich. Solltet ihr rein kosmetische Änderungen vornehmen wollen, zieht in Betracht, die Standard-Syntax per renewcommand zu überschreiben. Dies sollte aber nur kosmetische, nicht semantische Änderungen betreffen.
+
+    (2) Mathematische Kürzel und Operatoren werden definiert in der operators.tex, verschafft euch dort einmal einen Überblick über die bereits definierten Befehle. Nutzt diese Befehle soweit es geht, damit bei einer eventuellen globalen Änderung nur ein paar Zeilen in der operators.tex geändert werden müssen und nicht der ganze restliche Code durchforstet werden muss. Dies betrifft insbesondere die in der operators.tex definierten Kürzel für die \mathbb- und \mathcal-Alphabete und die Abkürzungen \N,\Z,\Q,\R,\C für die Zahlbereiche.
+
+    (3) Wenn ihr neue Operatoren definiert, sollte der Befehl so „sprechend“ und selbsterklärend wie möglich sein. Am besten sollte er genau aus denselben Zeichen wie der Operator selbst bestehen, also etwa \Abb für die Menge der Abbildungen und \kgV fürs kleinste gemeinsame Vielfache. Die Befehle sollten auch für eure Nachfolger unmittelbar einsichtig und gut zu merken sein.
+
+        In einer älteren Version war beispielsweise jemand mit dem üblichen \lim-Befehl nicht einverstanden und hatte sich per
+            \newcommand{\limm}[1]{\lim\limits_{#1}}
+        einen eigenen Limes-Befehl definiert, der sich vom Standard-Limes lediglich dadurch unterschied, dass auch im inline-mathmode die Zeile "n \to infty" nicht neben das Limes-Zeichen, sondern darunter platziert wird. Hierdurch wurde
+            1. ein unnötiger Befehl für einen Operator, der eigentlich standardmäßig schon definiert war, erstellt.
+            2. Der Befehl war nicht selbsterklärend. Wer rechnet damit, dass „limm“ für einen gewöhnlichen Limes steht? Warum das doppelte m?
+            3. Der Befehl durchbricht die durchaus sinnvolle LaTeX-Regelung, im inline-mathmode keine \limits-Indizes zu platzieren. Sollte sowas wirklich einmal erwünscht sein, ist es vielleicht besser, an der Stelle halt das aufwendigere "\lim\limits_{n\to \infty}" zu texen, auch um anderen Editoren mitzuteilen, dass eine Ausnahme der Regel vorkommt. Ich habe das beispielsweise im Symbolverzeichnis in den Einträgen von \sum und \prod so gehandhabt.
+        Bitte vermeidet so etwas! Solltet ihr mit den Standard-Befehlen unzufrieden sein, zieht notfalls in Betracht, sie direkt zu überschreiben, also etwa den Standard-\lim-Befehl durch den Neuen komplett zu ersetzen. Dies sollte aber ausschließlich kosmetische Änderungen betreffen, die Befehle sollten nachwievor das ergeben, was man intuitiv von ihnen erwartet.
+
+    (4) In die tex-Files zu den einzelnen Kapiteln gehört ausschließlich mathematischer Inhalt, der keine weiteren Effekte über das Kapitel hinaus bewirkt! Kürzel werden in der operators.tex definiert, andere \renewcommand's, Formatoptionen oder Ähnliches gehören in die Präambel oder ins classfile.
 
 ***********************************************************************************
 
@@ -94,7 +95,7 @@ Bemerkungen zum mathematischen Inhalt:
         Ebenso sollten Beweistechniken auf keinen Fall durch Wahrheitstafeln "hergeleitet" werden, wie dies etwa noch 2020 der Fall war! Dieses Vorgehen hat nur zur Folge, dass die Erstis schwieriger lernen, die Junktoren mit ihrer Rolle in Beweisen zu verknüpfen und auf ihren LA1-Zettelabgaben gar meinen, irgendwelche Aussagen über Vektorräume mittels Wahrheitstafeln beweisen zu können (ist mir als LA1-Tutor schon untergekommen). Letztendlich handelt es sich bei den Beweistechniken um Axiome, die die Junktoren mit Bedeutung ausstatten.
     Daher ist mein Wunsch, dass größere Eingriffe ins Logik- und Beweiskapitel nur von Leuten vorgenommen werden, die sich mit Beweiskalkülen, Modelltheorie und intuitionistischer Logik auskennen.
     
-    (5) Die größte Schwäche des Skripts (Stand 2022) ist, dass nirgends Induktionsbeweise besprochen werden. Ich habe mich dazu entschlossen, weil Induktionsbeweise im Skript nirgends benötigt werden (außer bei den Potenzgesetzen im Verknüpfungskapitel, die daher nicht bewiesen werden) und es sich um eine eher fortgeschrittene Technik handelt, die für Anfänger weniger wichtig als all die anderen Techniken aus dem Beweiskapitel sind. Das Beweiskapitel hat ohnehin schon erhebliche Überlänge und ich möchte die Dozenten nicht dazu verführen, in ihren Vortrag auch noch Induktionsbeweise aufzunehmen. Auf Vorkurs-Niveau lässt sich die Technik auch nicht durch schöne Beispiele illustrieren, die Standard-Aufgaben zu Induktion, die irgendwelche Summenformeln involvieren, finde ich unglücklich, weil sie den falschen Eindruck vermitteln, Induktionsbeweise kämen vor allem bei arithmetischen Gleichungen zum Tragen. Außerdem gehören Induktion und Rekursion meiner Ansicht nach untrennbar zusammen und ein Skript-Abschnitt, der Induktionsbeweise behandelt, sollte auch rekursive Folgendefinitionen behandeln. Aber für all das sehe ich momentan nirgends ausreichend Platz im Vorkursprogramm.
+    (5) Die größte Schwäche des Skripts (Stand 2024) ist, dass nirgends Induktionsbeweise besprochen werden. Ich habe mich dazu entschlossen, weil Induktionsbeweise im Skript nirgends benötigt werden (außer bei den Potenzgesetzen im Verknüpfungskapitel, die daher nicht bewiesen werden) und es sich um eine eher fortgeschrittene Technik handelt, die für Anfänger weniger wichtig als all die anderen Techniken aus dem Beweiskapitel sind. Das Beweiskapitel hat ohnehin schon erhebliche Überlänge und ich möchte die Dozenten nicht dazu verführen, in ihren Vortrag auch noch Induktionsbeweise aufzunehmen. Auf Vorkurs-Niveau lässt sich die Technik auch nicht durch schöne Beispiele illustrieren, die Standard-Aufgaben zu Induktion, die irgendwelche Summenformeln involvieren, finde ich unglücklich, weil sie den falschen Eindruck vermitteln, Induktionsbeweise kämen vor allem bei arithmetischen Gleichungen zum Tragen. Außerdem gehören Induktion und Rekursion meiner Ansicht nach untrennbar zusammen und ein Skript-Abschnitt, der Induktionsbeweise behandelt, sollte auch rekursive Folgendefinitionen behandeln. Aber für all das sehe ich momentan nirgends ausreichend Platz im Vorkursprogramm.
     
     
 Luka, September 2022

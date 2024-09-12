@@ -1,11 +1,11 @@
 
 
 \setchapterpreamble[c][.7\textwidth]{\itshape\color{gray}\small
-    Der Begriff der Abbildung verallgemeinert den Funktionenbegriff aus der Schule. In diesem Vortrag werden grundlegende Begriffe, Sprech- und Schreibweisen im Umfeld von Abbildungen besprochen und durch Beispiele illustriert.
+    Der Begriff der Abbildung verallgemeinert den Funktionenbegriff aus der Schule. In diesem Vortrag werden grundlegende Begriffe, Sprech- und Schreibweisen im Umfeld von Abbildungen besprochen und mit Beispielen illustriert.
 \vspace{24pt}}
 
 
-\chapter{Abbildungen} \label{kap:abbildungen}
+\chapter{Abbildungen} \label{chap:abbildungen}
 
 
 \section{Grundlegendes}
@@ -15,7 +15,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 
 
 \begin{defin}[Abbildung] \label{def:abbildung} \index{Abbildung} \index{Funktion} \index{Definitionsbereich} \index{Wertebereich} \index{Graph (einer Abbildung)}
-    Seien $X,Y$ zwei Mengen. Eine \textbf{Abbildung von $X$ nach $Y$} (oder auch \textbf{Funktion von $X$ nach $Y$}\footnote{Manche Leute bevorzugen das Wort „Abbildung“ im Umfeld abstrakter Mengen und das Wort „Funktion“ im Umfeld von $\R$. Ich werde aber beide Wörter völlig synonym verwenden.}) ist ein mathematisches Objekt, das \emph{jedem} Element von $X$ \emph{genau ein} Element von $Y$ zuordnet.
+    Seien $X,Y$ zwei Mengen. Eine \textbf{Abbildung von $X$ nach $Y$} (oder auch \textbf{$Y$-wertige Funktion auf $X$}\footnote{Manche Leute bevorzugen das Wort „Abbildung“ im Umfeld abstrakter Mengen und das Wort „Funktion“ im Umfeld von $\R$ oder Vektorbündeln. Ich werde aber beide Wörter völlig synonym verwenden.}) ist ein mathematisches Objekt, das \emph{jedem} Element von $X$ \emph{genau ein} Element von $Y$ zuordnet.
 
     Sind $f$ eine Abbildung von $X$ nach $Y$ und $x\in X$, so heißt das eindeutig bestimmte Element von $Y$, das $f$ dem Element $x$ zuordnet, der \textbf{Funktionswert von $f$ an der Stelle $x$} oder auch das \textbf{Bild von $x$ unter der Abbildung $f$} und wird notiert mit
     \begin{align*}
@@ -23,8 +23,8 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
     \end{align*}
     Ferner heißen
     \begin{itemize}
-        \item $X$ der \textbf{Definitionsbereich} oder auch die \textbf{Quelle} von $f$ (englisch: ``domain'' oder ``source''),
-        \item $Y$ der \textbf{Wertebereich} oder auch das \textbf{Ziel} von $f$ (englisch: ``codomain'' oder ``target''),
+        \item $X$ der \textbf{Definitionsbereich} (oder auch die \textbf{Quelle}) von $f$ (englisch: ``domain'' oder ``source''),
+        \item $Y$ der \textbf{Wertebereich} (oder auch das \textbf{Ziel}) von $f$ (englisch: ``codomain'' oder ``target''),
         \item die Menge $\{(x,y)\in X\times Y\mid y=f(x)\}$ der \textbf{Graph} von $f$.
     \end{itemize}
 \end{defin}
@@ -33,7 +33,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 \begin{axiom}[Gleichheit von Abbildungen] \label{abbgleich}
     Seien $X,Y$ zwei Mengen. Zwei Abbildungen $f,g$ von $X$ nach $Y$ stimmen genau dann überein, wenn sie an jeder Stelle denselben Funktionswert haben. Als Formel:
         \[ f=g \qquad\Leftrightarrow\qquad \forall x\in X:\ f(x)=g(x) \]
-    Dementsprechend sind $f$ und $g$ voneinander verschieden, wenn es mindestens ein Element von $X$ gibt, an dem $f$ und $g$ verschiedene Funktionswerte annehmen.
+    Dementsprechend sind $f$ und $g$ voneinander verschieden, wenn es mindestens ein $x\in X$ gibt mit $f(x)\neq g(x)$.
     
     Zwei Abbildungen, die sich in ihrem Definitionsbereich oder ihrem Wertebereich unterscheiden, denkt man sich als „Objekte verschiedenen Typs“. Sie seien von vornherein voneinander verschieden.
 \end{axiom}
@@ -57,7 +57,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
     \begin{align*}
         X \to Y \ &,\ x\mapsto t(x) && (\text{lies: „von $X$ nach $Y$, $x$ geht auf $t(x)$“})
     \end{align*}
-    eine \textbf{Zuordnungsvorschrift} oder auch \textbf{Abbildungsvorschrift} von $X$ nach $Y$. Sie ist zu interpretieren als „Zuordnung“, die jedem Element $x\in X$ das Element $t(x)\in Y$, das durch Einsetzen des Objekts $x$ anstelle der Variablen $a$ zustandekommt, „zuordnet“. Der Term $t$ fungiert hier als sogenannter \textbf{Funktionsterm}.
+    eine \textbf{Zuordnungsvorschrift} oder auch \textbf{Abbildungsvorschrift} von $X$ nach $Y$. Sie ist zu interpretieren als „Zuordnung“, die jedem Element $x\in X$ das Element $t(x)\in Y$, das durch Einsetzen des Objekts $x$ anstelle der Variablen $a$ zustandekommt, „zuordnet“.
     
     Jede solche Zuordnungsvorschrift definiert eine Abbildung $X\to Y$, deren Funktionswerte an Elementen $x\in X$ genau mit den Elementen $t(x)$ übereinstimmt. Möchte man diese Abbildung mit einer Variable bezeichnen, so schreibt man:
     \begin{align*}
@@ -65,22 +65,24 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
     \end{align*}
     Mit dieser Notation wird festgelegt, dass das Zeichen „$f$“ fortan diejenige Abbildung $X\to Y$ bezeichnen soll, die durch die Zuordnung $x\mapsto t(x)$ gegeben ist. Für jedes $x\in X$ gilt also $f(x)=t(x)$. Nach \cref{abbgleich} ist $f$ durch diese Eigenschaft eindeutig bestimmt.
 
-    Im Ausdruck „$x\mapsto t(x)$“ fungiert das Zeichen „$x$“ als gebundene Variable im Sinne von \cref{gebundenevariable}.\footnote{Im für die Informatik relevanten \emph{Lambda-Kalkül} sagt man: „Die Variable $x$ wird durch $\lambda$-Abstraktion gebunden“, und schreibt „$\lambda x.t(x)$“ anstelle von $x\mapsto t(x)$.}
+    Der Term $t$ fungiert hier als sogenannter \textbf{Funktionsterm}.\footnote{Im für die Informatik relevanten \emph{Lambda-Kalkül} sagt man: „Die Variable $x$ wird durch $\lambda$-Abstraktion gebunden“, und schreibt „$\lambda x.t(x)$“ anstelle von $x\mapsto t(x)$.} Im Ausdruck „$x\mapsto t(x)$“ ist das Zeichen „$x$“ eine gebundene Variable im Sinne von \cref{gebundenevariable}.
 \end{nota}
 
 
 \begin{bsp} \label{bsp:abbildung} \quad
     \begin{enumerate}
-        \item Polynome ergeben Zuordnungen reeller Zahlen. Zum Beispiel:
+        \item Reelle Polynome ergeben Zuordnungen reeller Zahlen, die in der Schulmathematik auch „ganzrationale Funktionen“ genannt werden. Zum Beispiel:
         \begin{align*}
             f: \R \to \R \ & ,\ x  \mapsto x^2-1 \\
             g: \R \to \R \ & ,\  x  \mapsto 3x^2-2x+4
         \end{align*}
-        Deren Definitions- und Wertebereich sind jeweils die Menge $\R$ der reellen Zahlen. Die Funktion $g$ ordnet jeder Zahl $x\in\R$ die Zahl $3x^2-2x+4$ zu, beispielsweise ist $g(4) = 3\cdot 16 - 2\cdot 4 + 4 = 44$.
-        %\begin{figure}[ht]
-        %    \includegraphics[width=9cm]{./_img/Polynom-Plot.jpeg}
-        %    \centering \caption{Visualisierung des Graphen der Funktion $\R\to \R \ ,\ x\mapsto 3x^2-2x+4$}
-        %\end{figure}
+        Deren Definitions- und Wertebereich sind hier jeweils die Menge $\R$ der reellen Zahlen. Die Funktion $g$ ordnet jeder Zahl $x\in\R$ die Zahl $3x^2-2x+4$ zu, beispielsweise ist $g(4) = 3\cdot 16 - 2\cdot 4 + 4 = 44$.
+        \begin{comment}
+        \begin{figure}[ht]
+            \includegraphics[width=9cm]{./_img/Polynom-Plot.jpeg}
+            \centering \caption{Visualisierung des Graphen der Funktion $\R\to \R \ ,\ x\mapsto 3x^2-2x+4$}
+        \end{figure}
+        \end{comment}
         \item Seien $\mathtt{cat}$ die Menge aller Katzen und $\mathtt{colour}$ die Menge aller Farben. Wir haben eine Abbildung
             \[ f: \mathtt{cat} \to \mathtt{colour} \ ,\ C \mapsto (\text{Die Fellfarbe von $C$}) \]
         deren Definitionsbereich genau $\mathtt{cat}$ und deren Wertebereich genau $\mathtt{colour}$ ist. Für eine Katze $C$ ist $f(C)$ genau die Fellfarbe von $C$.
@@ -88,18 +90,18 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
             \[ \{-\}: X \to \calP(X) \ ,\ x \mapsto \{x\} \]
         hat als Definitionsbereich $X$, als Wertebereich die Potenzmenge von $X$ und sie ordnet jedem Element $x \in X$ diejenige Einermenge zu, die nur aus $x$ besteht.
 
-        Der senkrechte Strich $-$ im Ausdruck „$\{-\}$“ meint einen Platzhalter, an dessen Stelle die Elemente des Definitionsbereichs „eingesetzt“ werden.
+        Der senkrechte Strich im Ausdruck „$\{-\}$“ ist eine suggestive Schreibweise, die kommunizieren soll, dass sich der Funktionswert von $x$ genau durch Einsetzen an der mit dem Strich markierten Stelle ergibt.
         \item Sei $\calA:=\{A\mid A\ \text{ist eine Aussage}\}$ die Menge aller mathematischen Aussagen. Die Junktoren $\land$ und $\neg$ ergeben Abbildungen
         \begin{align*}
             \calA\times \calA & \to \calA & \calA & \to \calA \\
             (A,B) & \mapsto A\land B & A& \mapsto \neg A
         \end{align*}
-        d.h. im ersten Fall ordnen wir jedem Aussagenpaar $(A,B)$ die Konjunktion „$A$ und $B$“ zu und im zweiten Fall ordnen wir jeder Aussage ihre Negation zu. Ebenso liefern auch die anderen Junktoren $\lor,\to,\leftrightarrow$ jeweils Zuordnungen von Aussagen.
+        d.h. im ersten Fall wird jedem Aussagenpaar $(A,B)$ die Konjunktion „$A$ und $B$“ zugeordnet und im zweiten Fall jeder Aussage ihre Negation. Ebenso liefern auch die anderen Junktoren $\lor,\to,\leftrightarrow$ jeweils Abbildungen $\calA\times\calA\to \calA$.
         \item Es bezeichne $\Set$ die Gesamtheit aller Mengen. Dann haben wir eine Abbildung
             \[ \Abb(-,-) : \Set \times \Set \to \Set \ ,\ (X,Y) \mapsto \Abb(X,Y) \]
         die jedem Mengenpaar $(X,Y)$ die Menge $\Abb(X,Y)$ aller Abbildungen $X\to Y$ zuordnet.
     \end{enumerate}
-    Aus der Schule bist du es vielleicht gewohnt, dass der Graph einer Funktion eine Art „Kurve“ ist. Beachte, dass unsere allgemeine Graphendefinition deutlich abstrakter ist und der Graph einer Abbildung in der Regel keine „geometrische“ Bedeutung besitzt. Zumindest im Fall einer Abbildung $\R\to \R$ ist der Graph eine Teilmenge des $\R^2$, im Allgemeinen kann er aber alles andere als „kurvig“ aussehen.
+    Aus der Schule bist du es vielleicht gewohnt, dass der Graph einer Funktion eine Art „Kurve“ ist. Beachte, dass unsere allgemeine Graphendefinition deutlich abstrakter ist und der Graph einer Abbildung in der Regel keine „geometrische“ Bedeutung besitzt. Zumindest im Fall einer Abbildung $\R\to \R$ ist der Graph eine Teilmenge des $\R^2$, im Allgemeinen kann er jedoch alles andere als „kurvig“ aussehen.
 \end{bsp}
 
 
@@ -109,7 +111,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
         \item $f=g$.
         \item $\dom(f)=\dom(g)$, $\codom(f)=\codom(g)$ und $\graph(f)=\graph(g)$.
     \end{enumerate}
-    \emph{Definiert} man nun eine Abbildung $f$ als ein Tripel $(X,G,Y)$ bestehend aus drei Mengen $X,G,Y$, wobei $G$ eine Teilmenge von $X\times Y$ mit der Eigenschaft, dass es für jedes $x\in X$ genau ein $y\in Y$ mit $(x,y)\in G$ gibt, sein soll, und definiert man $f(x):=(\text{das eindeutige $y\in Y$ mit $(x,y)\in G$})$ für jedes $x\in X$, so wird die Äquivalenz (i)$\leftrightarrow$(ii) zu einer beweisbaren Aussage, wohingegen sie in diesem Skript einfach als Axiom gegeben wurde.
+    \emph{Definiert} man nun eine Abbildung $f$ als ein Tripel $(X,G,Y)$ bestehend aus drei Mengen $X,G,Y$, wobei $G$ eine Teilmenge von $X\times Y$ mit der Eigenschaft, dass es für jedes $x\in X$ genau ein $y\in Y$ mit $(x,y)\in G$ gibt, sein soll, und definiert man $f(x):=(\text{das eindeutige $y\in Y$ mit $(x,y)\in G$})$ für $x\in X$, so wird die Äquivalenz (i)$\leftrightarrow$(ii) zu einer beweisbaren Aussage. Dagegen wurde sie vermittels \cref{abbgleich} einfach per Axiom festgelegt.
     
     In der \href{https://en.wikipedia.org/wiki/Topos#Elementary_topoi_(topoi_in_logic)}{Topostheorie} wird umgekehrt verfahren: hier sind die „Abbildungen“ das fundamentale Konzept, das nicht definiert und nur durch Axiome beschrieben wird, worauf dann formal präzise die Begriffe von Element und Teilmenge aufgebaut werden.
     
@@ -122,7 +124,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 
     Bevor du überhaupt versuchst, die Gleichheit zweier Abbildungen zu beweisen, solltest du dich natürlich erstmal vergewissern, dass sie überhaupt denselben Definitionsbereich und denselben Wertebereich haben. Meistens ist das aber „offensichtlich“ und muss im Beweis nicht nochmal erwähnt werden.
 
-    Um zu zeigen, dass die Abbildungen $f,g$ verschieden sind, genügt es nach \cref{gegenbeispiel}, ein Gegenbeispiel anzugeben, d.h. in diesem Fall, ein Element $x\in X$ zu finden, für das $f(x)\neq g(x)$.
+    Um hingegen zu zeigen, dass die Abbildungen $f,g$ verschieden sind, genügt es nach \cref{gegenbeispiel}, ein Gegenbeispiel anzugeben, d.h. in diesem Fall, ein Element $x\in X$ zu finden, für das $f(x)\neq g(x)$.
 \end{bem}
 
 
@@ -133,13 +135,13 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
             f: \R \to \R\ &,\ x \mapsto x^2 \\
             g: \R \to \R\ &,\ x \mapsto 2x+1
         \end{align*}
-        So ist $f \neq g$, denn es ist $f(1)=1$ und $g(1)=3$.
+        so ist $f \neq g$, denn es ist $f(1)=1$ und $g(1)=3$.
         \item Betrachten wir dagegen die Abbildungen
         \begin{align*}
             \alpha: \R \to \R\ &,\ x \mapsto (x+1)\cdot (x-1) \\
             \beta: \R \to \R\ &,\ x \mapsto  x^2-1
         \end{align*}
-        so gilt für jede beliebige reelle Zahl $x\in \R$, dass
+        so gilt für jede beliebige reelle Zahl $x\in \R$:
             \[ \alpha(x) = (x+1)(x-1) = x^2-1 = \beta(x) \]
         Demnach ist $\alpha=\beta$.
     \end{enumerate}
@@ -154,7 +156,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
             \R \to \R \ &,\ x\mapsto x^2-1 \\
             \R \to \R \ &,\ x\mapsto (x+1)(x-1)
         \end{align*}
-        zwei verschiedene Zuordnungsvorschriften, die aber nach \cref{bsp:abbgleich} dieselbe Abbildung darstellen.
+        zwei verschiedene Zuordnungsvorschriften, die aber nach \cref{bsp:abbgleich} dieselbe Abbildung induzieren.
         \item Nicht jede Abbildung muss durch eine einfache Zuordnungsvorschrift definierbar sein. Abbildungsvorschriften können beliebig kompliziert sein und manche Abbildungen sind so chaotisch, dass sie gar keiner Abbildungsvorschrift gehorchen. Beispielsweise beweist man in der Berechenbarkeitstheorie, dass es Abbildungen $\N \to \{0,1\}$ (also Abfolgen von Nullen und Einsen) geben muss, die nicht Turing-berechenbar\footnote{\href{https://de.wikipedia.org/wiki/Alan_Turing}{Alan Turing (1912-1954)}} sind, d.h. für die es keinen konventionellen Algorithmus gibt, der nacheinander alle Folgenglieder auflistet.
         \item Definitions- und Wertebereich sind grundlegende Bestandteile einer Abbildung. Beispielsweise kann der Ausdruck
             \[ x\mapsto x^2 \]
@@ -169,12 +171,12 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 \end{bem}
 
 
-\begin{bem}[Funktionen „in mehreren Variablen“]
+\begin{bem}[„Funktionen in mehreren Veränderlichen“]
     Nach unserer Abbildungsdefinition kann in eine Abbildung $f:X\to Y$ genau ein Element $x$ aus $X$ „eingesetzt“ werden, um genau ein Element $f(x)$ von $Y$ zu erhalten. Dies erweckt vielleicht den Anschein, dass unsere Abbildungsdefinition nicht in der Lage wäre, „Funktionen in mehreren Veränderlichen“ wie zum Beispiel
         \[ x,y \quad\mapsto\quad 2xy + xy^2 \]
     zu modellieren. -- Sie ist es aber, und der Trick besteht in der Verwendung des kartesischen Produkts als Definitionsbereich. Beispielsweise haben wir eine Abbildung
         \[ \R \times \R \to \R \ ,\ (x,y) \mapsto 2xy +xy^2 \]
-    Abbildungen dieser Art sind das Hauptthema von \cref{kap:verknuepfungen}. Verwenden wir noch allgemeinere Produkte $\prod_{i\in I} M_i$ als Definitionsbereich, können wir auch „Funktionen in unendlich vielen Variablen“ definieren.
+    Abbildungen dieser Art sind das Hauptthema von \cref{chap:verknuepfungen}. Verwenden wir noch allgemeinere Produkte $\prod_{i\in I} M_i$ als Definitionsbereich, können wir auch „Funktionen in unendlich vielen Variablen“ definieren.
 \end{bem}
 
 
@@ -200,11 +202,19 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 \end{defin}
 
 
+\begin{bem} \quad
+    \begin{itemize}
+        \item Sind zwei Abbildungen durch Funktionsterme gegeben, so erhält man ihre Verkettung durch Einsetzen des einen Terms in den anderen im Sinne von \cref{def:substitution}, siehe dazu die nachfolgenden Beispiele. Dies ist ein Aspekt der Dualität zwischen Syntax und Semantik (siehe \cref{syntaxvssemantik}).
+        \item Beachte, dass im Term „$g\circ f$“ diejenige Abbildung, die „zuerst“ ausgeführt wird, an rechter Stelle steht. Für ein Element $x \in X$ berechnet man $(g\circ f)(x)$, indem man zuerst $f(x)$ ausrechnet und darauf nun die Abbildung $g$ anwendet.
+    \end{itemize}
+\end{bem}
+
+
 \begin{bsp} \label{bsp:verkettung} \quad
     \begin{enumerate}
         \item Es seien $S:= \{ \text{Schauspieler in Filmen}\}$ die Menge aller Filmdarsteller und $F:=\{\text{Filme}\}$ die Menge aller Filme. Wir haben Abbildungen
         \begin{align*}
-            f : S \to F \ & ,\ s\mapsto (\text{Der erste Film, in dem $s$ mitgespielt hatte}) \\
+            f : S \to F \ & ,\ s\mapsto (\text{Der erste Film, in dem $s$ mitspielte}) \\
             g : F \to \N \ & ,\ x \mapsto (\text{Das Jahr, in dem die Dreharbeiten an $x$ begannen})
         \end{align*}
         Dann ist die Verkettung $g\circ f$ diejenige Abbildung $S\to \N$, die jedem Schauspieler das Jahr zuordnet, in dem der erste Film, bei dem er mitgespielt hat, gedreht wurde.
@@ -213,29 +223,16 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
             f : \R \to \R \ &,\ x\mapsto x^2 \\
             g : \R \to \R \ &,\ x \mapsto x-1
         \end{align*}
-        Dann gilt für $x\in \R$:\footnote{vgl. \cref{bsp:substitution}}
+        Dann gilt für alle $x\in \R$:\footnote{vgl. \cref{bsp:substitution}}
         \begin{align*}
             (g\circ f)(x) & = g(f(x)) = g(x^2) = x^2-1 \\
             (f\circ g)(x) & = f(g(x)) = f(x-1) = (x-1)^2
         \end{align*}
         Wegen $(g\circ f)(4)\neq (f\circ g)(4)$ ist $g\circ f\neq f\circ g$.
+        \item Die Technik, einer Abbildung $g$ eine Abbildung $f$ „vorzuschalten“, kennst du vielleicht schon aus der Schule als „Variablensubstitution“, vgl. \cref{bsp:substitution}. Bei der \emph{Integration durch Substitution} spielt dies eine maßgebliche Rolle. Sind $f,g:\R\to \R$ zwei hinreichend „glatte“ Funktionen und $a,b\in \R$, so besagt die Substitutionsregel, dass
+        \[ \int_{f(a)}^{f(b)} g = \int_a^b (g\circ f) \cdot f' \]
     \end{enumerate}
 \end{bsp}
-
-
-\begin{bem} \quad
-    \begin{itemize}
-        \item Sind zwei Abbildungen durch Funktionsterme gegeben, so erhält man ihre Verkettung durch Einsetzen des einen Terms in den anderen im Sinne von \cref{def:substitution}, siehe dazu die nachfolgenden Beispiele. Dies ist ein Aspekt der Dualität zwischen Syntax und Semantik (siehe \cref{syntaxvssemantik}).
-        \item Beachte, dass in der Notation „$g\circ f$“ diejenige Abbildung, die „zuerst“ ausgeführt wird, an rechter Stelle steht. Für ein Element $x \in X$ berechnet man $(g\circ f)(x)$, indem man zuerst $f(x)$ ausrechnet und darauf nun die Abbildung $g$ anwendet.
-    \end{itemize}
-\end{bem}
-
-
-\begin{vorschau}[Integration durch Substitution]
-    Die Technik, einer Abbildung $g$ eine Abbildung $f$ „vorzuschalten“, kennst du vielleicht schon aus der Schule als „Variablensubstitution“. Bei der sogenannten „Integration durch Substitution“ spielt dies eine maßgebliche Rolle. Sind $f,g:\R\to \R$ zwei hinreichend „glatte“ Funktionen und $a,b\in \R$, so besagt die Substitutionsregel, dass
-        \[ \int_{f(a)}^{f(b)} g = \int_a^b (g\circ f) \cdot f' \]
-    %Falls du diese Methode nicht kennst, ist das nicht schlimm. Sie wird üblicherweise in der Ana1- oder Ana2-Vorlesung thematisiert.
-\end{vorschau}
 
 
 \begin{satz}[Verketten von Abbildungen ist assoziativ] \label{abbassoziativ}
@@ -261,7 +258,7 @@ Ich werde das Kapitel sogleich mit einer Definition und einigen Allgemeinheiten 
 \begin{bem}[Klammern sparen] \label{abbklammerfrei}
     Aufgrund von \cref{abbassoziativ} wird in dessen Situation einfach
         \[ h\circ g\circ f \]
-    geschrieben, da es egal ist, ob erst $g$ mit $f$ verkettet wird und dann $h$ mit $g\circ f$ -- oder ob erst $h$ mit $g$ verkettet wird und dann $f$ mit $h\circ g$. Mit fortgeschrittenen Techniken lässt sich zeigen, dass es auch bei Verkettungen von mehr als drei Abbildungen egal ist, wie man Klammern setzt. Daher werden Klammerungen meist ganz weggelassen.\footnote{vgl. dazu auch \cref{klammerfrei}} Sind etwa $A,B,C,D,E,F$ sechs Mengen und sind Abbildungen
+    geschrieben, da es egal ist, ob erst $g$ mit $f$ verkettet wird und dann $h$ mit $g\circ f$ -- oder ob erst $h$ mit $g$ verkettet wird und dann $h\circ g$ mit $f$. Mit fortgeschrittenen Techniken lässt sich zeigen, dass es auch bei Verkettungen von mehr als drei Abbildungen egal ist, wie man Klammern setzt. Daher werden Klammerungen meist ganz weggelassen.\footnote{vgl. dazu auch \cref{klammerfrei}} Sind etwa $A,B,C,D,E,F$ sechs Mengen und sind Abbildungen
     \[\begin{tikzcd}
         A \ar[r, "a"] & B \ar[r, "b"] & C \ar[r, "c"] & D \ar[r, "d"] & E \ar[r, "e"] & F
     \end{tikzcd}\]
@@ -290,7 +287,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 
 
 \begin{bem}
-    Die Identität auf der Menge $X$ bildet jedes Element auf sich selbst ab und „tut gar nichts“. Die Identität auf $\R$ kennst du auch schon aus der Schule: die Polynomfunktion „$f(x)=x$“ ist genau die Identitätsabbildung $\id_\R$ auf der Menge der reellen Zahlen.
+    Die Identität auf der Menge $X$ bildet jedes Element auf sich selbst ab und „tut gar nichts“. Die Identität auf $\R$ kennst du bereits aus der Schule: die Polynomfunktion „$f(x)=x$“ ist genau die Identitätsabbildung $\id_\R$ auf der Menge der reellen Zahlen.
 \end{bem}
 
 
@@ -314,7 +311,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 
 
 \begin{vorschau}[* Die Kategorie der Mengen] \label{kategorien}
-    \cref{idneutral} und \cref{abbassoziativ} lassen sich zusammenfassen in der Aussage, dass Mengen und Abbildungen die Struktur einer sogenannten \href{https://ncatlab.org/nlab/show/category}{Kategorie} bilden. Die Sprache der Kategorien ist von fundamentaler Bedeutung für die gesamte Mathematik und du wirst, falls du in die reine Mathematik gehst, in deinem Studium noch haufenweise weitere Kategorien kennenlernen. Zum Beispiel:
+    \cref{idneutral} und \cref{abbassoziativ} lassen sich zusammenfassen in der Aussage, dass Mengen und Abbildungen die Struktur einer \href{https://ncatlab.org/nlab/show/category}{Kategorie} bilden. Die Sprache der Kategorien ist von fundamentaler Bedeutung für die gesamte Mathematik und du wirst, falls du in die reine Mathematik gehst, in deinem Studium noch haufenweise weitere Kategorien kennenlernen. Zum Beispiel:
     \begin{longtable}{lccr}
     Fachgebiet & \phantom{Platzhalter} & Kürzel & \phantom{Platzhalterhalter} Kategorie \\
     \midrule
@@ -337,7 +334,6 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
     && $\mathsf{Hilb}$ & Hilberträume \\[0.5em]
     Fortgeschrittene Vorlesungen && $\mathsf{Cat}$ & Kategorien \\
     && $\mathrm{Sh}(\calC)$ & Garben auf $\calC$ \\
-    && $\Delta$ & Simplexkategorie \\
     && $\mathsf{sSet}$ & Simpliziale Mengen \\
     && $\mathrm{Ch}(\calA)$ & Komplexe in $\calA$ \\
     && $\mathsf{Sch}$ & Schemata \\
@@ -359,22 +355,13 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 \begin{bem}
     Die natürliche Inklusion ordnet einem Element aus $U$ genau das gleiche Element in $X$ zu. Wie bei der Identitätsabbildung werden auch von der Inklusion keine Elemente verändert. Trotz ihres trivialen Abbildungsverhaltens erweist sich die Inklusionsabbildung für einige theoretische Überlegungen als nützlich, siehe z.B. \cref{bsp:quelleschrank} und \cref{pullbackrel}.
     
-    Der „behakte Pfeil $\hookrightarrow$“ ist schlicht eine Variante zum gewöhnlichen Abbildungspfeil, die bei Abbildungen auftritt, die sich ähnlich wie die natürliche Inklusion verhalten. Er wird verwendet, um den „Inklusionscharakter“ einer Abbildung hervorzuheben.
+    Der „behakte Pfeil $\hookrightarrow$“ ist schlicht eine Variante zum gewöhnlichen Abbildungspfeil, die bei Abbildungen, die sich ähnlich wie die natürliche Inklusion verhalten, verwendet wird, um ihren „Inklusionscharakter“ zu betonen.
 \end{bem}
 
 
 \begin{bsp}
-    Wegen $\Z\subseteq\Q$ hat man eine Inklusionsabbildung $\Z \hookrightarrow \Q$.%, die jede ganze Zahl auf sich selbst, nun aufgefasst als rationale Zahl, abbildet.
+    Wegen $\Z\subseteq\R$ hat man eine Inklusionsabbildung $\Z \hookrightarrow \R$. Ein Pendant in der Informatik stellt die Typumwandlung eines \emph{integers} zu einem \emph{float} dar. Der Vergleich hinkt jedoch, insofern Typumwandlungen, im Gegensatz zu Inklusionsabbildungen, nicht immer ohne Informationsverlust vonstatten gehen.
 \end{bsp}
-
-
-\begin{comment}
-\begin{bem}[„Kanonizizät“ der natürlichen Inklusion]
-    Seien $X$ eine beliebige Menge und $U\subseteq X$ eine Teilmenge. Notiert man ohne weitere Spezifikation einen Pfeil „$U\hookrightarrow X$“, so ist damit in der Regel die natürliche Inklusion gemeint. Denn welche „selbstverständliche“ Abbildung sollte es, sofern dir keine weiteren Informationen über $X$ und $U$ bekannt sind, außer dass eben $U$ eine Teilmenge von $X$ ist, sonst noch von $U$ nach $X$ geben?
-    
-    Darin besteht das „Natürliche“ an der natürlichen Inklusion: dass man mit ihr völlig unabhängig von der konkreten Gestalt von $X$ und der Teilmenge $U$ stets eine konkrete Abbildung $U\to X$ zur Hand hat.
-\end{bem}
-\end{comment}
 
 
 \begin{defin}[* Leere Abbildung] \index{Leere Abbildung}
@@ -388,7 +375,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 \section{Bilder und Urbilder von Teilmengen}
 
 
-\begin{defin}[Bild und Urbild von Teilmengen] \label{def:bildmenge} \index{Faser} \index{Bild} \index{Urbild}
+\begin{defin}[Transfer von Teilmengen] \label{def:bildmenge} \index{Faser} \index{Bild} \index{Urbild}
     Seien $X,Y$ Mengen und $X \xrightarrow{f} Y$ eine Abbildung.
     \begin{itemize}
         \item Die Menge
@@ -402,7 +389,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
         die \textbf{Urbildmenge von $B$} oder schlicht das \textbf{Urbild} von $B$ unter $f$.
         \item Für ein Element $y\in Y$ heißt die Menge
             \[ f^{-1}(y) := \{ x\in X \mid f(x)=y \} \]
-        die \textbf{Faser von $y$} (unter der Abbildung $f$). Man spricht auch vom \textbf{Urbild von $y$}. Die Elemente von $f^{-1}(y)$ werden ebenfalls \textbf{Urbilder von $y$} genannt.
+        die \textbf{Faser von $y$} unter der Abbildung $f$. Man spricht auch vom \textbf{Urbild von $y$}. Die Elemente von $f^{-1}(y)$ werden ebenfalls \textbf{Urbilder von $y$} genannt.
     \end{itemize}
 \end{defin}
 
@@ -444,7 +431,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
     \begin{enumerate}
         \item Zum Beispiel ist
             \[ \R \to \R \ ,\ x\mapsto 4 \]
-        die konstante Abbildung, die alles auf $4$ schickt. In der Analysis wird gezeigt, dass eine Abbildung $f : \R\to \R$ genau dann konstant ist, wenn sie differenzierbar ist mit $f'=0$.
+        die konstante Abbildung, die alles auf $4$ schickt. In der Analysis wird gezeigt, dass eine Funktion $f : \R\to \R$ genau dann konstant ist, wenn sie differenzierbar ist mit $f'=0$.
         \item Allgemein geben Terme, die von gar keinen Variablen abhängen (siehe \cref{bsp:term}), Anlass zu konstanten Abbildungen.
         %\item Für eine Menge $X$ ist die leere Abbildung $\emptyset\to X$ keine konstante Abbildung, da ihr Bild leer ist und damit nicht einelementig. Die Handhabung ist in der Literatur aber nicht eindeutig: bei manchen sind auch leere Abbilungen konstant und die meisten verlieren hierüber gar kein Wort.
     \end{enumerate}
@@ -454,7 +441,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 
 
 
-\section{Einschränkung von Definitions- oder Wertebereich}
+\section{Einschränkung von Definitions- und Wertebereich}
 
 
 In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
@@ -481,7 +468,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \[ f : \R \to \R \ ,\ x \mapsto x^2 \]
     Deren Einschränkung auf die Teilmenge $\Q\subseteq \R$ ist dann gegeben durch
         \[ f\vert_{\Q} : \Q \to \R \ ,\ x\mapsto x^2 \]
-    Obwohl die Zuordnungsvorschrift ($x\mapsto x^2)$ dieselbe ist, handelt es sich um eine andere Funktion! Beispielsweise ist $7\in \im(f)$ wegen $f(\sqrt{7})=7$; dagegen ist $7\notin \im(f\vert_\Q)$ denn es gibt keine rationale Zahl $q\in \Q$, für die $q^2=7$ wäre.
+    Obwohl die Zuordnungsvorschrift ($x\mapsto x^2)$ dieselbe ist, handelt es sich um eine andere Funktion! Beispielsweise ist $7\in \im(f)$ wegen $f(\sqrt{7})=7$; dagegen ist $7\notin \im(f\vert_\Q)$, denn es gibt keine rationale Zahl $q\in \Q$, für die $q^2=7$ gälte.
     \item Bezeichnet $\iota_A$ die Inklusion einer Teilmenge $A\subseteq X$, so gilt $f\vert_A = f\circ\iota_A$, d.h. die Restriktion ergibt sich durch Verketten mit der Inklusionsabbildung $A\hookrightarrow X$. Insbesondere ist die Inklusionsabbildung selbst $\iota_A = \id_X\circ \iota_A = \id_X \vert_A$ genau die Einschränkung der Identitätsabbildung auf $A$.
     \end{enumerate}
 \end{bsp}
@@ -503,7 +490,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
             \[ 1 + \frac{1}{4} + \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \ldots = \zeta(2) = \frac{\pi^2}{6} \]
         und nach einem Satz von Apéry\footnote{\href{https://de.wikipedia.org/wiki/Roger Apery}{Roger Apéry (1916-1994)}} ist über die Zahl $\zeta(3)$ zumindest bekannt, dass sie irrational ist.
 
-        Die Abbildung $\zeta$ besitzt unendlich viele verschiedene Fortsetzungen auf die Obermenge $\C \supseteq \R$, von denen die meisten aber völlig uninteressant sind. Allerdings wird in der Funktionentheorie gezeigt, dass $\zeta$ \emph{genau eine} Fortsetzung auf $\C\setminus \{1\}$ besitzt, die \emph{holomorph}, d.h. komplex differenzierbar, ist. Diese Fortsetzung wird ebenfalls mit dem Buchstaben „$\zeta$“ notiert und heißt die \emph{Riemannsche Zeta-Funktion}. Beispielsweise ist $\zeta(-1)=-\frac{1}{12}$. In der Unterhaltungsmathematik werden manchmal verblüffende „Beweise“ präsentiert für die Aussage, es gälte $1+2+3+4+5+\ldots = -\frac{1}{12}$.
+        Die Abbildung $\zeta$ besitzt unendlich viele verschiedene Fortsetzungen auf die Obermenge $\C \supseteq \R$, von denen die meisten aber völlig uninteressant sind. Allerdings wird in der Funktionentheorie gezeigt, dass $\zeta$ \emph{genau eine} Fortsetzung auf $\C\setminus \{1\}$ besitzt, die \emph{holomorph}, d.h. komplex differenzierbar, ist. Diese Fortsetzung wird ebenfalls mit dem Buchstaben „$\zeta$“ notiert und heißt die \emph{Riemannsche Zeta-Funktion}. Beispielsweise ist $\zeta(-1)=-\frac{1}{12}$. In der Unterhaltungsmathematik werden manchmal verblüffende „Beweise“ präsentiert für die Gleichung $1+2+3+4+5+\ldots = -\frac{1}{12}$.
     \end{enumerate}
 \end{bsp}
 
@@ -521,21 +508,31 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{defin}
 
 
-\begin{bsp}[*]
-    Es seien $M := \{ x\mid x\ \text{steht in der Startelf des FC Bayern} \}$ sowie
-        \[ f : M \to \R \ ,\ x \mapsto (\text{Das Jahresgehalt von $x$}) \]
-    Dann ist $\im(f)\subseteq \R_{\ge 5.000.000}$, da (Stand 2021/22) jeder Spieler in der Startelf der Bayern ein Jahresgehalt von über fünf Millionen Euro bezieht\footnote{Quelle: \href{https://www.vermoegenmagazin.de/bayern-muenchen-gehaelter/}{vermoegenmagazin.de}. Beachte, dass die realen Einkommen dank Prämien und Werbeverträgen nochmal deutlich höher sind.}. Also lässt sich der Wertebereich von $f$ auf $\R_{\ge 5.000.000}$ einschränken, wodurch man die Abbildung
-        \[ g: M \to \R_{\ge 5.000.000} \ ,\ x \mapsto (\text{Das Jahresgehalt von $x$}) \]
-    erhält. $g$ und $f$ sind zwei verschiedene Abbildungen, weil sie verschiedene Wertebereiche haben.
+\begin{bsp}[* Auf- und Abrunden]
+    Für $x\in \R$ gibt es zur Notation der nächstkleineren und nächstgrößeren ganzen Zahl die \textbf{Gauß-Klammern}:
+    \begin{align*}
+        \lfloor x\rfloor & := (\text{Die nächstkleinere ganze Zahl}) & \lceil x \rceil & := (\text{Die nächstgrößere ganze Zahl})
+    \end{align*}
+    Beispielsweise gilt:
+    \begin{align*}
+    \biggl\lfloor \frac{23}{6} \biggr\rfloor & = \lfloor 3{,}8\bar 3\rfloor = 3 & \lfloor \pi \rfloor & = 3 & \lfloor -\pi \rfloor & = -4 & \lfloor 3 \rfloor & = 3 \\
+    \biggl\lceil \frac{23}{6} \biggr\rceil & = \lfloor 3{,}8\bar 3\rfloor = 4 & \lceil \pi \rceil & = 4 & \lceil -\pi \rceil & = -3 & \lceil 3 \rceil & = 3
+    \end{align*}
+    Man erhält zwei Abbildungen $\begin{tikzcd}[cramped] \R \ar[r, "\lfloor - \rfloor", shift left] \ar[r, "\lceil - \rceil"', shift right] & \R \end{tikzcd}$. Wegen $\lfloor x\rfloor,\lceil x\rceil\in \Z$ für alle $x\in \R$ lassen sich diese beiden Funktionen im Wertebereich auf $\Z$ einschränken zu zwei Abbildungen
+    \begin{align*}
+        \lfloor - \rfloor : \R \to \Z \ & ,\ x\mapsto \lfloor x\rfloor & \lceil - \rceil : \R \to \Z \ & ,\ x\mapsto \lceil x\rceil
+    \end{align*}
+    der \textbf{Abrundungsfunktion} und der \textbf{Aufrundungsfunktion}. Sie besitzen folgende \emph{universelle Eigenschaften}:
+        \[ n \le x \iff n\le \lfloor x\rfloor \quad\text{und}\quad \lceil x \rceil \le n \iff x\le n \qquad \text{für alle}\ n\in \Z,\ x\in \R \]
 \end{bsp}
 
 
 \begin{bem}[*] \label{einschraenkbarkeit}
     Beachte, dass sich der Wertebereich einer Funktion $f$ nur auf solche Teilmengen einschränken lässt, die $\im(f)$ umfassen. Ist beispielsweise
         \[ f : \Z \to \Z \ ,\ n \mapsto 2n-n^2 \]
-    so ergäbe der Ausdruck „$f\vert^{\N}$“ keinen Sinn. Denn die Zuordnung $n\mapsto 2n-n^2$ definiert keine Abbildung $\Z\to \N$, weil beispielsweise $2\cdot 5 - 5^2$ gar kein Element von $\N$ ist.
+    so ergäbe der Ausdruck „$f\vert^{\N}$“ keinen Sinn. Denn die Zuordnung $n\mapsto 2n-n^2$ definiert keine Abbildung $\Z\to \N$, weil beispielsweise $2\cdot 5 - 5^2$ gar kein Element von $\N$ wäre.
 
-    Beim Definitionsbereich besteht keine solche Anforderung, er lässt sich auf beliebige Teilmengen einschränken.
+    Beim Definitionsbereich besteht keine solche Anforderung. Er lässt sich auf beliebige Teilmengen einschränken.
 \end{bem}
 
 
@@ -558,13 +555,13 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
     \end{enumerate}
 \end{defin}
 \begin{proof}
-    (i)$\leftrightarrow$(ii): Es ist (i) genau die Kontraposition von (ii) und damit zu (ii) äquivalent. \\[0.5em]
+    (i)$\leftrightarrow$(ii): Es ist (ii) genau die Kontraposition von (i) und damit zu (i) äquivalent. \\[0.5em]
     (i)$\rightarrow$(iii): Es gelte (i) und es seien $a,b\in X$ mit $f(a)=y$ und $f(b)=y$. Wegen $f(a)=f(b)$ folgt aus (i), dass $a=b$. Also hat $y$ höchstens ein Urbild. \\[0.5em]
     (iii)$\rightarrow$(i): Seien $a,b\in X$ mit $f(a)=f(b)$. Da das Element $y:=f(a)\in Y$ nach (iii) höchstens ein Urbild hat, muss dann $a=b$ sein.
 \end{proof}
 
 
-\begin{bsp} Es gilt:
+\begin{bsp} \quad
     \begin{enumerate}
         \item Die Abbildung
             \[ f:\Z \to \Z \ ,\ n \mapsto n^2-2n \]
@@ -572,7 +569,7 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
         \item Für eine beliebige Menge $X$ ist die Abbildung
             \[ X \to \calP(X) \ ,\ x \mapsto \{x\} \]
         injektiv. Denn sind $x,y\in X$ mit $\{x\}=\{y\}$, so ist bereits $x=y$.
-        \item Sind $X$ eine beliebige Menge, $U\subseteq X$ eine Teilmenge und $\iota : U\to X$ die natürliche Inklusion, so ist $\iota$ eine injektive Abbildung, weil sie jedes Element auf sich selbst abbildet.
+        \item Für jede Teilmenge $U\subseteq X$ ist die Inklusionsabbildung $U\hookrightarrow X$ injektiv.
     \end{enumerate}
 \end{bsp}
 	
@@ -585,12 +582,11 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
     \end{enumerate}
 \end{defin}
 \begin{proof}
-    Die Äquivalenz von (i) und (ii) ergibt sich direkt aus der Definition von $\im(f)$, siehe \cref{def:bildmenge}.
+    (i)$\leftrightarrow$(ii) ergibt sich direkt aus der Definition von $\im(f)$, siehe \cref{def:bildmenge}.
 \end{proof}
 
 
-\begin{bsp} \label{bsp:surjektiv}
-    Es gilt:
+\begin{bsp} \label{bsp:surjektiv} \quad
     \begin{enumerate}
         \item Die Abbildung
             \[ \R \setminus \{2\} \to \R \setminus \{1\} \ ,\ x \mapsto \frac{x+1}{x-2} \]
@@ -604,9 +600,9 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
                 0 & n=0
             \end{cases}\]
         hingegen ist surjektiv (aber nicht injektiv), denn für jedes $n \in \N_0$ ist $n=g(n+1)$.
-        \item Es sei $\bbP$ die Menge aller ungeraden Primzahlen. Goldbach\footnote{\href{https://de.wikipedia.org/wiki/Christian_Goldbach}{Christian Goldbach (1690-1764)}} vermutete 1742 in einem Briefwechsel mit Euler, dass sich jede gerade Zahl $\ge 4$ als Summe zweier Primzahlen schreiben lässt. Diese \href{https://de.wikipedia.org/wiki/Goldbachsche_Vermutung}{Goldbachsche Vermutung} ist äquivalent zu der Aussage, dass die Abbildung
+        \item Es sei $\bbP$ die Menge aller ungeraden Primzahlen. Goldbach\footnote{\href{https://de.wikipedia.org/wiki/Christian_Goldbach}{Christian Goldbach (1690-1764)}} vermutete 1742 in einem Briefwechsel mit Euler, dass sich jede gerade Zahl $\ge 4$ als Summe zweier Primzahlen schreiben lässt. Diese \href{https://de.wikipedia.org/wiki/Goldbachsche_Vermutung}{Goldbachsche Vermutung} ist äquivalent dazu, dass die Abbildung
             \[ \bbP \times \bbP \to \{n\in \N \mid n\ \text{ist gerade und}\ n\ge 6\} \ ,\ (p,q) \mapsto p+q \]
-        surjektiv ist. Sie konnte bislang weder bewiesen noch widerlegt werden.
+        surjektiv ist. Sie konnte bislang weder bewiesen noch widerlegt werden. Die nächstschwächere Vermutung, dass jede ungerade Zahl $\ge 5$ eine Summe \emph{dreier} Primzahlen ist, konnte wohl 2013 von Harald Helfgott\footnote{\href{https://de.wikipedia.org/wiki/Harald_Helfgott}{Harald Helfgott (*1977)}} bewiesen werden.
     \end{enumerate}
 \end{bsp}
 
@@ -619,7 +615,7 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
     \end{enumerate}
 \end{defin}
 \begin{proof}
-    $f$ ist genau dann injektiv, wenn es für jedes $y\in Y$ \emph{höchstens ein} $x\in X$ mit $f(x)=y$ gibt; und genau dann surjektiv, wenn es für jedes $y\in Y$ \emph{mindestens ein} $x\in X$ mit $f(x)=y$ gibt. Kombination beider Aussagen ergibt die Äquivalenz (i)$\Leftrightarrow$(ii).
+    $f$ ist genau dann injektiv, wenn es für jedes $y\in Y$ \emph{höchstens ein} $x\in X$ mit $f(x)=y$ gibt; und genau dann surjektiv, wenn es für jedes $y\in Y$ \emph{mindestens ein} $x\in X$ mit $f(x)=y$ gibt. Kombination beider Aussagen ergibt die Äquivalenz (i)$\leftrightarrow$(ii).
 \end{proof}
 
 
@@ -662,14 +658,14 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
 \end{bsp}
 
 
-\begin{vorschau}[Abbildungen künstlich surjektiv machen] \label{surjektivmachen}
+\begin{vorschau}[* Abbildungen künstlich surjektiv machen] \label{surjektivmachen}
     Seien $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung. Gemäß \cref{def:zielschrank} lässt sich der Wertebereich von $f$ auf die Menge $\im(f)$ einschränken. Die dadurch erhaltene Abbildung
         \[ f\vert^{\im(f)} : X \to \im(f) \ ,\ x\mapsto f(x) \]
     ist automatisch surjektiv, da es ja für jedes $y\in \im(f)$ mindestens ein $x\in X$ mit $f(x)=y$ gibt.
 
     Auf diese Weise ist es uns gelungen, $f$ „künstlich surjektiv“ zu machen. Ist uns daran gelegen, mit surjektiven Abbildungen zu arbeiten, so stellt das also kein Problem dar, da wir den Wertebereich einer Abbildung stets auf ihr Bild einschränken können.
 
-    Ebenso ist es möglich, die Abbildung $f$ „künstlich injektiv“ zu machen. Dabei besteht der Trick darin, zwischen solchen Elementen von $X$, die unter $f$ denselben Funktionswert haben, „nicht mehr zu unterscheiden“. Die Technik „ähnliche Elemente nicht mehr voneinander zu unterscheiden“ wird in der LA1 eine prominente Rolle im Umfeld des sogenannten \href{https://de.wikipedia.org/wiki/Homomorphiesatz}{Homomorphiesatzes} spielen und kann mithilfe der in \cref{kap:relationen} thematisierten \emph{Äquivalenzrelationen} formalisiert werden, siehe \cref{teilmengenvsfaktormengen}.
+    Ebenso ist es möglich, die Abbildung $f$ „künstlich injektiv“ zu machen. Dabei besteht der Trick darin, zwischen solchen Elementen von $X$, die unter $f$ denselben Funktionswert haben, „nicht mehr zu unterscheiden“. Die Technik „ähnliche Elemente nicht mehr voneinander zu unterscheiden“ wird in der LA1 eine prominente Rolle im Umfeld des \href{https://de.wikipedia.org/wiki/Homomorphiesatz}{Homomorphiesatzes} spielen und kann mithilfe der in \cref{sec:aequirel} thematisierten \emph{Äquivalenzrelationen} formalisiert werden, siehe \cref{teilmengenvsfaktormengen}.
 \end{vorschau}
 
 
@@ -682,7 +678,7 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
 In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 
 
-\begin{defin}[Umkehrabbildung] \label{def:umkehrabb} \index{Umkehrabbildung} \index{Inverse Funktion} \index{invertierbare Abbildung} \index{Retraktion}
+\begin{defin}[Umkehrabbildung] \label{def:umkehrabb} \index{Umkehrabbildung} \index{inverse Funktion} \index{invertierbare Abbildung} \index{Retraktion}
     Eine Abbildung $g:Y \to X$ heißt 
     \begin{itemize}
         \item \textbf{linksinvers zu $f$} (oder auch: eine \textbf{Retraktion von $f$}), falls $g\circ f=\id_X$.
@@ -698,6 +694,18 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \item Die Abbildung
             \[ \Z\to \Z \ ,\ n\mapsto n+1 \]
         ist invertierbar, eine Inverse ist gegeben durch die Abbildung $n\mapsto n-1$.
+        \item Subtraktion, Division, Wurzel und Logarithmus sind jeweils invers zu Addition, Multiplikation und Potenz:
+        \begin{center}
+        \begin{tabular}{clll}
+            Def.- und Wertebereich & Zuordnung & Inverse Zuordnung & \phantom{Platzhalter}\\
+            \midrule
+            $\R\to \R$ & $x\mapsto x+a$ & $x\mapsto x-a$ & (für $a\in \R$)\\
+            $\R\to \R$ & $x\mapsto ax$ & $x\mapsto \frac{x}{a}$ & (für $a\in \R\setminus \{0\}$) \\
+            $\R_{>0} \to \R_{>0}$ & $x\mapsto x^a$ & $x\mapsto \sqrt[a]{x}$ & (für $a\in \R\setminus \{0\}$) \\
+            $\phantom{\R_{>0} \to \R_{>0}}\makebox[0pt][r]{$\R \to \R_{>0}$}$ & $x \mapsto a^x$ & $x \mapsto \log_a(x)$ & (für $a\in \R_{>0}$)
+        \end{tabular}
+        \end{center}
+        Du bist es ja aus der Schule gewohnt, Gleichungen, die Summen, Produkte und Potenzen enthalten, aufzulösen mittels Subtrahieren, Dividieren, Wurzelziehen und Logarithmieren.
         \item Die „Spiegelung an der $x$-Achse“
         \[ \R^2 \to \R^2 \ ,\ (x,y) \mapsto (x,-y) \]
         ist zu sich selbst invers. Selbstinverse Abbildungen heißen auch \textbf{Involutionen}.
@@ -735,9 +743,8 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         & = g\circ (f\circ h) && (\text{da $h$ invers zu $f$ ist}) \\
         & = (g\circ f)\circ h && (\text{nach \cref{abbassoziativ}}) \\
         & = \id_X \circ h && (\text{da $g$ invers zu $f$ ist}) \\
-        & = h && (\text{nach \cref{idneutral}}) 
+        & = h && (\text{nach \cref{idneutral}}) \qedhere
     \end{align*}
-    Also ist die Inverse von $f$ eindeutig bestimmt.
 \end{proof}
 
 
@@ -746,12 +753,13 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
     
     Die zu einer invertierbaren Abbildung $f$ inverse Abbildung wird notiert mit
         \[ f^{-1} \]
-    Beachte, dass es nur nur dann Sinn ergibt, von „der Umkehrabbildung $f^{-1}$“ zu sprechen, wenn $f$ invertierbar ist. Im Allgemeinen sind Abbildungen nicht invertierbar und wir werden mit \cref{invwiderleg} Techniken herleiten, mit denen sich dies beweisen lässt.
+    Beachte, dass es nur nur dann Sinn ergibt, von „der Umkehrabbildung $f^{-1}$“ zu sprechen, wenn $f$ invertierbar ist. Im Allgemeinen sind Abbildungen nicht invertierbar und wir werden in \cref{invwiderleg} Techniken besprechen, mit denen sich dies beweisen lässt. \\[0.5em]
+    Eine bloße Links- oder Rechtsinverse braucht dagegen nicht eindeutig sein, wie \cref{bsp:umkehrabb} zeigt.
 \end{bem}
 
 
 \begin{bem}
-    Das Zeichen „$f^{-1}$“ ist bereits in \cref{def:bildmenge} aufgetaucht und bezeichnete dort Fasern und Urbildmengen. Ist $f$ invertierbar, so trägt es also drei verschiedene Bedeutungen zugleich. Hier ist eine Tabelle mit den verschiedenen Bedeutungen von „$f$“ und „$f^{-1}$“:
+    Das Zeichen „$f^{-1}$“ ist bereits in \cref{def:bildmenge} aufgetaucht und bezeichnete dort Fasern und Urbildmengen. Ist $f$ invertierbar, so trägt es nun drei verschiedene Bedeutungen zugleich:
     \begin{center}
     \begin{tabular}{cl}
         Zeichen & Bedeutung \\
@@ -769,11 +777,6 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{bem}
 
 
-\begin{bem}
-    Nach \cref{umkehreind} ist die Inverse einer invertierbaren Abbildung stets eindeutig bestimmt. Eine bloße Links- oder Rechtsinverse braucht dagegen nicht eindeutig sein, wie \cref{bsp:umkehrabb} zeigt.
-\end{bem}
-
-
 \begin{satz} \label{bijektiviso}
     Seien $X,Y$ zwei Mengen und $X\xrightarrow{f} Y$ eine Abbildung. Dann sind äquivalent:
     \begin{enumerate}[(i)]
@@ -784,13 +787,13 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \begin{proof}
     (ii)$\to$(i): Sei $f$ bijektiv. Dann gibt es für jedes $y\in Y$ genau ein $x\in X$ mit $f(x)=y$, sodass durch
         \[ g : Y\to X \ ,\ y \mapsto (\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=y$}) \]
-    eine Abbildung definiert ist. $g$ ist invers zu $f$, denn: \\[0.5em]
-    ($g\circ f=\id_X$): Für ein beliebiges $a\in X$ ist
+    eine Abbildung definiert ist. Nun ist $g$ invers zu $f$, denn: \\[0.5em]
+    ($g\circ f=\id$): Für ein beliebiges $a\in X$ ist
     \begin{align*}
         (g\circ f)(a) = g(f(a)) = (\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=f(a)$}) = a
     \end{align*}
     Weil $a\in X$ beliebig war, folgt die Gleichheit von Abbildungen $g\circ f=\id_X$. \\[0.5em]
-    ($f\circ g=\id_Y$): Für ein beliebiges $b\in Y$ ist
+    ($f\circ g=\id$): Für ein beliebiges $b\in Y$ ist
     \begin{align*}
         (f\circ g)(b) = f(\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=b$}) = b
     \end{align*}
@@ -800,36 +803,15 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{proof}
 
 
-\begin{bsp} \quad
-    \begin{enumerate}
-        \item Nach \cref{bsp:injsur} ist die Abbildung
-            \[ \R_{\ge 0} \to \R_{\ge 0} \ ,\ x \mapsto x^2 \]
-        bijektiv. Ihre Inverse wird mit „$\sqrt{-}$” notiert. Für $y\in \R_{\ge 0}$ ist also „$\sqrt{y}$“ die eindeutig bestimmte nichtnegative reelle Zahl, die die Gleichung $(\sqrt{y})^2=y$ erfüllt. Ebenso gilt auch $\sqrt{x^2}=x$ für alle $x\in \R_{>0}$ (sogar schon für alle $x\in \R$).
-        \item Subtraktion, Division, Wurzel und Logarithmus sind jeweils invers zu Addition, Multiplikation und Potenz:
-        \begin{center}
-        \begin{tabular}{clll}
-            Def.- und Wertebereich & Zuordnung & Inverse Zuordnung & \phantom{Platzhalter}\\
-            \midrule
-            $\R\to \R$ & $x\mapsto x+a$ & $x\mapsto x-a$ & (für $a\in \R$)\\
-            $\R\to \R$ & $x\mapsto ax$ & $x\mapsto \frac{x}{a}$ & (für $a\in \R\setminus \{0\}$) \\
-            $\R_{> 0} \to \R_{> 0}$ & $x\mapsto x^a$ & $x\mapsto \sqrt[a]{x}$ & (für $a\in \R\setminus \{0\}$) \\
-            $\R \to \R_{>0}$ & $x \mapsto a^x$ & $x \mapsto \log_a(x)$ & (für $a\in \R_{>0}$)
-        \end{tabular}
-        \end{center}
-        Du bist es ja aus der Schule gewohnt, Gleichungen, die Summen, Produkte und Potenzen enthalten, aufzulösen mittels Subtrahieren, Dividieren, Wurzelziehen und Logarithmieren.
-    \end{enumerate}
-\end{bsp}
-
-
 \begin{bem}[Bijektivität beweisen]
     Ist $f$ eine Abbildung, für die du beweisen möchtest, dass sie bjektiv ist, so stehen dir nun zwei Wege offen:
     \begin{enumerate}
         \item Du arbeitest mit \cref{def:bijektiv}, d.h. du beweist sowohl, dass $f$ injektiv ist, als auch, dass $f$ surjektiv ist.
         \item Du arbeitest mit \cref{bijektiviso}, d.h. du schreibst einen Kandidaten für die Umkehrabbildung hin und beweist daraufhin, dass er tatsächlich invers zu $f$ ist.
     \end{enumerate}
-    Es gibt Situationen, in denen es schwer bis unmöglich ist, eine konkrete Abbildungsvorschrift für eine Umkehrabbildung anzugeben. In diesem Fall ist der erste Weg leichter.
+    In manchen Situationen ist es schwer bis unmöglich, eine Abbildungsvorschrift für die Umkehrabbildung zu finden. In diesem Fall ist der erste Weg leichter.
     
-    Es gibt aber auch Situationen wie z.B. in \cref{bsp:umkehrabb}, in denen du bei genauem „Hinsehen“ bereits einen Kandidaten für eine Umkehrabbildung ausfindig machen kannst. In diesem Fall bietet sich der zweite Weg an. Beachte auch, dass ein Beweis über den zweiten Weg stets informativer ist, da er dem Leser bereits die Gestalt der inversen Abbildung mitteilt.
+    Es gibt aber auch Situationen wie z.B. in \cref{bsp:umkehrabb}, in denen du bei genauem „Hinsehen“ bereits einen Kandidaten für die Umkehrabbildung ausfindig machen kannst. In diesem Fall bietet sich der zweite Weg an. Beachte auch, dass ein Beweis über den zweiten Weg stets informativer ist, da er dem Leser bereits die Gestalt der inversen Abbildung mitteilt.
 \end{bem}
 
 
@@ -842,7 +824,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
     Beispielsweise gilt:
     \begin{enumerate}
         \item Die Abbildung $f : \R \to \R \ ,\ x\mapsto x^2$ ist nicht invertierbar, weil sie nicht injektiv ist. Denn es ist zum Beispiel $f(-5)=f(5)$.
-        \item Die Abbildung $f : \N_0 \to \N_0 \ ,\ n \mapsto n+1$ ist nicht invertierbar, weil sie nicht surjektiv ist. Denn es ist $0\notin \im(f)$.
+        \item Die Abbildung $f : \N \to \calP(\N) \ ,\ n \mapsto \{n\}$ ist nicht invertierbar, weil sie nicht surjektiv ist. Denn es ist $\emptyset \notin \im(f)$.
     \end{enumerate}
 \end{bsp}
 
@@ -860,7 +842,6 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \item $\R\to \R \ ,\ x\mapsto (3x+1)^3$
         \item Sei $A$ die Menge aller Leute im Tutorium. Betrachte die Abbildung $f:A\to \N \ ,\ a\mapsto$ (die Anzahl der Wörter im Erstlingswerk des Literaturnobelpreisträgers im Geburtsjahr von $a$).
         \item $\calP(\R) \to \calP(\Q) \ ,\ X \mapsto \Q \setminus (X^c\cap \Z)$
-        %\item $\N \to \N \ ,\ n \mapsto 3^n + n$\quad(schwierig)
     \end{enumerate}
 \end{aufg}
 
@@ -901,6 +882,5 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \item $f,g$ surjektiv $\implies$ $g\circ f$ surjektiv $\implies$ $g$ surjektiv.
         \item Invertierbare Abbildungen sind bijektiv.
     \end{enumerate}
-    %Könnt ihr euch a) und b) im Beweis von c) zunutze machen?
 \end{aufg}
 
