@@ -1,5 +1,5 @@
 % Für eine Kompilation des Skripts "from scratch" bitte die Kompilationsreihenfolge aus der make.sh anwenden.
-% Während Bearbeitungen genügt die ein- oder zweimalige Anwendung von pdflatex.
+% Während Bearbeitungen genügt die ein- oder zweimalige Kompilation mit pdflatex.
 
 % An zukünftige Editoren: Wenn bei der Bearbeitung des Skripts Schwierigkeiten oder Fragen auftreten, wendet euch gerne an mich per Email: lukathome@gmx.net
 % Bitte schaut einmal im Readme-Ordner in die "Für Skript-Editoren.txt". Darin findet ihr Bemerkungen zur Dokumentstruktur und Tipps zum TeXen.
@@ -9,7 +9,7 @@
 % Pdf-Metadaten
 \hypersetup{
     pdftitle={Skript zum Mathematischen Vorkurs},
-    pdfauthor={Fachschaft MathPhysInfo Heidelberg}
+    pdfauthor={Luka Thomé, Fachschaft MathPhysInfo Heidelberg}
 }
 
 \input{operators} % Kürzel für Mathe
@@ -28,6 +28,8 @@
 \input{_00-Einleitung}
 
 \mainmatter
+
+\recalctypearea
 
 \input{_01-Logik}
 \input{_02-Beweise}

@@ -31,7 +31,7 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
 \end{nota}
 
 
-\noindent Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll allein dadurch bestimmt sein, welche Elemente ihr angehören. Diese Forderung wird durch das sogenannte \textbf{Extensionalitätsaxiom} realisiert:
+Der Mengenbegriff soll sich rein \emph{extensiv} verhalten, d.h. eine Menge soll allein dadurch bestimmt sein, welche Elemente ihr angehören. Diese Forderung wird durch das sogenannte \textbf{Extensionalitätsaxiom} realisiert:
 
 
 \begin{axiom}[Gleichheit von Mengen] \label{mengengleich} \index{Extensionalitätsaxiom}
@@ -176,11 +176,10 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
         \item Für alle Elemente $m\in M$ gilt per se schon $m\in M$. Also ist $M$ in $M$ enthalten.\footnote{vgl. \cref{implikationref}: Jede Aussage impliziert sich selbst.}
         \item Sei $x\in L$ beliebig. Wegen $L\subseteq M$ gilt dann $x\in M$. Aus $x\in M$ folgt wegen $M\subseteq N$, dass auch $x\in N$. Da das Element $x\in L$ beliebig gewählt war, ist damit $L\subseteq N$ bewiesen.\footnote{Das war ein direkter Beweis mit Zwischenschritten, vgl. \cref{implikationtrans}: $x\in L\xrightarrow{L\subseteq N} x\in N \xrightarrow{N\subseteq M} x\in M$}
         \item Seien $M\subseteq N$ und $N\subseteq M$, sowie $x$ beliebig. Dann gilt $x\in M\ \leftrightarrow\ x\in N$, denn:
-
-        „$\Rightarrow$“ folgt aus $M\subseteq N$.
-
-        „$\Leftarrow$“ folgt aus $N\subseteq M$.
-
+        \begin{labeling}
+            \item[„$\Rightarrow$“] folgt aus $M\subseteq N$.
+            \item[„$\Leftarrow$“] folgt aus $N\subseteq M$.
+        \end{labeling}
         Weil $x$ beliebig gewählt war, folgt nun aus \cref{mengengleich} die Gleichheit $M=N$.\footnote{Das war ein Äquivalenzbeweis per Hin- und Rückrichtung, vgl. \cref{hinruck}.} \qedhere
     \end{enumerate}
 \end{proof}
@@ -188,14 +187,14 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
 
 \begin{nota}[Echte Teilmenge]
     Nach \cref{teilmengeneig} ist jede Menge eine Teilmenge von sich selbst. Manchmal möchte man im Umgang mit Teilmengen diese eine „triviale“ Teilmenge ausschließen. Für Mengen $M,N$ definiert man daher: $M$ heißt eine \textbf{echte Teilmenge} von $N$, falls $M$ eine Teilmenge von $N$ ist, aber die Obermenge $N$ strikt größer ist. Notation:
-        \begin{align*}
-            M\subsetneq N \qquad:\Leftrightarrow\qquad M\subseteq N\quad \land\quad \exists x\in N:\ x\notin M
-        \end{align*}
+    \begin{align*}
+        M\subsetneq N \qquad:\Leftrightarrow\qquad M\subseteq N\quad \land\quad \exists x\in N:\ x\notin M
+    \end{align*}
     $\subseteq$ und $\subsetneq$ unterscheiden sich in derselben Hinsicht wie $\le$ und $<$. Siehe dazu \cref{striktkleiner}.
 
     Bisweilen werden in der Literatur auch abweichende Schreibweisen benutzt: etwa $M\subseteq N$ für beliebige und $M\subset N$ für echte Teilmengen; oder aber $N\subset M$ für beliebige und $M\subsetneqq N$ für echte Teilmengen.
-    \[\begin{tabular}{c|ccc}
-        & Teilmenge & echte Teilmenge \\ \hline
+    \[\begin{tabular}{rccc}
+        & Teilmenge & echte Teilmenge \\ \midrule
         Dieser Text & $\subseteq$ & $\subsetneq$ \\
         Alternative 1 & $\subseteq$ & $\subset$ \\
         Alternative 2 & $\subset$ & $\subsetneq$ oder $\subsetneqq$
@@ -213,11 +212,11 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
 
 
 \begin{bem}[Gleichheit von Mengen beweisen] \label{mengengleichbeweis}
-    Kombinieren von \cref{teilmengebeweisen} und \cref{teilmengeneig} liefert eine Methode, die Gleichheit zweier Mengen $M,N$ zu zeigen:
-    \begin{itemize}
+    Aus \cref{teilmengebeweisen} und \cref{teilmengeneig} ergibt sich eine Methode, die Gleichheit zweier Mengen $M,N$ zu zeigen:
+    \begin{labeling}
         \item[„$\subseteq$“] In einem ersten Schritt beweise, dass jedes Element von $M$ auch in $N$ liegt.
         \item[„$\supseteq$“] Im zweiten Schritt beweise, dass auch jedes Element von $N$ in $M$ liegt.
-    \end{itemize}
+    \end{labeling}
     In Beweisen solltest du die Abschnitte, die den einzelnen Inklusionen $M\subseteq N$ und $N\subseteq M$ gewidmet sind, mit Markierungen deutlich machen.
 \end{bem}
 
@@ -226,10 +225,10 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
     Es ist $\{1,2,3\}=\{1,1,3,2\}$.
 \end{bsp}
 \begin{proof}
-    \begin{itemize}
+    \begin{labeling}
         \item[„$\subseteq$“] Sei $x\in\{1,2,3\}$, also $x=1$, $x=2$ oder $x=3$. In jedem dieser Fälle\footnote{vgl. \cref{auflistung} und \cref{fallunterscheidung}} gilt auch $x\in\{1,1,3,2\}$.
         \item[„$\supseteq$“] Sei umgekehrt $x\in\{1,1,3,2\}$,  also $x=1$, $x=1$, $x=3$ oder $x=2$. In jedem dieser Fälle gilt auch $x\in\{1,2,3\}$. \qedhere
-    \end{itemize}
+    \end{labeling}
 \end{proof}
 
 
@@ -261,7 +260,7 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
 \end{satz}
 
 
-\noindent Ich werde den Beweis noch eine Weile aufschieben und in \cref{bew:leeremengeeind} nachreichen.
+Ich werde den Beweis noch eine Weile aufschieben und in \cref{bew:leeremengeeind} nachreichen.
 
 
 \begin{nota}[\textbf{Die} leere Menge]
@@ -294,7 +293,7 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
             \[ \forall x:\qquad x\in \emptyset\ \to\ E(x) \]
         Sei nun $x$ ein beliebiges Objekt (hier kommt die Beweistechnik aus \cref{allbeweis} zum Einsatz). Die Aussage $x\in\emptyset$ ist falsch, da die leere Menge keine Elemente enthält. Nach dem Prinzip \emph{ex falso quodlibet} aus \cref{exfalso} ist dann die Implikation $x\in \emptyset\ \to\ E(x)$ eine wahre Aussage. Weil das Objekt $x$ beliebig gewählt war, ist somit die Allaussage $\forall x: \left(x\in \emptyset\ \to\ E(x)\right)$ bewiesen.
 	\end{proof}
-    \noindent Aussagen, die den Elementen einer leeren Menge eine gewisse Eigenschaft zuordnen, etwa dass alle rosa Elefanen fliegen können oder dass jedes fünfeckige Rechteck ein Quadrat ist, sind also stets wahr, egal um welche Eigenschaft es sich handelt. Solche „leeren Wahrheiten“ werden im Englischen ``vacuous truths'' genannt.
+    Aussagen, die den Elementen einer leeren Menge eine gewisse Eigenschaft zuordnen, etwa dass alle rosa Elefanen fliegen können oder dass jedes fünfeckige Rechteck ein Quadrat ist, sind also stets wahr, egal um welche Eigenschaft es sich handelt. Solche „leeren Wahrheiten“ werden im Englischen ``vacuous truths'' genannt.
 \end{bem}
 
 
@@ -309,8 +308,10 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
 
 
 \begin{proof}[von \cref{leeremengeeind}] \label{bew:leeremengeeind}
-    Es gibt genau eine leere Menge, denn: \\[0.5em]
-    (Existenz): Sei $\bot$ irgendeine Eigenschaft, die kein einziges Objekt besitzt (z.B. „$x\neq x$“). Dann ist $\{ x\mid \bot \}$ eine leere Menge. \\[0.5em]
+    Es gibt genau eine leere Menge, denn:
+
+    (Existenz): Sei $\bot$ irgendeine Eigenschaft, die kein einziges Objekt besitzt (z.B. „$x\neq x$“). Dann ist $\{ x\mid \bot \}$ eine leere Menge.
+
     (Eindeutigkeit): Seien $M,N$ zwei leere Mengen. Nach \cref{leeremengeimmerdrin} sind es zwei ``vacuous truths'', dass jedes Element von $M$ auch eines von $N$ ist (also $M\subseteq N$) und ebenso jedes Element von $N$ auch eines von $M$ (also $N\subseteq M$). Aus \cref{teilmengeneig}c) folgt dann $M=N$.
 \end{proof}
 
@@ -346,13 +347,13 @@ Eine historische Definition des Mengenbegriffs wurde bereits in \cref{mengenimlo
 
 
 \begin{vorschau}[* Mengen von Mengen von Mengen von \dots] \label{mengeniterativ}
-    Das Konzept der Menge ist iterativ. Eine Menge auch wieder Element einer Menge sein, die wiederum in einer Menge enthalten sein kann usw.
+    Das Konzept der Menge ist iterativ. Eine Menge kann auch wieder Element einer Menge sein, die wiederum in einer Menge enthalten sein kann usw.
     \begin{enumerate}[(1)]
         \item Zum Beispiel ist die Menge $\N$ ein Element der Einermenge $\{\N\}$, die wiederum ein Element der dreielementigen Menge $\{ \{\N \}, 4, \Z\}$ ist.
         \item(Zermelo'sche Zahlreihe) Es ist $\emptyset$ eine Menge, die überhaupt keine Elemente enthält, wohingegen $\{\emptyset\}$ eine Einermenge ist, deren einziges Element das Objekt $\emptyset$ ist. Insbesondere ist $\{\emptyset\}$ eine nichtleere Menge, also $\{\emptyset\}\neq \emptyset$. Somit haben auch die beiden Einermengen $\{\{\emptyset\}\}$ und $\{\emptyset\}$ zwei verschiedene Elemente, sind also ebenfalls voneinander verschieden. Iterativ erhält man eine unendliche Folge paarweise verschiedener Mengen:
         \[ \emptyset \ ,\quad \{\emptyset\} \ ,\quad \{\{\emptyset\}\} \ ,\quad \{\{\{\emptyset\}\}\} \ , \quad \{\{\{\{\emptyset\}\}\}\} \ ,\quad \dots \]
         welche auch \emph{Zermelo'sche Zahlreihe} genannt wird.
-        \item(von Neumann'sche Zahlreihe) Damit verwandt ist das \href{https://de.wikipedia.org/wiki/Nat\%C3\%BCrliche_Zahl#Von_Neumanns_Modell_der_nat\%C3\%BCrlichen_Zahlen}{von Neumannsche Modell der natürlichen Zahlen}. Beide Konstruktionen ermöglichen die Simulation natürlicher Zahlen durch gewisse Mengen und demonstrieren dadurch, dass sich der Begriff der natürlichen Zahl, wenn man es denn will, zurückführen lässt auf den Begriff der Menge.
+        \item Damit verwandt ist das \href{https://de.wikipedia.org/wiki/Nat\%C3\%BCrliche_Zahl#Von_Neumanns_Modell_der_nat\%C3\%BCrlichen_Zahlen}{von Neumannsche Modell der natürlichen Zahlen}. Beide Konstruktionen ermöglichen die Simulation natürlicher Zahlen durch gewisse Mengen und demonstrieren dadurch, dass sich der Begriff der natürlichen Zahl, wenn man es denn will, zurückführen lässt auf den Begriff der Menge.
         \item(Von-Neumann-Universum) Sei $X$ eine Menge und für $n \in \N$ sei\footnote{Zur Definition von $\cup$ siehe \cref{sec:mengenop}.}
         \[ \calP^n(X):=\underbrace{\calP(\dots\calP(}_{n\text{-mal}}X)) \qquad\text{und}\qquad V_n(X):=X\cup\calP^1(X)\cup\ldots\cup \calP^n(X) \]
         Man erhält eine aufsteigende Folge von Mengen
@@ -579,7 +580,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
             \[ n\Z := \{ m\in \Z \mid \exists k\in \Z:\ m=kn \} \]
         die Menge aller ganzzahligen Vielfachen von $n$, d.h. aller ganzen Zahlen, die durch $n$ teilbar sind. Dann wurde in \cref{bsp:hinruck} bewiesen, dass
             \[ 2\Z \cap 3\Z = 6\Z \]
-        Allgemein gilt für natürliche Zahlen $m,n\in \N$, dass $m\Z\cap n\Z = \kgV(m,n)\Z$, wobei „$\kgV(m,n)$“ das kleinste gemeinsame Vielfache von $m$ und $n$ bezeichnet.
+        Für $m,n\in \N$ gilt allgemein $m\Z\cap n\Z = \kgV(m,n)\Z$, wobei „$\kgV(m,n)$“ das kleinste gemeinsame Vielfache von $m$ und $n$ bezeichnet.
     \end{enumerate}
 \end{bsp}
 
@@ -700,7 +701,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 
 \begin{bem}[Potenz als Produkt mit sich selbst]
     Seien $I,M$ zwei Mengen und $(M)_{i\in I}$ die „konstante Familie“, die an jedem Eintrag die Menge $M$ stehen hat. Dann ist $\prod_{i\in I} M$ schlicht die Menge $M^I$ aus \cref{def:mengenpotenz}. Ebenso gilt für jede natürliche Zahl $n$:
-        \[ M^n = \underbrace{M\times\ldots\times M}_{\text{$n$-mal}} \]
+        \[ M^n = \underbrace{M\times\ldots\times M}_{\text{$n$-mal}} \]
     sodass beispielsweise $\R\times \R\times \R= \R^3$.
 
     Also ist $M^I$ eine Art „$I$-faches Produkt von $M$ mit sich selbst“, genauso wie für zwei natürliche Zahlen $m,n\in \N$ die Potenz $m^n$ das $n$-fache Produkt von $m$ mit sich selbst ist:
@@ -741,13 +742,11 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
     $M\vartriangle N:= (M\setminus N)\ \dot\cup\ (N\setminus M)$} Der Punkt dient lediglich zur Mitteilung darüber, dass die beiden Mengen, von deren Vereinigung die Rede ist, disjunkt sind.
 
     Ebenso wird die Vereinigung einer Familie $(M_i)_{i\in I}$ paarweiser disjunkter Mengen deren \emph{disjunkte Vereinigung} genannt. Man schreibt:
-    \begin{align*}
-        \dot{\bigcup_{i\in I}}\ M_i & := \bigcup_{i\in I} M_i && (\text{sofern die $M_i$'s paarweise disjunkt sind})
-    \end{align*}
-    Für ein System $\calM$ paarweise disjunkter Mengen schreibt man:
-    \begin{align*}
-        \dot{\bigcup}\ \calM & := \bigcup \calM && (\text{sofern die Elemente von $\calM$ paarweise disjunkte Mengen sind})
-    \end{align*}
+    \begin{alignat*}{2}
+        \dot{\smashoperator[r]{\bigcup_{i\in I}}}\ & M_i\ & := \smashoperator{\bigcup_{i\in I}} M_i \qquad &(\text{sofern die $M_i$'s paarweise disjunkt sind}) \\
+        \intertext{Für ein System $\calM$ paarweise disjunkter Mengen schreibt man:}
+        \dot{\bigcup}\ & \calM & := \bigcup \calM \qquad &(\text{sofern die Elemente von $\calM$ paarweise disjunkte Mengen sind})
+    \end{alignat*}
 \end{defin}
 
 
@@ -843,7 +842,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 
 
 \begin{vorschau}
-    Der Ausdruck „disjunkte Vereinigung“ ist nun mit mehreren Bedeutungen „überladen“.
+    Der Ausdruck „disjunkte Vereinigung“ ist nun mehrdeutig:%mit mehreren Bedeutungen „überladen“.
     \begin{enumerate}[(1)]
         \item Zum einen bezeichnet er die disjunkte Vereinigung aus \cref{def:disjunktcup}, also die Konstruktion, mit der Mengen zuerst „künstlich disjunkt“ gemacht und daraufhin „addiert“ werden. Ich habe dafür folgende Notation verwendet:
             \[ M\sqcup N \qquad\text{bzw.}\qquad \bigsqcup_{i\in I} M_i \]
@@ -875,7 +874,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \end{aufg}
 
 
-\begin{aufg}[Mengen vs. Familien]
+\begin{aufg}[Mengen vs. Familien (L)] \label{aufg:mengenvsfamilien}
     Es sei $I:=\{1,2,3,4,5\}$ und es sei $a=(a_i)_{i\in I}$ diejenige Familie mit $a_i=i+2$ für jedes $i\in I$. Welche der folgenden Objekte sind einander gleich und welche sind voneinander verschieden?
     \begin{center}
     {\renewcommand{\arraystretch}{1.6}
@@ -887,7 +886,7 @@ Mit dem Begriff der Familie können wir einer Sammlung von Objekten eine zusätz
 \end{aufg}
 
 
-\begin{aufg}[Elemente und Teilmengen]
+\begin{aufg}[Elemente und Teilmengen (L)] \label{aufg:elemente}
     Beurteilt für jede der folgenden Aussagen, ob sie wahr oder falsch ist:
     \begin{align*}
         \N&  \in \N & \N & \subseteq \N & \N & \in \calP(\N) &  \N & \subseteq \calP(\N) \\

@@ -291,7 +291,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
 \end{bem}
 
 
-\noindent Der nächste Satz zeigt, dass sich die Identität hinsichtlich der Verkettung von Abbildungen verhält, wie die $0$ bei der Addition oder die $1$ bei der Multiplikation, vgl. \cref{def:neutrales}.
+Der nächste Satz zeigt, dass sich die Identität hinsichtlich der Verkettung von Abbildungen verhält, wie die $0$ bei der Addition oder die $1$ bei der Multiplikation, vgl. \cref{def:neutrales}.
 
 
 \begin{satz}[Neutralität der Identität] \label{idneutral}
@@ -323,7 +323,7 @@ Sei $X$ eine beliebige Menge. Gibt es überhaupt eine Abbildung $X\to X$? Solang
     Analysis && $\mathsf{Top}$ & Topologische Räume \\
     && $\mathsf{Met}$ & Metrische Räume \\
     && $\mathsf{Man}$ & Mannigfaltigkeiten \\
-    && $\sigma\textsf{-Alg}$ & Sigma-Algebren \\[0.5em]
+    && $\sigma\mathsf{\text{-}Alg}$ & Sigma-Algebren \\[0.5em]
     Algebra && $\Mon$ & Monoide \\
     && $\Grp$ & Gruppen \\
     && ${}_G\Set$ & $G$-Mengen \\
@@ -555,8 +555,10 @@ In diesem Abschnitt seien $X,Y$ stets zwei Mengen.
     \end{enumerate}
 \end{defin}
 \begin{proof}
-    (i)$\leftrightarrow$(ii): Es ist (ii) genau die Kontraposition von (i) und damit zu (i) äquivalent. \\[0.5em]
-    (i)$\rightarrow$(iii): Es gelte (i) und es seien $a,b\in X$ mit $f(a)=y$ und $f(b)=y$. Wegen $f(a)=f(b)$ folgt aus (i), dass $a=b$. Also hat $y$ höchstens ein Urbild. \\[0.5em]
+    (i)$\leftrightarrow$(ii): Es ist (ii) genau die Kontraposition von (i) und damit zu (i) äquivalent.
+
+    (i)$\rightarrow$(iii): Es gelte (i) und es seien $a,b\in X$ mit $f(a)=y$ und $f(b)=y$. Wegen $f(a)=f(b)$ folgt aus (i), dass $a=b$. Also hat $y$ höchstens ein Urbild.
+
     (iii)$\rightarrow$(i): Seien $a,b\in X$ mit $f(a)=f(b)$. Da das Element $y:=f(a)\in Y$ nach (iii) höchstens ein Urbild hat, muss dann $a=b$ sein.
 \end{proof}
 
@@ -698,7 +700,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
         \begin{center}
         \begin{tabular}{clll}
             Def.- und Wertebereich & Zuordnung & Inverse Zuordnung & \phantom{Platzhalter}\\
-            \midrule
+            \cmidrule{1-3}
             $\R\to \R$ & $x\mapsto x+a$ & $x\mapsto x-a$ & (für $a\in \R$)\\
             $\R\to \R$ & $x\mapsto ax$ & $x\mapsto \frac{x}{a}$ & (für $a\in \R\setminus \{0\}$) \\
             $\R_{>0} \to \R_{>0}$ & $x\mapsto x^a$ & $x\mapsto \sqrt[a]{x}$ & (für $a\in \R\setminus \{0\}$) \\
@@ -753,7 +755,8 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
     
     Die zu einer invertierbaren Abbildung $f$ inverse Abbildung wird notiert mit
         \[ f^{-1} \]
-    Beachte, dass es nur nur dann Sinn ergibt, von „der Umkehrabbildung $f^{-1}$“ zu sprechen, wenn $f$ invertierbar ist. Im Allgemeinen sind Abbildungen nicht invertierbar und wir werden in \cref{invwiderleg} Techniken besprechen, mit denen sich dies beweisen lässt. \\[0.5em]
+    Beachte, dass es nur nur dann Sinn ergibt, von „der Umkehrabbildung $f^{-1}$“ zu sprechen, wenn $f$ invertierbar ist. Im Allgemeinen sind Abbildungen nicht invertierbar und wir werden in \cref{invwiderleg} Techniken besprechen, mit denen sich dies beweisen lässt.
+
     Eine bloße Links- oder Rechtsinverse braucht dagegen nicht eindeutig sein, wie \cref{bsp:umkehrabb} zeigt.
 \end{bem}
 
@@ -787,18 +790,17 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \begin{proof}
     (ii)$\to$(i): Sei $f$ bijektiv. Dann gibt es für jedes $y\in Y$ genau ein $x\in X$ mit $f(x)=y$, sodass durch
         \[ g : Y\to X \ ,\ y \mapsto (\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=y$}) \]
-    eine Abbildung definiert ist. Nun ist $g$ invers zu $f$, denn: \\[0.5em]
-    ($g\circ f=\id$): Für ein beliebiges $a\in X$ ist
-    \begin{align*}
-        (g\circ f)(a) = g(f(a)) = (\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=f(a)$}) = a
-    \end{align*}
-    Weil $a\in X$ beliebig war, folgt die Gleichheit von Abbildungen $g\circ f=\id_X$. \\[0.5em]
-    ($f\circ g=\id$): Für ein beliebiges $b\in Y$ ist
-    \begin{align*}
-        (f\circ g)(b) = f(\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=b$}) = b
-    \end{align*}
-    Also ist $f\circ g=\id_Y$. \\[0.5em]
-    Insgesamt ist damit gezeigt, dass $g$ invers zu $f$ ist. \\[0.5em]
+    eine Abbildung definiert ist. Nun ist $g$ invers zu $f$, denn:
+    \begin{labeling}
+        \item[($g\circ f=\id$):] Für ein beliebiges $a\in X$ ist
+            \[ (g\circ f)(a) = g(f(a)) = (\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=f(a)$}) = a \]
+        Weil $a\in X$ beliebig war, folgt die Gleichheit von Abbildungen $g\circ f=\id_X$.
+        \item[($f\circ g=\id$):] Für ein beliebiges $b\in Y$ ist
+            \[ (f\circ g)(b) = f(\text{Das eindeutig bestimmte $x\in X$ mit $f(x)=b$}) = b \]
+        Also ist $f\circ g=\id_Y$.
+    \end{labeling}
+    Insgesamt ist damit gezeigt, dass $g$ invers zu $f$ ist.
+
     Der Beweis der Implikation (i)$\to$(ii) ist Inhalt von \cref{aufg:bijektiviso}.
 \end{proof}
 
@@ -862,7 +864,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
 \end{aufg}
 
 
-\begin{aufg}[injektiv, surjektiv, bijektiv]
+\begin{aufg}[injektiv, surjektiv, bijektiv (L)] \label{aufg:insurbi}
     Untersucht die folgenden Abbildungen darauf, ob sie injektiv, surjektiv oder bijektiv sind:
     \begin{align*}
         & \text{a)} & \Z \to \Z\ &,\ n\mapsto 2n \\
@@ -880,7 +882,7 @@ In diesem Abschnitt seien stets $X,Y$ zwei Mengen und $f:X\to Y$ eine Abbildung.
     \begin{enumerate}
         \item $f,g$ injektiv $\implies$ $g\circ f$ injektiv $\implies$ $f$ injektiv.
         \item $f,g$ surjektiv $\implies$ $g\circ f$ surjektiv $\implies$ $g$ surjektiv.
-        \item Invertierbare Abbildungen sind bijektiv.
+        \item Invertierbare Abbildungen sind bijektiv (vgl. \cref{bijektiviso}).
     \end{enumerate}
 \end{aufg}
 

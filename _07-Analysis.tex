@@ -10,9 +10,8 @@
 
 \section{Mehr über reelle Zahlen}
 
-
 \begin{bem}[Struktur auf $\R$]
-    Sowohl die rationalen Zahlen $\Q$ als auch die reellen Zahlen $\R$ bilden einen sogenannten \href{https://en.wikipedia.org/wiki/Ordered_field}{angeordneten Körper}. Die genaue Definition dieses Begriffs führte zu weit über diesen Vortrag hinaus. Grob gesagt heißt es:
+    Sowohl die rationalen Zahlen $\Q$ als auch die reellen Zahlen $\R$ bilden einen sogenannten \href{https://en.wikipedia.org/wiki/Ordered_field}{angeordneten Körper}. Die genaue Definition dieses Begriffs führte zu weit über dieses Kapitel hinaus. Grob gesagt heißt es:
     \begin{itemize}
         \item Mit reellen und rationalen Zahlen lässt sich rechnen. Sie lassen sich addieren, subtrahieren, multiplizieren und, mit Ausnahme der Null, auch dividieren. Dieser algebraische Aspekt wurde in \cref{chap:verknuepfungen} vertieft.
         \item $(\R,\le)$ und $(\Q,\le)$ sind totalgeordnete Mengen, d.h. reelle und rationale Zahlen können hinsichtlich ihrer „Größe“ miteinander verglichen werden. Dieser ordnungstheoretische Aspekt wurde in \cref{chap:relationen} vertieft.
@@ -43,9 +42,9 @@
 \begin{bem} \label{ungleichungerklaerung}
     Einige dieser Regeln werden als „Anordnungsaxiome“ gehandelt. Ich werde hier auf einen Beweis verzichten.
     \begin{itemize}
-        \item Die ersten beiden Regeln besagen, dass Addition und Subtraktion jeweils Äquivalenz\-umformungen für Ungleichungen darstellen. Man sagt auch, die Ordnungsrelation sei \emph{translationsinvariant}, weil sich Addition und Subtraktion als „Verschiebung“ der Zahlengerade vorstellen lassen.
+        \item Die ersten beiden Regeln besagen, dass Addition und Subtraktion jeweils Äquivalenzumformungen für Ungleichungen darstellen. Man sagt auch, die Ordnungsrelation sei \emph{translationsinvariant}, weil sich Addition und Subtraktion als „Verschiebung“ der Zahlengerade vorstellen lassen.
         \item Die nächsten beiden Regeln besagen, dass auch Multiplikation und Division jeweils Äquivalenzumformungen sind, sofern sie mit einer \emph{positiven} Zahl geschehen.
-        \item Bei Multiplikation und Division mit einer negativen Zahl handelt es sich um „Anti-Äquivalenzumformungen“: bei solchen Umformungen muss die Ungleichung umgedreht werden. Ebenso verhält es sich beim Vorzeichenwechsel und beim Bilden von Kehrwerten positiver Zahlen.
+        \item Bei Multiplikation und Division mit einer negativen Zahl handelt es sich um \enquote{Anti"=Äquivalenzumformungen}: bei solchen Umformungen muss die Ungleichung umgedreht werden. Ebenso verhält es sich beim Vorzeichenwechsel und beim Bilden von Kehrwerten positiver Zahlen.
     \end{itemize}
 \end{bem}
 
@@ -53,7 +52,8 @@
 \begin{bsp} \label{bsp:ungleichungumstellen}
     Seien $n\in \N$ und $\varepsilon \in \R_{>0}$. Gegeben sei die folgende Ungleichung
         \[ \varepsilon > \frac{1}{n+1} \]
-    die wir gerne nach der Zahl $n$ umstellen würden. \\[0.5em]
+    die wir gerne nach der Zahl $n$ umstellen würden.
+
     Wegen $n\in \N$ ist $n+1$ eine positive Zahl, sodass beide Seiten der Ungleichung mit $n+1$ multipliziert werden können.
     \begin{align*}
         \varepsilon  > \frac{1}{n+1} \quad & \iff\quad \varepsilon \cdot (n+1) > 1
@@ -326,7 +326,7 @@
 
 \begin{bsp}
     Beispiele für reelle Zahlenfolgen sind:
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item Die Folge der Primzahlen $2,3,5,7,11,\dots$
         \item Die Folge der natürlichen Zahlen $0,1,2,3,4,\dots$
         \item Die „alternierende Folge“ $((-1)^n)_{n\in \N_0}$. Also $1,-1,1,-1,1,-1,1,\dots$
@@ -345,7 +345,7 @@
     In all diesen Beispielen gehorchen die Folgenglieder einer einfachen Regel. Dies muss aber nicht immer der Fall sein. Eine Folge darf auch völlig chaotisch sein und ihre Einträge brauchen keinem Muster zu gehorchen. Beispielsweise ist die Folge der Nachkommastellen von \href{https://de.wikipedia.org/wiki/Chaitinsche_Konstante}{Chaitins Konstante} so komplex, dass sie sich nicht mit einem konventionellen Computerprogramm ausrechnen lässt.
         
     Hier noch ein Beispiel für eine Folge, deren Einträge mal keine Zahlen sind:
-    \begin{enumerate}[(9)]
+    \begin{enumerate}[resume*]
         \item Die Folge $(\{1,\dots , n\})_{n\in \N_0}$, deren Einträge die „Anfangsstücke“ von $\N_{\ge 1}$ sind. Also
             \[ \emptyset\ ,\quad \{1\}\ ,\quad \{1,2\}\ ,\quad \{1,2,3\}\ ,\quad \{1,2,3,4\}\ , \quad \dots \]
         Dies ist keine Zahlenfolge, sondern eine Folge von Mengen. Sie besitzt die Eigenschaft, dass für jedes $n\in \N_0$ ihr $n$-ter Eintrag eine Menge ist, die genau $n$-viele Elemente enthält.
@@ -473,7 +473,8 @@ Es gilt:
     Eine Folge, die einen Grenzwert besitzt, heißt \textbf{konvergent}. Andernfalls heißt sie \textbf{divergent}.
 \end{defin}
 \begin{proof}
-    (i)$\to$(ii): Sei $\varepsilon\in \R_{> 0}$ beliebig. Weil der $\varepsilon$-Ball $\bbB_\varepsilon(a)$ eine Umgebung von $a$ ist, folgt aus (i), dass die $a_n$'s für hinreichend große $n$ in $\bbB_\varepsilon(a)$ liegen, also dass es ein $N\in \N$ gibt derart, dass $a_n\in \bbB_\varepsilon(a)$ für alle $n\in \N_{\ge N}$. Per Definition des Balles $\bbB_\varepsilon(a)$ ist dies genau die Aussage von (ii). \\[0.5em]
+    (i)$\to$(ii): Sei $\varepsilon\in \R_{> 0}$ beliebig. Weil der $\varepsilon$-Ball $\bbB_\varepsilon(a)$ eine Umgebung von $a$ ist, folgt aus (i), dass die $a_n$'s für hinreichend große $n$ in $\bbB_\varepsilon(a)$ liegen, also dass es ein $N\in \N$ gibt derart, dass $a_n\in \bbB_\varepsilon(a)$ für alle $n\in \N_{\ge N}$. Per Definition des Balles $\bbB_\varepsilon(a)$ ist dies genau die Aussage von (ii).
+
     (ii)$\to$(i): Sei $U\subseteq X$ eine beliebige Umgebung von $a$. Nach \cref{def:umgebung} gibt es dann ein $\varepsilon\in \R_{>0}$ mit $\bbB_\varepsilon(a)\subseteq U$. Nach (ii) gibt es ein $N\in \N$ derart, dass $d(a_n,a)<\varepsilon$ für alle $n\in \N_{\ge N}$. Per Definition des Balls $\bbB_\varepsilon(a)$ heißt das gerade, dass die $a_n$'s in $\bbB_\varepsilon(a)$ liegen für hinreichend große $n$, wegen $\bbB_\varepsilon(a)\subseteq U$ dann auch in $U$.
 \end{proof}
 
@@ -616,7 +617,8 @@ Es gilt:
     \begin{align*}
         f'(x)&=\lim_{h\to 0} \frac{((x+h)^2+3(x+h))\cdot e^{x+h} - (x^2+3x)\cdot e^{x}}{h}
     \end{align*}
-    direkt auszurechnen. \\[0.5em]
+    direkt auszurechnen.
+
     Ein Ziel der Analysis-Vorlesung ist es, dich mit Werkzeugen auszustatten, die das Berechnen von Grenzwerten bequem machen und Epsilontik vermeiden. Versuche in Analysis-Beweisen, die Objekte immer soweit es geht in einfachste Bausteine zu zerlegen und einen $\varepsilon$-Beweis erst wenn gar nichts anderes mehr geht als Ultima Ratio anzusetzen.
 \end{bem}
 
@@ -652,7 +654,7 @@ Es gilt:
 \end{aufg}
 
 
-\begin{aufg}[Hausdorffeigenschaft\protect\footnotemark]
+\begin{aufg}[Hausdorffeigenschaft\protect\footnotemark (L)] \label{aufg:hausdorff}
     \footnotetext{\href{https://de.wikipedia.org/wiki/Felix_Hausdorff}{Felix Hausdorff (1868-1942)}}
     Seien $X$ ein metrischer Raum, $a,b\in X$ zwei verschiedene Punkte und $D:=d(a,b)$.
     
@@ -662,16 +664,16 @@ Es gilt:
 
 \begin{aufg}[Teilmengen skizzieren]
     Visualisiert die folgenden Teilmengen von $\R$ jeweils durch eine Zeichnung und beurteilt, welche Elemente jeweils innere Punkte sind:
-    \begin{align*}
-        &\text{a)} && \smashoperator[l]{\bigcup_{k\in \Z}} [3k+1,\ 3k+2] \\
-        &\text{b)} && \smashoperator[l]{\bigcup_{n\in \N}} \left[ -n,\ \frac{n}{n+1} \right] \\
-        &\text{c)} && \smashoperator[l]{\bigcap_{n\in \N_{\ge 1}}} \bbB_{1/n}(7) \\
-        &\text{d)} && \R\setminus\Q
-    \end{align*}
+    \begin{enumerate}
+        \item \qquad$\smashoperator[l]{\bigcup_{k\in \Z}} [3k+1,\ 3k+2]$
+        \item \qquad$\smashoperator[l]{\bigcup_{n\in \N}} \left[ -n,\ \frac{n}{n+1} \right] $
+        \item \qquad$\smashoperator[l]{\bigcap_{n\in \N_{\ge 1}}} \bbB_{1/n}(7)$
+        \item \qquad$\R\setminus \Q$
+    \end{enumerate}
 \end{aufg}
 
 
-\begin{aufg}[Konkrete Folgen]
+\begin{aufg}[Eigenschaften von Folgen (L)] \label{aufg:folgen}
     Untersucht jede der folgenden Folgen darauf, ob sie (nach oben oder unten) beschränkt, monoton oder monoton für hinreichend große $n$ ist.
     \begin{enumerate}[a)]
         \item Die Folge der Kehrwerte natürlicher Zahlen $(1/n)_{n\in \N_{\ge 1}}$. Also $1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\dots$

@@ -7,10 +7,11 @@
 \newpagestyle{first}{
     {}
     {\hspace{10mm} \vspace{-3mm} \parbox{70mm}{
+            \Large\upshape
             \hfill \\[2mm]
-            \Large\upshape Universität Heidelberg\\
-            \Large\upshape Fachschaft MathPhysInfo\\
-            \large\upshape Luka Thomé \vspace{4mm}
+            Universität Heidelberg\\
+            Fachschaft MathPhysInfo\\
+            Luka Thomé \vspace{4mm}
         } \hfill \parbox{80mm}{
             \centering\includegraphics[height=20mm]{./_img/mathphysinfo-logo_4c.pdf}
         } \\[0.5em]
@@ -26,20 +27,25 @@
 }
 
 \newcommand{\firstpage}{
+    % Satzspiegel für den Rest des Skripts
+    \KOMAoptions{
+        headinclude=true, % Kopfzeilen in den Textkörper mit einbeziehen
+        DIV=14, % Teilungsfaktor zur Berechnung des Satzspiegels
+        twoside=semi % Doppelseitige Kopfzeilen bei gleichen Rändern
+    }
+    \begin{titlepage}
     \thispagestyle{first}
     \newgeometry{centering, text={1.3\textwidth, \paperheight}} % Seitenlayout für die Titelseite
     \setlength{\headheight}{50mm} % Kopfzeile vergrößern
     \setlength{\footheight}{90mm} % Fußzeile vergrößern
-    \vspace*{25mm}
+    \vspace*{30mm}
     \begin{center}
-        {\large\itshape Skript zum}\\[3ex]
-        {\huge\scshape Mathematischen Vorkurs}\\[5ex]
-        {\large\itshape Wintersemester 2024/25}
+        {\Large\itshape Skript zum}\\[3ex]
+        {\Huge\ifluatex\setmainfont{EB Garamond}\fi\scshape Mathematischen Vorkurs}\\[5ex]
+        {\Large\itshape Wintersemester \oldstylenums{2024/25}}
     \end{center}
-    \recalctypearea % zurück zum Standard-Seitenlayout
-    
-    \vspace*{1em}
-    {\small
+    \end{titlepage}
+    \begin{small}
         \noindent Fassung Stand \today \\[1.5em]
         3. Auflage 2024 \\[0.5em]
         Autor der dritten Auflage: Luka Thomé \\[1.5em]
@@ -52,7 +58,7 @@
         Nikolaus Betker \\
         Maximilian Bur \\
         Luna Cielibak \\
-        Luka Thomé (Koordination) \\[1.5em]
+        Luka Thomé (Leitung) \\[1.5em]
         {\textcopyright} Fachschaft MathPhysInfo \\
         Im Neuenheimer Feld 205 (Mathematikon), Raum 01.301\\
         69120 Heidelberg \\
@@ -60,7 +66,7 @@
         Fax: +49 6221 54 161 14 999 \\
         E-Mail: \href{mailto:fachschaft@mathphys.stura.uni-heidelberg.de}{fachschaft@mathphys.stura.uni-heidelberg.de}\\
         Webseite: \href{https://mathphys.stura.uni-heidelberg.de}{https://mathphys.stura.uni-heidelberg.de}
-    }
+    \end{small}
 }
 
 
@@ -69,42 +75,40 @@
 % ====================================================================
 
 \newcommand{\lastpage}{
-    % Sicherstellen, dass die letzte Seite geradzahlig ist.
-    \clearpage
-    \ifodd\value{page}\hbox{}\newpage\fi
+    \cleardoubleevenpage
     % Letzte Seite zentrieren und ohne Seitenzahl
     \thispagestyle{scrplain}
     \newgeometry{centering}
     
     \pdfbookmark[-1]{Griechisches Alphabet}{alphabet}
-    \centering{\color{gray}\Large\sffamily\textbf{Griechisches Alphabet}}
+    \centering{\color{gray}\huge\sffamily\textbf{Griechisches Alphabet}}
     \vspace*{15mm}
-    \large
+    \Large
     \begin{longtable}{lcccc}
         & Majuskel & Minuskel & Deutsches Pendant \\
         \midrule
-        Alpha & A & $\alpha$ & A & \\
-        Beta & B & $\beta$ & B & \\
+        Alpha & $\mathrm{A}$ & $\alpha$ & A & \\
+        Beta & $\mathrm{B}$ & $\beta$ & B & \\
         Gamma & $\Gamma$ & $\gamma$ & G & \\
         Delta & $\Delta$ & $\delta$ & D & \\
-        Epsilon & E & $ \varepsilon$, $\epsilon$ & E \\
-        Zeta & Z & $\zeta$ & Z & \\
-        Eta & H & $\eta$ & E \\
+        Epsilon & $\mathrm{E}$ & $ \varepsilon$, $\epsilon$ & E \\
+        Zeta & $\mathrm{Z}$ & $\zeta$ & Z & \\
+        Eta & $\mathrm{H}$ & $\eta$ & E \\
         Theta & $\Theta$ & $\vartheta$, $\theta$ & Th \\
-        Iota & I & $\iota$ & I & \\
-        Kappa & K & $\kappa$ & K & \\
+        Iota & $\mathrm{I}$ & $\iota$ & I & \\
+        Kappa & $\mathrm{K}$ & $\kappa$ & K & \\
         Lambda & $\Lambda$ & $\lambda$ & L & \\
-        My & M & $\mu$ & M & \\
-        Ny & N & $\nu$ & N & \\
+        My & $\mathrm{M}$ & $\mu$ & M & \\
+        Ny & $\mathrm{N}$ & $\nu$ & N & \\
         Xi & $\Xi$ &$\xi$ & X & \\
-        Omikron & O & $o$ & O \\
+        Omikron & $\mathrm{O}$ & $o$ & O \\
         Pi & $\Pi$ & $\pi$, $\varpi$ & P & \\
-        Rho & P & $\varrho$, $\rho$ & R & \\
+        Rho & $\mathrm{P}$ & $\varrho$, $\rho$ & R & \\
         Sigma & $\Sigma$ & $\sigma$, $\varsigma$  & S \\
-        Tau & T & $\tau$ & T & \\
+        Tau & $\mathrm{T}$ & $\tau$ & T & \\
         Ypsilon & $\Upsilon$ & $\upsilon$ & Y & \\
         Phi & $\Phi$ & $\varphi$, $\phi$ & Ph & \\
-        Chi & X & $\chi$ & Ch \\
+        Chi & $\mathrm{X}$ & $\chi$ & Ch \\
         Psi & $\Psi$ & $\psi$ & Ps \\
         Omega & $\Omega$ & $\omega$ & O
     \end{longtable}

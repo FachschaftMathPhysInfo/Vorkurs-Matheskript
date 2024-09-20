@@ -88,11 +88,11 @@
 
 \begin{bsp}[*]
     In der synthetischen affinen und projektiven Geometrie ist die Aussage
-    \begin{itemize}
-        \item[(A)] Durch je zwei verschiedene Punkte verläuft genau eine Gerade.
-    \end{itemize}
+    \begin{quote}
+        (A) Durch je zwei verschiedene Punkte verläuft genau eine Gerade.
+    \end{quote}
     ein Axiom, das nicht hergeleitet wird, sondern einen Teil unseres Verständnisses von „Punkten“ und „Geraden“ kodiert. Allein aus diesem Axiom kann nun schon die folgende Aussage hergeleitet werden:
-    \begin{satz}[*]
+    \begin{satz}
         Zwei verschiedene Geraden schneiden sich in höchstens einem gemeinsamen Punkt.
     \end{satz}
     \begin{proof}
@@ -142,7 +142,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 \begin{axiom}[Der direkte Beweis] \label{direkterbeweis} \index{direkter Beweis}
     Um die Implikation $A\to B$ zu beweisen, kannst du die Technik des \textbf{direkten Beweises} benutzen:
     
-    Nimmt an, dass die Aussage $A$ gilt und zeige nun mithilfe dieser Annahme (und aller weiteren Aussagen, die dir zur Verfügung stehen), dass auch $B$ gilt.
+    Nimm an, dass die Aussage $A$ gilt, und zeige nun mithilfe dieser Annahme (und aller weiteren Aussagen, die dir zur Verfügung stehen), dass auch $B$ gilt.
 \end{axiom}
 
 
@@ -205,14 +205,14 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 
 \begin{bem}[Logik-Latein]
-    Du brauchst dir nicht merken, dass diese Schlussregel „Modus ponens“ heißt. Ebensowenig brauchst du dir die anderen lateinischen Bezeichnungen in diesem Vortrag merken. Sie sollen dir jedoch das Nachschlagen in Internet und Literatur erleichtern.
+    Du brauchst dir nicht merken, dass diese Schlussregel „Modus ponens“ heißt. Ebensowenig brauchst du dir die anderen lateinischen Bezeichnungen in diesem Kapitel merken. Sie sollen dir jedoch das Nachschlagen in Internet und Literatur erleichtern.
 \end{bem}
 
 
 \begin{bem}
     Anfänger machen gelegentlich den Fehler, aus $A\to B$ und $B$ auf die Aussage $A$ zu schließen. Hier ist ein Beispiel für diesen Fehlschluss:
     \begin{quote}
-        Wenn sie nach der Arbeit heimlich mit nem anderen Typen schläft, kommt sie später als sonst nach Hause. Heute ist sie schon wieder später nach Hause gekommen, also ist klar, dass sie es mit jemand Anderem treibt.
+        Wenn sie heimlich mit nem anderen Typen schläft, kommt sie später als sonst nach Hause. Heute ist sie schon wieder später nach Hause gekommen, also ist klar, dass sie es mit jemand Anderem treibt.
     \end{quote}
     Mach dir klar, warum diese Schlussfolgerung nicht logisch valide ist.
 \end{bem}
@@ -261,7 +261,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
     Eine ganze Zahl $n\in \Z$ ist genau dann ein Vielfaches von $6$, wenn sie zugleich ein Vielfaches von $2$ und ein Vielfaches von $3$ ist.
 \end{bsp}
 \begin{proof}
-    \begin{enumerate}
+    \begin{labeling}
         \item[„$\Rightarrow$“:] Sei $n$ ein Vielfaches von $6$. Dies besagt, dass es ein $k\in \Z$ gibt mit $n=6\cdot k$. Es folgt $n=2\cdot (3k)$ und $n=3\cdot (2k)$. Also ist $n$ sowohl ein Vielfaches von $2$ als auch von $3$.
         \item[„$\Leftarrow$“:] Es sei $n$ sowohl ein Vielfaches von $2$ als auch von $3$. Demzufolge gibt es $k,l\in \Z$ mit $n=2k$ und $n=3l$. Es folgt
         \begin{align*}
@@ -271,7 +271,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
             & = 6\cdot (k-l)
         \end{align*}
         Also ist $n$ auch ein Vielfaches von $6$. \qedhere
-    \end{enumerate}
+    \end{labeling}
 \end{proof}
 
 
@@ -310,10 +310,10 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
     beweist. In diesem Fall fungieren die Aussagen $Z_1,\dots , Z_n$ als \textbf{Zwischenschritte}.
 \end{satz}
 \begin{proof}
-    \begin{enumerate}
+    \begin{labeling}
         \item[„$\Rightarrow$“:] Die Äquivalenzen $A\leftrightarrow Z_1$, $Z_1\leftrightarrow Z_2$, \dots, $Z_n\leftrightarrow B$ beinhalten die Implikationen $A\to Z_1$, $Z_1\to Z_2$, \dots, $Z_n\to B$, woraus sich mittels \cref{implikationtrans} ergibt, dass $A\to B$ gilt.
         \item[„$\Leftarrow$“:] Ebenso beinhalten die Äquivalenzen $A\leftrightarrow Z_1$, $Z_1\leftrightarrow Z_2$, \dots, $Z_n\leftrightarrow B$ auch die Implikationen $B\to Z_n$, $Z_n\to Z_{n-1}$, \dots, $Z_1\to A$, woraus sich mittels \cref{implikationtrans} auch $B\to A$ ergibt. \qedhere
-    \end{enumerate}
+    \end{labeling}
 \end{proof}
 
 
@@ -332,7 +332,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 \begin{proof}
     Es gilt:
     \begin{alignat*}{5}
-        x^2-x& =1 \quad&\leftrightarrow\quad&& \left(x-\frac{1}{2}\right)^2 - \frac{1}{4} &= 1 &&& (\text{quadratische Ergänzung}) \\
+        x^2-x& =1 \quad&\leftrightarrow\quad&& \left(x-\frac{1}{2}\right)^2 - \frac{1}{4} &= 1 &&& \qquad(\text{quadratische Ergänzung}) \\
         && \leftrightarrow\quad&& \left(x-\frac{1}{2}\right)^2&=\frac{5}{4} \\
         && \leftrightarrow\quad&& x-\frac{1}{2} &= \pm \sqrt{\frac{5}{4}} \\
         && \leftrightarrow\quad&& x  &= \frac{1\pm \sqrt{5}}{2} 
@@ -355,10 +355,10 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
         \[ (A\leftrightarrow B)\leftrightarrow(B\leftrightarrow A) \]
 \end{satz}
 \begin{proof}
-    \begin{enumerate}
+    \begin{labeling}
         \item[„$\Rightarrow$“:] Es gelte $A\leftrightarrow B$. Daraus folgt, dass sowohl $A\to B$ als auch $B\to A$ gelten. Aber dies sind genau Rück- und Hinrichtung für $B\leftrightarrow A$.
         \item[„$\Leftarrow$“:] Die Rückrichtung beweist man analog zur Hinrichtung, unter Vertauschung der Rollen von $A$ und $B$. \qedhere
-    \end{enumerate}
+    \end{labeling}
 \end{proof}
 
 
@@ -385,10 +385,10 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 \begin{bem}[* Selbstreferenzielle Aussagen]
     Das Curry-Paradoxon wird deshalb als „Paradoxon“ gehandelt, da es zumindest in der Alltagssprache ziemlich leicht ist, Aussagen $A$ zu konstruieren, für die $A\leftrightarrow (A\to B)$ gilt. Zum Beispiel seien
-    \begin{itemize}[labelindent=1.5em, leftmargin=!, labelwidth=\widthof{$B:=$}]
+    \begin{labeling}[labelindent=1.5em]
         \item[$A:=$] „Wenn diese Aussage wahr ist, gewinne ich morgen im Lotto.“
         \item[$B:=$] „Morgen gewinne ich im Lotto.“
-    \end{itemize}
+    \end{labeling}
     Dann gilt tatsächlich $A\leftrightarrow (A\to B)$, sodass aus \cref{curryparadox} folgt, dass ich morgen Millionär bin. Lotterien hassen diesen Trick.
     
     Damit sich mit dem Curry-Paradoxon nicht einfach \emph{jede} mathematische Aussage beweisen lässt, muss in der mathematischen Logik sichergestellt werden, dass sich die Selbstreferenzialität „Wenn \emph{diese Aussage} wahr ist, dann \dots“, die alltagssprachlich problemlos erzeugbar ist, nicht in formaler mathematischer Sprache nachbilden lässt.
@@ -418,8 +418,8 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
     Diesen „Beweisstil“ solltest du dir nicht aneignen bzw. so bald es geht abgewöhnen. Denn bei so einer Äquivalenzenkette geschieht bei jeder Äquivalenzumformung auf jeder der beiden Seiten eine arithmetische Umformung, die der Leser nachvollziehen muss. Und diese arithmetischen Umformungen bilden den eigentlichen Kern des Beweises, letztendlich hat der Leser die Gleichungskette also in einer „U-Form“, deren beide Stränge erst ganz am Schluss zusammenfinden, zu lesen:
     \[\begin{tikzcd}
         && x\cdot (y+1)-x\ar[red, d, dash] & =& (x+1)\cdot y-y \ar[red, d, dash] \\
-        &\leftrightarrow& xy + x-x  \ar[red, d, dash] & =& xy + y - y \ar[red, d, dash] \\
-        &\leftrightarrow& xy \ar[red, rr, dash, bend right] & =& xy
+        \leftrightarrow&& xy + x-x  \ar[red, d, dash] & =& xy + y - y \ar[red, d, dash] \\
+        \leftrightarrow&& xy \ar[red, rr, dash, bend right] & =& xy
     \end{tikzcd}\]
     Schöner ist es, diese Kette arithmetischer Umformungen gar nicht erst als „U“, sondern als die Kette, als die sie letztendlich auch zu lesen ist, hinzuschreiben:
     \begin{proof}[Schönerer Beweis]
@@ -437,24 +437,24 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
 
 \begin{bem}[Beweise „rückwärts“ führen] \label{hintennachvorne}
     Mal angenommen, ich möchte beweisen, dass die Kubikwurzel von $3$ größer ist als die Quadratwurzel von $2$. Auf der Suche nach einem Beweis beginne ich einfach mal mit der zu zeigenden Ungleichung $\sqrt[3]{3}>\sqrt{2}$ und forme ein bisschen um:
-    \begin{align*}
-        && \sqrt[3]{3}& >\sqrt{2} \\
-        & \to& \sqrt[3]{3}^{3\cdot 2} & > \sqrt{2}^{2\cdot 3} & (\text{beide Seiten mit $6$ potenzieren}) \\
-        & \to & (\sqrt[3]{3}^3)^2 & > (\sqrt{2}^2)^3 & (\text{Potenzgesetz anwenden})\\
+    \begin{alignat*}{3}
+        &\qquad\qquad& \sqrt[3]{3}& >\sqrt{2} \\
+        & \to& \sqrt[3]{3}^{3\cdot 2} & > \sqrt{2}^{2\cdot 3} && (\text{beide Seiten mit $6$ potenzieren}) \\
+        & \to & (\sqrt[3]{3}^3)^2 & > (\sqrt{2}^2)^3 &\qquad\qquad& (\text{Potenzgesetz anwenden})\\
         & \to & 3^2 & > 2^3 \\
         & \to & 9 & > 8
-    \end{align*}
+    \end{alignat*}
     Das sieht schonmal gut aus! Durch ein paar Umformungen bin ich zu einer wahren Aussage gelangt. Mancher Anfänger würde nun denken, dass das Problem damit erledigt ist und die obige Ungleichungskette als Beweis taugt.
     
     Das ist aber falsch. Denn die Ungleichungskette beginnt ja mit der zu beweisenden Aussage. Hier wurde also nur die Aussage „Wenn $\sqrt[3]{3} >\sqrt{2}$ gilt, dann ist $9>8$“ bewiesen, die aber leider nichts darüber aussagt, ob nun tatsächlich $\sqrt[3]{3} >\sqrt{2}$ gilt. Glücklicherweise handelt es sich aber bei allen Umformungen um Äquivalenzumformungen, sodass die Ungleichungskette auch in umgekehrter Richtung gültig ist:
-    \begin{align*}
-        && 9 & > 8 \\
+    \begin{alignat*}{3}
+        &\qquad\qquad& 9 & > 8 \\
         & \to & 3^2 & > 2^3 \\
         & \to & (\sqrt[3]{3}^3)^2 & > (\sqrt{2}^2)^3 \\
-        & \to& \sqrt[3]{3}^{3\cdot 2} & > \sqrt{2}^{2\cdot 3} & (\text{Potenzgesetz anwenden}) \\
-        &\to &  \sqrt[3]{3}& >\sqrt{2}  & (\text{sechste Wurzel ziehen})
-    \end{align*}
-    Nun ist die Argumentation zumindest mal nicht mehr logisch falsch. Wenn ich jetzt noch das „Ungleichungs-U“ loswerde, kann sich der Beweis sehen lassen. Hier ist der finale Beweis:
+        & \to& \sqrt[3]{3}^{3\cdot 2} & > \sqrt{2}^{2\cdot 3} &\qquad\qquad& (\text{Potenzgesetz anwenden}) \\
+        &\to &  \sqrt[3]{3}& >\sqrt{2}  && (\text{sechste Wurzel ziehen})
+    \end{alignat*}
+    Nun ist die Argumentation zumindest mal nicht mehr logisch falsch. Wenn ich jetzt noch das „Ungleichungs"~U“ loswerde, kann sich der Beweis sehen lassen. Hier ist der finale Beweis:
     \begin{proof}
         Es gilt
         \begingroup
@@ -479,7 +479,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
         \to && \cos^2(x) + \sin^2(x) & = 1 &&&&
     \end{align*}
     und letzteres ist eine wohlbekannte wahre Aussage (die manchmal als „Satz des Pythagoras“\footnote{\href{https://de.wikipedia.org/wiki/Pythagoras}{Pythagoras (6. Jhd. v. Chr.)}} bezeichnet wird). Jedoch ist
-        \[ \cos(\pi) = -1 \neq \sqrt{1-0^2} = \sqrt{1-\sin^2(\pi)} \]
+        \[ \cos(\pi) = -1 \neq \sqrt{\strut 1-0^2} = \sqrt{1-\sin^2(\pi)} \]
     sodass irgendetwas nicht stimmen kann. Kannst du ausmachen, wie und wo sich der Fehler eingeschlichen hat?
 \end{bem}
 
@@ -552,9 +552,10 @@ Würde man hier die Äquivalenz jedes Aussagenpaars per Hin- und Rückrichtung b
 \begin{proof}
     (i)$\to$(ii): Es gelte (i). Für alle $m\in \Z$ ist dann
     \begin{align*}
-        m+n \ge m+1 > m
+        m+n & \ge m+1 > m
     \end{align*}
-    (ii)$\to$(iii) ist trivial (da ganze Zahlen existieren). \\[0.5em]
+    (ii)$\to$(iii) ist trivial (da ganze Zahlen existieren).
+
     (iii)$\to$(i): Sei $m\in \Z$ mit $m+n>m$. Subtraktion von $m$ liefert die Ungleichung $n>0$. Weil $n$ ganzzahlig ist, muss dann schon $n\ge 1$ gelten.
 \end{proof}
 
@@ -576,7 +577,8 @@ Würde man hier die Äquivalenz jedes Aussagenpaars per Hin- und Rückrichtung b
         & (i) \ar[ld, bend right=20]  \ar[rd, bend right=20] & \\
         (iii)\ar[ru, bend right=20] && (ii) \ar[lu, bend right=20]
     \end{tikzcd}\]
-    Entscheidend ist, dass du am Ende genügend viele Implikationen bewiesen hast, dass man mittels Zwischenschritten von jeder Aussage zu jeder anderen Aussage gelangen kann. \\[0.5em]
+    Entscheidend ist, dass du am Ende genügend viele Implikationen bewiesen hast, dass man mittels Zwischenschritten von jeder Aussage zu jeder anderen Aussage gelangen kann.
+
     Wenn du eine umfangreiche Äquivalenzaussage beweisen möchtest, solltest du immer Ausschau nach Implikationen halten, die „geschenkt“ sind, d.h. deren Beweis besonders naheliegend und einfach ist (in \cref{bsp:ringschluss} war das die Implikation (ii)$\to$(iii)). Daran kannst du dann deine Beweisstrategie orientieren. Ein \href{https://mampf.mathi.uni-heidelberg.de/media/105/play?time=2609}{Äquivalenzbeweis aus meiner LA1-Vorlesung vom Wintersemester 2016/17} verlief so speziell, dass unser Dozent Denis Vogel zu Beginn seines Beweises einen „Plan“ aufschrieb, um seinen Hörern die Orientierung zu erleichtern.
     \begin{figure}[ht]
         \includegraphics[width=10cm]{./_img/equivbeweis.jpeg}
@@ -634,7 +636,7 @@ In diesem Abschnitt seien $A,B$ stets zwei beliebige Aussagen.
     (1) Aus
         \[ 25=5^2 \qquad\text{und}\qquad 25 = 9 + 16 = 3^2 + 4^2 \]
     folgt, dass $25$ eine Quadratzahl ist, die sich als Summe zweier echt kleinerer Quadratzahlen schreiben lässt.
-    
+
     (2) Die einzigen Quadratzahlen $\neq 0$, die noch kleiner als $25$ sind, sind
         \[ 1\qquad 4\qquad 9\qquad 16 \]
     Wäre eine dieser vier Zahlen eine Summe zweier echt kleinerer Quadratzahlen, so müssten auch diese beiden Summanden in der Liste dieser vier Zahlen vorkommen. Aber alle möglichen Kombinationen
@@ -800,10 +802,10 @@ In diesem Abschnitt sei $E(x)$ stets ein einstelliges Prädikat.
 \end{satz}
 \begin{proof}
     Ich beweise jeweils nur die Hinrichtung „$\to$“. Die Rückrichtung wird, unter Vertauschung der Rollen von $x$ und $y$, analog bewiesen.
-    \begin{itemize}
+    \begin{labeling}
         \item[„$\forall$“:] Seien $a,b$ zwei beliebige Objekte und es gelte $\forall x\ \forall y: R(x,y)$. Mit \cref{quantorenaxiom} folgt durch Einsetzen von $a$, dass $\forall y: R(a,y)$, und durch Einsetzen von $b$, dass $R(a,b)$. Da $a$ beliebig gewählt war, gilt somit sogar $\forall x: R(x,b)$. Und da auch $b$ beliebig gewählt war, folgt hieraus, dass $\forall y\ \forall x: R(x,y)$.
         \item[„$\exists$“:] Es sei angenommen, dass $\exists x\ \exists y: R(x,y)$ gilt. Dann gibt es ein Objekt $a$, für das $\exists y: R(a,y)$ gilt (hier wird \cref{exverwendung} genutzt). Somit gibt es auch ein Objekt $b$, für das $R(a,b)$ gilt. Wegen $R(a,b)$ gilt insbesondere $\exists x: R(x,b)$ und daraus folgt wiederum $\exists y\ \exists x: R(x,y)$. \qedhere
-    \end{itemize}
+    \end{labeling}
 \end{proof}
 
 
@@ -827,21 +829,21 @@ In \cref{eindquantzerlegung} wurde thematisiert, wie sich der Eindeutigkeitsquan
 Diese Und-Aussage kann gemäß \cref{undbeweise} als zwei separate Aussagen behandelt werden:
 
 
-\begin{satz}[Existenz- und Eindeutigkeitsbeweis] \label{eindbeweis} \index{Eindeutigkeitsbeweis}
+\begin{axiom}[Existenz- und Eindeutigkeitsbeweis] \label{eindbeweis} \index{Eindeutigkeitsbeweis}
     Wenn du eine Aussage der Form $\exists ! x: E(x)$ beweisen möchtest, kannst du deinen Beweis in einen Existenz-Teil und einen Eindeutigkeit-Teil aufteilen:
     \begin{itemize}
         \item Im Existenz-Teil beweist du, dass es mindestens ein Objekt gibt, das die Eigenschaft $E$ besitzt (z.B. durch Angabe eines Beispiels).
         \item Im Eindeutigkeit-Teil beweist du, dass je zwei Objekte, die die Eigenschaft $E$ besitzen, identisch sind.
     \end{itemize}
     Dabei spielt es keine Rolle, ob du erst den Existenz- und dann den Eindeutigkeit-Teil aufschreibst oder umgekehrt.
-\end{satz}
+\end{axiom}
 
 
 \begin{bsp} \label{bsp:eindbeweis}
     Es gibt genau ein $a\in \R$ mit $ax=a$ für alle $x\in \R$.
 \end{bsp}
 \begin{proof}
-    (Eindeutigkeit): Seien $a,b\in \R$ mit $ax=a$ und $bx=b$ für alle $x\in \R$. Dann ist
+    Eindeutigkeit): Seien $a,b\in \R$ mit $ax=a$ und $bx=b$ für alle $x\in \R$. Dann ist
     \begin{align*}
         a & = a\cdot b & (\text{wegen der besonderen Eigenschaft von $a$}) \\
         & = b \cdot a  \\
@@ -872,7 +874,8 @@ Im Sonderfall, dass sich Allaussagen auf natürliche Zahlen beziehen, stehen Bew
 
 
 \begin{bem}[Erklärung des Induktionsbeweises]
-    Die natürlichen Zahlen lassen sich „abzählen“. Das heißt, wenn ich mit der Null starte und dann anfange zu zählen „Null, Eins, Zwei, Drei,\dots“, so werde ich zwar nie fertig, da es ja unendlich viele Zahlen gibt -- ich werde aber jede beliebige Zahl nach hinreichend langer Zeit abgezählt haben. Mit anderen Worten: Der Zählprozess schöpft die Gesamtheit aller natürlichen Zahlen vollständig aus. Oder: Die Gesamtheit aller natürlichen Zahlen kann durch den Zählprozess „vollständig abgetragen“ werden. \\
+    Die natürlichen Zahlen lassen sich „abzählen“. Das heißt, wenn ich mit der Null starte und dann anfange zu zählen „Null, Eins, Zwei, Drei,\dots“, so werde ich zwar nie fertig, da es ja unendlich viele Zahlen gibt -- ich werde aber jede beliebige Zahl nach hinreichend langer Zeit abgezählt haben. Mit anderen Worten: Der Zählprozess schöpft die Gesamtheit aller natürlichen Zahlen vollständig aus. Oder: Die Gesamtheit aller natürlichen Zahlen kann durch den Zählprozess „vollständig abgetragen“ werden.
+
     Zählen heißt, mit der Null zu starten und nach jeder genannten Zahl mit der kleinsten noch nicht genannten Zahl fortzufahren. Die natürlichen Zahlen lassen sich also restlos durch die beiden Operationen
     \begin{itemize}
         \item Mit der Null beginnen.
@@ -899,9 +902,11 @@ Im Sonderfall, dass sich Allaussagen auf natürliche Zahlen beziehen, stehen Bew
 
 
 \begin{proof}
-    (Existenz): Im Fall $a<b$ kann man einfach $q=0$ und $r=a$ setzen. Deshalb sei ab sofort angenommen, dass $a\ge b$ gilt. Der Beweis geschieht nun per Induktion über $a$. \\[0.5em]
-    (Induktionsanfang) Im Fall $a=0$ folgt aus $b\neq 0$, dass $a<b$, sodass man einfach $q=0$ und $r=a$ wählen kann. \\
-    (Induktionsschritt) Wegen $a\ge b$ ist auch $a-b$ eine natürliche Zahl. Wegen $a-b< a$ gibt es nach Induktionsvoraussetzung eine natürliche Zahl $p$ und eine Zahl $r<b$, für die
+    (Existenz): Im Fall $a<b$ kann man einfach $q=0$ und $r=a$ setzen. Deshalb sei ab sofort angenommen, dass $a\ge b$ gilt. Der Beweis geschieht nun per Induktion über $a$.
+
+    (Induktionsanfang): Im Fall $a=0$ folgt aus $b\neq 0$, dass $a<b$, sodass man einfach $q=0$ und $r=a$ wählen kann.
+
+    (Induktionsschritt): Wegen $a\ge b$ ist auch $a-b$ eine natürliche Zahl. Wegen $a-b< a$ gibt es nach Induktionsvoraussetzung eine natürliche Zahl $p$ und eine Zahl $r<b$, für die
         \[ a-b = pb + r \]
     gilt. Setzt man $q:=p+1$, so folgt
         \[ a = (p+1)b + r = qb+r\]
@@ -1259,10 +1264,10 @@ Die bisherigen Axiome und Beweistechniken bilden zusammen die \emph{intuitionist
     \[ A\leftrightarrow \neg \neg A \]
 \end{satz}
 \begin{proof}[*]
-    \begin{itemize}
+    \begin{labeling}
         \item[„$\Rightarrow$“:] Es gelte $A$. Dann würde aus $\neg A$ sofort der Widerspruch $A\land \neg A$ folgen, sodass $\neg A$ falsch sein muss. Also gilt $\neg\neg A$.
         \item[„$\Leftarrow$“:] Es gelte $\neg \neg A$. Gemäß tertium non datur gilt $A\lor \neg A$. Da $\neg A$ falsch ist, folgt vermöge \cref{modustp}, dass $A$ gelten muss. \qedhere
-    \end{itemize}
+    \end{labeling}
 \end{proof}
 
 
@@ -1276,7 +1281,7 @@ Die bisherigen Axiome und Beweistechniken bilden zusammen die \emph{intuitionist
         \[ A\to B\quad \leftrightarrow\quad \neg A\lor B \]
 \end{satz}
 \begin{proof}[*]
-    \begin{enumerate}
+    \begin{labeling}
         \item[„$\Rightarrow$“:] Es gelte $A\to B$. Um nun „$\neg A\lor B$“ zu beweisen, unterscheide ich zwei Fälle:
         \begin{enumerate}[1)]
             \item Der Fall, dass $A$ wahr ist. In diesem Fall folgt aus der Annahme $A\to B$, dass auch $B$ gilt. Aber dann ist insbesondere auch $\neg A\lor B$ korrekt.
@@ -1284,7 +1289,7 @@ Die bisherigen Axiome und Beweistechniken bilden zusammen die \emph{intuitionist
         \end{enumerate}
         Also gilt in jedem Fall $\neg A\lor B$.
         \item[„$\Leftarrow$“:] Es gelte $\neg A\lor B$. Für einen direkten Beweis von $A\to B$ sei angenommen, dass $A$ gilt. Aber dann ist $\neg A$ falsch nach \cref{doppelneg}, sodass wegen $\neg A\lor B$ nur noch die Option übrig bleibt, dass $B$ gilt. \qedhere
-    \end{enumerate}
+    \end{labeling}
 \end{proof}
 
 
@@ -1408,70 +1413,58 @@ Die bisherigen Axiome und Beweistechniken bilden zusammen die \emph{intuitionist
 
 \begin{aufg}[(Un)Logische Schlussfolgerungen]
     Seien $A,B,C$ drei beliebige Aussagen und $E,F,G$ drei Eigenschaften. Beurteilt die nachfolgenden Schlussfolgerungen danach, ob sie logisch haltbar sind:
-    \begin{align*}
-        \text{a)}\quad &\begin{tabular}{l}
+    \begin{enumerate}
+        \item \begin{tabular}{l}
             Wenn sich niemand von uns ins Zeug legt, kriegen wir das Projekt nie \\
             \qquad im September fertig. \\
-            Wir haben das Projekt im September fertig gekriegt. \\ \hline
+            Wir haben das Projekt im September fertig gekriegt. \\ \midrule
             Also gilt: Jeder von uns hat sich ins Zeug gelegt.
-        \end{tabular} \\[1em]
-        \text{b)}\quad &\begin{tabular}{l}
+        \end{tabular}
+        \item \begin{tabular}{l}
             Im Sterben sagen alle Menschen die Wahrheit. \\
-            Im Sterben sagte Siddhartha: „Alles Geschaffene ist vergänglich.“ \\ \hline
+            Im Sterben sagte Siddhartha: „Alles Geschaffene ist vergänglich.“ \\ \midrule
             Also gilt: Alles Geschaffene ist vergänglich.
-        \end{tabular} \\[1em]
-        \text{c)}\quad &\begin{tabular}{l}
+        \end{tabular}
+        \item \begin{tabular}{l}
             Entweder ist der Butler oder der Koch der Mörder. \\
-            Entweder ist der Koch oder der Gärtner der Mörder. \\ \hline
+            Entweder ist der Koch oder der Gärtner der Mörder. \\ \midrule
             Also gilt: Entweder ist der Butler oder der Gärtner der Mörder.
-        \end{tabular} \\[1em]
-        \text{d)}\quad &\begin{tabular}{r}
+        \end{tabular}
+        \item \begin{tabular}{r}
             $A\to B$ \\
-            $C\to \neg B$ \\ \hline
+            $C\to \neg B$ \\ \midrule
             $A\leftrightarrow \neg C$
         \end{tabular} \qquad\qquad\qquad \text{e)}\quad \begin{tabular}{r}
             $\nexists x:\ F(x)\land G(x)$ \\
-            $\forall x:\ E(x)\to F(x)$ \\ \hline
+            $\forall x:\ E(x)\to F(x)$ \\ \midrule
             $\nexists x:\ E(x)\land G(x)$
-        \end{tabular} \qquad (\text{Modus Celarent}) \\[1em]
-        \text{f)}\quad &\begin{tabular}{l}
-            \textsc{Anna}: Wenn Ben verschläft, kommt er immer zu spät zur Vorlesung. Heute \\
-            \qquad kam er schon wieder zu spät, also muss er mal wieder verschlafen haben. \\
-            \textsc{Chloe}: Dir ist ein Fehlschluss unterlaufen. Du hast von $A\to B$ und $B$ auf $A$ \\
-            \qquad geschlossen, aber diese Schlussweise ist nicht valide. \\
-            \textsc{Anna}: Ups, stimmt ja. Also ist er heute mal pünktlich aufgestanden.
-        \end{tabular}
-    \end{align*}
+        \end{tabular} \qquad (\text{Modus Celarent})
+        \item \begin{labeling}[font=\scshape]
+            \item[Anna:] Wenn Ben verschläft, kommt er immer zu spät zur Vorlesung. Heute kam er schon wieder zu spät, also muss er mal wieder verschlafen haben.
+            \item[Chloe:] Dir ist ein Fehlschluss unterlaufen. Du hast von $A\to B$ und $B$ auf $A$ geschlossen, aber diese Schlussweise ist nicht valide.
+            \item[Anna:] Ups, stimmt ja. Also ist er heute mal pünktlich aufgestanden.
+        \end{labeling}
+    \end{enumerate}
 \end{aufg}
 
 
 \begin{aufg}[Fehlersuche I]
     Findet die Fehler in den folgenden Argumentationen\footnote{entnommen aus \cite{Vel06}} und beweist, dass alle drei Sätze falsch sind:
-    \begin{satz}[a]
-        Seien $x,y\in \R$ mit $x+y=10$. Dann sind $x\neq 3$ und $y\neq 8$.
-    \end{satz}
-    \begin{proof}
-        Angenommen nicht. Dann wären $x=3$ und $y=8$ und damit $x+y=11\neq 10$.
-    \end{proof}
-    \begin{satz}[b]
-        Für alle $x,y\in \R$ ist $x^2+xy-2y^2=0$.
-    \end{satz}
-    \begin{proof}
-        Seien $x,y$ gleich einer beliebigen reellen Zahl $r$. Dann ist
-        \[ x^2+xy-2y^2 = r^2+rr - 2r^2=0 \qedhere \]
-    \end{proof}
-    \begin{satz}[c]
-        Seien $m,n\in \N_0$ mit $m$ gerade und $n$ ungerade. Dann ist $n^2-m^2=m+n$.
-    \end{satz}
-    \begin{proof}
-        Weil $m$ gerade ist, gibt es ein $k\in \N_0$ mit $m=2k$. Analog gibt es, da $n$ ungerade ist, ein $k\in \N_0$ mit $n=2k+1$. Es folgt
-            \[ n^2-m^2 = (2k+1)^2-(2k)^2 = (4k^2+4k+1)-4k^2 = 2k+(2k+1) = m+n \qedhere \]
-    \end{proof}
+    \begin{enumerate}
+        \item {\color{dred}\textbf{Satz}.}\enspace Seien $x,y\in \R$ mit $x+y=10$. Dann sind $x\neq 3$ und $y\neq 8$. \newline
+        {\color{gray}\textbf{Beweis}.}\enspace Angenommen nicht. Dann wären $x=3$ und $y=8$ und damit $x+y=11\neq 10$. \qed
+        \item {\color{dred}\textbf{Satz}.}\enspace Für alle $x,y\in \R$ ist $x^2+xy-2y^2=0$. \newline
+        {\color{gray}\textbf{Beweis}.}\enspace Seien $x,y$ gleich einer beliebigen reellen Zahl $r$. Dann ist
+        \[ x^2+xy-2y^2 = r^2+rr - 2r^2=0 \qed\]
+        \item {\color{dred}\textbf{Satz}.}\enspace Seien $m,n\in \N_0$ mit $m$ gerade und $n$ ungerade. Dann ist $n^2-m^2=m+n$. \newline
+        {\color{gray}\textbf{Beweis}.}\enspace Weil $m$ gerade ist, gibt es ein $k\in \N_0$ mit $m=2k$. Analog gibt es, da $n$ ungerade ist, ein $k\in \N_0$ mit $n=2k+1$. Es folgt
+        \[ n^2-m^2 = (2k+1)^2-(2k)^2 = (4k^2+4k+1)-4k^2 = 2k+(2k+1) = m+n \qed \]
+    \end{enumerate}
 \end{aufg}
 
 
 \begin{aufg}[Fehlersuche II]
-    Analysiert den folgenden Satz samt Beweis. Enthält der Beweis Fehler oder Lücken? Stimmt der Satz überhaupt?
+    Analysiert den folgenden Beweis. Enthält er Fehler oder Lücken? Stimmt der Satz überhaupt?
     \begin{satz}
         Für jede natürliche Zahl $m$ existiert eine natürliche Zahl $n$ derart, dass keine der Zahlen $n+1,n+2,\dots , n+m$ eine Primzahl ist. Mit anderen Worten: Es gibt beliebig große Primzahllücken.
     \end{satz}
