@@ -1,7 +1,7 @@
 
 
 \setchapterpreamble[c][.7\textwidth]{\itshape\color{gray}\small
-    In diesem Vortrag werden diejenigen sprachlichen Strukturen vorgestellt, die in der Mathematik verwendet werden, um Definitionen, Sätze und Beweise zu formulieren. 
+    In diesem Vortrag werden diejenigen sprachlichen Strukturen vorgestellt, die in der Mathematik verwendet werden, um Definitionen, Sätze und Beweise zu formulieren.
 \vspace{24pt}}
     
 
@@ -27,7 +27,7 @@
     \begin{quote}
         „Sei $n$ eine natürliche Zahl.“
     \end{quote}
-    In modernen mathematischen Texten werden Variablen meist als kursive Buchstaben gedruckt. Ansonsten ist aber alles erlaubt: Großbuchstaben, Kleinbuchstaben, griechische Buchstaben usw. Beispielsweise können die folgenden Zeichen alle als Variablen verwendet werden:
+    In diesem Skript werden Variablen meist als kursive Buchstaben gedruckt. Ansonsten ist aber alles erlaubt: Großbuchstaben, Kleinbuchstaben, griechische Buchstaben usw. Beispielsweise können die folgenden Zeichen alle als Variablen verwendet werden:
         \[ A,B,x,y,\gamma,\delta,\dots \]
     Prinzipiell kannst du jedes Zeichen als Variable verwenden, solange du vorher seinen Typ festlegst (z.B. „Seien $x,y$ zwei reelle Zahlen“). Allerdings haben sich in der Mathematik Konventionen eingebürgert, die gewisse Zeichen mit gewissen Typen assoziieren, und die du befolgen solltest, um deinen Text für andere Mathematiker leichter lesbar zu machen. Zum Beispiel:
     \begin{itemize}
@@ -161,8 +161,8 @@
         \item Für $x,y\in\R$ sind $t(x):=x^2$ und $s(y):=y-1$ zwei Terme vom Typ „reelle Zahl“. Setzt man für die Variable $y$ den Term $t$ ein, ergibt sich $s(t)=x^2-1$. Setzt man dagegen in $t$ den Term $s$ ein, ergibt sich $t(s)=(y-1)^2$.
         \item Substituieren wir im Term „Das Geburtsjahr von $m$“ für die Variable $m$ den Term „die Mutter von $m$“, ergibt sich der Term „Das Geburtsjahr der Mutter von $m$“.
         \item Für $x,\varphi\in \R$ mit $-1\le x\le 1$ sind
-            \[ y(x):=\sqrt{1-x^2} \qquad\text{und}\qquad s:=\sin(\varphi) \]
-        zwei Terme vom Typ „reelle Zahl“ mit $-1\le s\le 1$. Substituieren wir für $x$ den Term $s$, ergibt sich $y(s)=\sqrt{1-\sin(\varphi)^2}$, was gleichwertig zu $\vert\cos(\varphi)\vert$ ist. Substitutionen dieser Art sind dir vielleicht von der \emph{Integration durch Substitution} aus der Schule vertraut.
+            \[ y(x):=\sqrt{\strut 1-x^2} \qquad\text{und}\qquad s:=\sin(\varphi) \]
+        zwei Terme vom Typ „reelle Zahl“ mit $-1\le s\le 1$. Substituieren wir für $x$ den Term $s$, ergibt sich $y(s)=\sqrt{1-\sin\!\smash{(\varphi)}^2}$, was gleichwertig zu $\vert\cos(\varphi)\vert$ ist. Substitutionen dieser Art sind dir vielleicht von der \emph{Integration durch Substitution} aus der Schule vertraut.
     \end{enumerate}
 \end{bsp}
 
@@ -208,19 +208,19 @@
 
 \begin{bsp}
     Parallel zur abstrakten Theorie werden uns in diesem Paragraphen die folgenden Beispielaussagen begleiten:
-    \begin{enumerate}[label={$B_{\arabic*}:=$}, labelindent=1.5em, leftmargin=*, series=propbsp]
+    \begin{labeling}[label={$B_{\arabic*}:=$}, labelindent=1.5em, series=propbsp]
         \item „Der Döner wurde in Deutschland erfunden.“
         \item „Heute ist Mittwoch.“
         \item „Es gibt außerirdisches Leben.“
         \item „Der FC Bayern spielte eine schlechte Hinrunde.“
         \item „Die Relativitätstheorie ist fehlerhaft.“
-    \end{enumerate}
+    \end{labeling}
     Nicht jeder deutsche Satz ist eine Aussage. Sätze, die eher nicht als Aussagen durchgehen würden, sind zum Beispiel: \quad
-    \begin{enumerate}[resume*]
+    \begin{labeling}[resume*=propbsp]
         \item[] „Frohe Weihnachten!“
         \item[] „Was möchten Sie trinken?“
         \item[] „Ein großes Bier, bitte!“
-    \end{enumerate}
+    \end{labeling}
 \end{bsp}
 
 
@@ -243,11 +243,11 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 \begin{bsp}
     Beispiele für Konjunktionen sind etwa:
-    \begin{itemize}[labelindent=1.5em, leftmargin=!, labelwidth=\widthof{$B_2\land B_4 =$}]
-        \item[$B_2\land B_4 =$] „Heute ist Mittwoch und der FC Bayern spielte eine schlechte Hinrunde.“
-        \item[$B_3\land B_5 =$] „Es gibt außerirdisches Leben, aber die Relativitätstheorie ist fehlerhaft.“
-        \item[$B_1\land B_5 =$] „Obwohl der Döner in Deutschland erfunden wurde, ist die Relativitätstheorie fehlerhaft.“
-    \end{itemize}
+    \begin{labeling}[resume*=propbsp]
+        \item[$B_2\land B_4=$] „Heute ist Mittwoch und der FC Bayern spielte eine schlechte Hinrunde.“
+        \item[$B_3\land B_5=$] „Es gibt außerirdisches Leben, aber die Relativitätstheorie ist fehlerhaft.“
+        \item[$B_1\land B_5=$] „Obwohl der Döner in Deutschland erfunden wurde, ist die Relativitätstheorie fehlerhaft.“
+    \end{labeling}
     An den Beispielen wird deutlich, dass die Konjunktion zweier Aussagen nicht immer durch das Wort „und“ erfolgen braucht.
 \end{bsp}
 	
@@ -263,11 +263,11 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 \begin{bsp}
     Beispiele für Disjunktionen sind:
-    \begin{itemize}[labelindent=1.5em, leftmargin=!, labelwidth=\widthof{$B_3\lor B_3 =$}]
-        \item[$B_1 \lor B_3 =$] „Der Döner wurde in Deutschland erfunden oder es gibt außerirdisches Leben.“
-        \item[$B_2\lor B_5 =$] „Heute ist Mittwoch oder die Relativitätstheorie ist fehlerhaft.“
+    \begin{labeling}[resume*=propbsp]
+        \item[$B_1\lor B_3=$] „Der Döner wurde in Deutschland erfunden oder es gibt außerirdisches Leben.“
+        \item[$B_2\lor B_5=$] „Heute ist Mittwoch oder die Relativitätstheorie ist fehlerhaft.“
         \item[$B_4\lor B_4=$] „Der FC Bayern spielte eine schlechte Hinrunde oder der FC Bayern spielte eine schlechte Hinrunde.“
-    \end{itemize}
+    \end{labeling}
 \end{bsp}
 
 		
@@ -319,13 +319,13 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 \begin{bsp}    
     Beispiele für Negationen sind:
-    \begin{itemize}[labelindent=1.5em, leftmargin=!, labelwidth=\widthof{$\neg B_1 =$}]
+    \begin{labeling}[resume*=propbsp]
         \item[$\neg B_1 =$] „Der Döner wurde nicht in Deutschland erfunden.“
         \item[$\neg B_2 =$] „Heute ist nicht Mittwoch.“
         \item[$\neg B_3 =$] „Es gibt kein außerirdisches Leben.“
         \item[$\neg B_4 =$] „Der FC Bayern spielte keine schlechte Hinrunde.“
         \item[$\neg B_5 =$] „Die Relativitätstheorie ist fehlerfrei.“
-    \end{itemize}
+    \end{labeling}
 \end{bsp}
 
 
@@ -348,11 +348,11 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 \begin{bsp}
     Beispiele für $\to$-Aussagen sind:
-    \begin{itemize}[labelindent=1.5em, leftmargin=!, labelwidth=\widthof{$B_1\to B_5 =$}]
+    \begin{labeling}[resume*=propbsp]
         \item[$B_1\to B_5=$] „Wenn der Döner in Deutschland erfunden wurde, ist die Relativitätstheorie fehlerhaft.“
         \item[$B_2\to B_4=$] „Sofern der FC Bayern eine schlechte Hinrunde spielte, ist heute Mittwoch.“
         \item[$B_3\to B_5=$] „Gibt es außerirdisches Leben, so ist die Relativitätstheorie fehlerhaft.“
-    \end{itemize}
+    \end{labeling}
 \end{bsp}
 
 
@@ -382,11 +382,11 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
     
 \begin{bsp}
     Beispiele für Äquivalenzaussagen sind:
-    \begin{itemize}[labelindent=5.5em, labelwidth=\widthof{$B_1\leftrightarrow B_3 =$}, leftmargin=*]
-        \item „Genau dann ist heute Mittwoch, wenn morgen Donnerstag ist.“
-        \item „Eine reelle Zahl $x$ ist dann und nur dann negativ, wenn $-x$ positiv ist.“
+    \begin{labeling}[resume*=propbsp]
+        \item[\hfill\textbullet] „Genau dann ist heute Mittwoch, wenn morgen Donnerstag ist.“
+        \item[\hfill\textbullet] „Eine reelle Zahl $x$ ist dann und nur dann negativ, wenn $-x$ positiv ist.“
         \item[$B_1\leftrightarrow B_3=$] „Dass der Döner in Deutschland erfunden wurde, ist äquivalent dazu, dass es außerirdisches Leben gibt.“
-    \end{itemize}
+    \end{labeling}
 \end{bsp}
 
 	
@@ -475,7 +475,7 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 
 \begin{bsp}
-    Beispielsweise ist $\{M\mid M\ \text{ist ein Mensch}\}$ die Menge aller Menschen und $\{p\mid p\ \text{ist eine Primzahl}\}$ die Menge aller Primzahlen. Manchmal schreibt man auch nur so etwas wie „$\{\text{Menschen}\}$“ und „$\{\text{Primzahlen}\}$“, und spart sich den Umweg über die gebundene Variable.
+    Beispielsweise ist $\{M\mid M$ ist ein Mensch$\}$ die Menge aller Menschen und $\{p\mid p$ ist eine Primzahl$\}$ die Menge aller Primzahlen. Manchmal schreibt man auch nur so etwas wie „$\{\text{Menschen}\}$“ und „$\{\text{Primzahlen}\}$“, und spart sich den Umweg über die gebundene Variable.
 \end{bsp}
 
 
@@ -551,7 +551,7 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
     \end{align*}
     Ebenso schreibt man $\nexists x\in M: E(x)$ anstelle von $\neg (\exists x\in M: E(x))$.
     
-    Für den Allquantor hat diese Notation kein Pendant. So etwas wie „$\not{\!\forall}$“ ist meiner Erfahrung nach nicht gebräuchlich.
+    Für den Allquantor hat diese Notation kein Pendant. So etwas wie „$\forall\mkern-11mu/$“ ist meiner Erfahrung nach nicht gebräuchlich.
 \end{nota}
 
 
@@ -681,7 +681,7 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
         \begin{align*}
             a_0 & = 0 & a_1 & = 1 & a_n & = a_{n-2} + a_{n-1}  && \text{für alle}\ n\in \N_{\ge 2}
         \end{align*}
-        erfüllt. Die Rekursionsvorschrift fungiert somit als kennzeichnende Eigenschaft. Die durch sie definierte Zahlenfolge heißt \emph{Fibonnaci-Folge}. Ihre ersten Folgenglieder sind $0,1,1,2,3,5,8,13,21,34,\dots$.
+        erfüllt. Die Rekursionsvorschrift fungiert hier als kennzeichnende Eigenschaft. Die durch sie definierte Zahlenfolge heißt \emph{Fibonacci-Folge}. Sie beginnt mit $0,1,1,2,3,5,8,13,21,34,\dots$
     \end{enumerate}
 \end{bsp}
 
@@ -793,10 +793,10 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
         \end{enumerate}
         bedeuten. In der Mathematik wird der Implikationspfeil ausschließlich im Sinne von (ii) gebraucht.
         \item Die Implikation $A\to B$ kann wahr oder falsch sein, selbst wenn gar kein Zusammenhang zwischen $A$ und $B$ besteht. Setzt man beispielsweise
-        \begin{itemize}[labelindent=3em, leftmargin=!, labelwidth=\widthof{$B:=$}]
+        \begin{labeling}[labelindent=1.5em]
             \item[$A:=$] „Der Döner wurde in Deutschland erfunden“
             \item[$B:=$] „$529$ ist eine Quadratzahl.“
-        \end{itemize}
+        \end{labeling}
         so ist $B$ eine wahre Aussage. Egal, ob $A$ nun wahr oder falsch ist, ergibt sich aus der Wahrheitstafel, dass „Sofern der Döner in Deutschland erfunden wurde, ist $529$ eine Quadratzahl“ eine wahre Aussage ist, obwohl $A$ mit $B$ ja gar nichts zu tun hat.
     \end{enumerate}
     Der Implikationspfeil in der Mathematik braucht nichts mit einem kausalen Zusammenhang zu tun zu haben. „$A\to B$“ besagt eher soviel wie „Mit der Annahme von $A$ lässt sich $B$ beweisen“. In \cref{chap:beweise} wird noch einmal darauf eingegangen, siehe \cref{direkterbeweis} und \cref{keinekausalitaet}.
@@ -910,24 +910,24 @@ Es werden nun die gebräuchlichen Junktoren vorgestellt.
 
 \begin{aufg}[Formeln in Alltagssprache übersetzen]
     Übersetzt die folgenden Aussageformeln in Alltagssprache und beurteilt, ob es sich um wahre oder falsche Aussagen handelt:
-    \begin{enumerate}
-        \item $\forall x,y\in \R:\ ((x<0)\land (y<0)\ \to\ xy>0)$
-        \item $\forall x\in \R\ \exists n\in \Z:\ x<n$
-        \item $\exists n\in \Z\ \forall x\in \R:\ x<n$
-        \item $\exists! x\in \R\ \exists y\in \R:\ (y\neq0\ \land\ x\cdot y=0)$
-        \item $\forall x\in \R\ \exists y\in \R\ \forall z\in \R:\ yz = (x+z)^2-(x^2+z^2)$
-        \item $\forall n\in\N_0\ \exists a,b,c,d\in \N_0:\ n=a^2+b^2+c^2+d^2$ \quad (Vier-Quadrate-Satz)
-    \end{enumerate}
+    \begin{align*}
+        \text{a)}&\qquad \forall x,y\in \R:\ ((x<0)\land (y<0)\ \to\ xy>0) \\[0.4em]
+        \text{b)}&\qquad \forall x\in \R\ \exists n\in \Z:\ x<n \\[0.4em]
+        \text{c)}&\qquad \exists n\in \Z\ \forall x\in \R:\ x<n \\[0.4em]
+        \text{d)}&\qquad \exists! x\in \R\ \exists y\in \R:\ (y\neq0\ \land\ x\cdot y=0) \\[0.4em]
+        \text{e)}&\qquad \forall x\in \R\ \exists y\in \R\ \forall z\in \R:\ yz = (x+z)^2-(x^2+z^2) \\[0.4em]
+        \text{f)}&\qquad \forall n\in\N_0\ \exists a,b,c,d\in \N_0:\ n=a^2+b^2+c^2+d^2 \tag{Vier-Quadrate-Satz}
+    \end{align*}
 \end{aufg}
 	
 	
-\begin{aufg}[Wahrheitstafeln]
+\begin{aufg}[Wahrheitstafeln (L)] \label{aufg:wtafeln}
     Seien $A,B$ zwei beliebige Aussagen. Entscheidet mithilfe von Wahrheitstafeln, in welchen Fällen die folgenden Aussagen wahr sind:
     \begin{align*}
         \text{a)}&\qquad \neg(A\lor B) \\
-        \text{b)}&\qquad (\neg A \to A) \to A && (\text{Consequentia mirabilis}) \\
+        \text{b)}&\qquad (\neg A \to A) \to A \tag{Consequentia mirabilis} \\
         \text{c)}&\qquad A\land(B\to\neg(A\land B)) \\
-        \text{d)}&\qquad (A\to B)\lor(B\to A) && (\text{Linearitätsaxiom})
+        \text{d)}&\qquad (A\to B)\lor(B\to A) \tag{Linearitätsaxiom}
     \end{align*}
 \end{aufg}
 

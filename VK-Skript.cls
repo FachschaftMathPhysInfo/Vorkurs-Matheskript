@@ -5,44 +5,34 @@
 % <<KOMA-Klasse scrbook als Basis>>
 % ====================================================================
 
-\PassOptionsToClass{12pt}{scrbook} % Schriftgröße
+\PassOptionsToClass{
+    fontsize=11pt,
+    titlepage=off,
+    headings=openany, % Kapitelanfänge auch auf geradzahligen Seiten zulassen
+    headings=normal, % Dezentere Kapitelanfänge
+    chapterprefix=true, % Kapiteltitel mit „Kapitel ...“ beginnen
+    numbers=noenddot % Abschnittsnummerierungen ohne Punkt am Ende
+}{scrbook}
 \ProcessOptions
 \LoadClass{scrbook}
-\KOMAoptions{
-    DIV=15,
-    BCOR=1cm,
-    headings=small,
-    chapterprefix,
-    numbers=noenddot
-}
+
+\RedeclareSectionCommand[beforeskip=0pt]{chapter} % Kapitalanfänge nach oben setzen
 
 
 % ====================================================================
 % <<Pakete>>
 % ====================================================================
 
+\RequirePackage{iftex} % Kompatibilität für LuaLaTeX und PdfLaTeX regeln
+
+
 % Sprache und Kodierung
 \RequirePackage[ngerman]{babel}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
-    
-    
-% Schriftarten
-\RequirePackage{newtxtext} % Times New Roman für den textmode
-\RequirePackage{lmodern}
-% Gestalt der \implies- und \iff-Pfeile fixen
-\makeatletter
-    \input{ot1lmr.fd}
-    \DeclareFontShape{OT1}{lmr}{m}{n}{
-        <-5.5>    rm-lmr5  <5.5-6.5> rm-lmr6
-        <6.5-7.5> rm-lmr7  <7.5-8.5> rm-lmr8
-        <8.5-9.5> rm-lmr9  <9.5->    rm-lmr10
-    }{}
-\makeatother
-    
+\ifpdftex\RequirePackage[utf8]{inputenc}\fi
+
 
 % Mathe
-\RequirePackage[fleqn]{amsmath} % fleqn für die Linksbündigkeit des displaymode
+\RequirePackage[fleqn]{amsmath} % fleqn für linksbündigen displaymath
 \RequirePackage{mathtools}
     \mathtoolsset{centercolon}
 \RequirePackage{amsthm}
@@ -52,32 +42,70 @@
 % Zeichenbibliotheken
 \RequirePackage{amssymb}
 \RequirePackage{stmaryrd}
+% Gestalt der \implies- und \iff-Pfeile fixen https://tex.stackexchange.com/a/137514
+\makeatletter
+    \input{ot1lmr.fd}
+    \DeclareFontShape{OT1}{lmr}{m}{n}{
+        <-5.5>    rm-lmr5  <5.5-6.5> rm-lmr6
+        <6.5-7.5> rm-lmr7  <7.5-8.5> rm-lmr8
+        <8.5-9.5> rm-lmr9  <9.5->    rm-lmr10
+    }{}
+\makeatother
+
+
+% Schriftarten
+\ifpdftex
+    \RequirePackage[T1]{fontenc}
+    \RequirePackage{newtxtext} % Tex Gyre Termes für den textmode
+    \RequirePackage{lmodern} % Latin Modern für den mathmode
+\fi
+\ifluatex
+    \RequirePackage{fontspec}
+    \setmainfont{Stix Two Text}
+    \setsansfont{Libertinus Sans}
+    \setmathrm{Latin Modern Math}
+    \setmathsf{Latin Modern Sans}
+    \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n} % legacy mathcal
+    \let\mathbb\relax\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n} % legacy mathbb
+    \DeclareMathSizes{10.95}{12}{8}{8} % Alle Matheschriften ein klein wenig größer machen
+\fi
 
 
 % Seitenlayout
-\RequirePackage{scrlayer-scrpage}
-\RequirePackage{geometry}
+\RequirePackage{scrlayer-scrpage} % Für Kopf- und Fußzeilen
+\RequirePackage{geometry} % Wird in der Formatierung von Titel- und Rückseite eingesetzt
 
 
 % Listen und Tabellen
-\RequirePackage[shortlabels]{enumitem}
-\RequirePackage{longtable}
-\RequirePackage{booktabs}
+\RequirePackage[shortlabels]{enumitem} % Zusätzliche Konfigurationsmöglichkeiten für Listen
+\RequirePackage{longtable} % Seitenumspannende Tabellen
+\RequirePackage{booktabs} % Werkzeuge für schönere Tabellen
+    \setlength{\cmidrulekern}{0.25em} % Default-Länge beim Trimmen von cmidrules
+
+
+% Entwicklertools
+\RequirePackage{verbatim} % Wörtliche Wiedergabe von Code und \begin{comment}-Umgebung für längere Kommentare im Code
+\RequirePackage{calc} % Rechnen mit LaTeX-Größen
+\RequirePackage{etoolbox} % Nützliche Zusatzbefehle
+\RequirePackage{eqparbox} % Wird für den Labeling-Listen-Tweak eingesetzt
+
+
+% Mikrotypographie
+\RequirePackage[babel, verbose=silent]{microtype} % Warnungen umstellen, die bislang aus einem Bug resultierten https://tex.stackexchange.com/q/373594
+\ifluatex\RequirePackage[ngerman]{selnolig}\fi % Korrekte Ligaturen
 
 
 % Sonstiges
-\RequirePackage{verbatim} % Wörtliche Wiedergabe von Code und \begin{comment}-Umgebung für längere Kommentare im Code
 \RequirePackage{xcolor} % Umgang mit Farben
 \RequirePackage{graphicx} % Zum Laden von Bildern
 \RequirePackage{tikz} % Zeichnen von Vektorgrafiken
     \usetikzlibrary{babel}
     \usetikzlibrary{cd} % Kommutative Diagramme
-\RequirePackage[babel]{microtype} % Typographisches Feintuning
-\RequirePackage[autostyle]{csquotes} % biblatex zufriedenstellen: https://tex.stackexchange.com/a/229653
+\RequirePackage[autostyle]{csquotes} % Zitate und Anführungszeichen
 
 
 % Literaturverzeichnis
-\RequirePackage[style=alphabetic, sorting=ynt]{biblatex} % ynt für chronologische Sortierung (default wäre alphabetische Sortierung)
+\RequirePackage[style=alphabetic]{biblatex}
     \addbibresource{Literaturverzeichnis.bib}
     
 % Symbolverzeichnis
@@ -103,7 +131,6 @@
 \RequirePackage{hyperref}
     \hypersetup{
         pdfpagemode=UseOutlines,
-        hypertexnames=false,
         bookmarksdepth=1,
         breaklinks,
         colorlinks,
@@ -111,12 +138,21 @@
         urlcolor=dblue,
         citecolor=black
     }
-    % Links für die Seitenzahlen im Index korrigieren
+\RequirePackage[all]{hypcap} % Korrektes Verlinken auf floating environments
+\RequirePackage{footnotebackref} % Fußnoten zum Text zurückverlinken
+    \deffootnote[1em]{1.5em}{1em}{\textsuperscript{\hyperref[\BackrefFootnoteTag]{\thefootnotemark}}} % Verfügbarkeit für KOMA fixen https://tex.stackexchange.com/a/492925
     \makeatletter
-        \patchcmd\Hy@EveryPageBoxHook{\Hy@EveryPageAnchor}{\Hy@hypertexnamestrue\Hy@EveryPageAnchor}{}{\fail}
+    % Ebenso footnotemarks zurückverlinken https://tex.stackexchange.com/a/78438
+    \LetLtxMacro{\BHFN@Old@footnotemark}{\@footnotemark}
+    \renewcommand*{\@footnotemark}{%
+        \refstepcounter{BackrefHyperFootnoteCounter}%
+        \xdef\BackrefFootnoteTag{bhfn:\theBackrefHyperFootnoteCounter}%
+        \label{\BackrefFootnoteTag}%
+        \BHFN@Old@footnotemark
+    }
     \makeatother
 \RequirePackage{bookmark} % Verwaltung der Pdf-bookmarks
-\RequirePackage[ngerman, nameinlink]{cleveref} % nameinlink, damit nicht nur die Nummern anklickbar sind
+\RequirePackage[ngerman, nameinlink]{cleveref}
 
 
 % ====================================================================
@@ -126,12 +162,10 @@
 \let\oldfrontmatter\frontmatter
 \renewcommand{\frontmatter}{
     \oldfrontmatter
-    \addtocontents{toc}{
-        \protect\vspace*{0.5em}
-        \protect\DeclareTOCStyleEntry[beforeskip=1.5em plus 3pt]{tocline}{chapter} % Schlecht platzierten Seitenumbruch im Inhaltsverzeichnis vermeiden
-        \protect\KOMAoptions{toc=chapterentrywithoutdots} % Trennpunkte verbergen
-        \protect\DeclareTOCStyleEntries[pagenumberformat=\color{white}]{tocline}{chapter, section} % Seitenzahlen verbergen
-    }
+    \addtocontents{toc}{\protecting{
+        \KOMAoptions{toc=chapterentrywithoutdots} % Trennpunkte verbergen
+        \DeclareTOCStyleEntries[pagenumberformat=\phantom]{tocline}{chapter, section} % Seitenzahlen verbergen
+    }}
     \pagestyle{scrplain}
 }
 
@@ -146,23 +180,16 @@
 \let\oldmainmatter\mainmatter
 \renewcommand{\mainmatter}{
     \oldmainmatter
-    \cleardoublepage
     \renewcommand{\chapterpagestyle}{onlypagenumber}
     \pagestyle{scrheadings}
-    \addtocontents{toc}{
-        \protect\RedeclareSectionCommand[toclinefill=\color{gray}\TOCLineLeaderFill]{section} % Trennpunkte für sections aktivieren
-        \protect\DeclareTOCStyleEntry[
+    \addtocontents{toc}{\protecting{
+        \RedeclareSectionCommand[toclinefill=\color{gray}\TOCLineLeaderFill]{section} % Trennpunkte für sections aktivieren
+        \DeclareTOCStyleEntry[
             numwidth=3em,
-            entrynumberformat=\S, % Vor der Abschnitt-Nummer das Paragraph-Zeichen
-            pagenumberformat=\color{gray} % Seitenzahlen aktivieren
+            pagenumberformat=\color{gray} % Seitenzahlen für sections reaktivieren
         ]{tocline}{section}
-    }
-    % Kapitel und Abschnitt, wie sie in der Kopfzeile dargestellt werden
-    \renewcommand{\chaptermark}[1]{\markleft{Kapitel \thechapter\hspace{.5em}\relax##1}}
-    \renewcommand{\sectionmark}[1]{\markright{\MakeMarkcase {\S\thesection\hspace{0.5em}\relax##1}}}
-    % Kapitel und Abschnitt, wie sie im Text dargestellt werden
-    \renewcommand{\chapterformat}{Kapitel \thechapter}
-    \renewcommand{\sectionformat}{\S\thesection\hspace{0.5em}}
+    }}
+    \renewcommand{\thesection}{\S\arabic{chapter}.\arabic{section}}
 }
 
 \let\oldappendix\appendix
@@ -170,35 +197,25 @@
     \oldappendix
     \cleardoublepage
     \pagestyle{nosection}
-    \addtocontents{toc}{
-        \protect\setcounter{tocdepth}{0} % Keine sections anzeigen
-        \protect\DeclareTOCStyleEntry[entrynumberformat={}]{tocline}{section} % Kein Paragraphenzeichen mehr für sections
-        % Kapitelformat der Gestalt „Anhang X“ einrichten
-        \protect\RedeclareSectionCommand[toclinefill=\color{gray}\TOCLineLeaderFill]{chapter} % Trennpunkte für chapters aktivieren
-        \protect\DeclareTOCStyleEntry[
-            beforeskip=1em, % Vertikalen Abstand zwischen Kapiteln auf Normalgröße zurücksetzen
+    \addtocontents{toc}{\protecting{
+        \setcounter{tocdepth}{0} % Keine sections anzeigen
+        \RedeclareSectionCommand[toclinefill=\color{gray}\TOCLineLeaderFill]{chapter} % Trennpunkte für chapters reaktivieren
+        \DeclareTOCStyleEntry[
             entrynumberformat={Anhang\ },
             numwidth=6em,
-            pagenumberformat=\color{gray}
+            pagenumberformat=\color{gray} % Seitenzahlen für Kapitel reaktivieren
         ]{tocline}{chapter}
-    }
-    % Kapitel und Abschnitt, wie sie in der Kopfzeile dargestellt werden
-    \renewcommand{\chaptermark}[1]{\markleft{Anhang \thechapter\hspace{0.5em}\relax##1}}
-    \renewcommand{\sectionmark}[1]{\markright{\thesection\hspace{0.5em}\relax##1}}
-    % Kapitel und Abschnitt, wie sie im Text dargestellt werden
-    \renewcommand{\chapterformat}{Anhang \thechapter}
-    \renewcommand{\sectionformat}{\thesection\quad}
+    }}
+    \renewcommand{\thesection}{\Alph{chapter}.\arabic{section}}
     \hypersetup{bookmarksdepth=0} % Keine sections in den Pdf-bookmarks
     \pdfbookmark[-1]{Anhang}{anhang} % Eintrag im Pdf-Inhaltsverzeichnis hinzufügen
-    % Nummerierung der theorems am chapter ausrichten
-    \renewenvironment{aufg}{\begin{appendixaufg}}{\end{appendixaufg}}
-    \renewenvironment{bem}{\begin{appendixbem}}{\end{appendixbem}}
-    \renewenvironment{proof}{\begin{appendixbew}}{\end{appendixbew}}
+    \switchtoappendixthms % Nummerierung der theorems umstellen
 }
 
 \let\oldbackmatter\backmatter
 \renewcommand{\backmatter}{
     \glsaddall % Einträge dem Symbolverzeichnis hinzufügen
+    \KOMAoptions{open=right} % Letzte Abschnitte stets auf ungeraden Seiten beginnen
     \oldbackmatter
     \bookmarksetup{startatroot} % Weitere Kapitel nicht dem Anhang unterordnen
 }
@@ -212,7 +229,7 @@
 \definecolor{dred}{rgb}{0.6,0.0,0.1} % dunkelrot
 \definecolor{dgreen}{rgb}{0,0.4,0} % dunkelgrün
 \definecolor{dblue}{rgb}{0,0,0.6} % dunkelblau
-\definecolor{dgold}{rgb}{0.60,0.48,0.19} % hellbraun
+\definecolor{lbrown}{rgb}{0.60,0.48,0.19} % hellbraun
 \definecolor{dbrown}{rgb}{0.54,0.27,0.07} % dunkelbraun
 
 % Trennlinien grau färben
@@ -233,8 +250,8 @@
 % Kopf- und Fußzeile für scrheadings
 \ohead[]{\color{gray}\upshape\small\rightmark}
 \ihead[]{\color{gray}\upshape\small\leftmark}
-\ofoot[]{\normalfont\thepage}
-\KOMAoption{headsepline}{.5pt}
+\ofoot[]{\normalfont\large\thepage}
+\KOMAoptions{headsepline=0.5pt}
 
 % Nur Kapitelname in der Kopfzeile, kein section-Name
 \newpagestyle{nosection}{
@@ -242,9 +259,9 @@
     {\hfill\color{gray}\upshape\small\leftmark}
     {}
 }{
-    {\upshape\thepage\hfill}
-    {\upshape\hfill\thepage}
-    {\upshape\hfill\thepage\hfill}
+    {\upshape\large\thepage\hfill}
+    {\upshape\hfill\large\thepage}
+    {\upshape\hfill\large\thepage\hfill}
 }
 
 % Keine Kopfzeile, nur Seitenzahl in der Fußzeile
@@ -254,24 +271,10 @@
     {}
     (\textwidth, 0pt)
 }{
-    {\upshape\thepage\hfill}
-    {\upshape\hfill\thepage}
-    {\upshape\hfill\thepage\hfill}
+    {\upshape\large\thepage\hfill}
+    {\upshape\hfill\large\thepage}
+    {\upshape\hfill\large\thepage\hfill}
 }
-
-
-% ====================================================================
-% <<Einrichten von cleveref-Referenztypen>>
-% ====================================================================
-
-\crefname{chapter}{Kapitel}{Kapitel}
-\crefformat{chapter}{#2{\rmfamily{\color{gray} Kapitel} {#1}}#3}
-
-\crefname{section}{Abschnitt}{Abschnitte}
-\crefformat{section}{#2{\rmfamily{\color{gray} Abschnitt} {\color{gray}\S}{#1}}#3}
-
-\crefname{appendix}{Anhang}{Anhänge}
-\crefformat{appendix}{#2{\rmfamily{\color{gray} Anhang} {#1}}#3}
 
 
 % ====================================================================
@@ -285,7 +288,7 @@
 \newcommand{\colorres}{\color{dred}} % für Resultate
 \newcommand{\colorbew}{\color{gray}} % für Beweise
 \newcommand{\colordefin}{\color{dblue}} % für Definitionen
-\newcommand{\colorsch}{\color{dgold}} % für Schreib- und Sprechweisen
+\newcommand{\colorsch}{\color{lbrown}} % für Schreib- und Sprechweisen
 \newcommand{\coloraxiom}{\color{dblue}} % für Axiome
 \newcommand{\colorbem}{\color{dbrown}} % für Bemerkungen und Anmerkungen
 \newcommand{\colorbsp}{\color{dgreen}} % für Beispiele
@@ -294,14 +297,46 @@
 
 \input{theoremstyles} % Import der amsthm-Umgebungen
 
-% Standard-enumerate-Listentypen für die amsthm-Umgebungen
-\AtBeginEnvironment{satz}{\setlist[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
-\AtBeginEnvironment{lem}{\setlist[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
-\AtBeginEnvironment{kor}{\setlist[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
-\AtBeginEnvironment{bew}{\setlist[enumerate]{label={\alph*)}}} % a),b),c),...
-\AtBeginEnvironment{bsp}{\setlist[enumerate]{label={(\arabic*)}}} % (1),(2),(3),...
-\AtBeginEnvironment{aufg}{\setlist[enumerate]{label={\alph*)}}} % a),b),c),...
 
-% Ungünstige Seitenumbrüche vermeiden (besonders, wenn Abschnitte direkt mit Listen beginnen)
-\AtBeginEnvironment{bsp}{\setlist[enumerate]{beginpenalty=10000}}
+% Standard-Listen für die amsthm-Umgebungen
+\AtBeginEnvironment{satz}{\setlist*[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
+\AtBeginEnvironment{lem}{\setlist*[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
+\AtBeginEnvironment{kor}{\setlist*[enumerate]{label={\textup{\alph*)}}}} % a),b),c),...
+\AtBeginEnvironment{bsp}{\setlist*[enumerate]{label={(\arabic*)}}} % (1),(2),(3),...
+\AtBeginEnvironment{aufg}{\setlist*[enumerate]{label={\alph*)}}} % a),b),c),...
+\AtBeginEnvironment{appendixaufg}{\setlist*[enumerate]{label={\alph*)}}} % a),b),c),...
+\AtBeginEnvironment{bew}{\setlist*[enumerate]{label={\alph*)}}} % a),b),c),...
+\AtBeginEnvironment{appendixbew}{\setlist*[enumerate]{label={\alph*)}}} % a),b),c),...
+
+
+% ====================================================================
+% <<Listen>>
+% ====================================================================
+
+% Überschreiben der KOMA-Liste \begin{labeling} https://tex.stackexchange.com/a/547398
+\newlist{patchedlabeling}{enumerate}{3}
+\newcommand{\labelinglisttweak}[2][r]{\eqmakebox[listlabel@\EnumitemId][#1]{#2}}
+\setlist[patchedlabeling]{
+    label=\textbullet,
+    labelindent=0pt,
+    labelwidth=\eqboxwidth{listlabel@\EnumitemId},
+    format=\rmfamily\normalfont\labelinglisttweak,
+    leftmargin=!,
+    listparindent=\parindent,
+    itemsep=\itemsep+\parsep-\parskip,
+    parsep=\parskip
+}
+\renewenvironment{labeling}{\begin{patchedlabeling}}{\end{patchedlabeling}}
+
+% Einzüge in Listen an den Rest des Dokuments anpassen
+\setlist[itemize,enumerate,description]{
+    listparindent=\parindent,
+    itemsep=\itemsep+\parsep-\parskip,
+    parsep=\parskip
+}
+
+% Behelfslösung, um Seitenumbrüche an mit Listen beginnenden theorems zu vermeiden
 \AtBeginEnvironment{bem}{\setlist[itemize]{beginpenalty=10000}}
+\AtBeginEnvironment{appendixbem}{\setlist[itemize]{beginpenalty=10000}}
+\AtBeginEnvironment{bsp}{\setlist*[enumerate,patchedlabeling]{beginpenalty=10000}}
+\AtBeginEnvironment{bew}{\setlist*[enumerate,patchedlabeling]{beginpenalty=10000}}

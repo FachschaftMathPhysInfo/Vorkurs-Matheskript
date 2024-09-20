@@ -13,7 +13,9 @@ Tipps zum Tutorieren:
     
 ***********************************************************************************
 
-Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
+Anmerkungen zu den Aufgabenvorschlägen:
+
+Zu den mit (L) markierten Aufgabenvorschlägen befinden sich Kontrolllösungen im Anhang des Skripts.
 
     -- Kapitel 2 Beweise:
     
@@ -24,9 +26,15 @@ Der Rest diese Dokuments enthält Anmerkungen zu einzelnen Aufgabenvorschlägen:
             (4) Die Schlussfolgerung, dass m+1,...,m+n keine Primzahlen sind, ist ungenau. Nur weil m+2 durch 3 teilbar ist, könnte ja dennoch m+2 eine Primzahl, nämlich m=3, sein. Hier wird die Information verschwiegen, dass m+k > k+1 ist.
 
     -- Kapitel 4 Abbildungen:
+
+        A3 (injektiv, surjektiv, bijektiv) Die letzte Abbildung (x,y)->x ist eine Falle! Ob sie injektiv oder surjektiv ist, hängt von den Mengen X,Y ab.
         
         A4 (Vererbung von Injektivität und Surjektivität)
             Wenn keiner der Anfis drauf kommt, zeigt ihnen am Ende noch, wie c) aus a),b) und A3e) folgt.
+
+    -- Kapitel 7 Analysis:
+
+        A3 (Teilmengen skizzieren): Dass R\Q dicht in R liegt, können sich die Anfis schon darüber klar machen, dass jede reelle Zahl durch ihre Darstellung als Kommazahl beliebig genau von oben und von unten durch eine rationale Zahl approximiert werden kann (man runde eben ab der millionsten Nachkommastelle auf oder ab).
             
 
 

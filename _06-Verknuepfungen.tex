@@ -12,14 +12,14 @@
 
 
 \begin{defin}[Verknüpfung] \label{def:verknuepfung} \index{Verknüpfung}
-    Sei $X$ eine beliebige Menge. Eine (zweistellige) \textbf{Verknüpfung auf $X$} ist eine Abbildung $X\times X \to X$, d.h. eine Abbildung, die jedem Elementepaar von $X$ wiederum ein Element von $X$ zuordnet. Eine zweistellige Verknüpfung wird in der Regel mit einem „Verknüpfungszeichen“ notiert: ist der Name der Verknüpfungsabbildung etwa „$*$“, so schreibt man
+    Sei $X$ eine beliebige Menge. Eine (zweistellige) \textbf{Verknüpfung auf $X$} ist eine Abbildung $X\times X \to X$, d.h. eine Abbildung, die je zwei Elementen von $X$ wiederum ein Element von $X$ zuordnet. Eine zweistellige Verknüpfung wird in der Regel mit einem „Verknüpfungszeichen“ notiert: ist der Name der Verknüpfungsabbildung etwa „$*$“, so schreibt man
         \[ x*y \qquad\text{anstelle von}\qquad *(x,y) \]
     für den Funktionswert des Paares $(x,y)$ unter der Abbildung $*$.
 \end{defin}
 
 
 \begin{bem}[* Verallgemeinerungen]
-    Prinzipiell lassen sich auch dreistellige und höherstellige Verknüpfungen definieren. Auch können Verknüpfungen zwischen verschiedenen Mengen existieren, wie es in der LA1 etwa bei der \emph{skalaren Multiplikation} eines Vektorraums der Fall ist. In diesem Vortrag sollen mit „Verknüpfungen“ aber ausschließlich (innere) zweistellige Verknüpfungen gemeint sein, wie sie soeben definiert wurden.
+    Prinzipiell lassen sich auch dreistellige und höherstellige Verknüpfungen definieren. Auch können Verknüpfungen zwischen verschiedenen Mengen existieren, wie es in der LA1 etwa bei der \emph{skalaren Multiplikation} eines Vektorraums der Fall ist. In diesem Kapitel sollen mit „Verknüpfungen“ aber ausschließlich (innere) zweistellige Verknüpfungen gemeint sein, wie sie soeben definiert wurden.
 \end{bem}
 
 
@@ -57,15 +57,15 @@
 \end{bsp}
 
 
-\begin{bsp}[Verketten von Abbildungen]
+\begin{bsp}[Verketten von Abbildungen] \label{bsp:selbstabbildungen}
     Sei $M$ eine beliebige Menge. Dann ist auf der Menge $\Abb(M,M)$ der Selbstabbildungen von $M$ eine Verknüpfung gegeben durch die Verkettung von Abbildungen $g,f\mapsto g\circ f$.\footnote{siehe \cref{def:verkettung}}
 \end{bsp}
 
 
 \begin{bem}[*]
-    Beachte, dass in diesem Beispiel von Selbstabbildungen (also Abbildungen, deren Definitions- und Wertebereich übereinstimmen) die Rede ist. Sind allgemein $A,B,C$ drei Mengen, so hat man zwar eine Abbildung
+    Für verschiedene Mengen $A,B,C$ ist die Abbildung
         \[ \Abb(B,C) \times \Abb(A,B) \to \Abb(A,C) \ ,\ (g,f) \mapsto g\circ f \]
-    sofern $A,B,C$ drei verschiedene Mengen sind, ist dies jedoch \emph{keine} zweistellige Verknüpfung -- denn auf welcher Menge sollte diese Verknüpfung „leben“, wenn ja $\Abb(B,C)$ und $\Abb(A,B)$ zwei verschiedene Mengen sind?
+    jedoch keine Verknüpfung im Sinne von \cref{def:verknuepfung}, da die involvierten Mengen $\Abb(B,C)$, $\Abb(A,B)$ und $\Abb(A,C)$ verschieden sind. Aus diesem Grund beschränke ich mich in \cref{bsp:selbstabbildungen} auf Selbstabbildungen einer Menge $M$.
 
     Nichtsdestotrotz besitzt auch das allgemeine Verketten von Abbildungen die wichtige und häufig auftretende Struktur einer \href{https://ncatlab.org/nlab/show/category}{Kategorie}, vgl. \cref{kategorien}. Mehr darüber wirst du spätestens in fortgeschrittenen Algebra-Vorlesungen erfahren.
 \end{bem}
@@ -145,7 +145,10 @@
             (2:3):2 &\neq 2:(3:2) \\
             2 : 3 & \neq 3:2
         \end{align*}
-        \item Für jede Menge $M$ ist das Verketten von Abbildungen eine assoziative Verknüpfung auf $\Abb(M,M)$. Dies wurde in \cref{abbassoziativ} bewiesen. Im Allgemeinen (nämlich sobald $M$ mindestens zwei verschiedene Elemente enthält) ist sie aber nicht kommutativ, vgl. \cref{bsp:verkettung}.
+        \item Das Verketten von Abbildungen ist eine assoziative Verknüpfung auf $\Abb(M,M)$ (für irgendeine Menge $M$). Dies wurde in \cref{abbassoziativ} bewiesen. Im Allgemeinen (nämlich sobald $M$ mindestens zwei verschiedene Elemente enthält) ist sie jedoch nicht kommutativ (vgl. \cref{bsp:verkettung}).
+        \begin{proof}
+            Die Menge $M$ enthalte mindestens zwei verschiedene Elemente $a,b\in M$. Seien $f_a,f_b\in\Abb(M,M)$ die beiden konstanten Abbildungen, die alles auf $a$ bzw. $b$ schicken. Dann ist $f_a\circ f_b=f_a\neq f_b=f_b\circ f_a$.
+        \end{proof}
         \item Ist $M$ eine beliebige Menge, so sind die beiden Verknüpfungen $\cap$ und $\cup$ auf $\calP(M)$ sowohl assoziativ als auch kommutativ. Die Operation $\setminus$ ist aber, sofern $M$ nichtleer ist, weder assoziativ noch kommutativ.
     \end{enumerate}
 \end{bsp}
@@ -190,7 +193,9 @@
         \[ 1+3+2+4 \qquad\text{anstelle von}\qquad (1+3)+(2+4)\ \text{oder}\ ((1+3)+2)+4 \]
     zu schreiben und daran ändert sich auch an der Uni nichts. Sind beispielsweise $A,B,C,D$ vier Mengen, so schreibt man schlicht
         \[ A\cup B\cup C \cup D \]
-    für deren Vereinigung, was unproblematisch ist, da $\cup$ eine assoziative Verknüpfung ist. Sind $\begin{tikzcd}[cramped] A\ar[r, "f"] & B\ar[r, "g"] & C \ar[r, "h"] & D \end{tikzcd}$ drei Abbildungen, so schreibt man
+    für deren Vereinigung, was unproblematisch ist, da $\cup$ eine assoziative Verknüpfung ist.
+
+    Sind $\begin{tikzcd}[cramped] A\ar[r, "f"] & B\ar[r, "g"] & C \ar[r, "h"] & D \end{tikzcd}$ drei Abbildungen, so schreibt man
         \[ h\circ g\circ f \]
     für deren Verkettung, wobei auch hier wegen der Assoziativität keine Klammern gesetzt werden müssen.\footnote{vgl. \cref{abbklammerfrei}}
 \end{bem}
@@ -279,10 +284,10 @@
 
 \begin{defin}[Monoid] \index{Monoid}
     Ein \textbf{Monoid} ist ein Paar $(M,*)$ bestehend aus einer Menge $M$ und einer Verknüpfung $*$ auf $M$, für das gilt:
-    \begin{enumerate}[(M1), labelindent=1.5em, leftmargin=*]
+    \begin{labeling}[(M1), labelindent=1.5em]
         \item $*$ ist eine assoziative Verknüpfung.
         \item $M$ enthält ein neutrales Element (bezüglich der Verknüpfung $*$).
-    \end{enumerate}
+    \end{labeling}
     In diesem Fall ist das neutrale Element nach \cref{neutreind} automatisch eindeutig bestimmt.
     
     Ist überdies die Verknüpfung $*$ auch noch kommutativ, so heißt $(M,*)$ ein \textbf{kommutatives Monoid}.
@@ -314,10 +319,8 @@
 \begin{bem}[Die eigentliche Bedeutung des Kommutativgesetzes] \label{reihenfolgeegal}
     Es sei $(M,*)$ ein kommutatives Monoid. Weil dann $*$ assoziativ ist, brauchen wir nach \cref{klammerfrei} keine Klammern setzen. Sind beispielsweise $a,b,c,d\in M$, so können wir einfach $a*b*c*d$ schreiben. Das Kommutativgesetz
     \begin{align*}
-        x*y&=y*x && \text{für alle}\ x,y\in M
-    \end{align*}
-    sagt aus, dass es bei der Verknüpfung zweier Elemente nicht auf die Reihenfolge ankommt. Es lässt sich zeigen, dass es sogar bei der Verknüpfung beliebig vieler Elemente nicht auf die Reihenfolge ankommt. Beispielsweise gilt
-    \begin{align*}
+        x*y&=y*x && \text{für alle}\ x,y\in M \\
+    \intertext{sagt aus, dass es bei der Verknüpfung zweier Elemente nicht auf die Reihenfolge ankommt. Es lässt sich zeigen, dass es sogar bei der Verknüpfung beliebig vieler Elemente nicht auf die Reihenfolge ankommt. Beispielsweise gilt}
         a*b*c*d & = a*c*b*d && (\text{Kommutativgesetz für $b$ und $c$}) \\
         & = c*a*b*d && (\text{Kommutativgesetz für $a$ und $c$}) \\
         & = b*d*c*a && (\text{Kommutativgesetz für $c*a$ und $b*d$}) \\
@@ -547,7 +550,7 @@
     \end{align*}
     Sofern $M$ ein neutrales Element enthält, gelten diese Gleichungen auch für $m,n=0$, und sofern überdies $a,b$ invertierbar sind, auch für $m,n\in \Z$.\footnote{Es lässt sich zeigen, dass die Definition negativer Potenzen die einzig mögliche Definition ist, mit der die Potenzgesetze allgemein auch für ganzzahlige Exponenten gültig sind.}
 \end{satz}
-\noindent Beachte, dass für die letzte Gleichung wichtig ist, dass $a,b$ miteinander kommutieren. In nichtkommutativen Monoiden wird im Allgemeinen $(ab)^2=abab\neq a^2b^2$ sein.
+Beachte, dass für die letzte Gleichung wichtig ist, dass $a,b$ miteinander kommutieren. In nichtkommutativen Monoiden wird im Allgemeinen $(ab)^2=abab\neq a^2b^2$ sein.
 \begin{proof}
     Die Potenzgesetze können rigoros mit einem \href{https://de.wikipedia.org/wiki/Vollst\%C3\%A4ndige_Induktion}{Induktionsbeweis} bewiesen werden. Da diese Beweistechnik in diesem Skript nicht behandelt wird, könntest du noch abwarten, bis sie in den ersten beiden Semesterwochen durchgenommen wurde, und daraufhin nochmal hierher zurückkehren.
 \end{proof}
@@ -596,10 +599,10 @@
 \end{bem}
 
 
-\begin{nota}[Mehrfachprodukte] \label{mehrfachprodukt}
+\begin{nota}[Mehrfachprodukte] \label{mehrfachprodukt} \index{Leere Summe} \index{Leeres Produkt}
     Sei $M$ eine Menge mit einer assoziativen Verknüpfung $*$. Für $m,n\in \N$ mit $m\le n$ und $a_m,\dots , a_n\in M$ schreibt man
         \[ \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{k=m}^n a_k := a_m * \ldots * a_n \]
-    für die Verknüpfung der $a_m,\dots , a_n$ in aufsteigender Reihenfolge, d.h. man bedient sich einer vergrößerten Version des Verknüpfungszeichens. Beachte, dass auf der rechten Seite keine Klammern gesetzt werden müssen, weil $*$ assoziativ ist, vgl. \cref{klammerfrei}. Es heißen
+    für die Verknüpfung der $a_m,\dots , a_n$ in aufsteigender Reihenfolge. Beachte, dass auf der rechten Seite keine Klammern gesetzt werden müssen, weil $*$ assoziativ ist, vgl. \cref{klammerfrei}. Es heißen
     \begin{itemize}
         \item $k$ die \textbf{Laufvariable}.\footnote{Es handelt sich um eine \emph{gebundene Variable} im Sinne von \cref{gebundenevariable}.}
         \item $m$ der \textbf{Startwert} der Laufvariable.
@@ -615,13 +618,11 @@
             \[ \prod_{k=m}^n a_k := a_m \cdot \ldots \cdot a_n \]
     \end{itemize}
     Falls $M$ ein neutrales Element $e$ zur Verknüpfung $*$ enthält, sind Mehrfachprodukte auch für den Fall $m>n$, also falls es gar keine Indizes zwischen Start- und Endwert der Laufvariable gibt, erklärt. In diesem Fall ist
-    \begin{align*}
-        \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{k=m}^n a_k & := e && (\text{falls $m>n$})
-    \end{align*}
-    das neutrale Element. Bei additiv oder multiplikativ geschriebenen Verknüpfungen gilt dementsprechend
-    \begin{align*}
-        \sum_{k=m}^n a_k = 0 \qquad\text{bzw.}\qquad \prod_{k=m}^n a_k = 1 && (\text{falls $m>n$})
-    \end{align*}
+    \begin{alignat*}{2}
+        & \mathop{\raisebox{-0.6ex}{\scalebox{2.5}{$*$}}}_{k=m}^n a_k := e && (\text{falls $m>n$}) \\
+        \intertext{das neutrale Element. Bei additiv oder multiplikativ geschriebenen Verknüpfungen gilt dementsprechend}
+        & \sum_{k=m}^n a_k = 0 \qquad\text{bzw.}\qquad && \prod_{k=m}^n a_k = 1 \qquad\qquad (\text{falls $m>n$})
+    \end{alignat*}
     Man spricht von der \textbf{leeren Summe} und vom \textbf{leeren Produkt}.
     
     Ist überdies $M$ ein \emph{kommutatives} Monoid, so können Mehrfachprodukte über beliebige Familien mit endlichen Indexmengen gebildet werden: Ist $I$ eine Menge, die nur endlich viele Elemente enthält, und ist $(a_i)_{i\in I}$ eine durch $I$ indizierte Familie von Elementen aus $M$, so bezeichnet
@@ -636,7 +637,7 @@
             \[ (x+y)^n = \sum_{k=0}^n \binom{n}{k} x^{n-k}\cdot y^k \]
         wobei der \emph{Binomialkoeffizient} $\binom{n}{k}$ die Anzahl aller Möglichkeiten, aus $n$-vielen Gegenständen ohne Berücksichtigung der Reihenfolge genau $k$-viele auszuwählen, bezeichnet. Im Spezialfall $n=2$ ergibt sich die aus der Schule bekannte binomische Formel $(x+y)^2=x^2+2xy+y^2$.
         \item Die Notation für Mehrfachprodukte kennst du bereits aus \cref{chap:mengen}, wo sie für Durchschnitte, (disjunkte) Vereinigungen und Produkte von Mengen vorgestellt wurde, siehe etwa \cref{alternativmehrfachcapcup}.
-        \item(„Unendliche“ Mehrfachprodukte?) In der Welt der zweistelligen Verknüpfungen, also dieses Kapitels, ist es nicht ohne Weiteres möglich, auch Verknüpfungen unendlich vieler Elemente zugleich zu definieren. Hierzu wären \emph{infinitäre Verknüpfungen} (d.h. Verknüpfungen, die unendlich viele Elemente entgegennehmen) oder Zusatzstruktur wie z.B. eine \emph{Topologie}, nötig. Schon in der Ana1 können, aufbauend auf dem Begriff der \emph{Konvergenz}\footnote{siehe \cref{def:konvergenz}}, „unendliche Summen“ studiert werden. Beispielsweise gilt für jede Zahl $q\in \C$ mit $\vert q\vert < 1$:\footnote{vgl. \cref{aufg:geometrischereihe}}
+        \item(„Unendliche“ Mehrfachprodukte?) In der Welt der zweistelligen Verknüpfungen, also dieses Kapitels, ist es nicht ohne Weiteres möglich, auch Verknüpfungen unendlich vieler Elemente zugleich zu definieren. Hierzu wären \emph{infinitäre Verknüpfungen} (d.h. Verknüpfungen, die unendlich viele Elemente entgegennehmen) oder Zusatzstruktur, wie z.B. eine \emph{Topologie}, nötig. Schon in der Ana1 können, aufbauend auf dem Begriff der \emph{Konvergenz}\footnote{siehe \cref{def:konvergenz}}, „unendliche Summen“ studiert werden. Beispielsweise gilt für jede Zahl $q\in \C$ mit $\vert q\vert < 1$:\footnote{vgl. \cref{aufg:geometrischereihe}}
             \[ \sum_{k=0}^\infty q^k = 1 + q + q^2 + q^3 + \ldots = \frac{1}{1-q} \]
         Der Ausdruck „$\sum_{k=0}^\infty$“ ist allein mit den Werkzeugen aus diesem Kapitel \emph{nicht} wohldefiniert, sondern muss in der Sprache der Analysis verstanden werden. Kannst du dir die Gleichung für den Fall $q=\frac{1}{2}$ intuitiv erklären?
     \end{enumerate}
@@ -651,11 +652,11 @@
 
 \begin{defin}[Gruppe] \index{Gruppe} \index{abelsche Gruppe}
     Eine \textbf{Gruppe} ist ein Monoid, in dem jedes Element invertierbar ist. Konkret handelt es sich bei einer Gruppe also um ein Paar $(G,*)$, bestehend aus einer Menge $G$ und einer Verknüpfung $*$ auf $G$, für das die \emph{Gruppenaxiome} gelten:
-    \begin{enumerate}[(G1), labelindent=1.5em, leftmargin=*]
+    \begin{labeling}[(G1), labelindent=1.5em]
         \item Die Verknüpfung $*$ ist assoziativ.
         \item $G$ enthält ein neutrales Element.
         \item Jedes Element von $G$ ist invertierbar.
-    \end{enumerate}
+    \end{labeling}
     Ist überdies die Verknüpfung auch noch kommutativ, so spricht man von einer \textbf{abelschen Gruppe}\footnote{\href{https://de.wikipedia.org/wiki/Niels_Henrik_Abel}{Niels Henrik Abel (1802-1829)}} oder von einer \emph{kommutativen Gruppe}.
 \end{defin}
 
@@ -673,7 +674,7 @@
 \end{bsp}
 
 
-\noindent Viele interessante Verknüpfungen liefern erstmal nur Monoide, aber noch keine Gruppen. Allerdings kann aus jedem Monoid eine (mehr oder weniger große) Gruppe extrahiert werden, indem man sich einfach auf die invertierbaren Elemente einschränkt:
+Viele interessante Verknüpfungen liefern erstmal nur Monoide, aber noch keine Gruppen. Allerdings kann aus jedem Monoid eine (mehr oder weniger große) Gruppe extrahiert werden, indem man sich einfach auf die invertierbaren Elemente einschränkt:
 
 
 \begin{defin}[Einheitengruppe eines Monoids] \index{Einheitengruppe}
@@ -684,22 +685,27 @@
 
 
 \begin{satz} \label{einheitengruppe}
-    Sei $M$ ein Monoid. Dann ist die Teilmenge $M^\times\subseteq M$ abgeschlossen unter der Verknüpfung und wird mit der von $M$ geerbten Verknüpfung zu einer Gruppe. Ist $M$ ein kommutatives Monoid, so ist $M^\times$ eine abelsche Gruppe.
+    Sei $(M,*)$ ein Monoid. Dann ist die Teilmenge $M^\times\subseteq M$ abgeschlossen unter der Verknüpfung $*$ und wird mit ihrer Einschränkung zu einer Gruppe. Ist $M$ ein kommutatives Monoid, so ist $M^\times$ eine abelsche Gruppe.
 \end{satz}
 \begin{proof}[*]
-    Seien $e\in M$ das neutrale Element und $*$ die Verknüpfung auf $M$. \\[0.5em]
-    (Abgeschlossenheit) Nach der Regel von Hemd und Jacke ist für alle $a,b\in M^\times$ auch $a*b\in M^\times$. Also schränkt sich $*$ zu einer Verknüpfung auf $M^\times$ ein. \\[0.5em]
-    (Assoziativität): Dass die auf $M^\times$ eingeschränkte Verknüpfung ebenfalls assoziativ ist, wurde in \cref{verknuepfeigstabil} bewiesen. \\[0.5em]
-    (Neutrales Element): Sei $e\in M$ das neutrale Element von $M$. Nach \cref{regelnfuerinv}a) ist $e\in M^\times$. Wegen
+    Sei $e\in M$ das neutrale Element.
+
+    (Abgeschlossenheit): Für alle $a,b\in M^\times$ ist auch $a*b\in M^\times$ aufgrund der Regel von Hemd und Jacke. Also schränkt sich $*$ zu einer Verknüpfung auf $M^\times$ ein.
+
+    (Assoziativität): Nach \cref{verknuepfeigstabil} ist die auf $M^\times$ eingeschränkte Verknüpfung ebenfalls assoziativ.
+
+    (Neutrales Element): Nach \cref{regelnfuerinv}a) ist $e\in M^\times$. Wegen
     \begin{align*}
         e*x& =x*e=x && \text{für alle}\ x\in M
     \end{align*}
-    gilt dies erst recht auch für alle $x\in M^\times$. Somit ist $e$ auch das neutrale Element von $M^\times$. \\[0.5em]
+    gilt dies erst recht auch für alle $x\in M^\times$. Somit ist $e$ auch das neutrale Element von $M^\times$.
+
     (Inverse): Sei $a\in M^\times$. Nach \cref{regelnfuerinv}b) ist auch $a^{-1}$ invertierbar, also $a^{-1}\in M^\times$. Wegen
     \begin{align*}
         a*a^{-1}=a^{-1}*a=e
     \end{align*}
-    und weil $e$ das neutrale Element von $M^\times$ ist, ist dann $a^{-1}$ auch in $M^\times$ invers zu $a$. \\[0.5em]
+    und weil $e$ das neutrale Element von $M^\times$ ist, ist dann $a^{-1}$ auch in $M^\times$ invers zu $a$.
+
     (Kommutativität): Ist $M$ ein kommutatives Monoid, so ist nach \cref{verknuepfeigstabil} auch die auf $M^\times$ eingeschränkte Verknüpfung kommutativ, sodass $M^\times$ in diesem Fall eine abelsche Gruppe ist.
 \end{proof}
 
@@ -739,7 +745,7 @@
 \section{Aufgabenvorschläge}
 
 
-\begin{aufg}[Eigenschaften von Verknüpfungen] \label{aufg:verknuepfungen}
+\begin{aufg}[Eigenschaften von Verknüpfungen (L)] \label{aufg:verknuepfungen}
     Entscheidet für jede der folgenden Verknüpfungen, ob sie assoziativ ist, kommutativ ist, ob sie ein neutrales Element besitzt und ob sie ein Monoid oder gar eine Gruppe liefert.
     \begin{enumerate}
         \item Auf der Menge $\N$ die Verknüpfung $m*n:=\max \{m,n\}$.
@@ -752,12 +758,12 @@
 
 \begin{aufg}[Einige Rechenregeln für Differenzen]
     Seien $(M,+)$ ein additiv geschriebenes kommutatives Monoid, $a,b\in M$ zwei beliebige und $u,v\in M^\times$ zwei invertierbare Elemente. Leitet die folgenden Regeln her:
-    \begin{align*}
-        \text{a)} && a-(u+v) \quad&=\quad a-u-v \\
-        \text{b)} && a-(u-v) \quad&=\quad a-u+v \\
-        \text{c)} && -(u-v) \quad&=\quad v-u \\
-        \text{d)} && a=b+u \quad&\Leftrightarrow\quad a-u=b
-    \end{align*}
+    \begin{alignat*}{3}
+        \text{a)}&\qquad & a-(u+v) & \quad=&\quad &a-u-v \\
+        \text{b)}&\qquad & a-(u-v) & \quad=&\quad &a-u+v \\
+        \text{c)}&\qquad & -(u-v) & \quad=&\quad &v-u \\
+        \text{d)}&\qquad & a=b+u & \quad\Leftrightarrow&\quad &a-u=b
+    \end{alignat*}
 \end{aufg}
 
 

@@ -1,9 +1,20 @@
 
+% ====================================================================
+% <<Makros>>
+% ====================================================================
 
-% Makros für die theoremstyles
-\newcommand{\thmheadstyle}{\llap{\color{gray}\footnotesize\mdseries\S\NUMBER\ }\bfseries\NAME\small\mdseries\itshape\NOTE}
-\newlength{\thmrefnumbertweakwidth} % Ad-hoc-Lösung, um die Platzierung des Paragraphenzeichens in \cref-Theoremnummern zu fixen
-\newcommand{\thmrefstyle}{\color{gray}\S\settowidth{\thmrefnumbertweakwidth}{\space}\kern-\thmrefnumbertweakwidth} % Anzeige der Theoremnummern in cref-Links
+\newcommand{\thmheadstyle}{\llap{\color{gray}\footnotesize\mdseries\NUMBER\ }\bfseries\NAME\small\mdseries\itshape\NOTE}
+
+% Gemeinsamen Counter für alle theorems einstellen
+\newcounter{thmcounter}
+\counterwithin{thmcounter}{section}
+
+% Umstellungen für den Anhang
+\newcommand{\switchtoappendixthms}{
+    \counterwithout{thmcounter}{section}
+    \counterwithin{thmcounter}{chapter}
+    \renewcommand{\thmheadstyle}{\llap{\color{gray}\footnotesize\mdseries\S\Alph{chapter}.\arabic{thmcounter} }\bfseries\NAME\small\mdseries\itshape\NOTE} % Pragraphenzeichen am linken Rand
+}
 
 
 % ====================================================================
@@ -29,7 +40,9 @@
     headfont=\colorbew\bfseries,
     notefont=\itshape,
     postheadspace=0.5em,
-    headformat=\thmheadstyle
+    headformat=\thmheadstyle,
+    preheadhook=\KOMAoptions{parskip=half-},
+    postheadhook=\vspace{-\parskip}
 ]{stybew}
 
 % Für Absätze vom Typ „Definition“
@@ -97,149 +110,112 @@
 % <<Einrichtung der einzelnen amsthm-Umgebungen>>
 % ====================================================================
 
-% Proposition (Dummy-Umgebung, die den counter für alle anderen Umgebungen bereitstellt)
-\declaretheorem[
-    style=styres, % verwendeter theoremstyle
-    name=Proposition,
-    refname={\colorres Proposition \thmrefstyle}, % Anzeige in \cref-Referenzen.
-    parent=section % Nummerierung jede section erneut beginnen
-]{prop}
-
 % Satz
 \declaretheorem[
-    style=styres,
+    style=styres, % verwendeter theoremstyle
     name=Satz,
-    refname={\colorres Satz \thmrefstyle},
-    sibling=prop % Nummerierung vom "prop"-Counter übernehmen
+    refname={\colorres Satz\color{gray}}, % Anzeige in \cref-Referenzen.
+    sharenumber=thmcounter % counter festlegen
 ]{satz}
 
 % Lemma
 \declaretheorem[
     style=styres,
     name=Lemma,
-    refname={\colorres Lemma \thmrefstyle},
-    sibling=prop
+    refname={\colorres Lemma\color{gray}},
+    sharenumber=thmcounter
 ]{lem}
 
 % Korollar
 \declaretheorem[
     style=styres,
     name=Korollar,
-    refname={\colorres Korollar \thmrefstyle},
-    sibling=prop
+    refname={\colorres Korollar\color{gray}},
+    sharenumber=thmcounter
 ]{kor}
 
 % Beweis
 \declaretheorem[
     style=stybew,
     name=Beweis,
-    refname={\colorbew Beweis \thmrefstyle},
-    sibling=prop
+    refname={\colorbew Beweis\color{gray}},
+    sharenumber=thmcounter
 ]{bew}
 
 % Axiom
 \declaretheorem[
     style=styaxiom,
     name=Axiom,
-    refname={\coloraxiom Axiom \thmrefstyle},
-    sibling=prop
+    refname={\coloraxiom Axiom\color{gray}},
+    sharenumber=thmcounter
 ]{axiom}
 
 % Definition
 \declaretheorem[
     style=stydefin,
     name=Definition,
-    refname={\colordefin Definition \thmrefstyle},
-    sibling=prop
+    refname={\colordefin Definition\color{gray}},
+    sharenumber=thmcounter
 ]{defin}
 
 % Notation
 \declaretheorem[
     style=stysch,
     name=Notation,
-    refname={\colorsch Notation \thmrefstyle},
-    sibling=prop
+    refname={\colorsch Notation\color{gray}},
+    sharenumber=thmcounter
 ]{nota}
 
 % Bemerkung
 \declaretheorem[
     style=stybem,
     name=Bemerkung,
-    refname={\colorbem Bemerkung \thmrefstyle},
-    sibling=prop
+    refname={\colorbem Bemerkung\color{gray}},
+    sharenumber=thmcounter
 ]{bem}
 
 % Anmerkung
 \declaretheorem[
     style=stybem,
     name=Anmerkung,
-    refname={\colorbem Anmerkung \thmrefstyle},
-    sibling=prop
+    refname={\colorbem Anmerkung\color{gray}},
+    sharenumber=thmcounter
 ]{anm}
 
 % Vorschau
 \declaretheorem[
     style=stybem,
     name=Vorschau,
-    refname={\colorbem Vorschau \thmrefstyle},
-    sibling=prop
+    refname={\colorbem Vorschau\color{gray}},
+    sharenumber=thmcounter
 ]{vorschau}
 
 % Beispiel
 \declaretheorem[
     style=stybsp,
     name=Beispiel,
-    refname={\colorbsp Beispiel \thmrefstyle},
-    sibling=prop
+    refname={\colorbsp Beispiel\color{gray}},
+    sharenumber=thmcounter
 ]{bsp}
 
 % Aufgabe
 \declaretheorem[
     style=styaufg,
     name=Aufgabe,
-    refname={\coloraufg Aufgabe \thmrefstyle},
-    sibling=prop
+    refname={\coloraufg Aufgabe\color{gray}},
+    sharenumber=thmcounter
 ]{aufg}
 
-
-% ====================================================================
-% <<Umgebungen, die nur im Anhang verwendet werden>>
-% ====================================================================
-
-\declaretheorem[
-    style=styres, % verwendeter theoremstyle
-    name=Proposition,
-    refname={\colorres Proposition \thmrefstyle},
-    parent=chapter
-]{propchap} % Genau wie prop, nur mit kapitelweiser Nummerierung
-
-
-% Beweis
-\declaretheorem[
-    style=stybew,
-    name=Beweis,
-    refname={\colorbew Beweis \thmrefstyle},
-    sibling=propchap
-]{appendixbew}
-
-% Aufgabe
+% Lösung
 \declaretheorem[
     style=styaufg,
-    name=Aufgabe,
-    refname={\coloraufg Aufgabe \thmrefstyle},
-    sibling=propchap
-]{appendixaufg}
-
-% Bemerkung
-\declaretheorem[
-    style=stybem,
-    name=Bemerkung,
-    refname={\colorbem Bemerkung \thmrefstyle},
-    sibling=propchap
-]{appendixbem}
+    name=Lösung,
+    refname={\coloraufg Lösung\color{gray}},
+    sharenumber=thmcounter
+]{loes}
 
 
 % Einmalige theorems für den Abschnitt „Entstehungsprozess eines Beweises“
-\declaretheorem[style=stysch,sibling=propchap,name={\colorsch\bfseries Phase 1}]{phaseone}
-\declaretheorem[style=stysch,sibling=propchap,name={\colorsch\bfseries Phase 2}]{phasetwo}
-\declaretheorem[style=stysch,sibling=propchap,name={\colorsch\bfseries Phase 3}]{phasethree}
+\declaretheorem[style=stysch,name={Phase 1},sharenumber=thmcounter]{phaseone}
+\declaretheorem[style=stysch,name={Phase 2},sharenumber=thmcounter]{phasetwo}
+\declaretheorem[style=stysch,name={Phase 3},sharenumber=thmcounter]{phasethree}
